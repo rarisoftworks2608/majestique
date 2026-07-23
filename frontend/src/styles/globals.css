@@ -1,0 +1,973 @@
+/* ═══════════════════════════════════════════════════════════════════
+   1. TAILWIND v4 IMPORT
+   Must stay first: Tailwind's Vite plugin wraps its generated theme
+   defaults in `@layer theme {}` only when this import leads. Moving the
+   other @import rules above it (to silence PostCSS's "@import must
+   precede" warning) makes that theme block leak out unlayered, which
+   lets its default Geist font win over our Cormorant Garamond override
+   below. The warning is cosmetic; breaking the font is not — keep this
+   import first.
+   ═══════════════════════════════════════════════════════════════════ */
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════════
+   2. EXTERNAL @import — Luxury Editorial Fonts
+   Melodrama equivalent: Mytupi (loaded below as custom)
+   Body: Outfit (exact match from reference)
+   Heading fallback: Cormorant Garamond
+   ═══════════════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Outfit:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&display=swap');
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ═══════════════════════════════════════════════════════════════════
+   3. CUSTOM FONT FACES — Mytupi (Melodrama equivalent)
+   ═══════════════════════════════════════════════════════════════════ */
+@font-face {
+  font-family: 'Mytupi';
+  src: url('/fonts/Mytupi.woff2') format('woff2'),
+       url('/fonts/Mytupi.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nexa';
+  src: url('/fonts/Nexa-Regular.woff2') format('woff2'),
+       url('/fonts/Nexa-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nexa';
+  src: url('/fonts/Nexa-Bold.woff2') format('woff2'),
+       url('/fonts/Nexa-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nexa';
+  src: url('/fonts/Nexa-Light.woff2') format('woff2'),
+       url('/fonts/Nexa-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   4. AUMANA LUXURY DESIGN TOKENS
+   Reference palette — strictly 9 values, nothing else
+   ═══════════════════════════════════════════════════════════════════ */
+:root {
+  /* ── LUXURY LIGHT SURFACES ────────────────────────────────────── */
+  --pearl:          #F3EFE8;   /* Luxury Ivory — light section bg    */
+  --ivory:          #F3EFE8;   /* Luxury Ivory                       */
+  --cream:          #EAE3D8;   /* between ivory and beige            */
+  --linen:          #DDD2C2;   /* Soft Warm Beige — borders/surfaces */
+  --warm-hover:     #D3C8B8;   /* subtle hover on light bg           */
+  --warm-sand:      #C4B9A8;   /* mid warm neutral                   */
+  --champagne:      #B0A090;   /* deeper warm champagne              */
+
+  /* ── GLASS / SHADOW / GRADIENT TOKENS ────────────────────────── */
+  --glass-frost:    rgba(243,239,232,0.08);  /* luxury glass overlay  */
+  --shadow-warm:    rgba(5,5,5,0.25);         /* deep warm shadow      */
+  --grad-warm:      #F3EFE8;                  /* gradient start        */
+  --grad-sand:      #DDD2C2;                  /* gradient end          */
+
+  /* ── GOLD-TAUPE ACCENT SYSTEM ─────────────────────────────────── */
+  --gold:         #9D8668;   /* Gold-Taupe Accent — primary           */
+  --gold-light:   #B09A80;   /* lighter warm accent                   */
+  --gold-lighter: #DDD2C2;   /* Soft Warm Beige — pale accent         */
+  --gold-pale:    #F3EFE8;   /* Luxury Ivory — wash                   */
+  --gold-dark:    #736452;   /* Muted Taupe — deeper accent           */
+  --gold-darker:  #5C4D3D;   /* Deep Mocha — darkest accent           */
+
+  /* ── LUXURY DARK SURFACES ─────────────────────────────────────── */
+  --luxury-black:    #050505;   /* Luxury Black — deepest             */
+  --luxury-dark:     #1A1A1A;   /* Charcoal — primary dark bg         */
+  --luxury-dark2:    #2C2018;   /* warm dark panel                    */
+  --luxury-charcoal: #5C4D3D;   /* Deep Mocha — accent panel          */
+  --luxury-brown:    #736452;   /* Muted Taupe — medium surface       */
+
+  /* ── TEXT ON LIGHT BACKGROUNDS ───────────────────────────────── */
+  --ink:       #050505;   /* Luxury Black — main headings             */
+  --espresso:  #1A1A1A;   /* Charcoal — primary body text             */
+  --mocha:     #5C4D3D;   /* Deep Mocha — secondary headings          */
+  --taupe:     #736452;   /* Muted Taupe — subdued text               */
+  --smoke:     #8B7B68;   /* Warm Gray Border — placeholder text      */
+
+  /* ── LIGHT TEXT on dark backgrounds ─────────────────────────── */
+  --beige:        #F3EFE8;   /* Luxury Ivory — primary on dark        */
+  --beige-dark:   #DDD2C2;   /* Soft Warm Beige — secondary on dark   */
+  --beige-darker: #B0A090;   /* muted warm on dark                    */
+
+  /* ── INTERNATIONAL ACCENT COLORS — remapped to palette ─────── */
+  --sage:        #736452;
+  --terracotta:  #9D8668;
+  --saffron:     #B09A80;
+  --stone:       #8B7B68;
+  --deep-teal:   #5C4D3D;
+  --sapphire:    #1A1A1A;
+  --amethyst:    #736452;
+
+  /* ── TYPOGRAPHY — Editorial Luxury Stack ─────────────────────── */
+  --font-display: 'Mytupi', 'Cormorant Garamond', 'Playfair Display', serif;
+  --font-heading: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-ui:      'Outfit', system-ui, sans-serif;
+  --font-body:    'Outfit', system-ui, sans-serif;
+
+  /* ── CINEMATIC EASING CURVES ─────────────────────────────────── */
+  --ease-luxury:    cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-cinematic: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-reveal:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring:    cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth:    cubic-bezier(0.4, 0, 0.2, 1);
+
+  --transition-base:      300ms var(--ease-luxury);
+  --transition-slow:      600ms var(--ease-luxury);
+  --transition-fast:      180ms var(--ease-luxury);
+  --transition-cinematic: 900ms var(--ease-cinematic);
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   5. BASE LAYER
+   ═══════════════════════════════════════════════════════════════════ */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  h1, h2, h3, h4, h5, h6,
+  p, blockquote, figure, figcaption,
+  ul, ol, li, dl, dt, dd,
+  pre, address, table, caption,
+  form, fieldset, legend {
+    margin: 0;
+    padding: 0;
+  }
+
+  ul, ol { list-style: none; }
+  fieldset { border: 0; }
+
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  input, button, textarea, select {
+    font: inherit;
+    color: inherit;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 18px;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    @apply font-sans;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: white;
+    color: var(--espresso);
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+    font-weight: 400;
+    @apply bg-background text-foreground;
+  }
+  * {
+    @apply border-border outline-ring/50;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   6. TYPOGRAPHY — Editorial Luxury Stack
+   ═══════════════════════════════════════════════════════════════════ */
+.font-display   { font-family: var(--font-display); font-weight: 400; }
+.font-playfair  { font-family: 'Playfair Display', Georgia, serif; }
+.font-cormorant { font-family: 'Cormorant Garamond', Georgia, serif; }
+.font-heading   { font-family: var(--font-heading); }
+.font-ui        { font-family: var(--font-ui); font-weight: 400; }
+.font-montserrat{ font-family: 'Outfit', sans-serif; }
+.font-inter     { font-family: 'Outfit', sans-serif; }
+.font-body      { font-family: var(--font-body); font-size: 1rem; font-weight: 400; color: var(--espresso); }
+
+/* Heading refinement — editorial, spacious, Mytupi/Cormorant style */
+h1, h2, h3, .heading-large {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+
+h4, h5, h6, .heading-medium {
+  font-family: var(--font-ui);
+  font-weight: 300;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   7. SCROLLBAR
+   ═══════════════════════════════════════════════════════════════════ */
+::-webkit-scrollbar            { width: 4px; }
+::-webkit-scrollbar-track      { background: var(--luxury-dark); }
+::-webkit-scrollbar-thumb      { background: var(--gold-dark); border-radius: 0; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+/* ═══════════════════════════════════════════════════════════════════
+   8. SELECTION
+   ═══════════════════════════════════════════════════════════════════ */
+::selection {
+  background: rgba(157,134,104,0.25);
+  color: var(--ivory);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   9. LAYOUT HELPERS
+   ═══════════════════════════════════════════════════════════════════ */
+.container-luxury {
+  width: 100%;
+  max-width: 1340px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 640px)  { .container-luxury { padding-inline: 2rem; } }
+@media (min-width: 1024px) { .container-luxury { padding-inline: 2.5rem; } }
+
+.section-pad {
+  padding-top: 5.5rem;
+  padding-bottom: 5.5rem;
+}
+
+@media (min-width: 1024px) {
+  .section-pad {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+.section-pad-sm {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
+@media (min-width: 1024px) {
+  .section-pad-sm {
+    padding-top: 5.5rem;
+    padding-bottom: 5.5rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   10. DECORATIVE ELEMENTS
+   ═══════════════════════════════════════════════════════════════════ */
+.gold-line {
+  display: block;
+  width: 44px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold-dark) 0%, var(--gold) 100%);
+  margin-bottom: 1.5rem;
+}
+
+.gold-line-center {
+  display: block;
+  width: 44px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold-dark) 0%, var(--gold) 100%);
+  margin: 0 auto 1.5rem;
+}
+
+.divider-gold {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(157,134,104,0.25), transparent);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   11. SECTION LABEL — ultra-spaced overline (Outfit style)
+   ═══════════════════════════════════════════════════════════════════ */
+.section-label,
+.overline-label {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   12. TAUPE TEXT GRADIENT
+   ═══════════════════════════════════════════════════════════════════ */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #9D8668 0%, #DDD2C2 50%, #736452 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   13. LUXURY BUTTONS — dark, warm, restrained
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Primary — dark luxury with warm taupe border */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 0.65rem;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  padding: 1rem 2.5rem;
+  background: #1A1A1A;
+  color: #F3EFE8;
+  border: 1px solid rgba(139,123,104,0.35);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background var(--transition-base),
+              border-color var(--transition-base),
+              box-shadow var(--transition-base),
+              transform var(--transition-base);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-gold:hover {
+  background: #050505;
+  border-color: #9D8668;
+  box-shadow: 0 14px 44px rgba(5,5,5,0.40), 0 0 0 1px rgba(157,134,104,0.15);
+  transform: translateY(-2px);
+}
+
+/* Outline / secondary — glass style */
+.btn-outline-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 0.65rem;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  padding: 1rem 2.5rem;
+  background: rgba(243,239,232,0.05);
+  color: #F3EFE8;
+  border: 1px solid rgba(139,123,104,0.40);
+  cursor: pointer;
+  transition: background var(--transition-base),
+              border-color var(--transition-base),
+              transform var(--transition-base);
+  text-decoration: none;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+}
+
+.btn-outline-gold:hover {
+  background: rgba(243,239,232,0.10);
+  border-color: #9D8668;
+  transform: translateY(-2px);
+}
+
+/* Outline on light backgrounds */
+.btn-outline-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 0.65rem;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  padding: 1rem 2.5rem;
+  background: transparent;
+  color: var(--luxury-dark);
+  border: 1px solid rgba(92,77,61,0.35);
+  cursor: pointer;
+  transition: background var(--transition-base),
+              border-color var(--transition-base),
+              transform var(--transition-base);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-outline-dark:hover {
+  background: rgba(157,134,104,0.08);
+  border-color: #9D8668;
+  transform: translateY(-2px);
+}
+
+/* Accent button — taupe accent */
+.btn-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 0.65rem;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  padding: 1rem 2.5rem;
+  background: var(--gold);
+  color: var(--ivory);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background var(--transition-base),
+              transform var(--transition-base),
+              box-shadow var(--transition-base);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-dark:hover {
+  background: var(--gold-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(157,134,104,0.25);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   14. FORM INPUTS
+   ═══════════════════════════════════════════════════════════════════ */
+.input-luxury {
+  width: 100%;
+  padding: 0.875rem 1.25rem;
+  background: rgba(243,239,232,0.05);
+  border: 1px solid rgba(139,123,104,0.25);
+  color: var(--beige);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 300;
+  outline: none;
+  border-radius: 0;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.input-luxury:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 1px rgba(157,134,104,0.20);
+}
+
+.input-luxury::placeholder { color: rgba(139,123,104,0.50); }
+
+/* ═══════════════════════════════════════════════════════════════════
+   15. PREMIUM CARD
+   ═══════════════════════════════════════════════════════════════════ */
+.card-luxury {
+  background: #1A1A1A;
+  border: 1px solid rgba(139,123,104,0.12);
+  box-shadow: 0 2px 20px rgba(5,5,5,0.20);
+  transition: transform 0.55s var(--ease-luxury),
+              box-shadow 0.55s var(--ease-luxury),
+              border-color 0.55s var(--ease-luxury);
+}
+
+.card-luxury:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 56px rgba(5,5,5,0.35);
+  border-color: rgba(157,134,104,0.22);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   16. LINK UNDERLINE
+   ═══════════════════════════════════════════════════════════════════ */
+.link-underline {
+  position: relative;
+  text-decoration: none;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width var(--transition-base);
+}
+
+.link-underline:hover::after { width: 100%; }
+
+/* ═══════════════════════════════════════════════════════════════════
+   17. IMAGE OVERLAYS
+   ═══════════════════════════════════════════════════════════════════ */
+.img-overlay-gold::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(5,5,5,0.55) 100%);
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   18. PAGE TRANSITIONS
+   ═══════════════════════════════════════════════════════════════════ */
+.page-enter {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 600ms var(--ease-cinematic),
+              transform 600ms var(--ease-cinematic);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   19. LOADING SKELETON
+   ═══════════════════════════════════════════════════════════════════ */
+.skeleton {
+  background: linear-gradient(90deg, #1A1A1A 25%, #2C2018 50%, #1A1A1A 75%);
+  background-size: 800px 100%;
+  animation: skeleton-shimmer 1.8s ease-in-out infinite;
+}
+
+@keyframes skeleton-shimmer {
+  0%   { background-position: -800px 0; }
+  100% { background-position:  800px 0; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   20. CURSOR
+   ═══════════════════════════════════════════════════════════════════ */
+*, *::before, *::after { cursor: default; }
+a, button, [role="button"], [tabindex] { cursor: pointer; }
+
+/* ═══════════════════════════════════════════════════════════════════
+   21. GLASS UTILITIES
+   ═══════════════════════════════════════════════════════════════════ */
+.glass-light {
+  background: rgba(243,239,232,0.92);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(139,123,104,0.18);
+}
+
+.glass-dark {
+  background: rgba(5,5,5,0.85);
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  border: 1px solid rgba(139,123,104,0.12);
+}
+
+.glass-pearl {
+  background: rgba(243,239,232,0.08);
+  backdrop-filter: blur(32px) saturate(200%);
+  -webkit-backdrop-filter: blur(32px) saturate(200%);
+  border: 1px solid rgba(139,123,104,0.10);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   22. LUXURY STAT NUMBERS
+   ═══════════════════════════════════════════════════════════════════ */
+.stat-number {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  background: linear-gradient(135deg, #F3EFE8 0%, #DDD2C2 52%, #9D8668 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-number-light {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   23. PREMIUM ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════ */
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+.float-slow { animation: float-slow 7s ease-in-out infinite; }
+
+/* Warm shimmer sweep */
+@keyframes gold-shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position:  400px 0; }
+}
+
+.shimmer-gold {
+  background: linear-gradient(
+    90deg,
+    rgba(157,134,104,0) 0%,
+    rgba(157,134,104,0.35) 50%,
+    rgba(157,134,104,0) 100%
+  );
+  background-size: 400px 100%;
+  animation: gold-shimmer 2.8s ease-in-out infinite;
+}
+
+/* Pulse accent ring */
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(157,134,104,0.30); }
+  50%       { box-shadow: 0 0 0 14px rgba(157,134,104,0); }
+}
+
+.pulse-gold { animation: pulse-gold 2.8s ease-in-out infinite; }
+
+/* Reveal up */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s var(--ease-cinematic),
+              transform 1s var(--ease-cinematic);
+}
+
+.reveal-up.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children */
+.stagger > *:nth-child(1) { transition-delay: 0ms; }
+.stagger > *:nth-child(2) { transition-delay: 120ms; }
+.stagger > *:nth-child(3) { transition-delay: 240ms; }
+.stagger > *:nth-child(4) { transition-delay: 360ms; }
+.stagger > *:nth-child(5) { transition-delay: 480ms; }
+.stagger > *:nth-child(6) { transition-delay: 600ms; }
+
+/* ═══════════════════════════════════════════════════════════════════
+   24. MEGA MENU STYLES
+   ═══════════════════════════════════════════════════════════════════ */
+.mega-link {
+  transition: padding-left 0.25s var(--ease-luxury),
+              background 0.25s var(--ease-luxury);
+}
+
+.mega-link:hover {
+  padding-left: 18px;
+  background: rgba(157,134,104,0.06);
+}
+
+.nav-gold-bar {
+  position: absolute;
+  bottom: 0;
+  left: 12px;
+  right: 12px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.32s var(--ease-luxury);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   25. SEARCH OVERLAY
+   ═══════════════════════════════════════════════════════════════════ */
+.search-input-luxury {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(139,123,104,0.22);
+  outline: none;
+  width: 100%;
+  font-family: var(--font-display);
+  color: var(--pearl);
+  caret-color: var(--gold);
+  padding: 1rem 0 1rem 2.5rem;
+  transition: border-color 0.3s var(--ease-luxury);
+}
+
+.search-input-luxury:focus { border-bottom-color: var(--gold); }
+.search-input-luxury::placeholder { color: rgba(243,239,232,0.18); }
+
+/* ═══════════════════════════════════════════════════════════════════
+   26. PREMIUM CARD HOVER WITH BOTTOM LINE
+   ═══════════════════════════════════════════════════════════════════ */
+.card-premium {
+  position: relative;
+  overflow: hidden;
+  background: #1A1A1A;
+  border: 1px solid rgba(139,123,104,0.10);
+  transition: transform 0.55s var(--ease-luxury),
+              box-shadow 0.55s var(--ease-luxury);
+}
+
+.card-premium:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 28px 64px rgba(5,5,5,0.40);
+}
+
+.card-premium::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--ease-luxury);
+}
+
+.card-premium:hover::after { transform: scaleX(1); }
+
+/* ═══════════════════════════════════════════════════════════════════
+   27. PERSPECTIVE CONTAINER
+   ═══════════════════════════════════════════════════════════════════ */
+.perspective-container {
+  perspective: 1200px;
+  perspective-origin: center;
+}
+
+/* 3D card */
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.3s var(--ease-luxury), box-shadow 0.3s var(--ease-luxury);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   28. EDITORIAL TEXT TREATMENTS
+   ═══════════════════════════════════════════════════════════════════ */
+.text-editorial {
+  font-family: var(--font-display);
+  line-height: 1.08;
+  letter-spacing: 0.02em;
+  font-weight: 400;
+}
+
+.caption-luxury {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--taupe);
+  font-weight: 300;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   29. SECTION VARIANTS
+   ═══════════════════════════════════════════════════════════════════ */
+.section-pearl  { background: var(--pearl);  color: var(--ink);     }
+.section-ivory  { background: var(--ivory);  color: var(--ink);     }
+.section-cream  { background: var(--cream);  color: var(--espresso);}
+.section-dark   { background: var(--luxury-dark);  color: var(--beige); }
+.section-richer { background: var(--luxury-black); color: var(--beige); }
+.section-mocha  { background: var(--luxury-charcoal); color: var(--beige); }
+
+/* ═══════════════════════════════════════════════════════════════════
+   30. MINI HOVER TOOLTIP
+   ═══════════════════════════════════════════════════════════════════ */
+.mini-tooltip {
+  background: rgba(26,26,26,0.96);
+  backdrop-filter: blur(28px);
+  border: 1px solid rgba(139,123,104,0.14);
+  box-shadow: 0 24px 56px rgba(5,5,5,0.40), 0 4px 12px rgba(5,5,5,0.20);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   31. GOOGLE TRANSLATE — suppress default widget UI
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Hide the Google Translate top banner/toolbar — covers old + new widget UI */
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+.goog-te-spinner-pos,
+.goog-te-balloon-frame,
+.goog-te-ftab-float,
+.goog-te-menu-frame,
+#goog-gt-tt,
+/* New 2023+ widget bar selectors */
+.VIpgJd-ZVi9od-aZ2wEe,
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
+.VIpgJd-ZVi9od-aZ2wEe-yAXs7b-NVPDgc {
+  display: none !important;
+  height: 0   !important;
+  overflow: hidden !important;
+}
+
+/* Prevent body push-down — Google sets body { top: 40px } when bar appears */
+body,
+body.translated-ltr,
+body.translated-rtl {
+  top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Remove Google's yellow highlight on translated text */
+.goog-text-highlight {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Keep the page's font rendering after translation */
+font { display: inline; }
+
+/* ═══════════════════════════════════════════════════════════════════
+   32. LUXURY ACCENT UTILITIES
+   ═══════════════════════════════════════════════════════════════════ */
+.accent-sage       { color: var(--sage); }
+.accent-terracotta { color: var(--terracotta); }
+.accent-saffron    { color: var(--saffron); }
+.accent-stone      { color: var(--stone); }
+.accent-deep-teal  { color: var(--deep-teal); }
+.accent-sapphire   { color: var(--sapphire); }
+.accent-amethyst   { color: var(--amethyst); }
+
+/* Rich text on light sections */
+.rich-text {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--espresso);
+}
+
+.quote-luxury {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--gold-dark);
+  border-left: 1px solid var(--gold);
+  padding-left: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .quote-luxury {
+    font-size: 1.8rem;
+  }
+}
+
+@theme inline {
+  --font-heading: var(--font-sans);
+  --font-sans: 'Geist Variable', sans-serif;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}

@@ -1,0 +1,14 @@
+const router = require('express').Router()
+const auth = require('../middleware/auth')
+const optionalAuth = require('../middleware/optionalAuth')
+const c = require('../controllers/events.controller')
+
+router.get('/', optionalAuth, c.getAll)
+router.get('/:slug', optionalAuth, c.getBySlug)
+
+router.get('/admin/:id', auth, c.getById)
+router.post('/', auth, c.create)
+router.put('/:id', auth, c.update)
+router.delete('/:id', auth, c.delete)
+
+module.exports = router

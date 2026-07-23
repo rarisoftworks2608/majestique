@@ -1,0 +1,257 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── Enums ────────────────────────────────────────────────────────────────────
+
+enum ProjectStatus {
+  ONGOING
+  COMPLETED
+  UPCOMING
+}
+
+enum AdminRole {
+  SUPER_ADMIN
+  EDITOR
+  VIEWER
+}
+
+enum PlanType {
+  FLOOR_PLAN
+  SITE_PLAN
+  MASTER_PLAN
+  TYPICAL_FLOOR
+}
+
+enum ImageType {
+  GALLERY
+  BANNER
+  INTERIOR
+  EXTERIOR
+  AMENITY
+}
+
+enum EnquiryStatus {
+  NEW
+  CONTACTED
+  QUALIFIED
+  CLOSED
+}
+
+// ─── AdminUsers ───────────────────────────────────────────────────────────────
+
+model Admin {
+  id          String    @id @default(cuid())
+  email       String    @unique
+  password    String
+  name        String
+  role        AdminRole @default(EDITOR)
+  active      Boolean   @default(true)
+  lastLoginAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@map("admin_users")
+}
+
+// ─── Locations ────────────────────────────────────────────────────────────────
+// Supports slug-based routes: /projects/location/:slug
+
+model Location {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  name        String
+  city        String    @default("Pune")
+  state       String    @default("Maharashtra")
+  description String?   @db.Text
+  latitude    Float?
+  longitude   Float?
+  active      Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  projects    Project[]
+
+  @@map("locations")
+}
+
+// ─── Projects ─────────────────────────────────────────────────────────────────
+// Slug-based routes: /projects/:slug  |  filter by status, location, featured
+
+model Project {
+  id            String        @id @default(cuid())
+  slug          String        @unique
+
+  // Core content
+  title         String
+  tagline       String?
+  description   String        @db.Text
+
+  // Classification
+  status        ProjectStatus @default(ONGOING)
+  category      String?
+  featured      Boolean       @default(false)
+  order         Int           @default(0)
+
+  // Location (FK + denormalised string kept for display flexibility)
+  locationId    String?
+  location      Location?     @relation(fields: [locationId], references: [id], onDelete: SetNull)
+  address       String?
+
+  // Property details
+  area          String?
+  units         Int?
+  possession    String?
+  rera          String?
+  priceMin      Float?
+  priceMax      Float?
+  configurations String[]     // e.g. ["2 BHK", "3 BHK", "4 BHK"]
+
+  // Rich content
+  amenities     String[]
+  highlights    String[]
+  youtubeUrl    String?
+  coverImage    String?
+
+  // Publish workflow
+  published     Boolean       @default(false)
+  publishedAt   DateTime?
+
+  // Relations
+  images        ProjectImage[]
+  plans         ProjectPlan[]
+  enquiries     Enquiry[]
+
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  @@index([status])
+  @@index([featured])
+  @@index([locationId])
+  @@index([published, status])
+  @@map("projects")
+}
+
+// ─── ProjectImages ────────────────────────────────────────────────────────────
+
+model ProjectImage {
+  id        String    @id @default(cuid())
+  url       String
+  caption   String?
+  type      ImageType @default(GALLERY)
+  altText   String?
+  order     Int       @default(0)
+
+  projectId String
+  project   Project   @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime  @default(now())
+
+  @@index([projectId, type])
+  @@map("project_images")
+}
+
+// ─── ProjectPlans ─────────────────────────────────────────────────────────────
+
+model ProjectPlan {
+  id          String   @id @default(cuid())
+  label       String
+  type        PlanType @default(FLOOR_PLAN)
+  imageUrl    String
+  area        String?
+  bedrooms    Int?
+  bathrooms   Int?
+  price       String?
+  order       Int      @default(0)
+
+  projectId   String
+  project     Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  createdAt   DateTime @default(now())
+
+  @@index([projectId, type])
+  @@map("project_plans")
+}
+
+// ─── NewsArticles ─────────────────────────────────────────────────────────────
+// Slug-based routes: /news/:slug
+
+model NewsArticle {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  excerpt     String
+  content     String   @db.Text
+  coverImage  String?
+  published   Boolean  @default(false)
+  publishedAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([published, publishedAt])
+  @@map("news_articles")
+}
+
+// ─── Events ───────────────────────────────────────────────────────────────────
+// Slug-based routes: /events/:slug
+
+model Event {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  title       String
+  description String    @db.Text
+  coverImage  String?
+  location    String?
+  startDate   DateTime
+  endDate     DateTime?
+  published   Boolean   @default(false)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([published, startDate])
+  @@map("events")
+}
+
+// ─── JobListings ──────────────────────────────────────────────────────────────
+
+model JobListing {
+  id           String   @id @default(cuid())
+  title        String
+  department   String
+  location     String
+  type         String
+  description  String   @db.Text
+  requirements String   @db.Text
+  active       Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("job_listings")
+}
+
+// ─── Enquiries ────────────────────────────────────────────────────────────────
+
+model Enquiry {
+  id        String        @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  subject   String?
+  message   String        @db.Text
+  status    EnquiryStatus @default(NEW)
+
+  projectId String?
+  project   Project?      @relation(fields: [projectId], references: [id], onDelete: SetNull)
+
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+
+  @@index([status])
+  @@index([projectId])
+  @@map("enquiries")
+}
