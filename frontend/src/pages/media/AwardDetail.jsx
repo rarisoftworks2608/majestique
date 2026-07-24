@@ -1,35 +1,116 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useState, useCallback, useEffect, useRef } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import { ArrowLeft, Calendar, Trophy, ArrowUpRight, FileText, Images } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { ArrowLeft, Calendar, Trophy, ArrowUpRight, FileText, ChevronLeft, ChevronRight } from 'lucide-react'
 import Seo from '../../components/ui/Seo'
 import { AWARDS, PLATFORM_META, CATEGORY_META } from '../../data/awards'
 
+const slideVariants = {
+  enter:  (d) => ({ opacity: 0, x: d > 0 ? 40 : -40 }),
+  center: { opacity: 1, x: 0, transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] } },
+  exit:   (d) => ({ opacity: 0, x: d > 0 ? -40 : 40, transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] } }),
+}
+
 /* ── Image + gallery + certificate — keyed by award.id so state resets on navigation ── */
 function AwardMedia({ award }) {
-  const [activeImage, setActiveImage] = useState(award.image ?? null)
   const galleryImages = award.image ? [award.image, ...(award.gallery || [])] : (award.gallery || [])
+  const [activeIdx, setActiveIdx] = useState(0)
+  const [direction, setDirection] = useState(1)
+  const [paused, setPaused] = useState(false)
+  const hasMultiple = galleryImages.length > 1
+  const timerRef = useRef(null)
+
+  const goNext = useCallback(() => {
+    setDirection(1)
+    setActiveIdx(prev => (prev + 1) % galleryImages.length)
+  }, [galleryImages.length])
+
+  const goPrev = useCallback(() => {
+    setDirection(-1)
+    setActiveIdx(prev => (prev - 1 + galleryImages.length) % galleryImages.length)
+  }, [galleryImages.length])
+
+  const goTo = (i) => {
+    setDirection(i > activeIdx ? 1 : -1)
+    setActiveIdx(i)
+  }
+
+  useEffect(() => {
+    if (!hasMultiple || paused) { clearInterval(timerRef.current); return }
+    timerRef.current = setInterval(goNext, 4000)
+    return () => clearInterval(timerRef.current)
+  }, [hasMultiple, paused, goNext])
 
   return (
     <>
-      {/* Image or trophy placeholder */}
+      {/* Image carousel or trophy placeholder */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.15 }}
         className="w-full flex justify-center mb-4"
       >
-        {activeImage ? (
+        {galleryImages.length > 0 ? (
           <div
-            className="overflow-hidden"
-            style={{ background: '#111', border: '1px solid rgba(157,134,104,0.18)', boxShadow: '0 12px 48px rgba(5,5,5,0.1)' }}
+            className="relative overflow-hidden w-full flex items-center justify-center"
+            style={{ background: '#111', border: '1px solid rgba(157,134,104,0.18)', boxShadow: '0 12px 48px rgba(5,5,5,0.1)', minHeight: '320px' }}
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
           >
-            <img
-              src={activeImage}
-              alt={award.award}
-              className="max-w-full h-auto object-contain"
-              style={{ maxHeight: '560px' }}
-            />
+            <AnimatePresence mode="wait" custom={direction}>
+              <motion.img
+                key={activeIdx}
+                src={galleryImages[activeIdx]}
+                alt={`${award.award} — photo ${activeIdx + 1}`}
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                className="max-w-full h-auto object-contain"
+                style={{ maxHeight: '560px' }}
+              />
+            </AnimatePresence>
+
+            {hasMultiple && (
+              <>
+                <button
+                  onClick={goPrev}
+                  aria-label="Previous photo"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center z-10 transition-all duration-200"
+                  style={{ background: 'rgba(5,5,5,0.55)', color: 'var(--gold)', border: '1px solid rgba(157,134,104,0.4)' }}
+                  onMouseEnter={e => { e.currentTarget.style.background = 'var(--gold)'; e.currentTarget.style.color = '#111' }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'rgba(5,5,5,0.55)'; e.currentTarget.style.color = 'var(--gold)' }}
+                >
+                  <ChevronLeft size={18} />
+                </button>
+                <button
+                  onClick={goNext}
+                  aria-label="Next photo"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center z-10 transition-all duration-200"
+                  style={{ background: 'rgba(5,5,5,0.55)', color: 'var(--gold)', border: '1px solid rgba(157,134,104,0.4)' }}
+                  onMouseEnter={e => { e.currentTarget.style.background = 'var(--gold)'; e.currentTarget.style.color = '#111' }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'rgba(5,5,5,0.55)'; e.currentTarget.style.color = 'var(--gold)' }}
+                >
+                  <ChevronRight size={18} />
+                </button>
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-10">
+                  {galleryImages.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => goTo(i)}
+                      aria-label={`Go to photo ${i + 1}`}
+                      className="transition-all duration-200"
+                      style={{
+                        width: i === activeIdx ? '18px' : '6px',
+                        height: '6px',
+                        background: i === activeIdx ? 'var(--gold)' : 'rgba(255,255,255,0.4)',
+                      }}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
           </div>
         ) : (
           <div
@@ -50,37 +131,6 @@ function AwardMedia({ award }) {
           </div>
         )}
       </motion.div>
-
-      {/* Gallery thumbnails */}
-      {galleryImages.length > 1 && (
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.18 }}
-          className="flex items-center justify-center gap-2.5 mb-6"
-        >
-          <Images size={12} style={{ color: 'rgba(157,134,104,0.5)' }} />
-          {galleryImages.map((img, i) => (
-            <motion.button
-              key={i}
-              onClick={() => setActiveImage(img)}
-              initial={{ opacity: 0, scale: 0.85 }}
-              animate={{ opacity: 1, scale: 1, transition: { duration: 0.35, delay: 0.2 + i * 0.05 } }}
-              whileHover={{ scale: 1.08, transition: { duration: 0.15 } }}
-              className="overflow-hidden flex-shrink-0"
-              style={{
-                width: '56px',
-                height: '42px',
-                border: `2px solid ${activeImage === img ? 'var(--gold)' : 'rgba(157,134,104,0.25)'}`,
-                opacity: activeImage === img ? 1 : 0.65,
-                transition: 'opacity 0.2s, border-color 0.2s',
-              }}
-            >
-              <img src={img} alt={`${award.award} — photo ${i + 1}`} className="w-full h-full object-cover" loading="lazy" />
-            </motion.button>
-          ))}
-        </motion.div>
-      )}
 
       {/* Certificate link */}
       {award.certificate && (
@@ -255,7 +305,7 @@ export default function AwardDetail() {
       {related.length > 0 && (
         <section className="py-20" style={{ background: 'var(--cream)', borderTop: '1px solid rgba(157,134,104,0.15)' }}>
           <div className="container-luxury">
-            <p className="font-ui text-[0.5rem] tracking-[0.3em] uppercase text-center mb-10" style={{ color: 'rgba(157,134,104,0.6)' }}>
+            <p className="font-ui text-sm font-bold tracking-[0.3em] uppercase text-center mb-10" style={{ color: 'rgba(157,134,104,0.6)' }}>
               Related Awards
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">

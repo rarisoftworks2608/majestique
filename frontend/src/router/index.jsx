@@ -23,6 +23,8 @@ const ProjectDetail     = lazy(() => import('../pages/projects/ProjectDetail'))
 // Media
 const PressEvents       = lazy(() => import('../pages/media/PressEvents'))
 const PressCoverageDetail = lazy(() => import('../pages/media/PressCoverageDetail'))
+const Articles          = lazy(() => import('../pages/media/Articles'))
+const ArticleDetail     = lazy(() => import('../pages/media/ArticleDetail'))
 const Announcements     = lazy(() => import('../pages/media/Announcements'))
 const Events            = lazy(() => import('../pages/media/Events'))
 const EventDetail       = lazy(() => import('../pages/media/EventDetail'))
@@ -128,6 +130,14 @@ const router = createBrowserRouter([
   {
     element: withSuspense(<Layout><PressCoverageDetail /></Layout>),
     path: '/media/press-coverage/:slug',
+  },
+  {
+    element: withSuspense(<Layout><Articles /></Layout>),
+    path: '/media/articles',
+  },
+  {
+    element: withSuspense(<Layout><ArticleDetail /></Layout>),
+    path: '/media/articles/:slug',
   },
   {
     element: withSuspense(<Layout><Announcements /></Layout>),

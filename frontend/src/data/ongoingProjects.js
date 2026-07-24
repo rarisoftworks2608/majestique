@@ -16,6 +16,7 @@ import imgTowers       from '../assets/project_spolights/Majestique_Towers_Khara
 import imgTwilight     from '../assets/project_spolights/twilight.webp'
 import imgEphelia      from '../assets/project_spolights/Majestique-Ephelia.jpg'
 import imgKothrudMall  from '../assets/project_spolights/Kothrud_central_mall.jpg'
+import imgElements     from '../assets/twilight-balewadi-pune-majestique_landmarks.avif'
 
 export const CATEGORIES = ['All', 'Residential', 'Commercial']
 
@@ -45,9 +46,9 @@ export const ONGOING_PROJECTS = [
   {
     id: 'op-3',
     title: 'Majestique Aravali',
-    location: 'Warje, Pune',
+    location: 'Kothrud NXT, Pune',
     tagline: 'Where Nature Inspires Luxury Living',
-    config: '2 & 3 BHK',
+    config: '3 & 2 BHK Hillside Homes',
     category: 'Residential',
     image: imgAravali,
     url: 'https://aravali.majestiquelandmarks.com/',
@@ -55,9 +56,9 @@ export const ONGOING_PROJECTS = [
   {
     id: 'op-4',
     title: 'The Crown by Majestique',
-    location: 'Gultekdi, Pune',
+    location: '7 Loves Chowk, Gultekadi, Pune',
     tagline: 'An Address Reserved for the Extraordinary',
-    config: '3 & 4 BHK',
+    config: '4 & 3 BHK Royal Residences',
     category: 'Residential',
     image: imgCrown,
     url: 'https://the-crown.majestiquelandmarks.com/',
@@ -65,9 +66,9 @@ export const ONGOING_PROJECTS = [
   {
     id: 'op-5',
     title: 'Evolvus by Majestique',
-    location: 'Kharadi, Pune',
+    location: 'Central Kharadi, Pune',
     tagline: 'Evolving Spaces. Enduring Luxury.',
-    config: '2, 3 & 4 BHK',
+    config: '4 & 3 BHK Luxury Residences',
     category: 'Residential',
     image: imgEvolvus,
     url: 'https://evolvus.majestiquelandmarks.com/',
@@ -75,9 +76,9 @@ export const ONGOING_PROJECTS = [
   {
     id: 'op-6',
     title: 'Krutarth by Majestique',
-    location: 'Market Yard, Pune',
+    location: 'Marketyard, Satara Road, Pune',
     tagline: 'Where Prestige Meets the Heart of Pune',
-    config: '3 & 4 BHK',
+    config: '4 & 3 BHK Royal Residences',
     category: 'Residential',
     image: imgKrutarth,
     url: 'https://krutarth.majestiquelandmarks.com/',
@@ -117,7 +118,7 @@ export const ONGOING_PROJECTS = [
     title: 'New Friends by Majestique',
     location: 'Kothrud, Pune',
     tagline: 'Timeless Living in the Heart of Kothrud',
-    config: '2, 3 & 4 BHK',
+    config: '4, 3 & 2 Luxury Homes',
     category: 'Residential',
     image: imgNewFriends,
     url: 'https://newfriendskothrud.majestiquelandmarks.com/',
@@ -135,9 +136,9 @@ export const ONGOING_PROJECTS = [
   {
     id: 'op-12',
     title: 'Majestique Rhythm County',
-    location: 'Hadapsar, Pune',
+    location: 'Hadapsar Handewadi, Pune',
     tagline: "A Master-Planned Township Designed Around Life's Perfect Rhythm",
-    config: '2 & 3 BHK',
+    config: '2 & 3 BHK Residences',
     category: 'Residential',
     image: imgRhythmCounty,
     url: 'https://rhythmcounty.majestiquelandmarks.com/',
@@ -147,7 +148,7 @@ export const ONGOING_PROJECTS = [
     title: 'Majestique Signature Towers',
     location: 'Balewadi, Pune',
     tagline: 'Where Luxury Meets The Pulse Of Balewadi',
-    config: '2 & 3 BHK',
+    config: '2 & 3 BHK Palatial Homes',
     category: 'Residential',
     image: imgSignature,
     url: 'https://signaturetowers.majestiquelandmarks.com/',
@@ -165,9 +166,9 @@ export const ONGOING_PROJECTS = [
   {
     id: 'op-15',
     title: 'Majestique Towers',
-    location: 'Kharadi, Pune',
+    location: 'Near EON IT Park, Kharadi, Pune',
     tagline: 'Elevated Living. Exceptional Connectivity.',
-    config: '2 & 3 BHK',
+    config: '3 & 2 BHK Premium Residences',
     category: 'Residential',
     image: imgTowers,
     url: 'https://towers.majestiquelandmarks.com/',
@@ -175,9 +176,9 @@ export const ONGOING_PROJECTS = [
   {
     id: 'op-16',
     title: 'Twilight by Majestique',
-    location: 'Balewadi, Pune',
+    location: 'Balewadi Highstreet, Pune',
     tagline: 'Where Sophistication Meets Urban Excellence',
-    config: '3 & 4 BHK',
+    config: '4 & 3 BHK Luminous Residences',
     category: 'Residential',
     image: imgTwilight,
     url: 'https://twilight.majestiquelandmarks.com/',
@@ -201,5 +202,15 @@ export const ONGOING_PROJECTS = [
     category: 'Commercial',
     image: imgKothrudMall,
     url: 'https://kothrudcentralmall.majestiquelandmarks.com',
+  },
+  {
+    id: 'op-19',
+    title: 'Elements by Majestique',
+    location: 'Pan Card Road, Baner, Pune',
+    tagline: 'A New Benchmark in Elevated Living',
+    config: '4 Luxe Grand Suites',
+    category: 'Residential',
+    image: imgElements,
+    url: 'https://elements.majestiquelandmarks.com/',
   },
 ]

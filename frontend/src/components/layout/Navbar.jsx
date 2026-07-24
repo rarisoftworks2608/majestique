@@ -6,7 +6,7 @@ import {
   Building2, CheckCircle2, Hammer, Newspaper,
   CalendarDays, Bell, BookOpen, Mail, Target,
   Award, Users, MessageSquareQuote, ArrowRight,
-  MapPin, TrendingUp,
+  MapPin, TrendingUp, Megaphone,
 } from 'lucide-react'
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa6'
 import { SITE_NAME, SITE_PHONE, SOCIAL_LINKS } from '../../utils/constants'
@@ -22,6 +22,7 @@ import imgNavVision        from '../../assets/Mission_vision.jpg'
 import imgNavOngoing       from '../../assets/ongoing_project_vertical.jpg'
 import imgNavCompleted     from '../../assets/completed project vertical.jpg'
 import imgNavPress         from '../../assets/real-estate-press-relese.jpg'
+import imgNavArticles      from '../../assets/Article/08052026_pt_mp_04_1_col_r2.jpg.jpeg'
 import imgNavAnnouncements from '../../assets/Announcement_vertical.jpg'
 import imgNavEvents        from '../../assets/real estate events vertical.jpg'
 import imgNavBlogs         from '../../assets/blogs_vertical.jpg'
@@ -124,6 +125,7 @@ const NAV_CONFIG = [
     },
     children: [
       { label: 'Press Coverage', path: '/media/press-coverage', icon: Newspaper,         desc: 'Media features & editorial interviews',  previewImage: imgNavPress         },
+      { label: 'Articles',      path: '/media/articles',      icon: Megaphone,          desc: 'Brand campaigns & festive features',       previewImage: imgNavArticles      },
       { label: 'Announcements', path: '/media/announcements', icon: Bell,               desc: 'Official updates & project news',          previewImage: imgNavAnnouncements },
       { label: 'Events',        path: '/media/events',        icon: CalendarDays,       desc: 'Launches, site visits & showcases',        previewImage: imgNavEvents        },
       { label: 'Blogs',         path: '/media/blogs',         icon: BookOpen,           desc: 'Insights on luxury living in Pune',        previewImage: imgNavBlogs         },

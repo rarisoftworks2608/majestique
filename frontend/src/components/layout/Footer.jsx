@@ -32,6 +32,7 @@ const COMPLETED_PROJECT_LINKS = [...new Map(COMPLETED_PROJECTS.map((p) => [p.tit
 
 const MEDIA_LINKS = [
   { label: 'Press Coverage', path: '/media/press-coverage' },
+  { label: 'Articles', path: '/media/articles' },
   { label: 'Announcements', path: '/media/announcements' },
   { label: 'Events', path: '/media/events' },
   { label: 'Blogs', path: '/media/blogs' },

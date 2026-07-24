@@ -220,8 +220,11 @@ export default function PressEvents() {
             />
           </div>
 
-          {/* ── Category filter ── */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mb-4">
+          {/* ── Category filter — sliding pill ── */}
+          <div
+            className="flex flex-wrap items-center justify-center gap-1.5 mb-4 mx-auto p-1.5"
+            style={{ background: 'rgba(157,134,104,0.06)', border: '1px solid rgba(157,134,104,0.16)', borderRadius: '999px', width: 'fit-content', maxWidth: '100%' }}
+          >
             {CATEGORIES.map(cat => {
               const CatIcon = CATEGORY_META[cat]?.icon || Newspaper
               const catColor = CATEGORY_META[cat]?.color || '#9d8668'
@@ -230,16 +233,20 @@ export default function PressEvents() {
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
-                  className="flex items-center gap-2 font-ui text-xs tracking-[0.18em] uppercase px-5 py-3 transition-all duration-300"
-                  style={{
-                    background: isActive ? catColor : 'transparent',
-                    color:      isActive ? '#fff' : 'rgba(26,26,26,0.82)',
-                    border:     `1px solid ${isActive ? catColor : 'rgba(157,134,104,0.28)'}`,
-                  }}
-                  onMouseEnter={e => { if (!isActive) { e.currentTarget.style.borderColor = catColor; e.currentTarget.style.color = catColor } }}
-                  onMouseLeave={e => { if (!isActive) { e.currentTarget.style.borderColor = 'rgba(157,134,104,0.28)'; e.currentTarget.style.color = 'rgba(26,26,26,0.82)' } }}
+                  className="relative flex items-center gap-2 font-ui text-xs tracking-[0.16em] uppercase px-5 py-2.5 transition-colors duration-300"
+                  style={{ color: isActive ? '#fff' : 'rgba(26,26,26,0.75)', borderRadius: '999px' }}
                 >
-                  <CatIcon size={10} /> {cat}
+                  {isActive && (
+                    <motion.span
+                      layoutId="pressCategoryPill"
+                      className="absolute inset-0"
+                      style={{ background: catColor, borderRadius: '999px', zIndex: 0 }}
+                      transition={{ type: 'spring', stiffness: 380, damping: 32 }}
+                    />
+                  )}
+                  <span className="relative flex items-center gap-2" style={{ zIndex: 1 }}>
+                    <CatIcon size={11} /> {cat}
+                  </span>
                 </button>
               )
             })}

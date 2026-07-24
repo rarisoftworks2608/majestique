@@ -4,7 +4,7 @@ import PageHero from '../../components/ui/PageHero'
 import Seo from '../../components/ui/Seo'
 import dwarkadasImg from '../../assets/dwarkadas-hastimal-maheshwari.jpeg'
 import shyamkumarImg from '../../assets/shyamkumar-dwarkadas-maheshwari.jpg'
-import manishImg from '../../assets/manish-maheshwari-majestique-landmarks.jpg'
+import manishImg from '../../assets/Management Team/MD Maish Sir.jpg'
 import leadershipHeroImg from '../../assets/leadership business.jpg'
 import coreTeamImg from '../../assets/core_team.jpeg'
 import adityaImg from '../../assets/Management Team/Aditya Sir.jpg'
@@ -13,13 +13,13 @@ import ankitImg from '../../assets/Management Team/Ankit Sir.jpg'
 import dateImg from '../../assets/Management Team/Date Sir.jpg'
 import ganeshImg from '../../assets/Management Team/Ganesh Sir.jpg'
 import kailasImg from '../../assets/Management Team/Kailas Sir.jpg'
-import mdMaishImg from '../../assets/Management Team/MD Maish Sir.jpg'
 import nieshImg from '../../assets/Management Team/Niesh Sir.jpg'
 import punitImg from '../../assets/Management Team/Punit Sir.jpg'
 import rahulImg from '../../assets/Management Team/Rahul Sir.jpg'
 import sanjayImg from '../../assets/Management Team/Sanjay Sir.jpg'
 import sourabhImg from '../../assets/Management Team/Sourabh Sir.jpg'
 import sunilImg from '../../assets/Management Team/Sunil Sir.jpg'
+import vishwajeetImg from '../../assets/Management Team/Vishwajeet Sir.jpeg'
 
 const LEADERS = [
   {
@@ -76,14 +76,13 @@ const MANAGEMENT_TEAM = [
   { name: 'Date Sir',        image: dateImg },
   { name: 'Ganesh Sir',      image: ganeshImg },
   { name: 'Kailas Sir',      image: kailasImg },
-  { name: 'MD Maish Sir',    image: mdMaishImg },
   { name: 'Niesh Sir',       image: nieshImg },
   { name: 'Punit Sir',       image: punitImg },
   { name: 'Rahul Sir',       image: rahulImg },
   { name: 'Sanjay Sir',      image: sanjayImg },
   { name: 'Sourabh Sir',     image: sourabhImg },
   { name: 'Sunil Sir',       image: sunilImg },
-  { name: 'Vishwajeet Sir' },
+  { name: 'Vishwajeet Sir',  image: vishwajeetImg },
 ]
 
 function TeamCard({ member, index }) {
