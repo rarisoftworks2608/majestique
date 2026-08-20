@@ -33,16 +33,16 @@ export default function ArticleDetail() {
     )
   }
 
-  const catColor = ARTICLE_CATEGORY_META[item.category]?.color || '#9d8668'
+  const catColor = ARTICLE_CATEGORY_META[item.category]?.color || '#D4AF37'
 
   return (
     <>
       <Seo
-        title={`${item.headline} — Articles | Majestique Landmarks`}
+        title={`${item.headline} | Articles | Majestique Landmarks`}
         description={item.excerpt}
       />
 
-      <div className="py-16" style={{ background: 'white' }}>
+      <div className="py-12" style={{ background: 'white' }}>
         <div className="container-luxury">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start max-w-5xl mx-auto">
 
@@ -55,12 +55,10 @@ export default function ArticleDetail() {
             >
               <div
                 className="overflow-hidden"
-                style={{ aspectRatio: '3/4', background: '#f8f5f0', border: '1px solid rgba(157,134,104,0.18)', boxShadow: '0 24px 64px rgba(5,5,5,0.14)' }}
+                style={{ aspectRatio: '3/4', background: '#FAF6EF', border: '1px solid rgba(212,175,55,0.18)', boxShadow: '0 24px 64px rgba(26,26,26,0.14)' }}
               >
                 <img src={item.image} alt={item.headline} className="w-full h-full object-cover" />
               </div>
-              <div className="absolute -top-3 -left-3 w-12 h-12 border-l-2 border-t-2 hidden sm:block" style={{ borderColor: 'var(--gold)' }} />
-              <div className="absolute -bottom-3 -right-3 w-12 h-12 border-r-2 border-b-2 hidden sm:block" style={{ borderColor: 'var(--gold)' }} />
 
               {item.pdf && (
                 <motion.a
@@ -70,7 +68,7 @@ export default function ArticleDetail() {
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.97 }}
                   className="mt-6 flex items-center justify-center gap-2 font-ui text-[0.62rem] tracking-[0.18em] uppercase px-4 py-2.5 transition-colors duration-200"
-                  style={{ color: 'var(--gold-dark)', border: '1px solid rgba(157,134,104,0.3)' }}
+                  style={{ color: 'var(--gold-dark)', border: '1px solid rgba(212,175,55,0.3)' }}
                   onMouseEnter={e => (e.currentTarget.style.color = 'var(--gold)')}
                   onMouseLeave={e => (e.currentTarget.style.color = 'var(--gold-dark)')}
                 >
@@ -136,7 +134,7 @@ export default function ArticleDetail() {
 
               <div
                 className="flex items-center mt-12 pt-8"
-                style={{ borderTop: '1px solid rgba(157,134,104,0.2)' }}
+                style={{ borderTop: '1px solid rgba(212,175,55,0.2)' }}
               >
                 <Link
                   to="/media/articles"
@@ -155,14 +153,14 @@ export default function ArticleDetail() {
 
       {/* Related Articles */}
       {related.length > 0 && (
-        <section className="py-20" style={{ background: 'var(--cream)', borderTop: '1px solid rgba(157,134,104,0.15)' }}>
+        <section className="py-14" style={{ background: 'var(--cream)', borderTop: '1px solid rgba(212,175,55,0.15)' }}>
           <div className="container-luxury">
-            <p className="font-ui text-[0.5rem] tracking-[0.3em] uppercase text-center mb-10" style={{ color: 'rgba(157,134,104,0.6)' }}>
+            <p className="font-ui text-[0.5rem] tracking-[0.3em] uppercase text-center mb-10" style={{ color: 'rgba(212,175,55,0.6)' }}>
               More Articles
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
               {related.map((r, i) => {
-                const rCatColor = ARTICLE_CATEGORY_META[r.category]?.color || '#9d8668'
+                const rCatColor = ARTICLE_CATEGORY_META[r.category]?.color || '#D4AF37'
                 return (
                   <motion.div
                     key={r.id}
@@ -174,11 +172,11 @@ export default function ArticleDetail() {
                     <Link
                       to={`/media/articles/${r.slug}`}
                       className="group flex flex-col overflow-hidden bg-white h-full"
-                      style={{ border: '1px solid rgba(157,134,104,0.16)', boxShadow: '0 2px 16px rgba(5,5,5,0.05)', transition: 'box-shadow 0.35s ease, transform 0.35s ease' }}
-                      onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 18px 48px rgba(5,5,5,0.12)'; e.currentTarget.style.transform = 'translateY(-4px)' }}
-                      onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 16px rgba(5,5,5,0.05)'; e.currentTarget.style.transform = 'translateY(0)' }}
+                      style={{ border: '1px solid rgba(212,175,55,0.16)', boxShadow: '0 2px 16px rgba(26,26,26,0.05)', transition: 'box-shadow 0.35s ease, transform 0.35s ease' }}
+                      onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 18px 48px rgba(26,26,26,0.12)'; e.currentTarget.style.transform = 'translateY(-4px)' }}
+                      onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 16px rgba(26,26,26,0.05)'; e.currentTarget.style.transform = 'translateY(0)' }}
                     >
-                      <div className="relative overflow-hidden" style={{ aspectRatio: '3/4', background: '#f9f6f1' }}>
+                      <div className="relative overflow-hidden" style={{ aspectRatio: '3/4', background: '#FAF6EF' }}>
                         <img
                           src={r.image}
                           alt={r.headline}

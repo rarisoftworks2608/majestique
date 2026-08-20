@@ -218,7 +218,7 @@ export default function HeroSection() {
             animate={ready ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1 }}
             className="font-display mb-5"
-            style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: '#fff', lineHeight: 1.15, maxWidth: '640px', fontWeight: 400 }}
+            style={{ fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', color: '#fff', lineHeight: 1.15, maxWidth: '640px', fontWeight: 400 }}
           >
             Redefining Luxury<br />Living in Pune
           </motion.h1>
@@ -242,9 +242,9 @@ export default function HeroSection() {
             <Link
               to="/projects/ongoing"
               className="font-ui tracking-[0.2em] uppercase inline-flex items-center gap-2 group transition-all duration-300"
-              style={{ fontSize: '0.58rem', padding: '0.95rem 2.2rem', background: 'var(--gold)', color: '#fff', border: '1px solid var(--gold)' }}
+              style={{ fontSize: '0.58rem', padding: '0.95rem 2.2rem', background: 'var(--gold-dark)', color: '#fff', border: '1px solid var(--gold-dark)' }}
               onMouseEnter={e => { e.currentTarget.style.background = '#fff'; e.currentTarget.style.color = 'var(--ink)'; e.currentTarget.style.borderColor = '#fff' }}
-              onMouseLeave={e => { e.currentTarget.style.background = 'var(--gold)'; e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = 'var(--gold)' }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'var(--gold-dark)'; e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = 'var(--gold-dark)' }}
             >
               Explore Developments
               <ArrowRight size={11} className="transition-transform duration-300 group-hover:translate-x-1" />

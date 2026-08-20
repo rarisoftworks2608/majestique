@@ -78,31 +78,31 @@ export default function FloatingCTA() {
             transition={{ duration: 0.35, delay: 0.12, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="group flex items-center gap-0 overflow-hidden transition-all duration-300"
             style={{
-              background: '#050505',
-              border: '1px solid rgba(157,134,104,0.35)',
-              boxShadow: '0 4px 20px rgba(5,5,5,0.45)',
+              background: '#1A1A1A',
+              border: '1px solid rgba(212,175,55,0.35)',
+              boxShadow: '0 4px 20px rgba(26,26,26,0.45)',
               borderRadius: '0',
               width: '48px',
               height: '48px',
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.width = '162px'
-              e.currentTarget.style.borderColor = '#9D8668'
-              e.currentTarget.style.boxShadow = '0 6px 28px rgba(5,5,5,0.6)'
+              e.currentTarget.style.borderColor = '#D4AF37'
+              e.currentTarget.style.boxShadow = '0 6px 28px rgba(26,26,26,0.6)'
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.width = '48px'
-              e.currentTarget.style.borderColor = 'rgba(157,134,104,0.35)'
-              e.currentTarget.style.boxShadow = '0 4px 20px rgba(5,5,5,0.45)'
+              e.currentTarget.style.borderColor = 'rgba(212,175,55,0.35)'
+              e.currentTarget.style.boxShadow = '0 4px 20px rgba(26,26,26,0.45)'
             }}
             aria-label={`Call ${SITE_PHONE}`}
           >
             <span className="flex items-center justify-center shrink-0" style={{ width: '48px', height: '48px' }}>
-              <Phone size={17} color="#9D8668" />
+              <Phone size={17} color="#D4AF37" />
             </span>
             <span
               className="font-ui text-[0.58rem] tracking-[0.18em] uppercase whitespace-nowrap overflow-hidden pr-4"
-              style={{ color: '#9D8668', maxWidth: '120px' }}
+              style={{ color: '#D4AF37', maxWidth: '120px' }}
             >
               Call Us
             </span>
@@ -117,19 +117,19 @@ export default function FloatingCTA() {
             transition={{ duration: 0.35, delay: 0.19, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="group flex items-center gap-0 overflow-hidden transition-all duration-300"
             style={{
-              background: '#9D8668',
-              boxShadow: '0 4px 20px rgba(157,134,104,0.4)',
+              background: '#6B0D1A',
+              boxShadow: '0 4px 20px rgba(107,13,26,0.4)',
               borderRadius: '0',
               width: '48px',
               height: '48px',
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.width = '162px'
-              e.currentTarget.style.boxShadow = '0 6px 28px rgba(157,134,104,0.55)'
+              e.currentTarget.style.boxShadow = '0 6px 28px rgba(107,13,26,0.55)'
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.width = '48px'
-              e.currentTarget.style.boxShadow = '0 4px 20px rgba(157,134,104,0.4)'
+              e.currentTarget.style.boxShadow = '0 4px 20px rgba(107,13,26,0.4)'
             }}
             aria-label="Chat with us"
           >

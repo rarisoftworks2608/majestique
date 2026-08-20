@@ -22,11 +22,10 @@ export default function Announcements() {
   return (
     <>
       <Seo
-        title="Announcements — Majestique Landmarks"
-        description="Official announcements, project updates, and company news from Majestique Landmarks — Pune's premier luxury real estate developer."
+        title="Announcements | Majestique Landmarks"
+        description="Official announcements, project updates, and company news from Majestique Landmarks, Pune's premier luxury real estate developer."
       />
       <PageHero
-        label="Media"
         title="Announcements"
         subtitle="Official updates, project milestones, and important news directly from Majestique Landmarks."
         breadcrumbs={[{ label: 'Media', href: '/media/announcements' }, { label: 'Announcements' }]}
@@ -38,7 +37,7 @@ export default function Announcements() {
           {loading ? (
             <div className="space-y-4">
               {Array.from({ length: 6 }).map((_, i) => (
-                <div key={i} className="p-6" style={{ background: 'white', border: '1px solid rgba(157,134,104,0.1)' }}>
+                <div key={i} className="p-6" style={{ background: 'white', border: '1px solid rgba(212,175,55,0.1)' }}>
                   <div className="skeleton h-3 w-28 mb-3 rounded" />
                   <div className="skeleton h-6 w-3/4 mb-2 rounded" />
                   <div className="skeleton h-4 w-full rounded" />
@@ -69,21 +68,21 @@ export default function Announcements() {
                   <Link
                     to={`/media/news/${article.slug}`}
                     className="flex items-start gap-5 p-6 transition-all duration-250"
-                    style={{ border: '1px solid rgba(157,134,104,0.1)', background: 'white' }}
+                    style={{ border: '1px solid rgba(212,175,55,0.1)', background: 'white' }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = 'rgba(157,134,104,0.35)'
+                      e.currentTarget.style.borderColor = 'rgba(212,175,55,0.35)'
                       e.currentTarget.style.paddingLeft = '1.75rem'
-                      e.currentTarget.style.boxShadow = '0 14px 40px rgba(5,5,5,0.08)'
+                      e.currentTarget.style.boxShadow = '0 14px 40px rgba(26,26,26,0.08)'
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = 'rgba(157,134,104,0.1)'
+                      e.currentTarget.style.borderColor = 'rgba(212,175,55,0.1)'
                       e.currentTarget.style.paddingLeft = '1.5rem'
                       e.currentTarget.style.boxShadow = 'none'
                     }}
                   >
                     <div
                       className={`${i === 0 ? 'ann-bell-ring' : ''} w-9 h-9 flex items-center justify-center shrink-0 mt-0.5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6`}
-                      style={{ border: '1px solid rgba(157,134,104,0.2)', background: 'rgba(157,134,104,0.04)' }}
+                      style={{ border: '1px solid rgba(212,175,55,0.2)', background: 'rgba(212,175,55,0.04)' }}
                     >
                       <Bell size={14} style={{ color: 'var(--gold)' }} />
                     </div>
@@ -123,9 +122,9 @@ export default function Announcements() {
       <style>{`
         .ann-bell-ring { animation: annBellPulse 2.6s ease-out infinite; }
         @keyframes annBellPulse {
-          0%   { box-shadow: 0 0 0 0 rgba(157,134,104,0.35); }
-          70%  { box-shadow: 0 0 0 10px rgba(157,134,104,0); }
-          100% { box-shadow: 0 0 0 0 rgba(157,134,104,0); }
+          0%   { box-shadow: 0 0 0 0 rgba(212,175,55,0.35); }
+          70%  { box-shadow: 0 0 0 10px rgba(212,175,55,0); }
+          100% { box-shadow: 0 0 0 0 rgba(212,175,55,0); }
         }
         @media (prefers-reduced-motion: reduce) {
           .ann-bell-ring { animation: none !important; }

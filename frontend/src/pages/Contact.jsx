@@ -65,7 +65,7 @@ const inp = {
   width: '100%',
   padding: '0.82rem 1.1rem',
   background: '#fff',
-  border: '1px solid rgba(157,134,104,0.28)',
+  border: '1px solid rgba(212,175,55,0.28)',
   outline: 'none',
   fontFamily: 'var(--font-body)',
   fontSize: '0.9rem',
@@ -90,7 +90,7 @@ function SelectWrapper({ children }) {
   return (
     <div className="relative">
       {children}
-      <ChevronDown size={14} className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" style={{ color: 'rgba(157,134,104,0.6)' }} />
+      <ChevronDown size={14} className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" style={{ color: 'rgba(212,175,55,0.6)' }} />
     </div>
   )
 }
@@ -158,7 +158,7 @@ function BuyPropertyForm() {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         className="text-center py-20 px-8"
-        style={{ border: '1px solid rgba(157,134,104,0.25)', background: '#fff' }}
+        style={{ border: '1px solid rgba(212,175,55,0.25)', background: '#fff' }}
       >
         <motion.div
           initial={{ scale: 0, rotate: -30 }}
@@ -199,13 +199,13 @@ function BuyPropertyForm() {
               key={val}
               className="flex items-center gap-3 cursor-pointer px-4 py-3.5 transition-all duration-200"
               style={{
-                border: `1px solid ${form.contactMode === val ? 'var(--gold)' : 'rgba(157,134,104,0.28)'}`,
-                background: form.contactMode === val ? 'rgba(157,134,104,0.05)' : '#fff',
+                border: `1px solid ${form.contactMode === val ? 'var(--gold)' : 'rgba(212,175,55,0.28)'}`,
+                background: form.contactMode === val ? 'rgba(212,175,55,0.05)' : '#fff',
               }}
             >
               <div
                 className="w-4 h-4 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all duration-200"
-                style={{ borderColor: form.contactMode === val ? 'var(--gold)' : 'rgba(157,134,104,0.4)' }}
+                style={{ borderColor: form.contactMode === val ? 'var(--gold)' : 'rgba(212,175,55,0.4)' }}
               >
                 {form.contactMode === val && (
                   <div className="w-2 h-2 rounded-full" style={{ background: 'var(--gold)' }} />
@@ -226,9 +226,9 @@ function BuyPropertyForm() {
             placeholder="First Name *"
             value={form.firstName}
             onChange={(e) => set('firstName', e.target.value)}
-            style={{ ...inp, borderColor: errors.firstName ? '#c0392b' : 'rgba(157,134,104,0.28)' }}
+            style={{ ...inp, borderColor: errors.firstName ? '#c0392b' : 'rgba(212,175,55,0.28)' }}
             onFocus={(e) => { e.target.style.borderColor = 'var(--gold)' }}
-            onBlur={(e) => { e.target.style.borderColor = errors.firstName ? '#c0392b' : 'rgba(157,134,104,0.28)' }}
+            onBlur={(e) => { e.target.style.borderColor = errors.firstName ? '#c0392b' : 'rgba(212,175,55,0.28)' }}
           />
         </Field>
         <Field error={errors.lastName}>
@@ -237,21 +237,21 @@ function BuyPropertyForm() {
             placeholder="Last Name *"
             value={form.lastName}
             onChange={(e) => set('lastName', e.target.value)}
-            style={{ ...inp, borderColor: errors.lastName ? '#c0392b' : 'rgba(157,134,104,0.28)' }}
+            style={{ ...inp, borderColor: errors.lastName ? '#c0392b' : 'rgba(212,175,55,0.28)' }}
             onFocus={(e) => { e.target.style.borderColor = 'var(--gold)' }}
-            onBlur={(e) => { e.target.style.borderColor = errors.lastName ? '#c0392b' : 'rgba(157,134,104,0.28)' }}
+            onBlur={(e) => { e.target.style.borderColor = errors.lastName ? '#c0392b' : 'rgba(212,175,55,0.28)' }}
           />
         </Field>
       </div>
 
       {/* Phone row */}
       <Field error={errors.phone}>
-        <div className="flex mb-4" style={{ border: `1px solid ${errors.phone ? '#c0392b' : 'rgba(157,134,104,0.28)'}`, background: '#fff' }}>
+        <div className="flex mb-4" style={{ border: `1px solid ${errors.phone ? '#c0392b' : 'rgba(212,175,55,0.28)'}`, background: '#fff' }}>
           <div className="relative">
             <select
               value={form.countryCode}
               onChange={(e) => set('countryCode', e.target.value)}
-              style={{ ...inp, width: 'auto', paddingRight: '2rem', border: 'none', borderRight: '1px solid rgba(157,134,104,0.2)', minWidth: '80px', fontSize: '0.85rem' }}
+              style={{ ...inp, width: 'auto', paddingRight: '2rem', border: 'none', borderRight: '1px solid rgba(212,175,55,0.2)', minWidth: '80px', fontSize: '0.85rem' }}
             >
               <option value="+91">🇮🇳 +91</option>
               <option value="+971">🇦🇪 +971</option>
@@ -260,7 +260,7 @@ function BuyPropertyForm() {
               <option value="+65">🇸🇬 +65</option>
               <option value="+61">🇦🇺 +61</option>
             </select>
-            <ChevronDown size={11} className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none" style={{ color: 'rgba(157,134,104,0.5)' }} />
+            <ChevronDown size={11} className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none" style={{ color: 'rgba(212,175,55,0.5)' }} />
           </div>
           <input
             type="tel"
@@ -269,7 +269,7 @@ function BuyPropertyForm() {
             onChange={(e) => set('phone', e.target.value)}
             style={{ ...inp, flex: 1, border: 'none', paddingLeft: '0.9rem' }}
             onFocus={(e) => { e.currentTarget.parentElement.style.borderColor = 'var(--gold)' }}
-            onBlur={(e) => { e.currentTarget.parentElement.style.borderColor = errors.phone ? '#c0392b' : 'rgba(157,134,104,0.28)' }}
+            onBlur={(e) => { e.currentTarget.parentElement.style.borderColor = errors.phone ? '#c0392b' : 'rgba(212,175,55,0.28)' }}
           />
         </div>
       </Field>
@@ -281,9 +281,9 @@ function BuyPropertyForm() {
           placeholder="Email *"
           value={form.email}
           onChange={(e) => set('email', e.target.value)}
-          style={{ ...inp, marginBottom: '1rem', borderColor: errors.email ? '#c0392b' : 'rgba(157,134,104,0.28)' }}
+          style={{ ...inp, marginBottom: '1rem', borderColor: errors.email ? '#c0392b' : 'rgba(212,175,55,0.28)' }}
           onFocus={(e) => { e.target.style.borderColor = 'var(--gold)' }}
-          onBlur={(e) => { e.target.style.borderColor = errors.email ? '#c0392b' : 'rgba(157,134,104,0.28)' }}
+          onBlur={(e) => { e.target.style.borderColor = errors.email ? '#c0392b' : 'rgba(212,175,55,0.28)' }}
         />
       </Field>
 
@@ -293,9 +293,9 @@ function BuyPropertyForm() {
           <select
             value={form.propertyType}
             onChange={(e) => set('propertyType', e.target.value)}
-            style={{ ...inp, marginBottom: '1rem', cursor: 'pointer', borderColor: errors.propertyType ? '#c0392b' : 'rgba(157,134,104,0.28)', paddingRight: '2.5rem' }}
+            style={{ ...inp, marginBottom: '1rem', cursor: 'pointer', borderColor: errors.propertyType ? '#c0392b' : 'rgba(212,175,55,0.28)', paddingRight: '2.5rem' }}
             onFocus={(e) => { e.target.style.borderColor = 'var(--gold)' }}
-            onBlur={(e) => { e.target.style.borderColor = errors.propertyType ? '#c0392b' : 'rgba(157,134,104,0.28)' }}
+            onBlur={(e) => { e.target.style.borderColor = errors.propertyType ? '#c0392b' : 'rgba(212,175,55,0.28)' }}
           >
             <option value="">Property Type</option>
             {PROPERTY_TYPES.map((t) => <option key={t} value={t}>{t}</option>)}
@@ -311,7 +311,7 @@ function BuyPropertyForm() {
             onChange={(e) => set('project', e.target.value)}
             style={{ ...inp, cursor: 'pointer', paddingRight: '2.5rem' }}
             onFocus={(e) => { e.target.style.borderColor = 'var(--gold)' }}
-            onBlur={(e) => { e.target.style.borderColor = 'rgba(157,134,104,0.28)' }}
+            onBlur={(e) => { e.target.style.borderColor = 'rgba(212,175,55,0.28)' }}
           >
             <option value="">Project</option>
             {PROJECTS.map((p) => <option key={p} value={p}>{p}</option>)}
@@ -323,7 +323,7 @@ function BuyPropertyForm() {
             onChange={(e) => set('unitType', e.target.value)}
             style={{ ...inp, cursor: 'pointer', paddingRight: '2.5rem' }}
             onFocus={(e) => { e.target.style.borderColor = 'var(--gold)' }}
-            onBlur={(e) => { e.target.style.borderColor = 'rgba(157,134,104,0.28)' }}
+            onBlur={(e) => { e.target.style.borderColor = 'rgba(212,175,55,0.28)' }}
           >
             <option value="">Unit Type</option>
             {UNIT_TYPES.map((u) => <option key={u} value={u}>{u}</option>)}
@@ -337,7 +337,7 @@ function BuyPropertyForm() {
           <label className="flex items-start gap-3 cursor-pointer group">
             <div
               className="w-4 h-4 border flex items-center justify-center flex-shrink-0 mt-0.5 transition-all duration-200"
-              style={{ borderColor: errors.privacy ? '#c0392b' : form.privacy ? 'var(--gold)' : 'rgba(157,134,104,0.4)', background: form.privacy ? 'var(--gold)' : 'transparent' }}
+              style={{ borderColor: errors.privacy ? '#c0392b' : form.privacy ? 'var(--gold)' : 'rgba(212,175,55,0.4)', background: form.privacy ? 'var(--gold)' : 'transparent' }}
               onClick={() => set('privacy', !form.privacy)}
             >
               {form.privacy && <span style={{ color: '#fff', fontSize: '10px', lineHeight: 1 }}>✓</span>}
@@ -356,7 +356,7 @@ function BuyPropertyForm() {
         <label className="flex items-start gap-3 cursor-pointer">
           <div
             className="w-4 h-4 border flex items-center justify-center flex-shrink-0 mt-0.5 transition-all duration-200"
-            style={{ borderColor: form.newsletter ? 'var(--gold)' : 'rgba(157,134,104,0.4)', background: form.newsletter ? 'var(--gold)' : 'transparent' }}
+            style={{ borderColor: form.newsletter ? 'var(--gold)' : 'rgba(212,175,55,0.4)', background: form.newsletter ? 'var(--gold)' : 'transparent' }}
             onClick={() => set('newsletter', !form.newsletter)}
           >
             {form.newsletter && <span style={{ color: '#fff', fontSize: '10px', lineHeight: 1 }}>✓</span>}
@@ -412,9 +412,9 @@ function SeekJobPanel() {
           className="w-full h-full object-cover"
           style={{ objectPosition: 'center 30%' }}
         />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(5,5,5,0.2) 0%, rgba(5,5,5,0.65) 100%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(26,26,26,0.2) 0%, rgba(26,26,26,0.65) 100%)' }} />
         <div className="absolute bottom-0 inset-x-0 p-7">
-          <p className="font-ui text-[10px] tracking-[0.28em] uppercase mb-1.5" style={{ color: 'rgba(157,134,104,0.8)' }}>✦ Join Our Team</p>
+          <p className="font-ui text-[10px] tracking-[0.28em] uppercase mb-1.5" style={{ color: 'rgba(212,175,55,0.8)' }}>✦ Join Our Team</p>
           <h3 className="font-display font-light text-2xl" style={{ color: 'var(--ivory)' }}>
             Build More Than Homes
           </h3>
@@ -423,7 +423,7 @@ function SeekJobPanel() {
 
       <div
         className="p-8"
-        style={{ border: '1px solid rgba(157,134,104,0.2)', background: '#fff' }}
+        style={{ border: '1px solid rgba(212,175,55,0.2)', background: '#fff' }}
       >
         <p className="font-body text-base leading-relaxed mb-6" style={{ color: 'rgba(26,26,26,0.68)' }}>
           Thank you for visiting our site. Want to be a part of Majestique Landmarks&apos; talent squad?
@@ -470,9 +470,9 @@ function ChannelPartnerPanel() {
           className="w-full h-full object-cover"
           style={{ objectPosition: 'center 40%' }}
         />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(5,5,5,0.15) 0%, rgba(5,5,5,0.65) 100%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(26,26,26,0.15) 0%, rgba(26,26,26,0.65) 100%)' }} />
         <div className="absolute bottom-0 inset-x-0 p-7">
-          <p className="font-ui text-[10px] tracking-[0.28em] uppercase mb-1.5" style={{ color: 'rgba(157,134,104,0.8)' }}>✦ Partner with Us</p>
+          <p className="font-ui text-[10px] tracking-[0.28em] uppercase mb-1.5" style={{ color: 'rgba(212,175,55,0.8)' }}>✦ Partner with Us</p>
           <h3 className="font-display font-light text-2xl" style={{ color: 'var(--ivory)' }}>
             Grow Together
           </h3>
@@ -481,7 +481,7 @@ function ChannelPartnerPanel() {
 
       <div className="space-y-4">
         {/* New partner */}
-        <div className="p-7" style={{ border: '1px solid rgba(157,134,104,0.2)', background: '#fff' }}>
+        <div className="p-7" style={{ border: '1px solid rgba(212,175,55,0.2)', background: '#fff' }}>
           <p className="font-ui text-[11px] tracking-[0.18em] uppercase mb-1" style={{ color: 'rgba(26,26,26,0.4)' }}>New Partner</p>
           <h4 className="font-display font-light text-xl mb-3" style={{ color: 'var(--luxury-dark)' }}>
             I am a new channel partner
@@ -502,7 +502,7 @@ function ChannelPartnerPanel() {
         </div>
 
         {/* Existing partner */}
-        <div className="p-7" style={{ border: '1px solid rgba(157,134,104,0.2)', background: '#fff' }}>
+        <div className="p-7" style={{ border: '1px solid rgba(212,175,55,0.2)', background: '#fff' }}>
           <p className="font-ui text-[11px] tracking-[0.18em] uppercase mb-1" style={{ color: 'rgba(26,26,26,0.4)' }}>Existing Partner</p>
           <h4 className="font-display font-light text-xl mb-3" style={{ color: 'var(--luxury-dark)' }}>
             I am an existing channel partner
@@ -563,7 +563,7 @@ export default function Contact() {
                 {/* Tab bar */}
                 <div
                   className="flex mb-8"
-                  style={{ borderBottom: '2px solid rgba(157,134,104,0.18)' }}
+                  style={{ borderBottom: '2px solid rgba(212,175,55,0.18)' }}
                 >
                   {TABS.map((tab) => {
                     const active = activeTab === tab.id
@@ -626,7 +626,7 @@ export default function Contact() {
                 transition={{ duration: 0.6, delay: 0.12 }}
                 style={{
                   background: 'var(--luxury-dark)',
-                  border: '1px solid rgba(157,134,104,0.2)',
+                  border: '1px solid rgba(212,175,55,0.2)',
                   position: 'sticky',
                   top: '100px',
                 }}
@@ -640,10 +640,10 @@ export default function Contact() {
                     style={{ opacity: 0.55 }}
                     loading="lazy"
                   />
-                  <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, transparent 30%, rgba(5,5,5,0.85) 100%)' }} />
+                  <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, transparent 30%, rgba(26,26,26,0.85) 100%)' }} />
                   <div className="absolute bottom-0 inset-x-0 p-5">
                     <p className="font-display font-light text-lg" style={{ color: 'var(--ivory)' }}>Contact Information</p>
-                    <p className="font-ui text-[10px] tracking-widest uppercase mt-0.5" style={{ color: 'rgba(157,134,104,0.65)' }}>Majestique Landmarks, Pune</p>
+                    <p className="font-ui text-[10px] tracking-widest uppercase mt-0.5" style={{ color: 'rgba(212,175,55,0.65)' }}>Majestique Landmarks, Pune</p>
                   </div>
                 </div>
 
@@ -660,7 +660,7 @@ export default function Contact() {
                       >
                         <div
                           className="w-8 h-8 flex items-center justify-center flex-shrink-0 mt-0.5"
-                          style={{ border: '1px solid rgba(157,134,104,0.25)', background: 'rgba(157,134,104,0.06)' }}
+                          style={{ border: '1px solid rgba(212,175,55,0.25)', background: 'rgba(212,175,55,0.06)' }}
                         >
                           <info.icon size={13} style={{ color: 'var(--gold)' }} />
                         </div>
@@ -687,7 +687,7 @@ export default function Contact() {
                   </div>
 
                   {/* Divider */}
-                  <div className="mb-6" style={{ height: '1px', background: 'rgba(157,134,104,0.15)' }} />
+                  <div className="mb-6" style={{ height: '1px', background: 'rgba(212,175,55,0.15)' }} />
 
                   {/* Social */}
                   <p className="font-ui text-[10px] tracking-widest uppercase mb-4" style={{ color: 'rgba(243,239,232,0.38)' }}>Follow Us</p>
@@ -702,9 +702,9 @@ export default function Contact() {
                         whileHover={{ scale: 1.12, rotate: -6 }}
                         whileTap={{ scale: 0.95 }}
                         className="w-8 h-8 flex items-center justify-center transition-colors duration-300"
-                        style={{ border: '1px solid rgba(157,134,104,0.28)', color: 'var(--gold)' }}
+                        style={{ border: '1px solid rgba(212,175,55,0.28)', color: 'var(--gold)' }}
                         onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--gold)'; e.currentTarget.style.color = 'var(--luxury-dark)'; e.currentTarget.style.borderColor = 'var(--gold)' }}
-                        onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--gold)'; e.currentTarget.style.borderColor = 'rgba(157,134,104,0.28)' }}
+                        onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--gold)'; e.currentTarget.style.borderColor = 'rgba(212,175,55,0.28)' }}
                       >
                         <Icon size={13} />
                       </motion.a>
@@ -724,7 +724,7 @@ export default function Contact() {
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden" aria-hidden>
           <span
             className="font-display font-light"
-            style={{ fontSize: 'clamp(8rem, 20vw, 22rem)', color: 'rgba(157,134,104,0.04)', lineHeight: 1, whiteSpace: 'nowrap', letterSpacing: '-0.04em' }}
+            style={{ fontSize: 'clamp(8rem, 20vw, 22rem)', color: 'rgba(212,175,55,0.04)', lineHeight: 1, whiteSpace: 'nowrap', letterSpacing: '-0.04em' }}
           >
             LOCATION
           </span>
@@ -735,7 +735,7 @@ export default function Contact() {
             <SectionHeader
               label="Find Us"
               title={<>Visit Our<br /><em style={{ color: 'var(--gold-dark)', fontStyle: 'italic' }}>Corporate Office</em></>}
-              subtitle="Located in the heart of Pune — step into our office to explore our landmark developments in person."
+              subtitle="Located in the heart of Pune, step into our office to explore our landmark developments in person."
             />
           </div>
 
@@ -745,7 +745,7 @@ export default function Contact() {
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="relative"
-            style={{ border: '1px solid rgba(157,134,104,0.25)', boxShadow: '0 30px 90px rgba(5,5,5,0.14)' }}
+            style={{ border: '1px solid rgba(212,175,55,0.25)', boxShadow: '0 30px 90px rgba(26,26,26,0.14)' }}
           >
             {/* Gold top rule */}
             <div
@@ -753,25 +753,12 @@ export default function Contact() {
               style={{ height: '3px', background: 'linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light), transparent)' }}
             />
 
-            {/* Corner brackets */}
-            {[
-              ['top-4 left-4', 'border-l-2 border-t-2'],
-              ['top-4 right-4', 'border-r-2 border-t-2'],
-              ['bottom-4 left-4', 'border-l-2 border-b-2'],
-              ['bottom-4 right-4', 'border-r-2 border-b-2'],
-            ].map(([pos, border]) => (
-              <div
-                key={pos}
-                className={`absolute ${pos} w-9 h-9 ${border} z-10 pointer-events-none`}
-                style={{ borderColor: 'rgba(255,255,255,0.55)' }}
-              />
-            ))}
 
             {/* Map iframe */}
             <div style={{ height: 'clamp(420px, 48vw, 560px)' }}>
               <iframe
                 src={MAP_EMBED_SRC}
-                title="Majestique Landmarks — Corporate Office Location"
+                title="Majestique Landmarks: Corporate Office Location"
                 className="w-full h-full"
                 style={{ border: 0, filter: 'grayscale(6%) contrast(1.05) saturate(0.92)' }}
                 loading="lazy"
@@ -785,7 +772,7 @@ export default function Contact() {
       </section>
 
       {/* Quick Contact Strip */}
-      <section className="py-14" style={{ background: 'var(--luxury-dark)' }}>
+      <section className="py-11" style={{ background: 'var(--luxury-dark)' }}>
         <div className="container-luxury">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
@@ -803,13 +790,13 @@ export default function Contact() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="flex items-center gap-4 p-6 transition-all duration-300"
-                style={{ border: '1px solid rgba(157,134,104,0.18)', background: 'rgba(157,134,104,0.04)', textDecoration: 'none' }}
-                onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(157,134,104,0.45)'; e.currentTarget.style.background = 'rgba(157,134,104,0.08)' }}
-                onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(157,134,104,0.18)'; e.currentTarget.style.background = 'rgba(157,134,104,0.04)' }}
+                style={{ border: '1px solid rgba(212,175,55,0.18)', background: 'rgba(212,175,55,0.04)', textDecoration: 'none' }}
+                onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(212,175,55,0.45)'; e.currentTarget.style.background = 'rgba(212,175,55,0.08)' }}
+                onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(212,175,55,0.18)'; e.currentTarget.style.background = 'rgba(212,175,55,0.04)' }}
               >
                 <div
                   className="w-11 h-11 flex items-center justify-center flex-shrink-0"
-                  style={{ border: '1px solid rgba(157,134,104,0.3)', background: 'rgba(157,134,104,0.08)' }}
+                  style={{ border: '1px solid rgba(212,175,55,0.3)', background: 'rgba(212,175,55,0.08)' }}
                 >
                   <item.icon size={17} style={{ color: 'var(--gold)' }} />
                 </div>

@@ -5,15 +5,15 @@ import { ArrowRight, MapPin, ChevronLeft, ChevronRight } from 'lucide-react'
 
 /* ── Project spotlight images ── */
 import imgTwilight    from '../../assets/project_spolights/twilight.webp'
-import imgElements    from '../../assets/twilight-balewadi-pune-majestique_landmarks.avif'
-import imgKrutarth    from '../../assets/project_spolights/Krutharth.jpg'
+import imgElements    from '../../assets/project_spolights/elements.webp'
+import imgKrutarth    from '../../assets/project_spolights/Krutarth.webp'
 import imgNewFriends  from '../../assets/project_spolights/New_Friends_kothrud.webp'
-import imgAravali     from '../../assets/project_spolights/Aravali.jpg'
-import imgTheCrown    from '../../assets/project_spolights/Crown.jpg'
-import imgEvolvus     from '../../assets/project_spolights/evolvus-by-majestique-landmarks.webp'
-import imgSignature   from '../../assets/project_spolights/Signature-Towers-Pune.jpg'
+import imgAravali     from '../../assets/project_spolights/Aravali.webp'
+import imgTheCrown    from '../../assets/project_spolights/Crown.webp'
+import imgEvolvus     from '../../assets/project_spolights/evolvus-by-majestique.webp'
+import imgSignature   from '../../assets/project_spolights/Signature_Tower.webp'
 import imgRhythm      from '../../assets/project_spolights/Rythem_county.webp'
-import imgTowers      from '../../assets/project_spolights/Majestique-tower-kharadi.webp'
+import imgTowers      from '../../assets/project_spolights/Towers2.0.webp'
 const PROJECTS = [
   {
     image:    imgNewFriends,
@@ -25,7 +25,7 @@ const PROJECTS = [
   },
   {
     image:    imgTwilight,
-    name:     'TWILIGHT by Majestique',
+    name:     'Twilight by Majestique',
     location: 'Balewadi Highstreet, Pune',
     tag:      'Ongoing',
     config:   '4 & 3 BHK Luminous Residences',
@@ -33,7 +33,7 @@ const PROJECTS = [
   },
   {
     image:    imgElements,
-    name:     'ELEMENTS by Majestique',
+    name:     'Elements by Majestique',
     location: 'Pan Card Road, Baner, Pune',
     tag:      'Ongoing',
     config:   '4 Luxe Grand Suites',
@@ -133,10 +133,10 @@ export default function FeaturedProjectsSection() {
   const cur = PROJECTS[active]
 
   return (
-    <section style={{ background: '#F9F5EF' }}>
-      <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(157,134,104,0.35), transparent)' }} />
+    <section style={{ background: '#FAF6EF' }}>
+      <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(212,175,55,0.35), transparent)' }} />
 
-      <div className="container-luxury" style={{ paddingTop: '4.5rem', paddingBottom: '4.5rem' }}>
+      <div className="container-luxury" style={{ paddingTop: '3.25rem', paddingBottom: '3.25rem' }}>
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.15fr] gap-12 lg:gap-16 items-center">
 
           {/* ── LEFT — Static content ── */}
@@ -146,46 +146,42 @@ export default function FeaturedProjectsSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <p className="font-ui text-[0.72rem] tracking-[0.30em] uppercase mb-3 font-bold" style={{ color: '#9D8668' }}>
+            <p className="font-ui text-[0.78rem] tracking-[0.28em] uppercase font-bold mb-4" style={{ color: 'var(--gold)' }}>
               ✦ &nbsp; Discover Our Projects &nbsp; ✦
             </p>
-            <div style={{ width: '40px', height: '1px', background: 'linear-gradient(90deg,#9D8668,#DDD2C2)', marginBottom: '1.4rem' }} />
+            <motion.div
+              initial={{ scaleX: 0, opacity: 0 }}
+              whileInView={{ scaleX: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.65, delay: 0.1 }}
+              style={{ width: '44px', height: '1px', background: 'linear-gradient(90deg, var(--gold-dark), var(--gold))', transformOrigin: 'left', marginBottom: '1.5rem' }}
+            />
             <h2
               className="font-display font-light leading-tight mb-5"
-              style={{ fontSize: 'clamp(2.2rem, 4vw, 3.8rem)', color: '#1A1A1A', letterSpacing: '0.01em' }}
+              style={{ fontSize: 'clamp(2.2rem, 4vw, 3.8rem)', color: 'var(--ink)', letterSpacing: '0.01em' }}
             >
-              Crafted for Modern Living.
+              Designed for Today.
               <br />
               <span style={{ whiteSpace: 'nowrap' }}>
-                Designed for{' '}
-                <em style={{ fontStyle: 'italic', color: '#9D8668' }}>Generations.</em>
+                Built for{' '}
+                <em style={{ fontStyle: 'italic', color: 'var(--gold-dark)' }}>Tomorrow.</em>
               </span>
             </h2>
-            <p
-              className="font-body mb-4"
-              style={{ fontSize: 'clamp(1rem, 1.2vw, 1.1rem)', color: '#1A1A1A', fontWeight: 400, maxWidth: '420px', lineHeight: 1.8 }}
-            >
-              Every Majestique development is a reflection of thoughtful planning, architectural excellence,
-              and an uncompromising commitment to quality strategically located to offer seamless connectivity,
-              elevated living experiences, and enduring value.
-            </p>
             <p
               className="font-body mb-8"
               style={{ fontSize: 'clamp(1rem, 1.2vw, 1.1rem)', color: '#1A1A1A', fontWeight: 400, maxWidth: '420px', lineHeight: 1.8 }}
             >
-              Designed to meet the evolving needs of modern families, each development combines contemporary
-              architecture, intelligent space planning, and world-class amenities where communities thrive
-              and aspirations flourish.
+              Thoughtfully planned residences in Pune's most promising locations where design, comfort, connectivity, and quality come together.
             </p>
             <div className="flex items-center gap-4">
               <Link
                 to="/projects"
                 className="inline-flex items-center gap-2.5 font-ui text-[0.62rem] tracking-[0.22em] uppercase group transition-all duration-300"
-                style={{ color: '#fff', background: '#9D8668', border: '1px solid #9D8668', padding: '0.85rem 2rem' }}
-                onMouseEnter={e => { e.currentTarget.style.background = '#736452'; e.currentTarget.style.borderColor = '#736452' }}
-                onMouseLeave={e => { e.currentTarget.style.background = '#9D8668'; e.currentTarget.style.borderColor = '#9D8668' }}
+                style={{ color: '#fff', background: '#6B0D1A', border: '1px solid #6B0D1A', padding: '0.85rem 2rem' }}
+                onMouseEnter={e => { e.currentTarget.style.background = '#3D090F'; e.currentTarget.style.borderColor = '#3D090F' }}
+                onMouseLeave={e => { e.currentTarget.style.background = '#6B0D1A'; e.currentTarget.style.borderColor = '#6B0D1A' }}
               >
-                Explore All Projects
+                Explore Projects
                 <ArrowRight size={11} className="transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </div>
@@ -201,7 +197,29 @@ export default function FeaturedProjectsSection() {
             onMouseLeave={() => setPaused(false)}
           >
             {/* Image area */}
-            <div className="relative overflow-hidden" style={{ aspectRatio: '4 / 3.4', boxShadow: '0 24px 64px rgba(26,10,0,0.15)' }}>
+            <div className="relative overflow-hidden" style={{ aspectRatio: '16 / 10', background: '#3D090F', boxShadow: '0 24px 64px rgba(26,10,0,0.15)' }}>
+              {/* Blurred backdrop fill — keeps the frame full even when a photo's own proportions don't match the box */}
+              <AnimatePresence mode="wait" custom={direction}>
+                <motion.div
+                  key={active + '-bg'}
+                  custom={direction}
+                  variants={imgVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  className="absolute inset-0"
+                  style={{
+                    backgroundImage: `url(${cur.image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    filter: 'blur(28px) saturate(1.1)',
+                    transform: 'scale(1.15)',
+                  }}
+                />
+              </AnimatePresence>
+              <div className="absolute inset-0" style={{ background: 'rgba(26,26,26,0.45)' }} />
+
+              {/* Full, uncropped building photo */}
               <AnimatePresence mode="wait" custom={direction}>
                 <motion.img
                   key={active}
@@ -212,7 +230,7 @@ export default function FeaturedProjectsSection() {
                   initial="enter"
                   animate="center"
                   exit="exit"
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-contain"
                   loading="lazy"
                 />
               </AnimatePresence>
@@ -225,8 +243,8 @@ export default function FeaturedProjectsSection() {
                     onClick={fn}
                     aria-label={label}
                     className="w-8 h-8 flex items-center justify-center transition-all duration-200"
-                    style={{ background: 'rgba(255,255,255,0.92)', color: '#1A1A1A', border: '1px solid rgba(157,134,104,0.3)' }}
-                    onMouseEnter={e => { e.currentTarget.style.background = '#9D8668'; e.currentTarget.style.color = '#fff' }}
+                    style={{ background: 'rgba(255,255,255,0.92)', color: '#1A1A1A', border: '1px solid rgba(212,175,55,0.3)' }}
+                    onMouseEnter={e => { e.currentTarget.style.background = '#D4AF37'; e.currentTarget.style.color = '#fff' }}
                     onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.92)'; e.currentTarget.style.color = '#1A1A1A' }}
                   >
                     <Icon size={14} />
@@ -240,7 +258,7 @@ export default function FeaturedProjectsSection() {
               className="grid grid-cols-3"
               style={{
                 background: '#fff',
-                border: '1px solid rgba(157,134,104,0.15)',
+                border: '1px solid rgba(212,175,55,0.15)',
                 borderTop: 'none',
               }}
             >
@@ -252,10 +270,10 @@ export default function FeaturedProjectsSection() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="flex flex-col justify-center gap-1.5 px-5"
-                  style={{ borderRight: '1px solid rgba(157,134,104,0.18)', paddingTop: '1.1rem', paddingBottom: '1.1rem' }}
+                  className="flex flex-col justify-start gap-1.5 px-5"
+                  style={{ borderRight: '1px solid rgba(212,175,55,0.18)', paddingTop: '1.1rem', paddingBottom: '1.1rem' }}
                 >
-                  <span className="font-ui text-[0.62rem] tracking-[0.18em] uppercase" style={{ color: '#9D8668', fontWeight: 600 }}>
+                  <span className="font-ui text-[0.62rem] tracking-[0.18em] uppercase" style={{ color: '#D4AF37', fontWeight: 600 }}>
                     Project
                   </span>
                   <span className="font-body" style={{ fontSize: '0.95rem', color: '#1A1A1A', lineHeight: 1.35, fontWeight: 500 }}>
@@ -272,10 +290,10 @@ export default function FeaturedProjectsSection() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="flex flex-col justify-center gap-1.5 px-5"
-                  style={{ borderRight: '1px solid rgba(157,134,104,0.18)', paddingTop: '1.1rem', paddingBottom: '1.1rem' }}
+                  className="flex flex-col justify-start gap-1.5 px-5"
+                  style={{ borderRight: '1px solid rgba(212,175,55,0.18)', paddingTop: '1.1rem', paddingBottom: '1.1rem' }}
                 >
-                  <span className="font-ui text-[0.62rem] tracking-[0.18em] uppercase" style={{ color: '#9D8668', fontWeight: 600 }}>
+                  <span className="font-ui text-[0.62rem] tracking-[0.18em] uppercase" style={{ color: '#D4AF37', fontWeight: 600 }}>
                     Configuration
                   </span>
                   <span className="font-body" style={{ fontSize: '0.95rem', color: '#1A1A1A', lineHeight: 1.35, fontWeight: 500 }}>
@@ -292,10 +310,10 @@ export default function FeaturedProjectsSection() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="flex flex-col justify-center gap-1.5 px-5"
+                  className="flex flex-col justify-start gap-1.5 px-5"
                   style={{ paddingTop: '1.1rem', paddingBottom: '1.1rem' }}
                 >
-                  <span className="font-ui text-[0.62rem] tracking-[0.18em] uppercase flex items-center gap-1" style={{ color: '#9D8668', fontWeight: 600 }}>
+                  <span className="font-ui text-[0.62rem] tracking-[0.18em] uppercase flex items-center gap-1" style={{ color: '#D4AF37', fontWeight: 600 }}>
                     <MapPin size={10} style={{ flexShrink: 0 }} />
                     Location
                   </span>
@@ -320,7 +338,7 @@ export default function FeaturedProjectsSection() {
                     to={cur.link}
                     className="inline-flex items-center gap-2 font-ui text-[0.82rem] tracking-wider uppercase transition-colors duration-200"
                     style={{ color: '#1A1A1A' }}
-                    onMouseEnter={e => { e.currentTarget.style.color = '#9D8668' }}
+                    onMouseEnter={e => { e.currentTarget.style.color = '#D4AF37' }}
                     onMouseLeave={e => { e.currentTarget.style.color = '#1A1A1A' }}
                   >
                     View Project <ArrowRight size={11} />
@@ -338,19 +356,19 @@ export default function FeaturedProjectsSection() {
                       onClick={() => goTo(i)}
                       aria-label={`Project ${i + 1}`}
                       className="relative overflow-hidden transition-all duration-400"
-                      style={{ height: '2px', width: isActive ? '28px' : '10px', background: 'rgba(157,134,104,0.25)' }}
+                      style={{ height: '2px', width: isActive ? '28px' : '10px', background: 'rgba(212,175,55,0.25)' }}
                     >
                       {isActive && (
                         <motion.div
                           key={active}
                           className="absolute inset-0 origin-left"
-                          style={{ background: '#9D8668' }}
+                          style={{ background: '#D4AF37' }}
                           initial={{ scaleX: 0 }}
                           animate={{ scaleX: paused ? 0 : 1 }}
                           transition={{ duration: 3.5, ease: 'linear' }}
                         />
                       )}
-                      {i < active && <div className="absolute inset-0" style={{ background: 'rgba(157,134,104,0.6)' }} />}
+                      {i < active && <div className="absolute inset-0" style={{ background: 'rgba(212,175,55,0.6)' }} />}
                     </button>
                   )
                 })}
@@ -361,7 +379,7 @@ export default function FeaturedProjectsSection() {
         </div>
       </div>
 
-      <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(157,134,104,0.25), transparent)' }} />
+      <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(212,175,55,0.25), transparent)' }} />
     </section>
   )
 }

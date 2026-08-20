@@ -111,7 +111,7 @@ export default function ProjectDetail() {
     return (
       <div className="min-h-screen flex items-center justify-center" style={{ background: 'var(--cream)' }}>
         <div className="text-center px-6">
-          <LayoutTemplate size={48} style={{ color: 'rgba(157,134,104,0.3)', margin: '0 auto 1.5rem' }} />
+          <LayoutTemplate size={48} style={{ color: 'rgba(212,175,55,0.3)', margin: '0 auto 1.5rem' }} />
           <p className="font-times text-3xl mb-4" style={{ color: 'var(--luxury-dark)' }}>Project Not Found</p>
           <p className="font-body text-sm mb-8" style={{ color: 'rgba(26,26,26,0.82)' }}>
             The project you're looking for may have moved or is no longer available.
@@ -133,7 +133,7 @@ export default function ProjectDetail() {
     <>
       <Seo
         title={project.title}
-        description={project.tagline || `${project.title} — luxury ${(project.category || '').toLowerCase()} in ${project.location?.name || project.location || 'Pune'}.`}
+        description={project.tagline || `${project.title}, a luxury ${(project.category || '').toLowerCase()} in ${project.location?.name || project.location || 'Pune'}.`}
         image={project.coverImage || undefined}
       />
 
@@ -153,10 +153,10 @@ export default function ProjectDetail() {
         />
 
         {/* Layered gradient — dark at bottom for text, dark at top for UI clarity */}
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(5,5,5,0.97) 0%, rgba(5,5,5,0.65) 35%, rgba(5,5,5,0.3) 65%, rgba(5,5,5,0.12) 100%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,26,26,0.97) 0%, rgba(26,26,26,0.65) 35%, rgba(26,26,26,0.3) 65%, rgba(26,26,26,0.12) 100%)' }} />
         {/* Extra top-down veil so back button & badges stay legible over bright image */}
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(5,5,5,0.65) 0%, transparent 38%)' }} />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(5,5,5,0.35) 0%, transparent 55%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(26,26,26,0.65) 0%, transparent 38%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(26,26,26,0.35) 0%, transparent 55%)' }} />
 
         {/* Gold top line */}
         <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: 'linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-dark))' }} />
@@ -165,13 +165,13 @@ export default function ProjectDetail() {
         <button
           onClick={handleBack}
           className="absolute flex items-center gap-2 font-ui text-xs tracking-widest uppercase transition-all duration-300"
-          style={{ top: '7rem', left: '1.5rem', color: 'rgba(243,239,232,0.82)', zIndex: 10 }}
+          style={{ top: '7rem', left: '1.5rem', color: 'rgba(250,246,239,0.82)', zIndex: 10 }}
           onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--gold)' }}
-          onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(243,239,232,0.82)' }}
+          onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(250,246,239,0.82)' }}
         >
           <div
             className="w-7 h-7 flex items-center justify-center transition-all duration-300"
-            style={{ border: '1px solid rgba(243,239,232,0.4)', background: 'rgba(5,5,5,0.3)', backdropFilter: 'blur(8px)' }}
+            style={{ border: '1px solid rgba(250,246,239,0.4)', background: 'rgba(26,26,26,0.3)', backdropFilter: 'blur(8px)' }}
           >
             <ArrowLeft size={13} />
           </div>
@@ -190,9 +190,9 @@ export default function ProjectDetail() {
               <span
                 className="font-ui text-[0.62rem] font-bold tracking-[0.18em] uppercase px-3 py-1.5"
                 style={{
-                  background: isOngoing ? 'var(--gold)' : 'rgba(157,134,104,0.28)',
+                  background: isOngoing ? 'var(--gold)' : 'rgba(212,175,55,0.28)',
                   color:      isOngoing ? 'var(--luxury-dark)' : 'var(--gold)',
-                  border:     isOngoing ? 'none' : '1px solid rgba(157,134,104,0.75)',
+                  border:     isOngoing ? 'none' : '1px solid rgba(212,175,55,0.75)',
                   backdropFilter: 'blur(8px)',
                 }}
               >
@@ -200,13 +200,13 @@ export default function ProjectDetail() {
               </span>
               {project.category && (
                 <span className="font-ui text-[0.62rem] tracking-widest uppercase px-3 py-1.5"
-                  style={{ background: 'rgba(5,5,5,0.35)', color: 'rgba(243,239,232,0.88)', border: '1px solid rgba(243,239,232,0.28)', backdropFilter: 'blur(8px)' }}>
+                  style={{ background: 'rgba(26,26,26,0.35)', color: 'rgba(250,246,239,0.88)', border: '1px solid rgba(250,246,239,0.28)', backdropFilter: 'blur(8px)' }}>
                   {project.category}
                 </span>
               )}
               {project.featured && (
                 <span className="flex items-center gap-1.5 font-ui text-[0.62rem] tracking-widest uppercase px-3 py-1.5"
-                  style={{ background: 'rgba(157,134,104,0.28)', color: 'var(--gold)', border: '1px solid rgba(157,134,104,0.7)', backdropFilter: 'blur(8px)' }}>
+                  style={{ background: 'rgba(212,175,55,0.28)', color: 'var(--gold)', border: '1px solid rgba(212,175,55,0.7)', backdropFilter: 'blur(8px)' }}>
                   <Star size={9} fill="currentColor" /> Featured
                 </span>
               )}
@@ -224,21 +224,21 @@ export default function ProjectDetail() {
             {/* Tagline */}
             {project.tagline && (
               <p className="font-times italic mb-8"
-                style={{ fontSize: 'clamp(1rem, 2vw, 1.4rem)', color: 'rgba(232,213,163,0.65)' }}>
+                style={{ fontSize: 'clamp(1rem, 2vw, 1.4rem)', color: 'rgba(212,175,55,0.65)' }}>
                 "{project.tagline}"
               </p>
             )}
 
             {/* Meta strip */}
             <div className="flex flex-wrap items-center gap-6 pt-2"
-              style={{ borderTop: '1px solid rgba(157,134,104,0.15)' }}>
+              style={{ borderTop: '1px solid rgba(212,175,55,0.15)' }}>
               {[
                 { icon: MapPin,    value: project.location?.name || project.location },
                 { icon: Maximize2, value: project.area,                   hide: !project.area },
                 { icon: Home,      value: project.units ? `${project.units} Units` : null, hide: !project.units },
                 { icon: Calendar,  value: project.possession,             hide: !project.possession },
               ].filter((m) => !m.hide && m.value).map(({ icon: Icon, value }, i) => (
-                <span key={i} className="flex items-center gap-2 font-body text-sm pt-3" style={{ color: 'rgba(243,239,232,0.58)' }}>
+                <span key={i} className="flex items-center gap-2 font-body text-sm pt-3" style={{ color: 'rgba(250,246,239,0.58)' }}>
                   <Icon size={13} style={{ color: 'var(--gold)' }} />
                   {value}
                 </span>
@@ -257,18 +257,18 @@ export default function ProjectDetail() {
               {allImages.slice(1, 4).map((img, i) => (
                 <button key={i} onClick={() => setGalleryIndex(i + 1)}
                   className="relative overflow-hidden flex-shrink-0 group"
-                  style={{ width: 76, height: 54, border: '1px solid rgba(157,134,104,0.3)' }}>
+                  style={{ width: 76, height: 54, border: '1px solid rgba(212,175,55,0.3)' }}>
                   <img src={img?.url || img} alt="" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    style={{ background: 'rgba(157,134,104,0.3)' }} />
+                    style={{ background: 'rgba(212,175,55,0.3)' }} />
                 </button>
               ))}
               <button
                 onClick={() => setGalleryIndex(0)}
                 className="flex items-center gap-2 px-3 py-2.5 flex-shrink-0 transition-all duration-200"
-                style={{ background: 'rgba(5,5,5,0.88)', color: 'var(--gold)', border: '1px solid rgba(157,134,104,0.4)', backdropFilter: 'blur(12px)' }}
-                onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(157,134,104,0.18)' }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(5,5,5,0.88)' }}
+                style={{ background: 'rgba(26,26,26,0.88)', color: 'var(--gold)', border: '1px solid rgba(212,175,55,0.4)', backdropFilter: 'blur(12px)' }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(212,175,55,0.18)' }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(26,26,26,0.88)' }}
               >
                 <Camera size={13} />
                 <span className="font-ui text-xs tracking-wider uppercase">{allImages.length} Photos</span>
@@ -282,9 +282,9 @@ export default function ProjectDetail() {
           STICKY TAB BAR
       ══════════════════════════════════════════════════════════ */}
       <div className="sticky top-0 z-40"
-        style={{ background: 'var(--luxury-dark)', borderBottom: '1px solid rgba(157,134,104,0.22)', boxShadow: '0 6px 32px rgba(5,5,5,0.6)' }}>
+        style={{ background: 'var(--luxury-dark)', borderBottom: '1px solid rgba(212,175,55,0.22)', boxShadow: '0 6px 32px rgba(26,26,26,0.6)' }}>
         {/* Gold shimmer line at top of bar */}
-        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(157,134,104,0.5), transparent)' }} />
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(212,175,55,0.5), transparent)' }} />
         <div className="container-luxury flex items-center justify-between gap-4">
           {/* Tabs */}
           <div className="flex items-center overflow-x-auto">
@@ -292,7 +292,7 @@ export default function ProjectDetail() {
               <button key={tab} onClick={() => setActiveTab(tab)}
                 className="relative px-5 py-4 font-ui text-xs tracking-[0.22em] uppercase whitespace-nowrap transition-all duration-250"
                 style={{
-                  color: activeTab === tab ? 'var(--gold)' : 'rgba(243,239,232,0.32)',
+                  color: activeTab === tab ? 'var(--gold)' : 'rgba(250,246,239,0.32)',
                   fontWeight: activeTab === tab ? 500 : 300,
                 }}>
                 {tab}
@@ -305,22 +305,22 @@ export default function ProjectDetail() {
               </button>
             ))}
           </div>
-          {/* Enquire Now — accent gold button */}
+          {/* Enquire Now — solid burgundy CTA button */}
           <button
             onClick={() => setEnquiryOpen(true)}
             className="hidden md:flex items-center gap-2 flex-shrink-0 font-ui tracking-[0.18em] uppercase transition-all duration-300"
             style={{
               fontSize: '0.6rem',
               padding: '0.7rem 1.75rem',
-              background: 'linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%)',
-              color: 'var(--luxury-dark)',
+              background: '#6B0D1A',
+              color: '#fff',
               border: 'none',
               fontWeight: 600,
               letterSpacing: '0.2em',
-              boxShadow: '0 4px 20px rgba(157,134,104,0.35)',
+              boxShadow: '0 4px 20px rgba(107,13,26,0.35)',
             }}
-            onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 8px 32px rgba(157,134,104,0.5)'; e.currentTarget.style.transform = 'translateY(-1px)' }}
-            onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 4px 20px rgba(157,134,104,0.35)'; e.currentTarget.style.transform = 'translateY(0)' }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = '#3D090F'; e.currentTarget.style.boxShadow = '0 8px 32px rgba(107,13,26,0.5)'; e.currentTarget.style.transform = 'translateY(-1px)' }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = '#6B0D1A'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(107,13,26,0.35)'; e.currentTarget.style.transform = 'translateY(0)' }}
           >
             <Phone size={11} /> Enquire Now
           </button>
@@ -344,7 +344,7 @@ export default function ProjectDetail() {
 
                     {/* Key details — premium stat grid */}
                     <motion.div {...fU()} className="grid grid-cols-2 md:grid-cols-4 mb-12 overflow-hidden"
-                      style={{ border: '1px solid rgba(157,134,104,0.2)', boxShadow: '0 4px 24px rgba(5,5,5,0.06)' }}>
+                      style={{ border: '1px solid rgba(212,175,55,0.2)', boxShadow: '0 4px 24px rgba(26,26,26,0.06)' }}>
                       {[
                         { icon: MapPin,    label: 'Location',    value: project.location?.name || project.location },
                         { icon: Maximize2, label: 'Area',        value: project.area || '—' },
@@ -354,11 +354,11 @@ export default function ProjectDetail() {
                         <div key={label}
                           className="flex flex-col items-center justify-center p-6 text-center"
                           style={{
-                            borderRight:  i < 3 ? '1px solid rgba(157,134,104,0.15)' : 'none',
+                            borderRight:  i < 3 ? '1px solid rgba(212,175,55,0.15)' : 'none',
                             background: i % 2 === 0 ? 'white' : 'var(--pearl)',
                           }}>
                           <div className="w-11 h-11 flex items-center justify-center mb-3"
-                            style={{ background: 'linear-gradient(135deg, rgba(157,134,104,0.12), rgba(157,134,104,0.04))', border: '1px solid rgba(157,134,104,0.22)' }}>
+                            style={{ background: 'linear-gradient(135deg, rgba(212,175,55,0.12), rgba(212,175,55,0.04))', border: '1px solid rgba(212,175,55,0.22)' }}>
                             <Icon size={17} style={{ color: 'var(--gold)' }} />
                           </div>
                           <p className="font-ui text-[9px] tracking-[0.22em] uppercase mb-1" style={{ color: 'rgba(92,74,48,0.5)' }}>
@@ -375,9 +375,9 @@ export default function ProjectDetail() {
                     {project.rera && (
                       <motion.div {...fU(0.05)}
                         className="flex items-center gap-4 p-5 mb-10"
-                        style={{ background: 'rgba(157,134,104,0.06)', border: '1px solid rgba(157,134,104,0.22)' }}>
+                        style={{ background: 'rgba(212,175,55,0.06)', border: '1px solid rgba(212,175,55,0.22)' }}>
                         <div className="w-11 h-11 flex items-center justify-center flex-shrink-0"
-                          style={{ background: 'rgba(157,134,104,0.14)', border: '1px solid rgba(157,134,104,0.28)' }}>
+                          style={{ background: 'rgba(212,175,55,0.14)', border: '1px solid rgba(212,175,55,0.28)' }}>
                           <Shield size={17} style={{ color: 'var(--gold)' }} />
                         </div>
                         <div>
@@ -423,9 +423,9 @@ export default function ProjectDetail() {
                               viewport={{ once: true }}
                               transition={{ duration: 0.38, delay: i * 0.06 }}
                               className="flex items-start gap-3 p-4 bg-white group transition-all duration-250"
-                              style={{ border: '1px solid rgba(157,134,104,0.14)', borderLeft: '3px solid var(--gold)' }}
-                              onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 6px 28px rgba(5,5,5,0.08)'; e.currentTarget.style.borderColor = 'rgba(157,134,104,0.4)' }}
-                              onMouseLeave={(e) => { e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.borderColor = 'rgba(157,134,104,0.14)' }}
+                              style={{ border: '1px solid rgba(212,175,55,0.14)', borderLeft: '3px solid var(--gold)' }}
+                              onMouseEnter={(e) => { e.currentTarget.style.boxShadow = '0 6px 28px rgba(26,26,26,0.08)'; e.currentTarget.style.borderColor = 'rgba(212,175,55,0.4)' }}
+                              onMouseLeave={(e) => { e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.borderColor = 'rgba(212,175,55,0.14)' }}
                             >
                               <div className="w-5 h-5 flex items-center justify-center flex-shrink-0 mt-0.5"
                                 style={{ background: 'linear-gradient(135deg, var(--gold), var(--gold-dark))' }}>
@@ -460,19 +460,19 @@ export default function ProjectDetail() {
                           {allImages.slice(0, 3).map((img, i) => (
                             <button key={i} onClick={() => setGalleryIndex(i)}
                               className="relative overflow-hidden group aspect-[4/3]"
-                              style={{ border: '1px solid rgba(157,134,104,0.15)' }}>
+                              style={{ border: '1px solid rgba(212,175,55,0.15)' }}>
                               <img src={img?.url || img} alt={img?.caption || `Photo ${i + 1}`}
                                 className="w-full h-full object-cover transition-transform duration-600 group-hover:scale-110" />
                               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
-                                style={{ background: 'rgba(5,5,5,0.42)' }}>
+                                style={{ background: 'rgba(26,26,26,0.42)' }}>
                                 <Eye size={20} style={{ color: 'var(--gold)' }} />
                               </div>
                               {i === 2 && allImages.length > 3 && (
                                 <div className="absolute inset-0 flex items-center justify-center"
-                                  style={{ background: 'rgba(5,5,5,0.62)' }}>
+                                  style={{ background: 'rgba(26,26,26,0.62)' }}>
                                   <p className="text-center">
                                     <span className="font-times text-2xl block" style={{ color: 'var(--gold)' }}>+{allImages.length - 3}</span>
-                                    <span className="font-ui text-xs tracking-widest uppercase" style={{ color: 'rgba(243,239,232,0.6)' }}>More</span>
+                                    <span className="font-ui text-xs tracking-widest uppercase" style={{ color: 'rgba(250,246,239,0.6)' }}>More</span>
                                   </p>
                                 </div>
                               )}
@@ -500,8 +500,8 @@ export default function ProjectDetail() {
 
                     {allImages.length === 0 ? (
                       <div className="flex flex-col items-center justify-center py-24"
-                        style={{ border: '1px dashed rgba(157,134,104,0.25)', background: 'white' }}>
-                        <Grid2x2 size={36} style={{ color: 'rgba(157,134,104,0.3)', marginBottom: '1rem' }} />
+                        style={{ border: '1px dashed rgba(212,175,55,0.25)', background: 'white' }}>
+                        <Grid2x2 size={36} style={{ color: 'rgba(212,175,55,0.3)', marginBottom: '1rem' }} />
                         <p className="font-times text-xl mb-1" style={{ color: 'var(--luxury-charcoal)' }}>Gallery Coming Soon</p>
                         <p className="font-body text-sm" style={{ color: 'rgba(92,74,48,0.45)' }}>Photos will be added shortly.</p>
                       </div>
@@ -516,7 +516,7 @@ export default function ProjectDetail() {
                           <img src={allImages[0]?.url || allImages[0]} alt="Main"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                            style={{ background: 'rgba(5,5,5,0.38)' }}>
+                            style={{ background: 'rgba(26,26,26,0.38)' }}>
                             <span className="flex items-center gap-2 font-ui text-xs tracking-widest uppercase px-5 py-2.5"
                               style={{ border: '1px solid var(--gold)', color: 'var(--gold)' }}>
                               <Eye size={13} /> View Full Screen
@@ -536,15 +536,15 @@ export default function ProjectDetail() {
                                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                                   {isLast ? (
                                     <div className="absolute inset-0 flex items-center justify-center"
-                                      style={{ background: 'rgba(5,5,5,0.65)' }}>
+                                      style={{ background: 'rgba(26,26,26,0.65)' }}>
                                       <p className="text-center">
                                         <span className="font-times text-2xl block" style={{ color: 'var(--gold)' }}>+{allImages.length - 5}</span>
-                                        <span className="font-ui text-xs tracking-widest uppercase" style={{ color: 'rgba(243,239,232,0.6)' }}>More</span>
+                                        <span className="font-ui text-xs tracking-widest uppercase" style={{ color: 'rgba(250,246,239,0.6)' }}>More</span>
                                       </p>
                                     </div>
                                   ) : (
                                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                                      style={{ background: 'rgba(157,134,104,0.22)' }} />
+                                      style={{ background: 'rgba(212,175,55,0.22)' }} />
                                   )}
                                 </button>
                               )
@@ -561,7 +561,7 @@ export default function ProjectDetail() {
                                 <img src={img?.url || img} alt={img?.caption || `Photo ${i + 6}`}
                                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                                  style={{ background: 'rgba(157,134,104,0.2)' }} />
+                                  style={{ background: 'rgba(212,175,55,0.2)' }} />
                               </button>
                             ))}
                           </div>
@@ -579,8 +579,8 @@ export default function ProjectDetail() {
 
                     {!project.floorPlans?.length ? (
                       <div className="flex flex-col items-center justify-center py-24"
-                        style={{ border: '1px dashed rgba(157,134,104,0.25)', background: 'white' }}>
-                        <LayoutTemplate size={36} style={{ color: 'rgba(157,134,104,0.3)', marginBottom: '1rem' }} />
+                        style={{ border: '1px dashed rgba(212,175,55,0.25)', background: 'white' }}>
+                        <LayoutTemplate size={36} style={{ color: 'rgba(212,175,55,0.3)', marginBottom: '1rem' }} />
                         <p className="font-times text-xl mb-1" style={{ color: 'var(--luxury-charcoal)' }}>Plans Coming Soon</p>
                         <p className="font-body text-sm" style={{ color: 'rgba(92,74,48,0.45)' }}>Floor plans will be added shortly.</p>
                       </div>
@@ -594,7 +594,7 @@ export default function ProjectDetail() {
                                 background: activePlan === i ? 'var(--luxury-dark)' : 'white',
                                 color:      activePlan === i ? 'var(--gold)' : 'var(--luxury-charcoal)',
                                 border:     `1px solid ${activePlan === i ? 'var(--luxury-dark)' : 'rgba(92,74,48,0.2)'}`,
-                                boxShadow:  activePlan === i ? '0 4px 16px rgba(5,5,5,0.2)' : 'none',
+                                boxShadow:  activePlan === i ? '0 4px 16px rgba(26,26,26,0.2)' : 'none',
                               }}>
                               {plan.label}
                             </button>
@@ -612,13 +612,13 @@ export default function ProjectDetail() {
                               <button
                                 className="relative overflow-hidden group cursor-zoom-in w-full bg-white"
                                 onClick={() => setPlanOpen(true)}
-                                style={{ border: '1px solid rgba(157,134,104,0.2)' }}>
+                                style={{ border: '1px solid rgba(212,175,55,0.2)' }}>
                                 <img
                                   src={project.floorPlans[activePlan].imageUrl}
                                   alt={project.floorPlans[activePlan].label}
                                   className="w-full object-contain max-h-[400px] p-4 transition-transform duration-500 group-hover:scale-105" />
                                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                                  style={{ background: 'rgba(5,5,5,0.32)' }}>
+                                  style={{ background: 'rgba(26,26,26,0.32)' }}>
                                   <span className="flex items-center gap-2 font-ui text-xs tracking-widest uppercase px-4 py-2"
                                     style={{ border: '1px solid var(--gold)', color: 'var(--gold)' }}>
                                     <Eye size={12} /> Zoom In
@@ -633,7 +633,7 @@ export default function ProjectDetail() {
                                     {project.floorPlans[activePlan].label}
                                   </p>
                                 </div>
-                                <div className="h-px" style={{ background: 'rgba(157,134,104,0.2)' }} />
+                                <div className="h-px" style={{ background: 'rgba(212,175,55,0.2)' }} />
                                 {project.floorPlans[activePlan].area && (
                                   <div>
                                     <p className="font-ui text-xs tracking-widest uppercase mb-1" style={{ color: 'rgba(92,74,48,0.5)' }}>Carpet Area</p>
@@ -650,7 +650,7 @@ export default function ProjectDetail() {
                                     </p>
                                   </div>
                                 )}
-                                <div className="h-px" style={{ background: 'rgba(157,134,104,0.2)' }} />
+                                <div className="h-px" style={{ background: 'rgba(212,175,55,0.2)' }} />
                                 <button onClick={() => setEnquiryOpen(true)} className="btn-gold w-full justify-center">
                                   Enquire About This Unit
                                 </button>
@@ -677,8 +677,8 @@ export default function ProjectDetail() {
 
                     {!project.amenities?.length && !amenityImages.length ? (
                       <div className="flex flex-col items-center justify-center py-24"
-                        style={{ border: '1px dashed rgba(157,134,104,0.25)', background: 'white' }}>
-                        <CheckCircle2 size={36} style={{ color: 'rgba(157,134,104,0.3)', marginBottom: '1rem' }} />
+                        style={{ border: '1px dashed rgba(212,175,55,0.25)', background: 'white' }}>
+                        <CheckCircle2 size={36} style={{ color: 'rgba(212,175,55,0.3)', marginBottom: '1rem' }} />
                         <p className="font-times text-xl mb-1" style={{ color: 'var(--luxury-charcoal)' }}>Details Coming Soon</p>
                       </div>
                     ) : (
@@ -689,7 +689,7 @@ export default function ProjectDetail() {
                               <div key={label}>
                                 <div className="flex items-center gap-4 mb-5">
                                   <p className="font-ui text-xs tracking-widest uppercase" style={{ color: 'var(--gold-dark)' }}>{label}</p>
-                                  <div className="flex-1 h-px" style={{ background: 'rgba(157,134,104,0.18)' }} />
+                                  <div className="flex-1 h-px" style={{ background: 'rgba(212,175,55,0.18)' }} />
                                 </div>
                                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                                   {items.map((amenity, i) => {
@@ -701,11 +701,11 @@ export default function ProjectDetail() {
                                         viewport={{ once: true }}
                                         transition={{ duration: 0.3, delay: (gi * 0.04) + i * 0.05 }}
                                         className="flex items-center gap-3 p-4 bg-white transition-all duration-200 group"
-                                        style={{ border: '1px solid rgba(157,134,104,0.14)' }}
-                                        onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(157,134,104,0.4)'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(5,5,5,0.07)' }}
-                                        onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(157,134,104,0.14)'; e.currentTarget.style.boxShadow = 'none' }}>
+                                        style={{ border: '1px solid rgba(212,175,55,0.14)' }}
+                                        onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(212,175,55,0.4)'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(26,26,26,0.07)' }}
+                                        onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(212,175,55,0.14)'; e.currentTarget.style.boxShadow = 'none' }}>
                                         <div className="w-9 h-9 flex items-center justify-center flex-shrink-0"
-                                          style={{ background: 'linear-gradient(135deg, rgba(157,134,104,0.12), rgba(157,134,104,0.04))', border: '1px solid rgba(157,134,104,0.2)' }}>
+                                          style={{ background: 'linear-gradient(135deg, rgba(212,175,55,0.12), rgba(212,175,55,0.04))', border: '1px solid rgba(212,175,55,0.2)' }}>
                                           <Icon size={15} style={{ color: 'var(--gold)' }} />
                                         </div>
                                         <span className="font-body text-sm leading-tight" style={{ color: 'var(--luxury-charcoal)' }}>
@@ -724,7 +724,7 @@ export default function ProjectDetail() {
                           <div className={amenityGroups.length > 0 ? 'mt-10' : ''}>
                             <div className="flex items-center gap-4 mb-5">
                               <p className="font-ui text-xs tracking-widest uppercase" style={{ color: 'var(--gold-dark)' }}>Amenity Gallery</p>
-                              <div className="flex-1 h-px" style={{ background: 'rgba(157,134,104,0.18)' }} />
+                              <div className="flex-1 h-px" style={{ background: 'rgba(212,175,55,0.18)' }} />
                             </div>
                             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                               {amenityImages.map((img, i) => (
@@ -735,18 +735,18 @@ export default function ProjectDetail() {
                                   viewport={{ once: true }}
                                   transition={{ duration: 0.3, delay: i * 0.06 }}
                                   className="relative overflow-hidden group cursor-zoom-in"
-                                  style={{ aspectRatio: '4/3', border: '1px solid rgba(157,134,104,0.15)' }}
+                                  style={{ aspectRatio: '4/3', border: '1px solid rgba(212,175,55,0.15)' }}
                                   onClick={() => setAmenityLightbox(i)}
                                 >
                                   <img src={img.url} alt={img.altText || img.caption || 'Amenity'}
                                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
-                                    style={{ background: 'rgba(5,5,5,0.42)' }}>
+                                    style={{ background: 'rgba(26,26,26,0.42)' }}>
                                     <Eye size={20} style={{ color: 'var(--gold)' }} />
                                   </div>
                                   {img.caption && (
                                     <div className="absolute bottom-0 left-0 right-0 px-3 py-2"
-                                      style={{ background: 'linear-gradient(to top, rgba(5,5,5,0.7), transparent)' }}>
+                                      style={{ background: 'linear-gradient(to top, rgba(26,26,26,0.7), transparent)' }}>
                                       <p className="font-body text-xs text-left" style={{ color: 'rgba(255,255,255,0.9)' }}>{img.caption}</p>
                                     </div>
                                   )}
@@ -770,12 +770,12 @@ export default function ProjectDetail() {
                 {/* Enquiry card — bright light premium */}
                 <motion.div {...fU(0.1)}
                   className="relative overflow-hidden bg-white"
-                  style={{ border: '1px solid rgba(157,134,104,0.2)', boxShadow: '0 8px 48px rgba(5,5,5,0.1)' }}>
+                  style={{ border: '1px solid rgba(212,175,55,0.2)', boxShadow: '0 8px 48px rgba(26,26,26,0.1)' }}>
                   {/* Gold top accent bar */}
                   <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg, var(--gold), var(--gold-dark), var(--gold))' }} />
                   {/* Subtle warm glow */}
                   <div className="absolute inset-0 pointer-events-none"
-                    style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(157,134,104,0.05) 0%, transparent 65%)' }} />
+                    style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(212,175,55,0.05) 0%, transparent 65%)' }} />
                   <div className="p-6 relative">
                     <p className="section-label mb-1">Interested in this project?</p>
                     <h3 className="font-times text-2xl font-normal mb-1" style={{ color: 'var(--luxury-dark)' }}>
@@ -785,7 +785,7 @@ export default function ProjectDetail() {
 
                     {/* Project spec rows */}
                     <div className="mb-6 rounded-none overflow-hidden"
-                      style={{ border: '1px solid rgba(157,134,104,0.14)', background: 'var(--cream)' }}>
+                      style={{ border: '1px solid rgba(212,175,55,0.14)', background: 'var(--cream)' }}>
                       {[
                         { label: 'Project',    value: project.title },
                         { label: 'Location',   value: project.location?.name || project.location },
@@ -795,7 +795,7 @@ export default function ProjectDetail() {
                       ].map(({ label, value }, idx, arr) => (
                         <div key={label}
                           className="flex items-start justify-between gap-3 px-4 py-3"
-                          style={{ borderBottom: idx < arr.length - 1 ? '1px solid rgba(157,134,104,0.12)' : 'none' }}>
+                          style={{ borderBottom: idx < arr.length - 1 ? '1px solid rgba(212,175,55,0.12)' : 'none' }}>
                           <span className="font-ui text-[0.58rem] tracking-[0.18em] uppercase flex-shrink-0 mt-0.5"
                             style={{ color: 'rgba(92,74,48,0.5)' }}>
                             {label}
@@ -807,20 +807,20 @@ export default function ProjectDetail() {
                       ))}
                     </div>
 
-                    {/* Enquire button — premium gold gradient */}
+                    {/* Enquire button — solid burgundy CTA */}
                     <button
                       onClick={() => setEnquiryOpen(true)}
                       className="w-full flex items-center justify-center gap-2 font-ui uppercase tracking-[0.2em] mb-3 transition-all duration-300"
                       style={{
                         fontSize: '0.62rem',
                         padding: '0.95rem',
-                        background: 'linear-gradient(135deg, var(--luxury-dark) 0%, #2C2018 100%)',
-                        color: 'var(--gold)',
-                        border: '1px solid rgba(157,134,104,0.25)',
+                        background: '#6B0D1A',
+                        color: '#fff',
+                        border: '1px solid #6B0D1A',
                         fontWeight: 500,
                       }}
-                      onMouseEnter={(e) => { e.currentTarget.style.background = 'linear-gradient(135deg, #2C2018 0%, var(--luxury-dark) 100%)'; e.currentTarget.style.borderColor = 'var(--gold)'; e.currentTarget.style.boxShadow = '0 8px 28px rgba(5,5,5,0.3)' }}
-                      onMouseLeave={(e) => { e.currentTarget.style.background = 'linear-gradient(135deg, var(--luxury-dark) 0%, #2C2018 100%)'; e.currentTarget.style.borderColor = 'rgba(157,134,104,0.25)'; e.currentTarget.style.boxShadow = 'none' }}
+                      onMouseEnter={(e) => { e.currentTarget.style.background = '#3D090F'; e.currentTarget.style.borderColor = '#3D090F'; e.currentTarget.style.boxShadow = '0 8px 28px rgba(26,26,26,0.3)' }}
+                      onMouseLeave={(e) => { e.currentTarget.style.background = '#6B0D1A'; e.currentTarget.style.borderColor = '#6B0D1A'; e.currentTarget.style.boxShadow = 'none' }}
                     >
                       Enquire Now
                     </button>
@@ -829,9 +829,9 @@ export default function ProjectDetail() {
                     <a
                       href={`tel:${SITE_PHONE.replace(/\s/g, '')}`}
                       className="flex items-center justify-center gap-2 font-ui text-xs tracking-widest uppercase py-3 w-full transition-all duration-200"
-                      style={{ color: 'var(--gold-dark)', border: '1px solid rgba(157,134,104,0.25)', background: 'rgba(157,134,104,0.04)' }}
-                      onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(157,134,104,0.1)'; e.currentTarget.style.borderColor = 'var(--gold)'; e.currentTarget.style.color = 'var(--luxury-dark)' }}
-                      onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(157,134,104,0.04)'; e.currentTarget.style.borderColor = 'rgba(157,134,104,0.25)'; e.currentTarget.style.color = 'var(--gold-dark)' }}>
+                      style={{ color: 'var(--gold-dark)', border: '1px solid rgba(212,175,55,0.25)', background: 'rgba(212,175,55,0.04)' }}
+                      onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(212,175,55,0.1)'; e.currentTarget.style.borderColor = 'var(--gold)'; e.currentTarget.style.color = 'var(--luxury-dark)' }}
+                      onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(212,175,55,0.04)'; e.currentTarget.style.borderColor = 'rgba(212,175,55,0.25)'; e.currentTarget.style.color = 'var(--gold-dark)' }}>
                       <Phone size={13} /> {SITE_PHONE}
                     </a>
                   </div>
@@ -839,7 +839,7 @@ export default function ProjectDetail() {
 
                 {/* Why Majestique — light premium card */}
                 <motion.div {...fU(0.2)} className="bg-white"
-                  style={{ border: '1px solid rgba(157,134,104,0.18)', boxShadow: '0 4px 24px rgba(5,5,5,0.06)' }}>
+                  style={{ border: '1px solid rgba(212,175,55,0.18)', boxShadow: '0 4px 24px rgba(26,26,26,0.06)' }}>
                   <div className="h-0.5 w-full" style={{ background: 'linear-gradient(90deg, var(--gold), var(--gold-dark), transparent)' }} />
                   <div className="p-6">
                     <p className="font-ui text-[0.62rem] tracking-widest uppercase mb-1" style={{ color: 'var(--gold-dark)' }}>Why Majestique?</p>
@@ -848,7 +848,7 @@ export default function ProjectDetail() {
                       {[
                         'MahaRERA Registered & Legally Compliant',
                         'Consistent On-Time Delivery Record',
-                        'Debt-Free Developer — Zero Financial Risk',
+                        'Debt-Free Developer: Zero Financial Risk',
                         'Litigation-Free Properties, Every Project',
                         '30+ Years of Trust, Since 1992',
                       ].map((point) => (
@@ -884,20 +884,20 @@ export default function ProjectDetail() {
       {/* ══════════════════════════════════════════════════════════
           BOTTOM CTA STRIP
       ══════════════════════════════════════════════════════════ */}
-      <section className="py-20 relative overflow-hidden" style={{ background: 'var(--luxury-dark)' }}>
-        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.35),transparent)' }} />
-        <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.2),transparent)' }} />
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(157,134,104,0.06) 0%, transparent 65%)' }} />
+      <section className="py-14 relative overflow-hidden" style={{ background: 'var(--luxury-dark)' }}>
+        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.35),transparent)' }} />
+        <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.2),transparent)' }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(212,175,55,0.06) 0%, transparent 65%)' }} />
         <div className="container-luxury relative text-center max-w-2xl mx-auto">
           <motion.div {...fU()}>
-            <p className="font-ui text-[0.62rem] tracking-[0.3em] uppercase mb-5" style={{ color: 'rgba(157,134,104,0.6)' }}>
+            <p className="font-ui text-[0.62rem] tracking-[0.3em] uppercase mb-5" style={{ color: 'rgba(212,175,55,0.6)' }}>
               Ready to Move Forward?
             </p>
             <h2 className="font-times font-normal mb-4" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', color: 'var(--beige)' }}>
               Your Majestique Home Awaits
             </h2>
             <div className="w-12 h-px mx-auto mb-5" style={{ background: 'linear-gradient(90deg, transparent, var(--gold), transparent)' }} />
-            <p className="font-body text-sm mb-8 leading-relaxed" style={{ color: 'rgba(243,239,232,0.45)' }}>
+            <p className="font-body text-sm mb-8 leading-relaxed" style={{ color: 'rgba(250,246,239,0.45)' }}>
               Connect with our team for a personalized walkthrough, pricing details, and exclusive pre-launch offers.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
@@ -951,14 +951,14 @@ export default function ProjectDetail() {
 
       {/* Mobile sticky bar */}
       <div className="fixed bottom-0 left-0 right-0 z-40 flex items-center gap-3 p-4 md:hidden"
-        style={{ background: 'var(--luxury-dark)', borderTop: '1px solid rgba(157,134,104,0.2)', boxShadow: '0 -8px 32px rgba(5,5,5,0.55)' }}>
+        style={{ background: 'var(--luxury-dark)', borderTop: '1px solid rgba(212,175,55,0.2)', boxShadow: '0 -8px 32px rgba(26,26,26,0.55)' }}>
         <button onClick={() => setEnquiryOpen(true)} className="btn-gold flex-1 justify-center" style={{ fontSize: '0.62rem', padding: '0.875rem' }}>
           Enquire Now
         </button>
         <a
           href={`tel:${SITE_PHONE.replace(/\s/g, '')}`}
           className="w-12 h-12 flex items-center justify-center flex-shrink-0 transition-all duration-200"
-          style={{ border: '1px solid rgba(157,134,104,0.4)', color: 'var(--gold)' }}
+          style={{ border: '1px solid rgba(212,175,55,0.4)', color: 'var(--gold)' }}
           onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--gold)'; e.currentTarget.style.color = 'var(--luxury-dark)' }}
           onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--gold)' }}
           aria-label="Call us"

@@ -58,9 +58,9 @@ const DIRECTIONS_URL = `https://www.google.com/maps/search/?api=1&query=${encode
 
 function ColHeading({ children }) {
   return (
-    <h4 className="font-ui text-[10px] tracking-[0.2em] uppercase font-bold mb-4" style={{ color: 'var(--gold)' }}>
+    <h4 className="font-ui text-sm tracking-[0.14em] uppercase font-bold mb-5 leading-snug" style={{ color: 'var(--gold)' }}>
       {children}
-      <div className="mt-2.5" style={{ width: '24px', height: '1px', background: 'var(--gold-dark)' }} />
+      <div className="mt-3" style={{ width: '28px', height: '2px', background: 'var(--gold-dark)' }} />
     </h4>
   )
 }
@@ -70,12 +70,12 @@ function FooterLinkList({ links }) {
     <ul className="space-y-2.5">
       {links.map((link) => {
         const className = "font-body text-xs flex items-center gap-2 transition-all duration-200"
-        const style = { color: 'rgba(243,239,232,0.72)' }
+        const style = { color: 'rgba(243,239,232,0.58)' }
         const onMouseEnter = (e) => { e.currentTarget.style.color = 'var(--gold-light)'; e.currentTarget.style.paddingLeft = '6px' }
-        const onMouseLeave = (e) => { e.currentTarget.style.color = 'rgba(243,239,232,0.72)'; e.currentTarget.style.paddingLeft = '0' }
+        const onMouseLeave = (e) => { e.currentTarget.style.color = 'rgba(243,239,232,0.58)'; e.currentTarget.style.paddingLeft = '0' }
         const content = (
           <>
-            <span style={{ color: 'rgba(157,134,104,0.4)', fontSize: '0.45rem' }}>◆</span>
+            <span style={{ color: 'rgba(212,175,55,0.4)', fontSize: '0.45rem' }}>◆</span>
             {link.label}
           </>
         )
@@ -116,7 +116,7 @@ export default function Footer() {
     <footer style={{ background: 'var(--luxury-dark)' }}>
 
       {/* Top gold accent */}
-      <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent 0%, rgba(157,134,104,0.6) 30%, rgba(157,134,104,0.9) 50%, rgba(157,134,104,0.6) 70%, transparent 100%)' }} />
+      <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent 0%, rgba(212,175,55,0.6) 30%, rgba(212,175,55,0.9) 50%, rgba(212,175,55,0.6) 70%, transparent 100%)' }} />
 
       {/* Centered wordmark */}
       <div className="container-luxury pt-12 pb-8 flex flex-col items-center text-center">
@@ -130,12 +130,12 @@ export default function Footer() {
           />
         </Link>
         <p className="font-body text-xs leading-relaxed" style={{ color: 'rgba(243,239,232,0.6)', maxWidth: '480px' }}>
-          Three decades of crafting landmark residences across Pune — delivered on time, every time.
+          Three decades of crafting landmark residences across Pune, delivered on time, every time.
         </p>
       </div>
 
       {/* Sitemap grid */}
-      <div style={{ borderTop: '1px solid rgba(157,134,104,0.12)' }}>
+      <div style={{ borderTop: '1px solid rgba(212,175,55,0.12)' }}>
         <div className="container-luxury py-11 lg:py-12">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-x-8 gap-y-10 lg:items-start">
 
@@ -144,22 +144,22 @@ export default function Footer() {
               <FooterLinkList links={ONGOING_PROJECT_LINKS} />
             </div>
 
-            <div className="lg:col-span-3">
+            <div className="lg:col-span-3 lg:border-l lg:pl-6" style={{ borderColor: 'rgba(212,175,55,0.12)' }}>
               <ColHeading>Completed Projects</ColHeading>
               <FooterLinkList links={COMPLETED_PROJECT_LINKS} />
             </div>
 
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-2 lg:border-l lg:pl-6" style={{ borderColor: 'rgba(212,175,55,0.12)' }}>
               <ColHeading>Media Center</ColHeading>
               <FooterLinkList links={MEDIA_LINKS} />
             </div>
 
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-2 lg:border-l lg:pl-6" style={{ borderColor: 'rgba(212,175,55,0.12)' }}>
               <ColHeading>About Us</ColHeading>
               <FooterLinkList links={ABOUT_LINKS} />
             </div>
 
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-2 lg:border-l lg:pl-6" style={{ borderColor: 'rgba(212,175,55,0.12)' }}>
               <ColHeading>Quick Links</ColHeading>
               <FooterLinkList links={QUICK_LINKS} />
               <GoogleReviewsBadge className="mt-6" />
@@ -170,7 +170,7 @@ export default function Footer() {
       </div>
 
       {/* Get in touch strip */}
-      <div style={{ borderTop: '1px solid rgba(157,134,104,0.12)' }}>
+      <div style={{ borderTop: '1px solid rgba(212,175,55,0.12)' }}>
         <div className="container-luxury py-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
           <span className="flex items-center gap-2">
             <MapPin size={13} className="flex-shrink-0" style={{ color: 'var(--gold)' }} />
@@ -213,7 +213,7 @@ export default function Footer() {
       </div>
 
       {/* RERA disclaimer */}
-      <div style={{ borderTop: '1px solid rgba(157,134,104,0.12)' }}>
+      <div style={{ borderTop: '1px solid rgba(212,175,55,0.12)' }}>
         <div className="container-luxury py-3">
           <p className="font-body text-[10px] text-center leading-relaxed" style={{ color: 'rgba(243,239,232,0.32)' }}>
             RERA registration numbers and approvals for each project are available on the respective project page. Renderings and images are indicative and subject to change during construction.
@@ -222,7 +222,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div style={{ borderTop: '1px solid rgba(157,134,104,0.12)', background: 'rgba(5,5,5,0.3)' }}>
+      <div style={{ borderTop: '1px solid rgba(212,175,55,0.12)', background: 'rgba(26,26,26,0.3)' }}>
         <div className="container-luxury py-6 flex flex-col items-center gap-4">
           <div className="flex items-center gap-2.5">
             {Object.entries(SOCIAL_LINKS).map(([platform, url]) => {

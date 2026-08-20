@@ -1,7 +1,7 @@
 import { useMemo, useState, useCallback, useEffect, useRef } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowLeft, Calendar, Trophy, ArrowUpRight, FileText, ChevronLeft, ChevronRight } from 'lucide-react'
+import { ArrowLeft, Calendar, Trophy, ArrowRight, FileText, ChevronLeft, ChevronRight } from 'lucide-react'
 import Seo from '../../components/ui/Seo'
 import { AWARDS, PLATFORM_META, CATEGORY_META } from '../../data/awards'
 
@@ -53,7 +53,7 @@ function AwardMedia({ award }) {
         {galleryImages.length > 0 ? (
           <div
             className="relative overflow-hidden w-full flex items-center justify-center"
-            style={{ background: '#111', border: '1px solid rgba(157,134,104,0.18)', boxShadow: '0 12px 48px rgba(5,5,5,0.1)', minHeight: '320px' }}
+            style={{ background: '#111', border: '1px solid rgba(212,175,55,0.18)', boxShadow: '0 12px 48px rgba(26,26,26,0.1)', minHeight: '320px' }}
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
           >
@@ -61,7 +61,7 @@ function AwardMedia({ award }) {
               <motion.img
                 key={activeIdx}
                 src={galleryImages[activeIdx]}
-                alt={`${award.award} — photo ${activeIdx + 1}`}
+                alt={`${award.award}, photo ${activeIdx + 1}`}
                 custom={direction}
                 variants={slideVariants}
                 initial="enter"
@@ -78,9 +78,9 @@ function AwardMedia({ award }) {
                   onClick={goPrev}
                   aria-label="Previous photo"
                   className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center z-10 transition-all duration-200"
-                  style={{ background: 'rgba(5,5,5,0.55)', color: 'var(--gold)', border: '1px solid rgba(157,134,104,0.4)' }}
+                  style={{ background: 'rgba(26,26,26,0.55)', color: 'var(--gold)', border: '1px solid rgba(212,175,55,0.4)' }}
                   onMouseEnter={e => { e.currentTarget.style.background = 'var(--gold)'; e.currentTarget.style.color = '#111' }}
-                  onMouseLeave={e => { e.currentTarget.style.background = 'rgba(5,5,5,0.55)'; e.currentTarget.style.color = 'var(--gold)' }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'rgba(26,26,26,0.55)'; e.currentTarget.style.color = 'var(--gold)' }}
                 >
                   <ChevronLeft size={18} />
                 </button>
@@ -88,9 +88,9 @@ function AwardMedia({ award }) {
                   onClick={goNext}
                   aria-label="Next photo"
                   className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center z-10 transition-all duration-200"
-                  style={{ background: 'rgba(5,5,5,0.55)', color: 'var(--gold)', border: '1px solid rgba(157,134,104,0.4)' }}
+                  style={{ background: 'rgba(26,26,26,0.55)', color: 'var(--gold)', border: '1px solid rgba(212,175,55,0.4)' }}
                   onMouseEnter={e => { e.currentTarget.style.background = 'var(--gold)'; e.currentTarget.style.color = '#111' }}
-                  onMouseLeave={e => { e.currentTarget.style.background = 'rgba(5,5,5,0.55)'; e.currentTarget.style.color = 'var(--gold)' }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'rgba(26,26,26,0.55)'; e.currentTarget.style.color = 'var(--gold)' }}
                 >
                   <ChevronRight size={18} />
                 </button>
@@ -115,16 +115,16 @@ function AwardMedia({ award }) {
         ) : (
           <div
             className="w-full flex items-center justify-center py-16"
-            style={{ background: 'linear-gradient(135deg, #F9F5EF, #EAE3D8, #F3EFE8)', border: '1px solid rgba(157,134,104,0.18)' }}
+            style={{ background: 'linear-gradient(135deg, #FAF6EF, #FAF6EF, #FAF6EF)', border: '1px solid rgba(212,175,55,0.18)' }}
           >
             <div className="text-center">
               <div
                 className="w-20 h-20 flex items-center justify-center mx-auto mb-3"
-                style={{ background: 'linear-gradient(135deg, var(--gold), var(--gold-dark))', boxShadow: '0 12px 36px rgba(157,134,104,0.40)' }}
+                style={{ background: 'linear-gradient(135deg, var(--gold), var(--gold-dark))', boxShadow: '0 12px 36px rgba(212,175,55,0.40)' }}
               >
                 <Trophy size={30} color="#fff" />
               </div>
-              <span className="font-ui text-[0.5rem] tracking-[0.28em] uppercase" style={{ color: 'rgba(157,134,104,0.65)' }}>
+              <span className="font-ui text-[0.5rem] tracking-[0.28em] uppercase" style={{ color: 'rgba(212,175,55,0.65)' }}>
                 {award.date}
               </span>
             </div>
@@ -147,7 +147,7 @@ function AwardMedia({ award }) {
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
             className="flex items-center gap-2 font-ui text-[0.6rem] tracking-[0.18em] uppercase px-4 py-2 transition-colors duration-200"
-            style={{ color: 'var(--gold-dark)', border: '1px solid rgba(157,134,104,0.3)' }}
+            style={{ color: 'var(--gold-dark)', border: '1px solid rgba(212,175,55,0.3)' }}
             onMouseEnter={e => (e.currentTarget.style.color = 'var(--gold)')}
             onMouseLeave={e => (e.currentTarget.style.color = 'var(--gold-dark)')}
           >
@@ -165,8 +165,8 @@ export default function AwardDetail() {
 
   const award = useMemo(() => AWARDS.find(a => a.slug === slug), [slug])
 
-  const platMeta = (award && PLATFORM_META[award.platform]) || { color: '#9d8668' }
-  const catMeta = (award && CATEGORY_META[award.category]) || { color: '#9d8668' }
+  const platMeta = (award && PLATFORM_META[award.platform]) || { color: '#D4AF37' }
+  const catMeta = (award && CATEGORY_META[award.category]) || { color: '#D4AF37' }
 
   const related = useMemo(() => {
     if (!award) return []
@@ -193,11 +193,11 @@ export default function AwardDetail() {
   return (
     <>
       <Seo
-        title={`${award.award} — ${award.platform} | Majestique Landmarks`}
+        title={`${award.award} | ${award.platform} | Majestique Landmarks`}
         description={award.desc}
       />
 
-      <div className="py-16" style={{ background: 'white' }}>
+      <div className="py-12" style={{ background: 'white' }}>
         <div className="container-luxury">
           <div className="max-w-3xl mx-auto">
 
@@ -278,7 +278,7 @@ export default function AwardDetail() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
               className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-14 pt-8"
-              style={{ borderTop: '1px solid rgba(157,134,104,0.2)' }}
+              style={{ borderTop: '1px solid rgba(212,175,55,0.2)' }}
             >
               <Link
                 to="/media/awards"
@@ -294,7 +294,7 @@ export default function AwardDetail() {
                 className="btn-gold transition-transform duration-300 hover:scale-105"
                 style={{ fontSize: '0.75rem', padding: '0.625rem 1.5rem' }}
               >
-                Explore Projects <ArrowUpRight size={13} style={{ display: 'inline', marginLeft: '4px' }} />
+                Explore Projects <ArrowRight size={13} style={{ display: 'inline', marginLeft: '4px' }} />
               </Link>
             </motion.div>
           </div>
@@ -303,9 +303,9 @@ export default function AwardDetail() {
 
       {/* Related Awards */}
       {related.length > 0 && (
-        <section className="py-20" style={{ background: 'var(--cream)', borderTop: '1px solid rgba(157,134,104,0.15)' }}>
+        <section className="py-14" style={{ background: 'var(--cream)', borderTop: '1px solid rgba(212,175,55,0.15)' }}>
           <div className="container-luxury">
-            <p className="font-ui text-sm font-bold tracking-[0.3em] uppercase text-center mb-10" style={{ color: 'rgba(157,134,104,0.6)' }}>
+            <p className="font-ui text-sm font-bold tracking-[0.3em] uppercase text-center mb-10" style={{ color: 'rgba(212,175,55,0.6)' }}>
               Related Awards
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
@@ -320,11 +320,11 @@ export default function AwardDetail() {
                   <Link
                     to={`/media/awards/${r.slug}`}
                     className="group flex flex-col overflow-hidden bg-white h-full"
-                    style={{ border: '1px solid rgba(157,134,104,0.16)', boxShadow: '0 2px 16px rgba(5,5,5,0.05)', transition: 'box-shadow 0.35s ease, transform 0.35s ease' }}
-                    onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 18px 48px rgba(5,5,5,0.12)'; e.currentTarget.style.transform = 'translateY(-4px)' }}
-                    onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 16px rgba(5,5,5,0.05)'; e.currentTarget.style.transform = 'translateY(0)' }}
+                    style={{ border: '1px solid rgba(212,175,55,0.16)', boxShadow: '0 2px 16px rgba(26,26,26,0.05)', transition: 'box-shadow 0.35s ease, transform 0.35s ease' }}
+                    onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 18px 48px rgba(26,26,26,0.12)'; e.currentTarget.style.transform = 'translateY(-4px)' }}
+                    onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 16px rgba(26,26,26,0.05)'; e.currentTarget.style.transform = 'translateY(0)' }}
                   >
-                    <div className="relative overflow-hidden" style={{ aspectRatio: '4/3', background: '#f9f6f1' }}>
+                    <div className="relative overflow-hidden" style={{ aspectRatio: '4/3', background: '#FAF6EF' }}>
                       {r.image ? (
                         <img
                           src={r.image}
@@ -333,7 +333,7 @@ export default function AwardDetail() {
                           loading="lazy"
                         />
                       ) : (
-                        <div className="w-full h-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #F9F5EF 0%, #EAE3D8 50%, #F3EFE8 100%)' }}>
+                        <div className="w-full h-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #FAF6EF 0%, #FAF6EF 50%, #FAF6EF 100%)' }}>
                           <Trophy size={26} style={{ color: 'var(--gold)' }} />
                         </div>
                       )}

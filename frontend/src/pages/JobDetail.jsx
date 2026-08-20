@@ -74,7 +74,7 @@ export default function JobDetail() {
         email: form.email,
         phone: form.phone,
         subject: `Job Application: ${job.title}`,
-        message: form.coverLetter || `Application for ${job.title} — ${job.department}`,
+        message: form.coverLetter || `Application for ${job.title} (${job.department})`,
       })
       setSubmitted(true)
     } catch {
@@ -88,7 +88,7 @@ export default function JobDetail() {
     width: '100%',
     padding: '0.75rem 1rem',
     background: 'white',
-    border: '1px solid rgba(157,134,104,0.3)',
+    border: '1px solid rgba(212,175,55,0.3)',
     outline: 'none',
     fontFamily: 'var(--font-body)',
     fontSize: '0.9rem',
@@ -117,7 +117,7 @@ export default function JobDetail() {
   return (
     <>
       <Seo
-        title={`${job.title} — Careers`}
+        title={`${job.title}: Careers at Majestique Landmarks`}
         description={`${job.title} (${job.type || 'Full-time'}) at Majestique Landmarks, Pune. Join Pune's most prestigious luxury real estate team.`}
       />
       <PageHero
@@ -163,7 +163,7 @@ export default function JobDetail() {
 
               <div
                 className="flex items-center justify-between mt-12 pt-8"
-                style={{ borderTop: '1px solid rgba(157,134,104,0.2)' }}
+                style={{ borderTop: '1px solid rgba(212,175,55,0.2)' }}
               >
                 <Link
                   to="/careers"
@@ -186,7 +186,7 @@ export default function JobDetail() {
               {/* Job details card */}
               <div
                 className="p-6 mb-6"
-                style={{ border: '1px solid rgba(157,134,104,0.2)', background: 'white', boxShadow: '0 2px 16px rgba(5,5,5,0.06)' }}
+                style={{ border: '1px solid rgba(212,175,55,0.2)', background: 'white', boxShadow: '0 2px 16px rgba(26,26,26,0.06)' }}
               >
                 <h3 className="font-times text-xl mb-5" style={{ color: 'var(--luxury-dark)' }}>Job Details</h3>
                 <div className="space-y-4">
@@ -216,7 +216,7 @@ export default function JobDetail() {
               {/* Apply Form */}
               <div
                 className="p-6"
-                style={{ border: '1px solid rgba(157,134,104,0.2)', background: 'white', boxShadow: '0 2px 16px rgba(5,5,5,0.06)' }}
+                style={{ border: '1px solid rgba(212,175,55,0.2)', background: 'white', boxShadow: '0 2px 16px rgba(26,26,26,0.06)' }}
               >
                 <h3 className="font-times text-xl mb-5" style={{ color: 'var(--luxury-dark)' }}>Apply for this Role</h3>
 
@@ -250,9 +250,9 @@ export default function JobDetail() {
                         placeholder="Full Name *"
                         value={form.name}
                         onChange={(e) => handleChange('name', e.target.value)}
-                        style={{ ...inputStyle, borderColor: errors.name ? '#dc3545' : 'rgba(157,134,104,0.3)' }}
+                        style={{ ...inputStyle, borderColor: errors.name ? '#dc3545' : 'rgba(212,175,55,0.3)' }}
                         onFocus={(e) => { e.target.style.borderColor = 'var(--gold)' }}
-                        onBlur={(e) => { e.target.style.borderColor = errors.name ? '#dc3545' : 'rgba(157,134,104,0.3)' }}
+                        onBlur={(e) => { e.target.style.borderColor = errors.name ? '#dc3545' : 'rgba(212,175,55,0.3)' }}
                       />
                       {errors.name && <p className="font-body text-xs mt-1" style={{ color: '#dc3545' }}>{errors.name}</p>}
                     </div>
@@ -262,9 +262,9 @@ export default function JobDetail() {
                         placeholder="Email Address *"
                         value={form.email}
                         onChange={(e) => handleChange('email', e.target.value)}
-                        style={{ ...inputStyle, borderColor: errors.email ? '#dc3545' : 'rgba(157,134,104,0.3)' }}
+                        style={{ ...inputStyle, borderColor: errors.email ? '#dc3545' : 'rgba(212,175,55,0.3)' }}
                         onFocus={(e) => { e.target.style.borderColor = 'var(--gold)' }}
-                        onBlur={(e) => { e.target.style.borderColor = errors.email ? '#dc3545' : 'rgba(157,134,104,0.3)' }}
+                        onBlur={(e) => { e.target.style.borderColor = errors.email ? '#dc3545' : 'rgba(212,175,55,0.3)' }}
                       />
                       {errors.email && <p className="font-body text-xs mt-1" style={{ color: '#dc3545' }}>{errors.email}</p>}
                     </div>
@@ -275,7 +275,7 @@ export default function JobDetail() {
                       onChange={(e) => handleChange('phone', e.target.value)}
                       style={inputStyle}
                       onFocus={(e) => { e.target.style.borderColor = 'var(--gold)' }}
-                      onBlur={(e) => { e.target.style.borderColor = 'rgba(157,134,104,0.3)' }}
+                      onBlur={(e) => { e.target.style.borderColor = 'rgba(212,175,55,0.3)' }}
                     />
                     <textarea
                       rows={4}
@@ -284,7 +284,7 @@ export default function JobDetail() {
                       onChange={(e) => handleChange('coverLetter', e.target.value)}
                       style={{ ...inputStyle, resize: 'vertical' }}
                       onFocus={(e) => { e.target.style.borderColor = 'var(--gold)' }}
-                      onBlur={(e) => { e.target.style.borderColor = 'rgba(157,134,104,0.3)' }}
+                      onBlur={(e) => { e.target.style.borderColor = 'rgba(212,175,55,0.3)' }}
                     />
                     <div>
                       <label className="font-ui text-xs tracking-wider uppercase block mb-2" style={{ color: 'rgba(26,26,26,0.82)' }}>

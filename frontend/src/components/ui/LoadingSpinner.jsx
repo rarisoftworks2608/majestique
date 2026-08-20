@@ -9,8 +9,8 @@ export default function LoadingSpinner({ size = 'md', light = false }) {
         className={`${sizes[size]} rounded-full border-2 animate-spin`}
         style={{
           borderColor: light
-            ? 'rgba(243,239,232,0.2)'
-            : 'rgba(157,134,104,0.2)',
+            ? 'rgba(250,246,239,0.2)'
+            : 'rgba(212,175,55,0.2)',
           borderTopColor: light ? 'var(--beige)' : 'var(--gold)',
         }}
       />
@@ -37,7 +37,7 @@ export function PageLoader() {
       <div
         className="w-8 h-8 rounded-full border-2 animate-spin"
         style={{
-          borderColor: 'rgba(157,134,104,0.18)',
+          borderColor: 'rgba(212,175,55,0.18)',
           borderTopColor: 'var(--gold)',
         }}
       />

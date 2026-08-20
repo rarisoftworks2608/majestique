@@ -20,26 +20,26 @@ export default function AwardsSection() {
 
   return (
     <section className="relative" style={{ background: '#fff' }}>
-      <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.25),transparent)' }} />
+      <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.25),transparent)' }} />
 
       {/* ── Header ── */}
-      <div className="container-luxury" style={{ paddingTop: '5rem', paddingBottom: '3.5rem' }}>
+      <div className="container-luxury" style={{ paddingTop: '3.5rem', paddingBottom: '2.5rem' }}>
         <motion.span
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.55 }}
-          className="font-ui text-[0.82rem] tracking-[0.28em] uppercase font-bold block mb-5"
+          className="font-ui text-[0.78rem] tracking-[0.28em] uppercase font-bold block mb-4"
           style={{ color: 'var(--gold)' }}
         >
-          ✦ &nbsp; Recognition &amp; Excellence
+          ✦ &nbsp; Recognition &amp; Excellence &nbsp; ✦
         </motion.span>
         <motion.div
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
+          initial={{ scaleX: 0, opacity: 0 }}
+          whileInView={{ scaleX: 1, opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.08 }}
-          style={{ width: '44px', height: '1px', background: 'linear-gradient(90deg, var(--gold-dark), var(--gold))', transformOrigin: 'left', margin: '0 0 1.5rem' }}
+          transition={{ duration: 0.65, delay: 0.08 }}
+          style={{ width: '44px', height: '1px', background: 'linear-gradient(90deg, var(--gold-dark), var(--gold))', transformOrigin: 'left', marginBottom: '1.5rem' }}
         />
         <motion.h2
           initial={{ opacity: 0, y: 18 }}
@@ -47,7 +47,7 @@ export default function AwardsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.85, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
           className="font-display font-light leading-tight"
-          style={{ fontSize: 'clamp(2.4rem, 5vw, 5rem)', color: 'var(--ink)', letterSpacing: '0.01em', maxWidth: '780px', textWrap: 'balance' }}
+          style={{ fontSize: 'clamp(2.2rem, 4vw, 3.8rem)', color: 'var(--ink)', letterSpacing: '0.01em', maxWidth: '780px', textWrap: 'balance' }}
         >
           Celebrating Excellence. Honoring <em style={{ color: 'var(--gold-dark)', fontStyle: 'italic' }}>Trust.</em>
         </motion.h2>
@@ -57,7 +57,7 @@ export default function AwardsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.22 }}
           className="font-body mt-4"
-          style={{ fontSize: 'clamp(1rem, 1.2vw, 1.1rem)', color: 'rgba(10,10,10,0.85)', fontWeight: 400, maxWidth: 'none', lineHeight: 1.8, textWrap: 'pretty' }}
+          style={{ fontSize: 'clamp(1rem, 1.2vw, 1.1rem)', color: 'rgba(26,26,26,0.85)', fontWeight: 400, maxWidth: 'none', lineHeight: 1.8, textWrap: 'pretty' }}
         >
           Our journey has been recognized through prestigious industry accolades that reflect our
           dedication to innovation, quality, and customer satisfaction. These recognitions are a
@@ -76,7 +76,7 @@ export default function AwardsSection() {
         {/* Nav */}
         <button ref={prevRef} aria-label="Previous"
           className="absolute left-4 lg:left-10 top-1/2 -translate-y-1/2 z-20 w-11 h-11 flex items-center justify-center border transition-all duration-300"
-          style={{ borderColor: 'rgba(157,134,104,0.35)', background: 'rgba(255,255,255,0.95)', boxShadow: '0 4px 20px rgba(10,10,10,0.08)', color: 'var(--gold)' }}
+          style={{ borderColor: 'rgba(212,175,55,0.35)', background: 'rgba(255,255,255,0.95)', boxShadow: '0 4px 20px rgba(26,26,26,0.08)', color: 'var(--gold)' }}
           onMouseEnter={e => { e.currentTarget.style.background = 'var(--gold)'; e.currentTarget.style.color = '#fff' }}
           onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.95)'; e.currentTarget.style.color = 'var(--gold)' }}
         >
@@ -84,7 +84,7 @@ export default function AwardsSection() {
         </button>
         <button ref={nextRef} aria-label="Next"
           className="absolute right-4 lg:right-10 top-1/2 -translate-y-1/2 z-20 w-11 h-11 flex items-center justify-center border transition-all duration-300"
-          style={{ borderColor: 'rgba(157,134,104,0.35)', background: 'rgba(255,255,255,0.95)', boxShadow: '0 4px 20px rgba(10,10,10,0.08)', color: 'var(--gold)' }}
+          style={{ borderColor: 'rgba(212,175,55,0.35)', background: 'rgba(255,255,255,0.95)', boxShadow: '0 4px 20px rgba(26,26,26,0.08)', color: 'var(--gold)' }}
           onMouseEnter={e => { e.currentTarget.style.background = 'var(--gold)'; e.currentTarget.style.color = '#fff' }}
           onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.95)'; e.currentTarget.style.color = 'var(--gold)' }}
         >
@@ -126,36 +126,31 @@ export default function AwardsSection() {
                     transform: isActive ? 'scale(1)' : 'scale(0.96)',
                     opacity: isActive ? 1 : 0.72,
                     transition: 'transform 0.6s cubic-bezier(0.16,1,0.3,1), opacity 0.6s ease',
-                    boxShadow: isActive ? '0 20px 60px rgba(10,10,10,0.14)' : '0 8px 24px rgba(10,10,10,0.08)',
+                    boxShadow: isActive ? '0 20px 60px rgba(26,26,26,0.14)' : '0 8px 24px rgba(26,26,26,0.08)',
                   }}
                 >
                   <img src={award.image} alt={award.award}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     loading="lazy" />
                   <div className="absolute inset-0"
-                    style={{ background: 'linear-gradient(to top, rgba(5,5,5,0.9) 0%, rgba(5,5,5,0.2) 55%, transparent 100%)' }} />
+                    style={{ background: 'linear-gradient(to top, rgba(26,26,26,0.9) 0%, rgba(26,26,26,0.2) 55%, transparent 100%)' }} />
                   <div className="absolute top-0 inset-x-0 h-[2px]"
-                    style={{ background: `linear-gradient(90deg,transparent,${isActive ? '#9D8668' : 'rgba(157,134,104,0.25)'},transparent)` }} />
-
-                  {isActive && <>
-                    <div className="absolute top-4 left-4 w-7 h-7 border-l border-t" style={{ borderColor: 'rgba(157,134,104,0.6)' }} />
-                    <div className="absolute top-4 right-4 w-7 h-7 border-r border-t" style={{ borderColor: 'rgba(157,134,104,0.6)' }} />
-                  </>}
+                    style={{ background: `linear-gradient(90deg,transparent,${isActive ? '#D4AF37' : 'rgba(212,175,55,0.25)'},transparent)` }} />
 
                   <div className="absolute top-5 right-5">
                     <span className="font-ui text-[0.44rem] tracking-[0.22em] uppercase px-2.5 py-1.5"
-                      style={{ background: 'rgba(157,134,104,0.9)', color: '#fff' }}>
+                      style={{ background: 'rgba(212,175,55,0.9)', color: '#fff' }}>
                       {award.year}
                     </span>
                   </div>
 
                   <div className="absolute bottom-0 inset-x-0 p-6">
                     <p className="font-ui text-[0.44rem] tracking-[0.24em] uppercase mb-1.5"
-                      style={{ color: 'rgba(157,134,104,0.9)' }}>
+                      style={{ color: 'rgba(212,175,55,0.9)' }}>
                       {award.category}
                     </p>
                     <h3 className="font-display font-light leading-snug mb-2.5"
-                      style={{ fontSize: 'clamp(1rem, 1.8vw, 1.45rem)', color: '#F3EFE8', letterSpacing: '0.01em' }}>
+                      style={{ fontSize: 'clamp(1rem, 1.8vw, 1.45rem)', color: '#FAF6EF', letterSpacing: '0.01em' }}>
                       {award.award}
                     </h3>
                     <div className="flex items-center gap-2">
@@ -177,9 +172,9 @@ export default function AwardsSection() {
       <div className="text-center mt-8 mb-8">
         <Link to="/media/awards"
           className="inline-flex items-center gap-2.5 font-ui tracking-[0.2em] uppercase transition-all duration-300 group"
-          style={{ fontSize: '0.58rem', padding: '0.85rem 2.2rem', border: '1px solid rgba(10,10,10,0.22)', color: 'var(--ink)', background: 'transparent' }}
+          style={{ fontSize: '0.58rem', padding: '0.85rem 2.2rem', border: '1px solid rgba(26,26,26,0.22)', color: 'var(--ink)', background: 'transparent' }}
           onMouseEnter={e => { e.currentTarget.style.background = 'var(--gold)'; e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = 'var(--gold)' }}
-          onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--ink)'; e.currentTarget.style.borderColor = 'rgba(10,10,10,0.22)' }}
+          onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--ink)'; e.currentTarget.style.borderColor = 'rgba(26,26,26,0.22)' }}
         >
           View All Awards <ArrowRight size={12} className="transition-transform duration-300 group-hover:translate-x-1" />
         </Link>

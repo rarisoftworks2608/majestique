@@ -96,15 +96,15 @@ export default function GlobalSearch({ isOpen, onClose }) {
           }}
         >
           {/* Gold accent line top */}
-          <div style={{ height: '2px', background: 'linear-gradient(90deg, transparent, #9D8668, #736452, transparent)' }} />
+          <div style={{ height: '2px', background: 'linear-gradient(90deg, transparent, #D4AF37, #6B0D1A, transparent)' }} />
 
           {/* Top bar */}
           <div className="flex items-center justify-between px-6 lg:px-16 py-5"
-            style={{ borderBottom: '1px solid rgba(157,134,104,0.15)' }}>
+            style={{ borderBottom: '1px solid rgba(212,175,55,0.15)' }}>
             <div className="flex items-center gap-3">
-              <div className="w-1 h-1 rounded-full" style={{ background: '#9D8668' }} />
+              <div className="w-1 h-1 rounded-full" style={{ background: '#D4AF37' }} />
               <span className="font-ui text-[0.56rem] tracking-[0.32em] uppercase font-semibold"
-                style={{ color: '#9D8668' }}>
+                style={{ color: '#D4AF37' }}>
                 Majestique Landmarks &nbsp;/&nbsp; Search
               </span>
             </div>
@@ -113,19 +113,19 @@ export default function GlobalSearch({ isOpen, onClose }) {
               className="flex items-center gap-2.5 group transition-all duration-200"
             >
               <span className="font-ui text-[0.6rem] tracking-[0.22em] uppercase font-bold transition-colors duration-200"
-                style={{ color: 'rgba(5,5,5,0.55)' }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = '#9D8668')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(5,5,5,0.55)')}>
+                style={{ color: 'rgba(26,26,26,0.55)' }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = '#D4AF37')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(26,26,26,0.55)')}>
                 Close
               </span>
               <div
-                className="w-9 h-9 flex items-center justify-center border transition-all duration-200 group-hover:border-[#9D8668] group-hover:bg-[rgba(157,134,104,0.08)]"
-                style={{ borderColor: 'rgba(5,5,5,0.15)', color: 'rgba(5,5,5,0.5)' }}
+                className="w-9 h-9 flex items-center justify-center border transition-all duration-200 group-hover:border-[#D4AF37] group-hover:bg-[rgba(212,175,55,0.08)]"
+                style={{ borderColor: 'rgba(26,26,26,0.15)', color: 'rgba(26,26,26,0.5)' }}
               >
                 <X size={15} />
               </div>
               <span className="font-ui text-[0.52rem] tracking-widest uppercase hidden sm:block"
-                style={{ color: 'rgba(157,134,104,0.5)' }}>
+                style={{ color: 'rgba(212,175,55,0.5)' }}>
                 [ESC]
               </span>
             </button>
@@ -141,15 +141,15 @@ export default function GlobalSearch({ isOpen, onClose }) {
             >
               {/* Label */}
               <p className="font-ui text-[0.56rem] tracking-[0.36em] uppercase mb-8 text-center font-semibold"
-                style={{ color: '#9D8668' }}>
+                style={{ color: '#D4AF37' }}>
                 ✦ &nbsp; What are you looking for? &nbsp; ✦
               </p>
 
               {/* Search input */}
               <div className="relative mb-10"
-                style={{ borderBottom: '2px solid #9D8668' }}>
+                style={{ borderBottom: '2px solid #D4AF37' }}>
                 <Search size={22} className="absolute left-0 top-1/2 -translate-y-1/2"
-                  style={{ color: 'rgba(157,134,104,0.6)' }} />
+                  style={{ color: 'rgba(212,175,55,0.6)' }} />
                 <input
                   ref={inputRef}
                   type="text"
@@ -162,7 +162,7 @@ export default function GlobalSearch({ isOpen, onClose }) {
                     fontFamily: 'var(--font-display)',
                     fontSize: 'clamp(1.6rem, 3.5vw, 2.4rem)',
                     color: '#050505',
-                    caretColor: '#9D8668',
+                    caretColor: '#D4AF37',
                     fontWeight: 300,
                   }}
                 />
@@ -180,7 +180,7 @@ export default function GlobalSearch({ isOpen, onClose }) {
                     className="mb-10"
                   >
                     {filtered.length === 0 ? (
-                      <p className="font-body text-sm text-center" style={{ color: 'rgba(5,5,5,0.4)' }}>
+                      <p className="font-body text-sm text-center" style={{ color: 'rgba(26,26,26,0.4)' }}>
                         No results found for &ldquo;{query}&rdquo;
                       </p>
                     ) : (
@@ -191,21 +191,21 @@ export default function GlobalSearch({ isOpen, onClose }) {
                             onClick={() => handleNavigate(item.path)}
                             className="w-full flex items-center justify-between px-5 py-4 text-left group transition-all duration-200"
                             style={{
-                              border: '1px solid rgba(157,134,104,0.18)',
+                              border: '1px solid rgba(212,175,55,0.18)',
                               background: '#fff',
                             }}
                             onMouseEnter={(e) => {
-                              e.currentTarget.style.borderColor = '#9D8668'
-                              e.currentTarget.style.background = 'rgba(157,134,104,0.06)'
+                              e.currentTarget.style.borderColor = '#D4AF37'
+                              e.currentTarget.style.background = 'rgba(212,175,55,0.06)'
                             }}
                             onMouseLeave={(e) => {
-                              e.currentTarget.style.borderColor = 'rgba(157,134,104,0.18)'
+                              e.currentTarget.style.borderColor = 'rgba(212,175,55,0.18)'
                               e.currentTarget.style.background = '#fff'
                             }}
                           >
                             <div className="flex items-center gap-4">
                               <span className="font-ui text-[0.52rem] tracking-[0.22em] uppercase px-2.5 py-1 font-semibold"
-                                style={{ color: '#fff', background: '#9D8668' }}>
+                                style={{ color: '#fff', background: '#D4AF37' }}>
                                 {item.category}
                               </span>
                               <span className="font-ui text-[0.78rem] tracking-[0.1em] uppercase font-bold"
@@ -214,7 +214,7 @@ export default function GlobalSearch({ isOpen, onClose }) {
                               </span>
                             </div>
                             <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity"
-                              style={{ color: '#9D8668' }} />
+                              style={{ color: '#D4AF37' }} />
                           </button>
                         ))}
                       </div>
@@ -230,7 +230,7 @@ export default function GlobalSearch({ isOpen, onClose }) {
                   >
                     {/* Browse section label */}
                     <p className="font-ui text-[0.52rem] tracking-[0.3em] uppercase mb-4 font-semibold"
-                      style={{ color: 'rgba(157,134,104,0.7)' }}>
+                      style={{ color: 'rgba(212,175,55,0.7)' }}>
                       Browse
                     </p>
 
@@ -242,15 +242,15 @@ export default function GlobalSearch({ isOpen, onClose }) {
                           onClick={() => handleNavigate(s.path)}
                           className="flex items-center justify-between px-5 py-4 text-left group transition-all duration-200"
                           style={{
-                            border: '1px solid rgba(157,134,104,0.2)',
+                            border: '1px solid rgba(212,175,55,0.2)',
                             background: '#fff',
                           }}
                           onMouseEnter={(e) => {
-                            e.currentTarget.style.borderColor = '#9D8668'
-                            e.currentTarget.style.background = 'rgba(157,134,104,0.06)'
+                            e.currentTarget.style.borderColor = '#D4AF37'
+                            e.currentTarget.style.background = 'rgba(212,175,55,0.06)'
                           }}
                           onMouseLeave={(e) => {
-                            e.currentTarget.style.borderColor = 'rgba(157,134,104,0.2)'
+                            e.currentTarget.style.borderColor = 'rgba(212,175,55,0.2)'
                             e.currentTarget.style.background = '#fff'
                           }}
                         >
@@ -260,18 +260,18 @@ export default function GlobalSearch({ isOpen, onClose }) {
                           </span>
                           <ArrowRight size={12}
                             className="opacity-0 group-hover:opacity-100 transition-all duration-200 group-hover:translate-x-0.5"
-                            style={{ color: '#9D8668', flexShrink: 0 }} />
+                            style={{ color: '#D4AF37', flexShrink: 0 }} />
                         </button>
                       ))}
                     </div>
 
                     {/* Popular searches */}
                     <div className="flex flex-wrap gap-2 justify-center items-center pt-6"
-                      style={{ borderTop: '1px solid rgba(157,134,104,0.15)' }}>
+                      style={{ borderTop: '1px solid rgba(212,175,55,0.15)' }}>
                       <div className="flex items-center gap-1.5 mr-2">
-                        <TrendingUp size={11} style={{ color: '#9D8668' }} />
+                        <TrendingUp size={11} style={{ color: '#D4AF37' }} />
                         <span className="font-ui text-[0.54rem] tracking-[0.24em] uppercase font-semibold"
-                          style={{ color: '#9D8668' }}>
+                          style={{ color: '#D4AF37' }}>
                           Popular
                         </span>
                       </div>
@@ -281,19 +281,19 @@ export default function GlobalSearch({ isOpen, onClose }) {
                           onClick={() => setQuery(q)}
                           className="font-ui text-[0.62rem] tracking-wider uppercase font-semibold px-3.5 py-2 transition-all duration-200"
                           style={{
-                            color: 'rgba(5,5,5,0.55)',
-                            border: '1px solid rgba(157,134,104,0.22)',
+                            color: 'rgba(26,26,26,0.55)',
+                            border: '1px solid rgba(212,175,55,0.22)',
                             background: 'transparent',
                           }}
                           onMouseEnter={(e) => {
                             e.currentTarget.style.color = '#fff'
-                            e.currentTarget.style.background = '#9D8668'
-                            e.currentTarget.style.borderColor = '#9D8668'
+                            e.currentTarget.style.background = '#D4AF37'
+                            e.currentTarget.style.borderColor = '#D4AF37'
                           }}
                           onMouseLeave={(e) => {
-                            e.currentTarget.style.color = 'rgba(5,5,5,0.55)'
+                            e.currentTarget.style.color = 'rgba(26,26,26,0.55)'
                             e.currentTarget.style.background = 'transparent'
-                            e.currentTarget.style.borderColor = 'rgba(157,134,104,0.22)'
+                            e.currentTarget.style.borderColor = 'rgba(212,175,55,0.22)'
                           }}
                         >
                           {q}

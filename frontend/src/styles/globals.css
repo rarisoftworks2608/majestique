@@ -4,19 +4,18 @@
    defaults in `@layer theme {}` only when this import leads. Moving the
    other @import rules above it (to silence PostCSS's "@import must
    precede" warning) makes that theme block leak out unlayered, which
-   lets its default Geist font win over our Cormorant Garamond override
+   lets its default Geist font win over our Playfair Display override
    below. The warning is cosmetic; breaking the font is not — keep this
    import first.
    ═══════════════════════════════════════════════════════════════════ */
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════════════════════════════
-   2. EXTERNAL @import — Luxury Editorial Fonts
-   Melodrama equivalent: Mytupi (loaded below as custom)
-   Body: Outfit (exact match from reference)
-   Heading fallback: Cormorant Garamond
+   2. EXTERNAL @import — Official Brand Typography
+   Primary (serif, headings):    Playfair Display
+   Secondary (sans, body/UI):    Montserrat
    ═══════════════════════════════════════════════════════════════════ */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Outfit:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&display=swap');
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
@@ -24,105 +23,66 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ═══════════════════════════════════════════════════════════════════
-   3. CUSTOM FONT FACES — Mytupi (Melodrama equivalent)
-   ═══════════════════════════════════════════════════════════════════ */
-@font-face {
-  font-family: 'Mytupi';
-  src: url('/fonts/Mytupi.woff2') format('woff2'),
-       url('/fonts/Mytupi.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Nexa';
-  src: url('/fonts/Nexa-Regular.woff2') format('woff2'),
-       url('/fonts/Nexa-Regular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Nexa';
-  src: url('/fonts/Nexa-Bold.woff2') format('woff2'),
-       url('/fonts/Nexa-Bold.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Nexa';
-  src: url('/fonts/Nexa-Light.woff2') format('woff2'),
-       url('/fonts/Nexa-Light.woff') format('woff');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* ═══════════════════════════════════════════════════════════════════
    4. AUMANA LUXURY DESIGN TOKENS
    Reference palette — strictly 9 values, nothing else
    ═══════════════════════════════════════════════════════════════════ */
 :root {
-  /* ── LUXURY LIGHT SURFACES ────────────────────────────────────── */
-  --pearl:          #F3EFE8;   /* Luxury Ivory — light section bg    */
-  --ivory:          #F3EFE8;   /* Luxury Ivory                       */
-  --cream:          #EAE3D8;   /* between ivory and beige            */
-  --linen:          #DDD2C2;   /* Soft Warm Beige — borders/surfaces */
-  --warm-hover:     #D3C8B8;   /* subtle hover on light bg           */
-  --warm-sand:      #C4B9A8;   /* mid warm neutral                   */
-  --champagne:      #B0A090;   /* deeper warm champagne              */
+  /* ── LUXURY LIGHT SURFACES — Ivory (Champagne intentionally unused) */
+  --pearl:          #FAF6EF;   /* Ivory — light section bg           */
+  --ivory:          #FAF6EF;   /* Ivory                              */
+  --cream:          #FAF6EF;   /* Ivory                              */
+  --linen:          #FAF6EF;   /* Ivory — borders/surfaces           */
+  --warm-hover:     #F0E8DA;   /* subtle hover on light bg           */
+  --warm-sand:      #E3D6C0;   /* mid warm neutral                   */
+  --champagne:      #E6DCC2;   /* reserved — not used in active UI   */
 
   /* ── GLASS / SHADOW / GRADIENT TOKENS ────────────────────────── */
-  --glass-frost:    rgba(243,239,232,0.08);  /* luxury glass overlay  */
-  --shadow-warm:    rgba(5,5,5,0.25);         /* deep warm shadow      */
-  --grad-warm:      #F3EFE8;                  /* gradient start        */
-  --grad-sand:      #DDD2C2;                  /* gradient end          */
+  --glass-frost:    rgba(250,246,239,0.08);  /* luxury glass overlay  */
+  --shadow-warm:    rgba(26,26,26,0.25);      /* deep warm shadow      */
+  --grad-warm:      #FAF6EF;                  /* gradient start        */
+  --grad-sand:      #F0E8DA;                  /* gradient end          */
 
-  /* ── GOLD-TAUPE ACCENT SYSTEM ─────────────────────────────────── */
-  --gold:         #9D8668;   /* Gold-Taupe Accent — primary           */
-  --gold-light:   #B09A80;   /* lighter warm accent                   */
-  --gold-lighter: #DDD2C2;   /* Soft Warm Beige — pale accent         */
-  --gold-pale:    #F3EFE8;   /* Luxury Ivory — wash                   */
-  --gold-dark:    #736452;   /* Muted Taupe — deeper accent           */
-  --gold-darker:  #5C4D3D;   /* Deep Mocha — darkest accent           */
+  /* ── GOLD / BURGUNDY ACCENT SYSTEM ─────────────────────────────── */
+  --gold:         #D4AF37;   /* Gold — accent: highlights, icons, dividers */
+  --gold-light:   #DFC15C;   /* lighter gold tint — hover/on-dark accents  */
+  --gold-lighter: #FAF6EF;   /* Ivory — pale accent                        */
+  --gold-pale:    #FAF6EF;   /* Ivory — wash                                */
+  --gold-dark:    #6B0D1A;   /* Burgundy — primary brand, deeper accent    */
+  --gold-darker:  #3D090F;   /* Maroon — darkest accent                    */
 
   /* ── LUXURY DARK SURFACES ─────────────────────────────────────── */
-  --luxury-black:    #050505;   /* Luxury Black — deepest             */
-  --luxury-dark:     #1A1A1A;   /* Charcoal — primary dark bg         */
-  --luxury-dark2:    #2C2018;   /* warm dark panel                    */
-  --luxury-charcoal: #5C4D3D;   /* Deep Mocha — accent panel          */
-  --luxury-brown:    #736452;   /* Muted Taupe — medium surface       */
+  --luxury-black:    #1A1A1A;   /* Charcoal — deepest                 */
+  --luxury-dark:     #3D090F;   /* Maroon — primary dark bg           */
+  --luxury-dark2:    #2B070C;   /* deeper Maroon — secondary panel    */
+  --luxury-charcoal: #6B0D1A;   /* Burgundy — accent panel            */
+  --luxury-brown:    #6B0D1A;   /* Burgundy — medium surface          */
 
   /* ── TEXT ON LIGHT BACKGROUNDS ───────────────────────────────── */
-  --ink:       #050505;   /* Luxury Black — main headings             */
+  --ink:       #1A1A1A;   /* Charcoal — main headings                 */
   --espresso:  #1A1A1A;   /* Charcoal — primary body text             */
-  --mocha:     #5C4D3D;   /* Deep Mocha — secondary headings          */
-  --taupe:     #736452;   /* Muted Taupe — subdued text               */
+  --mocha:     #6B0D1A;   /* Burgundy — secondary headings            */
+  --taupe:     #6B0D1A;   /* Burgundy — subdued text                  */
   --smoke:     #8B7B68;   /* Warm Gray Border — placeholder text      */
 
   /* ── LIGHT TEXT on dark backgrounds ─────────────────────────── */
-  --beige:        #F3EFE8;   /* Luxury Ivory — primary on dark        */
-  --beige-dark:   #DDD2C2;   /* Soft Warm Beige — secondary on dark   */
-  --beige-darker: #B0A090;   /* muted warm on dark                    */
+  --beige:        #FAF6EF;   /* Ivory — primary on dark               */
+  --beige-dark:   #FAF6EF;   /* Ivory — secondary on dark             */
+  --beige-darker: #C9BBA0;   /* muted warm on dark                    */
 
   /* ── INTERNATIONAL ACCENT COLORS — remapped to palette ─────── */
-  --sage:        #736452;
-  --terracotta:  #9D8668;
-  --saffron:     #B09A80;
+  --sage:        #6B0D1A;
+  --terracotta:  #D4AF37;
+  --saffron:     #DFC15C;
   --stone:       #8B7B68;
-  --deep-teal:   #5C4D3D;
+  --deep-teal:   #3D090F;
   --sapphire:    #1A1A1A;
-  --amethyst:    #736452;
+  --amethyst:    #6B0D1A;
 
-  /* ── TYPOGRAPHY — Editorial Luxury Stack ─────────────────────── */
-  --font-display: 'Mytupi', 'Cormorant Garamond', 'Playfair Display', serif;
-  --font-heading: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
-  --font-ui:      'Outfit', system-ui, sans-serif;
-  --font-body:    'Outfit', system-ui, sans-serif;
+  /* ── TYPOGRAPHY — Official Brand Stack ────────────────────────── */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-ui:      'Montserrat', system-ui, sans-serif;
+  --font-body:    'Montserrat', system-ui, sans-serif;
 
   /* ── CINEMATIC EASING CURVES ─────────────────────────────────── */
   --ease-luxury:    cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -235,8 +195,8 @@
 .font-cormorant { font-family: 'Cormorant Garamond', Georgia, serif; }
 .font-heading   { font-family: var(--font-heading); }
 .font-ui        { font-family: var(--font-ui); font-weight: 400; }
-.font-montserrat{ font-family: 'Outfit', sans-serif; }
-.font-inter     { font-family: 'Outfit', sans-serif; }
+.font-montserrat{ font-family: 'Montserrat', sans-serif; }
+.font-inter     { font-family: 'Montserrat', sans-serif; }
 .font-body      { font-family: var(--font-body); font-size: 1rem; font-weight: 400; color: var(--espresso); }
 
 /* Heading refinement — editorial, spacious, Mytupi/Cormorant style */
@@ -266,7 +226,7 @@ h4, h5, h6, .heading-medium {
    8. SELECTION
    ═══════════════════════════════════════════════════════════════════ */
 ::selection {
-  background: rgba(157,134,104,0.25);
+  background: rgba(212,175,55,0.25);
   color: var(--ivory);
 }
 
@@ -284,26 +244,26 @@ h4, h5, h6, .heading-medium {
 @media (min-width: 1024px) { .container-luxury { padding-inline: 2.5rem; } }
 
 .section-pad {
-  padding-top: 5.5rem;
-  padding-bottom: 5.5rem;
+  padding-top: 3.75rem;
+  padding-bottom: 3.75rem;
 }
 
 @media (min-width: 1024px) {
   .section-pad {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
+    padding-top: 5.5rem;
+    padding-bottom: 5.5rem;
   }
 }
 
 .section-pad-sm {
-  padding-top: 3.5rem;
-  padding-bottom: 3.5rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }
 
 @media (min-width: 1024px) {
   .section-pad-sm {
-    padding-top: 5.5rem;
-    padding-bottom: 5.5rem;
+    padding-top: 3.75rem;
+    padding-bottom: 3.75rem;
   }
 }
 
@@ -329,7 +289,7 @@ h4, h5, h6, .heading-medium {
 .divider-gold {
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(157,134,104,0.25), transparent);
+  background: linear-gradient(90deg, transparent, rgba(212,175,55,0.25), transparent);
 }
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -349,7 +309,7 @@ h4, h5, h6, .heading-medium {
    12. TAUPE TEXT GRADIENT
    ═══════════════════════════════════════════════════════════════════ */
 .text-gold-gradient {
-  background: linear-gradient(135deg, #9D8668 0%, #DDD2C2 50%, #736452 100%);
+  background: linear-gradient(135deg, #DFC15C 0%, #D4AF37 50%, #6B0D1A 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -387,8 +347,8 @@ h4, h5, h6, .heading-medium {
 
 .btn-gold:hover {
   background: #050505;
-  border-color: #9D8668;
-  box-shadow: 0 14px 44px rgba(5,5,5,0.40), 0 0 0 1px rgba(157,134,104,0.15);
+  border-color: #D4AF37;
+  box-shadow: 0 14px 44px rgba(26,26,26,0.40), 0 0 0 1px rgba(212,175,55,0.15);
   transform: translateY(-2px);
 }
 
@@ -418,7 +378,7 @@ h4, h5, h6, .heading-medium {
 
 .btn-outline-gold:hover {
   background: rgba(243,239,232,0.10);
-  border-color: #9D8668;
+  border-color: #D4AF37;
   transform: translateY(-2px);
 }
 
@@ -436,7 +396,7 @@ h4, h5, h6, .heading-medium {
   padding: 1rem 2.5rem;
   background: transparent;
   color: var(--luxury-dark);
-  border: 1px solid rgba(92,77,61,0.35);
+  border: 1px solid rgba(61,9,15,0.35);
   cursor: pointer;
   transition: background var(--transition-base),
               border-color var(--transition-base),
@@ -446,8 +406,8 @@ h4, h5, h6, .heading-medium {
 }
 
 .btn-outline-dark:hover {
-  background: rgba(157,134,104,0.08);
-  border-color: #9D8668;
+  background: rgba(212,175,55,0.08);
+  border-color: #D4AF37;
   transform: translateY(-2px);
 }
 
@@ -477,7 +437,7 @@ h4, h5, h6, .heading-medium {
 .btn-dark:hover {
   background: var(--gold-dark);
   transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(157,134,104,0.25);
+  box-shadow: 0 12px 40px rgba(212,175,55,0.25);
 }
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -499,7 +459,7 @@ h4, h5, h6, .heading-medium {
 
 .input-luxury:focus {
   border-color: var(--gold);
-  box-shadow: 0 0 0 1px rgba(157,134,104,0.20);
+  box-shadow: 0 0 0 1px rgba(212,175,55,0.20);
 }
 
 .input-luxury::placeholder { color: rgba(139,123,104,0.50); }
@@ -510,7 +470,7 @@ h4, h5, h6, .heading-medium {
 .card-luxury {
   background: #1A1A1A;
   border: 1px solid rgba(139,123,104,0.12);
-  box-shadow: 0 2px 20px rgba(5,5,5,0.20);
+  box-shadow: 0 2px 20px rgba(26,26,26,0.20);
   transition: transform 0.55s var(--ease-luxury),
               box-shadow 0.55s var(--ease-luxury),
               border-color 0.55s var(--ease-luxury);
@@ -518,8 +478,8 @@ h4, h5, h6, .heading-medium {
 
 .card-luxury:hover {
   transform: translateY(-6px);
-  box-shadow: 0 24px 56px rgba(5,5,5,0.35);
-  border-color: rgba(157,134,104,0.22);
+  box-shadow: 0 24px 56px rgba(26,26,26,0.35);
+  border-color: rgba(212,175,55,0.22);
 }
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -550,7 +510,7 @@ h4, h5, h6, .heading-medium {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(5,5,5,0.55) 100%);
+  background: linear-gradient(180deg, transparent 40%, rgba(26,26,26,0.55) 100%);
   pointer-events: none;
 }
 
@@ -573,7 +533,7 @@ h4, h5, h6, .heading-medium {
    19. LOADING SKELETON
    ═══════════════════════════════════════════════════════════════════ */
 .skeleton {
-  background: linear-gradient(90deg, #1A1A1A 25%, #2C2018 50%, #1A1A1A 75%);
+  background: linear-gradient(90deg, #1A1A1A 25%, #3D090F 50%, #1A1A1A 75%);
   background-size: 800px 100%;
   animation: skeleton-shimmer 1.8s ease-in-out infinite;
 }
@@ -600,7 +560,7 @@ a, button, [role="button"], [tabindex] { cursor: pointer; }
 }
 
 .glass-dark {
-  background: rgba(5,5,5,0.85);
+  background: rgba(26,26,26,0.85);
   backdrop-filter: blur(28px) saturate(160%);
   -webkit-backdrop-filter: blur(28px) saturate(160%);
   border: 1px solid rgba(139,123,104,0.12);
@@ -621,7 +581,7 @@ a, button, [role="button"], [tabindex] { cursor: pointer; }
   font-size: clamp(2.5rem, 5vw, 4rem);
   line-height: 1;
   letter-spacing: 0.01em;
-  background: linear-gradient(135deg, #F3EFE8 0%, #DDD2C2 52%, #9D8668 100%);
+  background: linear-gradient(135deg, #FAF6EF 0%, #DFC15C 52%, #D4AF37 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -655,9 +615,9 @@ a, button, [role="button"], [tabindex] { cursor: pointer; }
 .shimmer-gold {
   background: linear-gradient(
     90deg,
-    rgba(157,134,104,0) 0%,
-    rgba(157,134,104,0.35) 50%,
-    rgba(157,134,104,0) 100%
+    rgba(212,175,55,0) 0%,
+    rgba(212,175,55,0.35) 50%,
+    rgba(212,175,55,0) 100%
   );
   background-size: 400px 100%;
   animation: gold-shimmer 2.8s ease-in-out infinite;
@@ -665,8 +625,8 @@ a, button, [role="button"], [tabindex] { cursor: pointer; }
 
 /* Pulse accent ring */
 @keyframes pulse-gold {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(157,134,104,0.30); }
-  50%       { box-shadow: 0 0 0 14px rgba(157,134,104,0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212,175,55,0.30); }
+  50%       { box-shadow: 0 0 0 14px rgba(212,175,55,0); }
 }
 
 .pulse-gold { animation: pulse-gold 2.8s ease-in-out infinite; }
@@ -702,7 +662,7 @@ a, button, [role="button"], [tabindex] { cursor: pointer; }
 
 .mega-link:hover {
   padding-left: 18px;
-  background: rgba(157,134,104,0.06);
+  background: rgba(212,175,55,0.06);
 }
 
 .nav-gold-bar {
@@ -750,7 +710,7 @@ a, button, [role="button"], [tabindex] { cursor: pointer; }
 
 .card-premium:hover {
   transform: translateY(-7px);
-  box-shadow: 0 28px 64px rgba(5,5,5,0.40);
+  box-shadow: 0 28px 64px rgba(26,26,26,0.40);
 }
 
 .card-premium::after {
@@ -818,7 +778,7 @@ a, button, [role="button"], [tabindex] { cursor: pointer; }
   background: rgba(26,26,26,0.96);
   backdrop-filter: blur(28px);
   border: 1px solid rgba(139,123,104,0.14);
-  box-shadow: 0 24px 56px rgba(5,5,5,0.40), 0 4px 12px rgba(5,5,5,0.20);
+  box-shadow: 0 24px 56px rgba(26,26,26,0.40), 0 4px 12px rgba(26,26,26,0.20);
 }
 
 /* ═══════════════════════════════════════════════════════════════════

@@ -84,7 +84,7 @@ export default function EventDetail() {
     <>
       <Seo
         title={event.title}
-        description={event.description ? event.description.replace(/<[^>]+>/g, '').slice(0, 160) : `${event.title} — Majestique Landmarks event in ${event.location || 'Pune'}.`}
+        description={event.description ? event.description.replace(/<[^>]+>/g, '').slice(0, 160) : `${event.title}, a Majestique Landmarks event in ${event.location || 'Pune'}.`}
         image={heroImage}
       />
       <PageHero
@@ -123,7 +123,7 @@ export default function EventDetail() {
               {/* Photo gallery grid */}
               {gallery && gallery.length > 1 && (
                 <div className="mb-8">
-                  <p className="flex items-center gap-2 font-ui text-[0.55rem] tracking-[0.22em] uppercase mb-3" style={{ color: 'rgba(157,134,104,0.6)' }}>
+                  <p className="flex items-center gap-2 font-ui text-[0.55rem] tracking-[0.22em] uppercase mb-3" style={{ color: 'rgba(212,175,55,0.6)' }}>
                     <Images size={12} /> {gallery.length} Photos
                   </p>
                   <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
@@ -132,7 +132,7 @@ export default function EventDetail() {
                         key={i}
                         onClick={() => setLightboxIndex(i)}
                         className="relative overflow-hidden group"
-                        style={{ aspectRatio: '4/3', background: '#f0ede8' }}
+                        style={{ aspectRatio: '4/3', background: '#FAF6EF' }}
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true, margin: '-20px' }}
@@ -140,13 +140,13 @@ export default function EventDetail() {
                       >
                         <img
                           src={img}
-                          alt={`${event.title} — photo ${i + 1}`}
+                          alt={`${event.title}, photo ${i + 1}`}
                           className="w-full h-full object-cover transition-transform duration-400 group-hover:scale-110"
                           loading="lazy"
                         />
                         <div
                           className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                          style={{ background: 'rgba(5,5,5,0.35)' }}
+                          style={{ background: 'rgba(26,26,26,0.35)' }}
                         >
                           <ZoomIn size={18} color="white" />
                         </div>
@@ -168,7 +168,7 @@ export default function EventDetail() {
 
               <div
                 className="flex items-start sm:items-center mt-12 pt-8"
-                style={{ borderTop: '1px solid rgba(157,134,104,0.2)' }}
+                style={{ borderTop: '1px solid rgba(212,175,55,0.2)' }}
               >
                 <Link
                   to="/media/events"
@@ -192,7 +192,7 @@ export default function EventDetail() {
                 className="p-6 mb-6"
                 style={{
                   background: 'var(--luxury-dark)',
-                  border: '1px solid rgba(157,134,104,0.2)',
+                  border: '1px solid rgba(212,175,55,0.2)',
                 }}
               >
                 <h3 className="font-ui text-xs tracking-widest uppercase mb-5" style={{ color: 'var(--gold)' }}>
@@ -208,7 +208,7 @@ export default function EventDetail() {
                   >
                     <CalendarDays size={16} style={{ color: 'var(--gold)', flexShrink: 0, marginTop: '2px' }} />
                     <div>
-                      <p className="font-ui text-xs tracking-wider uppercase mb-0.5" style={{ color: 'rgba(243,239,232,0.45)' }}>Date</p>
+                      <p className="font-ui text-xs tracking-wider uppercase mb-0.5" style={{ color: 'rgba(250,246,239,0.45)' }}>Date</p>
                       <p className="font-body text-sm" style={{ color: 'var(--beige)' }}>{formatDate(event.startDate)}</p>
                     </div>
                   </motion.div>
@@ -222,7 +222,7 @@ export default function EventDetail() {
                     >
                       <Clock size={16} style={{ color: 'var(--gold)', flexShrink: 0, marginTop: '2px' }} />
                       <div>
-                        <p className="font-ui text-xs tracking-wider uppercase mb-0.5" style={{ color: 'rgba(243,239,232,0.45)' }}>Ends</p>
+                        <p className="font-ui text-xs tracking-wider uppercase mb-0.5" style={{ color: 'rgba(250,246,239,0.45)' }}>Ends</p>
                         <p className="font-body text-sm" style={{ color: 'var(--beige)' }}>{formatDate(event.endDate)}</p>
                       </div>
                     </motion.div>
@@ -237,7 +237,7 @@ export default function EventDetail() {
                     >
                       <MapPin size={16} style={{ color: 'var(--gold)', flexShrink: 0, marginTop: '2px' }} />
                       <div>
-                        <p className="font-ui text-xs tracking-wider uppercase mb-0.5" style={{ color: 'rgba(243,239,232,0.45)' }}>Location</p>
+                        <p className="font-ui text-xs tracking-wider uppercase mb-0.5" style={{ color: 'rgba(250,246,239,0.45)' }}>Location</p>
                         <p className="font-body text-sm" style={{ color: 'var(--beige)' }}>{event.location}</p>
                       </div>
                     </motion.div>
@@ -291,9 +291,9 @@ export default function EventDetail() {
         .event-content strong { font-weight: 600; }
         .evd-upcoming-pulse { animation: evdPulse 2.4s ease-out infinite; }
         @keyframes evdPulse {
-          0%   { box-shadow: 0 0 0 0 rgba(157,134,104,0.45); }
-          70%  { box-shadow: 0 0 0 9px rgba(157,134,104,0); }
-          100% { box-shadow: 0 0 0 0 rgba(157,134,104,0); }
+          0%   { box-shadow: 0 0 0 0 rgba(212,175,55,0.45); }
+          70%  { box-shadow: 0 0 0 9px rgba(212,175,55,0); }
+          100% { box-shadow: 0 0 0 0 rgba(212,175,55,0); }
         }
         @media (prefers-reduced-motion: reduce) {
           .evd-upcoming-pulse { animation: none !important; }

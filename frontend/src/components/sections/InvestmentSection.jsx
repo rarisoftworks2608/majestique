@@ -47,7 +47,7 @@ export default function InvestmentSection() {
             <div className="mb-4" style={{ width: '32px', height: '1px', background: 'var(--gold)' }} />
 
             <p className="font-body"
-              style={{ fontSize: 'clamp(1rem, 1.2vw, 1.1rem)', color: 'rgba(10,10,10,0.85)', fontWeight: 400, lineHeight: 1.8, maxWidth: '520px' }}>
+              style={{ fontSize: 'clamp(1rem, 1.2vw, 1.1rem)', color: 'rgba(26,26,26,0.85)', fontWeight: 400, lineHeight: 1.8, maxWidth: '520px' }}>
               {VISION}
             </p>
           </motion.div>
@@ -59,7 +59,7 @@ export default function InvestmentSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.65, delay: 0.4 }}
             className="mb-7"
-            style={{ height: '1px', background: 'linear-gradient(90deg, rgba(157,134,104,0.4), transparent)', transformOrigin: 'left' }}
+            style={{ height: '1px', background: 'linear-gradient(90deg, rgba(212,175,55,0.4), transparent)', transformOrigin: 'left' }}
           />
 
           {/* Mission block */}
@@ -93,7 +93,7 @@ export default function InvestmentSection() {
                   <div className="flex-shrink-0 mt-3"
                     style={{ width: '14px', height: '2px', background: 'var(--gold)' }} />
                   <p className="font-body"
-                    style={{ fontSize: 'clamp(1rem, 1.2vw, 1.1rem)', color: 'rgba(10,10,10,0.85)', fontWeight: 400, lineHeight: 1.8 }}>
+                    style={{ fontSize: 'clamp(1rem, 1.2vw, 1.1rem)', color: 'rgba(26,26,26,0.85)', fontWeight: 400, lineHeight: 1.8 }}>
                     {m}
                   </p>
                 </motion.div>
@@ -129,12 +129,6 @@ export default function InvestmentSection() {
             "
           </div>
 
-          {/* Corner ornaments */}
-          <div className="absolute top-5 right-5 w-8 h-8 border-r-2 border-t-2 z-10"
-            style={{ borderColor: 'rgba(157,134,104,0.55)' }} />
-          <div className="absolute bottom-5 right-5 w-8 h-8 border-r-2 border-b-2 z-10"
-            style={{ borderColor: 'rgba(157,134,104,0.35)' }} />
-
           {/* Floating label */}
           <motion.div
             initial={{ opacity: 0, y: 14 }}
@@ -142,11 +136,11 @@ export default function InvestmentSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.65, delay: 0.9 }}
             className="absolute bottom-7 left-7 z-10 px-4 py-3"
-            style={{ background: 'rgba(255,255,255,0.88)', border: '1px solid rgba(157,134,104,0.22)', backdropFilter: 'blur(14px)', boxShadow: '0 6px 24px rgba(10,10,10,0.06)' }}
+            style={{ background: 'rgba(255,255,255,0.88)', border: '1px solid rgba(212,175,55,0.22)', backdropFilter: 'blur(14px)', boxShadow: '0 6px 24px rgba(26,26,26,0.06)' }}
           >
             <div className="h-px mb-1.5" style={{ width: '16px', background: 'var(--gold)' }} />
             <p className="font-ui text-[0.44rem] tracking-[0.2em] uppercase"
-              style={{ color: 'rgba(10,10,10,0.5)' }}>
+              style={{ color: 'rgba(26,26,26,0.5)' }}>
               Est. 2002 · Majestique Landmarks
             </p>
           </motion.div>

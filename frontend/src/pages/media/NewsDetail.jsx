@@ -68,7 +68,7 @@ export default function NewsDetail() {
     <>
       <Seo
         title={article.title}
-        description={article.excerpt || `${article.title} — Read the latest news from Majestique Landmarks, Pune's premier luxury real estate developer.`}
+        description={article.excerpt || `${article.title}: read the latest news from Majestique Landmarks, Pune's premier luxury real estate developer.`}
         image={article.coverImage ? getImageUrl(article.coverImage) : undefined}
       />
       <PageHero
@@ -88,7 +88,7 @@ export default function NewsDetail() {
               className="flex items-center gap-4 mb-6"
             >
               <span className="section-label">News</span>
-              <span style={{ color: 'rgba(157,134,104,0.4)' }}>·</span>
+              <span style={{ color: 'rgba(212,175,55,0.4)' }}>·</span>
               <span className="flex items-center gap-1.5 font-body text-sm" style={{ color: 'rgba(26,26,26,0.82)' }}>
                 <Calendar size={13} style={{ color: 'var(--gold-dark)' }} />
                 {formatDate(article.publishedAt)}
@@ -132,7 +132,7 @@ export default function NewsDetail() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
               className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-14 pt-8"
-              style={{ borderTop: '1px solid rgba(157,134,104,0.2)' }}
+              style={{ borderTop: '1px solid rgba(212,175,55,0.2)' }}
             >
               <Link
                 to="/media/news"

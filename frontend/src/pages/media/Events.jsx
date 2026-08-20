@@ -24,7 +24,7 @@ const fU = (d = 0) => ({
 
 /* ── Event type meta ─────────────────────────────────────────────── */
 const TYPE_META = {
-  'Open Day':             { color: '#9d8668', icon: Building2 },
+  'Open Day':             { color: '#D4AF37', icon: Building2 },
   'Site Preview':         { color: '#2d9d8f', icon: Eye },
   'Grand Launch':         { color: '#6b5ea8', icon: Sparkles },
   'Award Ceremony':       { color: '#c4962a', icon: Award },
@@ -33,7 +33,7 @@ const TYPE_META = {
   'Festive Celebration':  { color: '#d0703c', icon: PartyPopper },
   'Team Culture':         { color: '#3d6baa', icon: Trophy },
   'Channel Partner Meet': { color: '#7a3fa0', icon: Users },
-  'Event':                { color: '#9d8668', icon: CalendarDays },
+  'Event':                { color: '#D4AF37', icon: CalendarDays },
 }
 
 /* ── Date badge helper ───────────────────────────────────────────── */
@@ -50,7 +50,7 @@ function DateBadge({ dateStr, large = false }) {
         border: '2px solid var(--gold)',
         width: large ? '80px' : '62px',
         padding: large ? '10px 8px' : '6px 8px',
-        boxShadow: '0 4px 16px rgba(157,134,104,0.18)',
+        boxShadow: '0 4px 16px rgba(212,175,55,0.18)',
       }}
     >
       <span
@@ -87,26 +87,26 @@ function FeaturedEventCard({ event }) {
       className="group overflow-hidden"
       style={{
         background: 'white',
-        border: '1px solid rgba(157,134,104,0.18)',
-        boxShadow: '0 8px 48px rgba(5,5,5,0.09)',
+        border: '1px solid rgba(212,175,55,0.18)',
+        boxShadow: '0 8px 48px rgba(26,26,26,0.09)',
         transition: 'box-shadow 0.4s ease, transform 0.4s ease',
       }}
-      onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 24px 72px rgba(5,5,5,0.14)'; e.currentTarget.style.transform = 'translateY(-4px)' }}
-      onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 8px 48px rgba(5,5,5,0.09)'; e.currentTarget.style.transform = 'translateY(0)' }}
+      onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 24px 72px rgba(26,26,26,0.14)'; e.currentTarget.style.transform = 'translateY(-4px)' }}
+      onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 8px 48px rgba(26,26,26,0.09)'; e.currentTarget.style.transform = 'translateY(0)' }}
     >
       {/* Gold top rule */}
       <div style={{ height: '4px', background: 'linear-gradient(90deg, var(--gold), var(--gold-dark), transparent)' }} />
 
       <div className="grid grid-cols-1 lg:grid-cols-5">
         {/* Image */}
-        <div className="lg:col-span-2 relative overflow-hidden" style={{ minHeight: '320px', background: '#f0ede8' }}>
+        <div className="lg:col-span-2 relative overflow-hidden" style={{ minHeight: '320px', background: '#FAF6EF' }}>
           <img
             src={imgSrc}
             alt={event.title}
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
             loading="eager"
           />
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(5,5,5,0.32) 0%, transparent 60%)' }} />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(26,26,26,0.32) 0%, transparent 60%)' }} />
           {/* Date badge bottom-left */}
           <div className="absolute bottom-5 left-5">
             <DateBadge dateStr={event.startDate} large />
@@ -123,7 +123,7 @@ function FeaturedEventCard({ event }) {
             >
               <TypeIcon size={9} /> {event.type}
             </span>
-            <span className="font-ui text-[0.46rem] tracking-widest uppercase" style={{ color: 'rgba(157,134,104,0.5)' }}>
+            <span className="font-ui text-[0.6rem] tracking-widest uppercase" style={{ color: 'var(--gold-dark)' }}>
               Featured
             </span>
           </div>
@@ -164,12 +164,12 @@ function FeaturedEventCard({ event }) {
                 View Details <ArrowRight size={13} />
               </Link>
             ) : (
-              <span className="font-ui text-[0.46rem] tracking-widest uppercase" style={{ color: 'rgba(157,134,104,0.5)' }}>
+              <span className="font-ui text-[0.6rem] tracking-widest uppercase" style={{ color: 'var(--gold-dark)' }}>
                 {event.type}
               </span>
             )}
             {event.capacity && (
-              <span className="flex items-center gap-2 font-ui text-[0.48rem] tracking-widest uppercase px-3" style={{ color: 'rgba(44,62,88,0.4)', border: '1px solid rgba(157,134,104,0.2)' }}>
+              <span className="flex items-center gap-2 font-ui text-[0.48rem] tracking-widest uppercase px-3" style={{ color: 'rgba(44,62,88,0.4)', border: '1px solid rgba(212,175,55,0.2)' }}>
                 {event.capacity}
               </span>
             )}
@@ -190,7 +190,7 @@ function EventCard({ event, index }) {
   const inner = (
     <>
       {/* Image */}
-      <div className="relative overflow-hidden" style={{ aspectRatio: '16/9', background: '#f0ede8', flexShrink: 0 }}>
+      <div className="relative overflow-hidden" style={{ aspectRatio: '16/9', background: '#FAF6EF', flexShrink: 0 }}>
         <img
           src={imgSrc}
           alt={event.title}
@@ -198,7 +198,7 @@ function EventCard({ event, index }) {
           loading="lazy"
           onError={e => { e.currentTarget.style.display = 'none' }}
         />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 55%, rgba(5,5,5,0.22) 100%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 55%, rgba(26,26,26,0.22) 100%)' }} />
         {/* Date badge */}
         <div className="absolute top-3 left-3">
           <DateBadge dateStr={event.startDate} />
@@ -241,7 +241,7 @@ function EventCard({ event, index }) {
           </p>
         )}
 
-        <div className="pt-3 mt-auto flex items-center justify-between" style={{ borderTop: '1px solid rgba(157,134,104,0.12)' }}>
+        <div className="pt-3 mt-auto flex items-center justify-between" style={{ borderTop: '1px solid rgba(212,175,55,0.12)' }}>
           <span className="font-ui text-xs font-bold tracking-widest uppercase" style={{ color: 'var(--luxury-dark)' }}>
             {hasDetail ? 'View Details' : event.type}
           </span>
@@ -265,12 +265,12 @@ function EventCard({ event, index }) {
     transition: { duration: 0.55, delay: index * 0.09, ease: [0.25, 0.46, 0.45, 0.94] },
     className: 'group flex flex-col overflow-hidden bg-white',
     style: {
-      border: '1px solid rgba(157,134,104,0.14)',
-      boxShadow: '0 2px 16px rgba(5,5,5,0.05)',
+      border: '1px solid rgba(212,175,55,0.14)',
+      boxShadow: '0 2px 16px rgba(26,26,26,0.05)',
       transition: 'box-shadow 0.35s ease, transform 0.35s ease',
     },
-    onMouseEnter: e => { e.currentTarget.style.boxShadow = '0 18px 56px rgba(5,5,5,0.11)'; e.currentTarget.style.transform = 'translateY(-5px)' },
-    onMouseLeave: e => { e.currentTarget.style.boxShadow = '0 2px 16px rgba(5,5,5,0.05)'; e.currentTarget.style.transform = 'translateY(0)' },
+    onMouseEnter: e => { e.currentTarget.style.boxShadow = '0 18px 56px rgba(26,26,26,0.11)'; e.currentTarget.style.transform = 'translateY(-5px)' },
+    onMouseLeave: e => { e.currentTarget.style.boxShadow = '0 2px 16px rgba(26,26,26,0.05)'; e.currentTarget.style.transform = 'translateY(0)' },
   }
 
   if (hasDetail) {
@@ -287,7 +287,7 @@ function EventCard({ event, index }) {
 /* ── Skeleton ────────────────────────────────────────────────────── */
 function Skeleton() {
   return (
-    <div className="overflow-hidden bg-white" style={{ border: '1px solid rgba(157,134,104,0.1)' }}>
+    <div className="overflow-hidden bg-white" style={{ border: '1px solid rgba(212,175,55,0.1)' }}>
       <div className="skeleton w-full" style={{ aspectRatio: '16/9' }} />
       <div className="p-5">
         <div className="skeleton h-3 w-28 mb-3 rounded" />
@@ -336,53 +336,21 @@ export default function Events() {
   return (
     <>
       <Seo
-        title="Events — Launches, Ceremonies & Celebrations | Majestique Landmarks"
+        title="Events | Launches, Ceremonies & Celebrations | Majestique Landmarks"
         description="Explore Majestique Landmarks' project launches, ceremonies, CSR initiatives, and community celebrations across Pune."
       />
 
       <PageHero
-        label="Media"
         title="Events"
-        subtitle="Open days, grand launches, handover ceremonies, and community celebrations — experience Majestique Landmarks up close."
+        subtitle="Open days, grand launches, handover ceremonies, and community celebrations to experience Majestique Landmarks up close."
         breadcrumbs={[{ label: 'Media', href: '/media/events' }, { label: 'Events' }]}
         bgImage={eventsHeroImg}
       />
 
-      {/* ── Stats Band ───────────────────────────────────────────── */}
-      <section className="py-11 relative overflow-hidden">
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, #9d8668 0%, #c4a455 28%, #d4b465 55%, #b89050 80%, #9d8668 100%)' }} />
-        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% -10%, rgba(255,230,130,0.2) 0%, transparent 55%)' }} />
-        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'rgba(255,255,255,0.2)' }} />
-        <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'rgba(0,0,0,0.1)' }} />
-        <div className="container-luxury relative">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-0 divide-x divide-white/20">
-            {[
-              { v: '50+',    l: 'Events Hosted' },
-              { v: '18K+',   l: 'Families Attended' },
-              { v: '30+',    l: 'Project Launches' },
-              { v: '5+',     l: 'Award Ceremonies' },
-            ].map((s, i) => (
-              <motion.div
-                key={s.l}
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.48, delay: i * 0.09 }}
-                className="text-center py-8 px-4"
-              >
-                <p className="font-times font-normal leading-none mb-2" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', color: '#fff' }}>{s.v}</p>
-                <div className="w-6 h-px mx-auto mb-2" style={{ background: 'rgba(255,255,255,0.35)' }} />
-                <p className="font-ui text-[0.48rem] tracking-widest uppercase" style={{ color: 'rgba(255,255,255,0.72)' }}>{s.l}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── Events Section ────────────────────────────────────────── */}
       <section className="section-pad relative" style={{ background: 'var(--cream)' }}>
-        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.22),transparent)' }} />
-        <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.22),transparent)' }} />
+        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.22),transparent)' }} />
+        <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.22),transparent)' }} />
         <div className="container-luxury">
 
           {/* Section header */}
@@ -390,7 +358,7 @@ export default function Events() {
             <SectionHeader
               label="Our Events"
               title={<>All <em style={{ color: 'var(--gold-dark)', fontStyle: 'italic' }}>Events</em></>}
-              subtitle="Launches, ceremonies, CSR initiatives, and celebrations — every moment that brings the Majestique family together."
+              subtitle="Launches, ceremonies, CSR initiatives, and celebrations, every moment that brings the Majestique family together."
               align="center"
             />
           </div>
@@ -408,11 +376,11 @@ export default function Events() {
                 style={{
                   background: 'white',
                   color: 'var(--ink)',
-                  border: '1px solid rgba(157,134,104,0.40)',
+                  border: '1px solid rgba(212,175,55,0.40)',
                   minWidth: '130px',
                 }}
                 onFocus={e => (e.currentTarget.style.borderColor = 'var(--gold)')}
-                onBlur={e => (e.currentTarget.style.borderColor = 'rgba(157,134,104,0.40)')}
+                onBlur={e => (e.currentTarget.style.borderColor = 'rgba(212,175,55,0.40)')}
               >
                 <option value="all">All Years</option>
                 {years.map(yr => (
@@ -426,7 +394,7 @@ export default function Events() {
               </div>
             </div>
             {selectedYear !== 'all' && (
-              <span className="font-ui text-[0.5rem] tracking-widest uppercase" style={{ color: 'rgba(157,134,104,0.6)' }}>
+              <span className="font-ui text-[0.5rem] tracking-widest uppercase" style={{ color: 'rgba(212,175,55,0.6)' }}>
                 {filteredEvents.length} {filteredEvents.length === 1 ? 'event' : 'events'}
               </span>
             )}
@@ -438,7 +406,7 @@ export default function Events() {
             </div>
           ) : filteredEvents.length === 0 ? (
             <div className="text-center py-20">
-              <CalendarDays size={44} className="mx-auto mb-5" style={{ color: 'rgba(157,134,104,0.25)' }} />
+              <CalendarDays size={44} className="mx-auto mb-5" style={{ color: 'rgba(212,175,55,0.25)' }} />
               <p className="font-times text-2xl mb-2" style={{ color: 'rgba(44,62,88,0.45)' }}>
                 {selectedYear === 'all' ? 'No events to display yet.' : `No events found for ${selectedYear}.`}
               </p>
@@ -464,10 +432,10 @@ export default function Events() {
       </section>
 
       {/* ── Event Types Strip ─────────────────────────────────────── */}
-      <section className="py-14 relative" style={{ background: 'white' }}>
-        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.18),transparent)' }} />
+      <section className="py-11 relative" style={{ background: 'white' }}>
+        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.18),transparent)' }} />
         <div className="container-luxury">
-          <motion.p {...fU()} className="font-ui font-black text-[0.875rem] tracking-[0.35em] uppercase text-center mb-10" style={{ color: 'rgba(157,134,104,0.6)' }}>
+          <motion.p {...fU()} className="font-ui font-black text-[0.875rem] tracking-[0.35em] uppercase text-center mb-10" style={{ color: 'rgba(212,175,55,0.6)' }}>
             Types of Majestique Events
           </motion.p>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -479,7 +447,7 @@ export default function Events() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: i * 0.08 }}
                 className="flex flex-col items-center gap-3 p-5 text-center"
-                style={{ border: '1px solid rgba(157,134,104,0.13)', background: 'var(--cream)' }}
+                style={{ border: '1px solid rgba(212,175,55,0.13)', background: 'var(--cream)' }}
               >
                 <div
                   className="w-12 h-12 flex items-center justify-center"
@@ -495,17 +463,17 @@ export default function Events() {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────────────── */}
-      <section className="py-24 relative overflow-hidden" style={{ background: 'var(--cream)' }}>
-        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.3),transparent)' }} />
-        <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.3),transparent)' }} />
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(157,134,104,0.06) 0%, transparent 70%)' }} />
+      <section className="py-16 relative overflow-hidden" style={{ background: 'var(--cream)' }}>
+        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.3),transparent)' }} />
+        <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.3),transparent)' }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(212,175,55,0.06) 0%, transparent 70%)' }} />
         {/* Corner brackets */}
         {[['top-6 left-6','border-l border-t'],['top-6 right-6','border-r border-t'],['bottom-6 left-6','border-l border-b'],['bottom-6 right-6','border-r border-b']].map(([pos,bdr]) => (
           <div key={pos} className={`absolute ${pos} w-10 h-10 ${bdr} opacity-20`} style={{ borderColor: 'var(--gold)' }} />
         ))}
         <div className="container-luxury text-center relative">
           <motion.div {...fU()}>
-            <div className="w-12 h-12 flex items-center justify-center mx-auto mb-6" style={{ background: 'rgba(157,134,104,0.1)', border: '1px solid rgba(157,134,104,0.25)' }}>
+            <div className="w-12 h-12 flex items-center justify-center mx-auto mb-6" style={{ background: 'rgba(212,175,55,0.1)', border: '1px solid rgba(212,175,55,0.25)' }}>
               <Bell size={20} style={{ color: 'var(--gold)' }} />
             </div>
             <span className="section-label block mb-3">Stay In The Loop</span>

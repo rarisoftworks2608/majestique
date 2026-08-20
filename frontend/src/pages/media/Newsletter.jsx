@@ -45,14 +45,13 @@ export default function Newsletter() {
   return (
     <>
       <Seo
-        title="Newsletter — Majestique Landmarks"
+        title="Newsletter | Majestique Landmarks"
         description="Subscribe to the Majestique Landmarks newsletter for exclusive updates on new projects, events, luxury living insights, and pre-launch invitations."
       />
 
       <PageHero
-        label="Media"
         title="Newsletter"
-        subtitle="Stay connected with Majestique — exclusive updates on new projects, events, and insights on luxury living in Pune."
+        subtitle="Stay connected with Majestique for exclusive updates on new projects, events, and insights on luxury living in Pune."
         breadcrumbs={[{ label: 'Media', href: '/media/newsletter' }, { label: 'Newsletter' }]}
         bgImage={imgHero}
       />
@@ -76,7 +75,7 @@ export default function Newsletter() {
               </h2>
               <div className="w-12 h-px mb-8" style={{ background: 'linear-gradient(90deg, var(--gold), transparent)' }} />
               <p className="font-body text-[1rem] leading-[1.9] mb-10" style={{ color: 'var(--luxury-charcoal)' }}>
-                Our newsletter connects you directly to the world of Majestique Landmarks — new projects before they go public, invitations to exclusive events, and thoughtful insights on luxury living and real estate investment in Pune.
+                Our newsletter connects you directly to the world of Majestique Landmarks: new projects before they go public, invitations to exclusive events, and thoughtful insights on luxury living and real estate investment in Pune.
               </p>
 
               <div className="space-y-5">
@@ -91,7 +90,7 @@ export default function Newsletter() {
                   >
                     <div
                       className="w-8 h-8 flex items-center justify-center shrink-0 mt-0.5"
-                      style={{ border: '1px solid rgba(157,134,104,0.25)', background: 'rgba(157,134,104,0.04)' }}
+                      style={{ border: '1px solid rgba(212,175,55,0.25)', background: 'rgba(212,175,55,0.04)' }}
                     >
                       <CheckCircle2 size={14} style={{ color: 'var(--gold)' }} />
                     </div>
@@ -121,7 +120,7 @@ export default function Newsletter() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4 }}
                   className="p-10 text-center"
-                  style={{ border: '1px solid rgba(157,134,104,0.25)', background: 'rgba(157,134,104,0.03)' }}
+                  style={{ border: '1px solid rgba(212,175,55,0.25)', background: 'rgba(212,175,55,0.03)' }}
                 >
                   <motion.div
                     initial={{ scale: 0, rotate: -30 }}
@@ -141,12 +140,12 @@ export default function Newsletter() {
                 <form
                   onSubmit={handleSubmit}
                   className="p-8 lg:p-10"
-                  style={{ border: '1px solid rgba(157,134,104,0.14)', background: 'white' }}
+                  style={{ border: '1px solid rgba(212,175,55,0.14)', background: 'white' }}
                 >
                   <div className="flex items-center gap-3 mb-8">
                     <div
                       className="w-10 h-10 flex items-center justify-center"
-                      style={{ border: '1px solid rgba(157,134,104,0.22)', background: 'rgba(157,134,104,0.04)' }}
+                      style={{ border: '1px solid rgba(212,175,55,0.22)', background: 'rgba(212,175,55,0.04)' }}
                     >
                       <Mail size={17} style={{ color: 'var(--gold)' }} />
                     </div>
@@ -188,7 +187,7 @@ export default function Newsletter() {
                           className="font-ui text-[0.6rem] tracking-widest uppercase px-3 py-2 transition-colors duration-200"
                           style={{
                             border: '1px solid',
-                            borderColor: selectedTopics.includes(topic.id) ? 'var(--gold)' : 'rgba(157,134,104,0.2)',
+                            borderColor: selectedTopics.includes(topic.id) ? 'var(--gold)' : 'rgba(212,175,55,0.2)',
                             background: selectedTopics.includes(topic.id) ? 'var(--gold)' : 'transparent',
                             color: selectedTopics.includes(topic.id) ? 'var(--luxury-dark)' : 'rgba(26,26,26,0.82)',
                           }}

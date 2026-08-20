@@ -35,9 +35,9 @@ function BlogCard({ blog, index }) {
       viewport={{ once: true }}
       transition={{ duration: 0.55, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
       className="group bg-white overflow-hidden flex flex-col"
-      style={{ border: '1px solid rgba(157,134,104,0.14)', boxShadow: '0 2px 20px rgba(5,5,5,0.05)', transition: 'box-shadow 0.35s, transform 0.35s' }}
-      onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 16px 48px rgba(5,5,5,0.1)'; e.currentTarget.style.transform = 'translateY(-5px)' }}
-      onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 20px rgba(5,5,5,0.05)'; e.currentTarget.style.transform = 'translateY(0)' }}
+      style={{ border: '1px solid rgba(212,175,55,0.14)', boxShadow: '0 2px 20px rgba(26,26,26,0.05)', transition: 'box-shadow 0.35s, transform 0.35s' }}
+      onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 16px 48px rgba(26,26,26,0.1)'; e.currentTarget.style.transform = 'translateY(-5px)' }}
+      onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 20px rgba(26,26,26,0.05)'; e.currentTarget.style.transform = 'translateY(0)' }}
     >
       <Link to={`/media/blogs/${blog.slug}`} className="block relative overflow-hidden" style={{ aspectRatio: '16/9' }}>
         <img
@@ -46,7 +46,7 @@ function BlogCard({ blog, index }) {
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           loading="lazy"
         />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 40%, rgba(5,5,5,0.38) 100%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 40%, rgba(26,26,26,0.38) 100%)' }} />
         <span
           className="absolute top-4 left-4 font-ui text-[0.55rem] tracking-widest uppercase px-2.5 py-1"
           style={{ background: blog.categoryColor, color: 'white' }}
@@ -57,13 +57,13 @@ function BlogCard({ blog, index }) {
       <div className="p-6 flex flex-col flex-1">
         <div className="flex items-center gap-3 mb-3 font-body text-xs" style={{ color: 'rgba(44,62,88,0.5)' }}>
           <span className="flex items-center gap-1"><Clock size={11} style={{ color: 'var(--gold)' }} />{blog.readTime}</span>
-          <span style={{ color: 'rgba(157,134,104,0.3)' }}>·</span>
+          <span style={{ color: 'rgba(212,175,55,0.3)' }}>·</span>
           <span>{blog.date}</span>
         </div>
-        <h3 className="font-times text-lg leading-snug mb-3 flex-1" style={{ color: 'var(--luxury-dark)' }}>
+        <h3 className="font-times text-lg line-clamp-2" style={{ color: 'var(--luxury-dark)', lineHeight: '1.3', height: '2.6em', marginBottom: '0.75rem' }}>
           <Link to={`/media/blogs/${blog.slug}`} className="hover:opacity-75 transition-opacity">{blog.title}</Link>
         </h3>
-        <p className="font-body text-sm leading-relaxed mb-5" style={{ color: 'rgba(44,62,88,0.6)' }}>{blog.excerpt}</p>
+        <p className="font-body text-sm leading-relaxed mb-5 line-clamp-3 flex-1" style={{ color: 'rgba(44,62,88,0.6)' }}>{blog.excerpt}</p>
         <Link
           to={`/media/blogs/${blog.slug}`}
           className="flex items-center gap-2 font-ui text-xs tracking-widest uppercase transition-colors duration-300 mt-auto"
@@ -82,8 +82,8 @@ export default function Blogs() {
   return (
     <>
       <Seo
-        title="Insights Journal — Real Estate & Living"
-        description="Explore Majestique Landmarks' editorial journal — real estate market trends, investment insights, homebuyer guides, infrastructure updates, and luxury lifestyle perspectives for Pune's modern property market."
+        title="Insights Journal | Real Estate & Living"
+        description="Explore Majestique Landmarks' editorial journal: real estate market trends, investment insights, homebuyer guides, infrastructure updates, and luxury lifestyle perspectives for Pune's modern property market."
       />
 
       <PageHero
@@ -104,13 +104,13 @@ export default function Blogs() {
                 Knowledge-Driven<br />Real Estate Conversations
               </h2>
               <div className="space-y-4 font-body text-base leading-relaxed mb-8" style={{ color: 'rgba(26,26,26,0.85)' }}>
-                <p>Welcome to the Majestique Landmarks Journal — a destination for thoughtfully curated insights on real estate, urban development, lifestyle trends, investment opportunities, and the future of modern living.</p>
+                <p>Welcome to the Majestique Landmarks Journal, a destination for thoughtfully curated insights on real estate, urban development, lifestyle trends, investment opportunities, and the future of modern living.</p>
                 <p>At Majestique Landmarks, we believe informed decisions create better investments and better lifestyles. Our blog platform brings together industry expertise, market trends, and modern living inspiration to help readers navigate the ever-evolving real estate landscape.</p>
               </div>
             </motion.div>
 
             <motion.div {...fR(0.1)}>
-              <div className="p-8" style={{ background: 'var(--cream)', border: '1px solid rgba(157,134,104,0.18)' }}>
+              <div className="p-8" style={{ background: 'var(--cream)', border: '1px solid rgba(212,175,55,0.18)' }}>
                 <p className="font-ui text-[0.65rem] tracking-widest uppercase mb-4" style={{ color: 'var(--gold)' }}>Explore Topics</p>
                 <ul className="space-y-2.5">
                   {EXPLORE_TOPICS.map((topic, i) => (
@@ -135,8 +135,8 @@ export default function Blogs() {
 
       {/* ── Featured Insights ─────────────────────────────────────── */}
       <section className="section-pad relative" style={{ background: 'var(--cream)' }}>
-        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.22),transparent)' }} />
-        <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.22),transparent)' }} />
+        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.22),transparent)' }} />
+        <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.22),transparent)' }} />
         <div className="container-luxury">
           <div className="mb-14">
             <SectionHeader
@@ -150,9 +150,9 @@ export default function Blogs() {
           <motion.article
             {...fU()}
             className="group mb-10 overflow-hidden bg-white"
-            style={{ border: '1px solid rgba(157,134,104,0.14)', boxShadow: '0 4px 32px rgba(5,5,5,0.07)', transition: 'box-shadow 0.35s, transform 0.35s' }}
-            onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 20px 60px rgba(5,5,5,0.11)'; e.currentTarget.style.transform = 'translateY(-4px)' }}
-            onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 4px 32px rgba(5,5,5,0.07)'; e.currentTarget.style.transform = 'translateY(0)' }}
+            style={{ border: '1px solid rgba(212,175,55,0.14)', boxShadow: '0 4px 32px rgba(26,26,26,0.07)', transition: 'box-shadow 0.35s, transform 0.35s' }}
+            onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 20px 60px rgba(26,26,26,0.11)'; e.currentTarget.style.transform = 'translateY(-4px)' }}
+            onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 4px 32px rgba(26,26,26,0.07)'; e.currentTarget.style.transform = 'translateY(0)' }}
           >
             <div className="grid grid-cols-1 lg:grid-cols-5">
               <Link to={`/media/blogs/${featured.slug}`} className="lg:col-span-3 relative overflow-hidden block" style={{ minHeight: '320px' }}>
@@ -161,7 +161,7 @@ export default function Blogs() {
                   alt={featured.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 absolute inset-0"
                 />
-                <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(5,5,5,0.1), rgba(5,5,5,0.35))' }} />
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(26,26,26,0.1), rgba(26,26,26,0.35))' }} />
                 <span
                   className="absolute top-5 left-5 font-ui text-[0.55rem] tracking-widest uppercase px-3 py-1.5"
                   style={{ background: featured.categoryColor, color: 'white' }}
@@ -170,7 +170,7 @@ export default function Blogs() {
                 </span>
                 <span
                   className="absolute top-5 right-5 font-ui text-[0.55rem] tracking-widest uppercase px-3 py-1.5"
-                  style={{ background: 'rgba(157,134,104,0.85)', color: 'white' }}
+                  style={{ background: 'rgba(212,175,55,0.85)', color: 'white' }}
                 >
                   Featured
                 </span>
@@ -178,7 +178,7 @@ export default function Blogs() {
               <div className="lg:col-span-2 p-8 lg:p-10 flex flex-col justify-center">
                 <div className="flex items-center gap-3 mb-4 font-body text-xs" style={{ color: 'rgba(44,62,88,0.5)' }}>
                   <span className="flex items-center gap-1"><Clock size={11} style={{ color: 'var(--gold)' }} />{featured.readTime}</span>
-                  <span style={{ color: 'rgba(157,134,104,0.3)' }}>·</span>
+                  <span style={{ color: 'rgba(212,175,55,0.3)' }}>·</span>
                   <span>{featured.date}</span>
                 </div>
                 <h2 className="font-times font-normal leading-snug mb-3" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', color: 'var(--luxury-dark)' }}>
@@ -212,14 +212,14 @@ export default function Blogs() {
       {/* ── Explore By Topics ─────────────────────────────────────── */}
       <section className="section-pad relative overflow-hidden" style={{ background: 'white' }}>
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden" aria-hidden>
-          <span className="font-display tracking-widest uppercase" style={{ fontSize: 'clamp(8rem, 20vw, 20rem)', color: 'rgba(157,134,104,0.03)', lineHeight: 1, whiteSpace: 'nowrap' }}>EXPLORE</span>
+          <span className="font-display tracking-widest uppercase" style={{ fontSize: 'clamp(8rem, 20vw, 20rem)', color: 'rgba(212,175,55,0.03)', lineHeight: 1, whiteSpace: 'nowrap' }}>EXPLORE</span>
         </div>
         <div className="container-luxury relative">
           <div className="mb-14 text-center">
             <SectionHeader
               label="Browse Topics"
               title="Explore By Category"
-              subtitle="Discover insights curated across the key dimensions of real estate — from market intelligence to luxury lifestyle and investment strategy."
+              subtitle="Discover insights curated across the key dimensions of real estate, from market intelligence to luxury lifestyle and investment strategy."
               align="center"
             />
           </div>
@@ -234,9 +234,9 @@ export default function Blogs() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.55, delay: i * 0.08 }}
                   className="group p-7 relative overflow-hidden bg-white"
-                  style={{ border: '1px solid rgba(157,134,104,0.13)', boxShadow: '0 2px 16px rgba(5,5,5,0.04)', transition: 'box-shadow 0.35s, border-color 0.35s, transform 0.35s' }}
-                  onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 14px 48px rgba(5,5,5,0.1)'; e.currentTarget.style.borderColor = cat.color + '88'; e.currentTarget.style.transform = 'translateY(-5px)' }}
-                  onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 16px rgba(5,5,5,0.04)'; e.currentTarget.style.borderColor = 'rgba(157,134,104,0.13)'; e.currentTarget.style.transform = 'translateY(0)' }}
+                  style={{ border: '1px solid rgba(212,175,55,0.13)', boxShadow: '0 2px 16px rgba(26,26,26,0.04)', transition: 'box-shadow 0.35s, border-color 0.35s, transform 0.35s' }}
+                  onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 14px 48px rgba(26,26,26,0.1)'; e.currentTarget.style.borderColor = cat.color + '88'; e.currentTarget.style.transform = 'translateY(-5px)' }}
+                  onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 16px rgba(26,26,26,0.04)'; e.currentTarget.style.borderColor = 'rgba(212,175,55,0.13)'; e.currentTarget.style.transform = 'translateY(0)' }}
                 >
                   <div className="h-0.5 w-full absolute top-0 inset-x-0" style={{ background: `linear-gradient(90deg, ${cat.color}, transparent)` }} />
                   <motion.div
@@ -260,10 +260,10 @@ export default function Blogs() {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────────────── */}
-      <section className="py-24 relative overflow-hidden" style={{ background: 'var(--cream)' }}>
-        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.32),transparent)' }} />
-        <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.32),transparent)' }} />
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(157,134,104,0.07) 0%, transparent 68%)' }} />
+      <section className="py-16 relative overflow-hidden" style={{ background: 'var(--cream)' }}>
+        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.32),transparent)' }} />
+        <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.32),transparent)' }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(212,175,55,0.07) 0%, transparent 68%)' }} />
         <div className="absolute top-6 left-6 w-10 h-10 border-l border-t opacity-20" style={{ borderColor: 'var(--gold)' }} />
         <div className="absolute top-6 right-6 w-10 h-10 border-r border-t opacity-20" style={{ borderColor: 'var(--gold)' }} />
         <div className="absolute bottom-6 left-6 w-10 h-10 border-l border-b opacity-20" style={{ borderColor: 'var(--gold)' }} />

@@ -9,7 +9,7 @@ const AMENITIES = [
   {
     n: '02',
     title: 'Infinity Pool & Wellness Spa',
-    desc: 'Resort-inspired infinity pools paired with a world-class spa — delivering a daily retreat from the pace of urban life, steps from your door.',
+    desc: 'Resort-inspired infinity pools paired with a world-class spa, delivering a daily retreat from the pace of urban life, steps from your door.',
   },
   {
     n: '03',
@@ -19,12 +19,12 @@ const AMENITIES = [
   {
     n: '04',
     title: 'State-of-the-Art Fitness Centre',
-    desc: 'Premium gym equipment, yoga and meditation studios, and personal training facilities — all within the community, at your convenience.',
+    desc: 'Premium gym equipment, yoga and meditation studios, and personal training facilities, all within the community, at your convenience.',
   },
   {
     n: '05',
     title: 'Sports & Recreation Zones',
-    desc: 'From tennis courts and basketball arenas to cricket pitches and jogging tracks — a complete sporting ecosystem for every age.',
+    desc: 'From tennis courts and basketball arenas to cricket pitches and jogging tracks, a complete sporting ecosystem for every age.',
   },
   {
     n: '06',
@@ -76,9 +76,9 @@ export default function AmenitiesSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.25 }}
             className="font-body mt-6"
-            style={{ fontSize: 'clamp(1rem, 1.4vw, 1.15rem)', color: 'rgba(10,10,10,0.86)', fontWeight: 400, maxWidth: '560px', lineHeight: 1.85 }}
+            style={{ fontSize: 'clamp(1rem, 1.4vw, 1.15rem)', color: 'rgba(26,26,26,0.86)', fontWeight: 400, maxWidth: '560px', lineHeight: 1.85 }}
           >
-            At Majestique, every development is a complete lifestyle ecosystem —
+            At Majestique, every development is a complete lifestyle ecosystem
             where world-class amenities, wellness spaces, and recreational experiences
             converge to create a life of effortless luxury.
           </motion.p>
@@ -88,7 +88,7 @@ export default function AmenitiesSection() {
       {/* 4×2 amenity grid — full bleed */}
       <div
         className="grid grid-cols-2 lg:grid-cols-4"
-        style={{ borderTop: '1px solid rgba(10,10,10,0.07)' }}
+        style={{ borderTop: '1px solid rgba(26,26,26,0.07)' }}
       >
         {AMENITIES.map((a, i) => (
           <motion.div
@@ -97,15 +97,15 @@ export default function AmenitiesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.7, delay: (i % 4) * 0.08, ease: [0.16, 1, 0.3, 1] }}
-            className="p-8 lg:p-10 group transition-colors duration-300 hover:bg-[rgba(157,134,104,0.07)]"
+            className="p-8 lg:p-10 group transition-colors duration-300 hover:bg-[rgba(212,175,55,0.07)]"
             style={{
-              borderBottom: '1px solid rgba(10,10,10,0.07)',
-              borderRight: (i + 1) % 4 !== 0 ? '1px solid rgba(10,10,10,0.07)' : 'none',
+              borderBottom: '1px solid rgba(26,26,26,0.07)',
+              borderRight: (i + 1) % 4 !== 0 ? '1px solid rgba(26,26,26,0.07)' : 'none',
             }}
           >
             <span
               className="font-display font-light block mb-5 transition-colors duration-300"
-              style={{ fontSize: '1.1rem', color: 'rgba(10,10,10,0.12)', letterSpacing: '0.06em' }}
+              style={{ fontSize: '1.1rem', color: 'rgba(26,26,26,0.12)', letterSpacing: '0.06em' }}
             >
               {a.n}
             </span>
@@ -121,7 +121,7 @@ export default function AmenitiesSection() {
             </h3>
             <p
               className="font-body leading-relaxed transition-colors duration-300"
-              style={{ fontSize: 'clamp(0.9rem, 1.1vw, 1rem)', color: 'rgba(10,10,10,0.84)', fontWeight: 400 }}
+              style={{ fontSize: 'clamp(0.9rem, 1.1vw, 1rem)', color: 'rgba(26,26,26,0.84)', fontWeight: 400 }}
             >
               {a.desc}
             </p>
@@ -136,7 +136,7 @@ export default function AmenitiesSection() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
         className="text-center font-ui py-8"
-        style={{ fontSize: '0.45rem', letterSpacing: '0.28em', color: 'rgba(10,10,10,0.25)', textTransform: 'uppercase', borderTop: '1px solid rgba(10,10,10,0.07)' }}
+        style={{ fontSize: '0.45rem', letterSpacing: '0.28em', color: 'rgba(26,26,26,0.25)', textTransform: 'uppercase', borderTop: '1px solid rgba(26,26,26,0.07)' }}
       >
         ✦ &nbsp; Amenities vary by project · Subject to availability &nbsp; ✦
       </motion.p>

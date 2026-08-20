@@ -44,7 +44,7 @@ export default function EnquiryModal({ isOpen, onClose, projectTitle }) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-[100] flex items-center justify-center p-4"
-          style={{ background: 'rgba(5,5,5,0.85)', backdropFilter: 'blur(6px)' }}
+          style={{ background: 'rgba(26,26,26,0.85)', backdropFilter: 'blur(6px)' }}
           onClick={handleClose}
         >
           <motion.div
@@ -55,14 +55,14 @@ export default function EnquiryModal({ isOpen, onClose, projectTitle }) {
             className="w-full max-w-md relative"
             style={{
               background: 'var(--luxury-dark)',
-              border: '1px solid rgba(157,134,104,0.25)',
+              border: '1px solid rgba(212,175,55,0.25)',
             }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
             <div
               className="flex items-center justify-between p-6 pb-4"
-              style={{ borderBottom: '1px solid rgba(157,134,104,0.15)' }}
+              style={{ borderBottom: '1px solid rgba(212,175,55,0.15)' }}
             >
               <div>
                 <span className="section-label block mb-1">Get In Touch</span>
@@ -76,9 +76,9 @@ export default function EnquiryModal({ isOpen, onClose, projectTitle }) {
               <button
                 onClick={handleClose}
                 className="w-8 h-8 flex items-center justify-center transition-colors duration-200"
-                style={{ color: 'rgba(157,134,104,0.5)' }}
+                style={{ color: 'rgba(212,175,55,0.5)' }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--gold)')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(157,134,104,0.5)')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(212,175,55,0.5)')}
               >
                 <X size={18} />
               </button>
@@ -90,7 +90,7 @@ export default function EnquiryModal({ isOpen, onClose, projectTitle }) {
                 <div className="text-center py-8">
                   <div
                     className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4"
-                    style={{ background: 'rgba(157,134,104,0.15)', border: '1px solid var(--gold)' }}
+                    style={{ background: 'rgba(212,175,55,0.15)', border: '1px solid var(--gold)' }}
                   >
                     <span style={{ color: 'var(--gold)', fontSize: '1.5rem' }}>✓</span>
                   </div>

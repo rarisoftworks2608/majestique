@@ -42,7 +42,7 @@ export default function SectionHeader({
           style={{
             color: light
               ? 'rgba(243,239,232,0.92)'
-              : 'rgba(10,10,10,0.86)',
+              : 'rgba(26,26,26,0.86)',
             fontWeight: 400,
             marginLeft: isCenter ? 'auto' : undefined,
             marginRight: isCenter ? 'auto' : undefined,

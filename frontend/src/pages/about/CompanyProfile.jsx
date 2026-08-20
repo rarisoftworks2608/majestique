@@ -11,7 +11,7 @@ const CORE_VALUES = [
   { icon: Clock,       title: 'Discipline',    num: '01', desc: 'Precision, accountability, and timely execution form the foundation of our operations. We uphold the highest standards of professionalism across every commitment.' },
   { icon: Star,        title: 'Excellence',    num: '02', desc: 'Every development is built with meticulous attention to quality, design, and aesthetics. True luxury lies in thoughtful details and uncompromising standards.' },
   { icon: ShieldCheck, title: 'Transparency',  num: '03', desc: 'Trust is earned through honesty. We maintain transparent business practices, MahaRERA compliance, and customer-first communication at every stage.' },
-  { icon: Gem,         title: 'Value',         num: '04', desc: 'We create developments balancing luxury, functionality, and long-term investment appreciation — ensuring meaningful value for homeowners and investors.' },
+  { icon: Gem,         title: 'Value',         num: '04', desc: 'We create developments balancing luxury, functionality, and long-term investment appreciation, ensuring meaningful value for homeowners and investors.' },
   { icon: Users,       title: 'Reputation',    num: '05', desc: 'Three decades of on-time delivery and customer satisfaction have built a reputation founded on trust, credibility, and enduring relationships.' },
   { icon: Leaf,        title: 'Sustainability', num: '06', desc: 'Responsible development shapes better futures. Our projects integrate eco-conscious planning, efficient infrastructure, and sustainable urban practices.' },
 ]
@@ -19,7 +19,7 @@ const CORE_VALUES = [
 const PROFILE_POINTS = [
   'Architectural excellence & contemporary design',
   'Strategic urban micro-market locations',
-  'Timely possession — a promise always kept',
+  'Timely possession, a promise always kept',
   'Luxury lifestyle experiences for every family',
   'Sustainable, future-ready development practices',
   'Customer-centric planning & post-handover support',
@@ -45,11 +45,11 @@ export default function CompanyProfile() {
     <>
       <Seo
         title="Company Profile"
-        description="Majestique Landmarks — Pune's trusted premium real estate developer crafting timeless landmarks with vision, trust, and architectural excellence."
+        description="Majestique Landmarks: Pune's trusted premium real estate developer crafting timeless landmarks with vision, trust, and architectural excellence."
       />
       <PageHero
         title="Crafting Timeless Landmarks"
-        subtitle="With Vision, Trust & Excellence — For over two decades, Majestique Landmarks has been shaping premium urban experiences through thoughtfully designed developments, architectural excellence, and customer-first values."
+        subtitle="With Vision, Trust & Excellence. For over two decades, Majestique Landmarks has been shaping premium urban experiences through thoughtfully designed developments, architectural excellence, and customer-first values."
         breadcrumb={['Home', 'About', 'Company Profile']}
         bgImage={companyHeroImg}
       />
@@ -62,7 +62,7 @@ export default function CompanyProfile() {
               <span className="section-label block mb-3">Who We Are</span>
               <div className="gold-line" />
               <h2 className="font-times font-normal leading-tight mb-6" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 3rem)', color: 'var(--luxury-dark)' }}>
-                Building More Than Homes —<br />Creating Enduring Legacies
+                Building More Than Homes,<br />Creating Enduring Legacies
               </h2>
               <div className="space-y-4 font-body text-base leading-relaxed" style={{ color: 'rgba(26,26,26,0.85)' }}>
                 <p>Majestique Landmarks is a premium real estate developer recognized for delivering sophisticated residential developments across Pune's most desirable locations. Rooted in strong business ethics and guided by a commitment to quality, the company has consistently created spaces that combine elegant design, strategic connectivity, and long-term value.</p>
@@ -83,26 +83,25 @@ export default function CompanyProfile() {
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
-                <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 50%, rgba(5,5,5,0.45) 100%)' }} />
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 50%, rgba(26,26,26,0.45) 100%)' }} />
                 <div className="absolute bottom-5 left-5 right-5">
-                  <p className="font-ui text-xs tracking-widest uppercase mb-1" style={{ color: 'rgba(157,134,104,0.75)' }}>Featured — Ongoing</p>
+                  <p className="font-ui text-xs tracking-widest uppercase mb-1" style={{ color: 'rgba(212,175,55,0.75)' }}>Featured · Ongoing</p>
                   <p className="font-times text-lg" style={{ color: 'white' }}>Majestique Evolvus, Kharadi</p>
                 </div>
               </div>
-              <motion.div {...fU(0.38)} className="absolute -bottom-6 -right-6 p-5 text-center" style={{ background: 'var(--luxury-dark)', border: '1px solid rgba(157,134,104,0.35)', minWidth: '130px' }}>
+              <motion.div {...fU(0.38)} className="absolute -bottom-6 -right-6 p-5 text-center" style={{ background: 'var(--luxury-dark)', border: '1px solid rgba(212,175,55,0.35)', minWidth: '130px' }}>
                 <p className="font-times text-3xl leading-none" style={{ color: 'var(--gold)' }}><CountUp value="30+" /></p>
                 <p className="font-ui text-[0.6rem] tracking-widest uppercase mt-1" style={{ color: 'rgba(243,239,232,0.4)' }}>Years of Legacy</p>
               </motion.div>
-              <div className="absolute top-4 left-4 w-10 h-10 border-l-2 border-t-2" style={{ borderColor: 'rgba(157,134,104,0.45)' }} />
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* ── Stats band ────────────────────────────────────────────── */}
-      <section className="py-14 relative" style={{ background: 'var(--cream)' }}>
-        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.28),transparent)' }} />
-        <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.28),transparent)' }} />
+      <section className="py-11 relative" style={{ background: 'var(--cream)' }}>
+        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.28),transparent)' }} />
+        <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.28),transparent)' }} />
         <div className="container-luxury">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
             {[
@@ -118,7 +117,7 @@ export default function CompanyProfile() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: i * 0.1 }}
                 className="text-center py-8 px-4"
-                style={{ borderRight: i < 3 ? '1px solid rgba(157,134,104,0.18)' : 'none' }}
+                style={{ borderRight: i < 3 ? '1px solid rgba(212,175,55,0.18)' : 'none' }}
               >
                 <p className="font-times font-normal leading-none mb-2" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: 'var(--luxury-dark)' }}><CountUp value={s.v} /></p>
                 <div className="w-6 h-px mx-auto mb-2" style={{ background: 'var(--gold)' }} />
@@ -132,7 +131,7 @@ export default function CompanyProfile() {
       {/* ── Brand Story ───────────────────────────────────────────── */}
       <section className="section-pad relative overflow-hidden" style={{ background: 'white' }}>
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden" aria-hidden>
-          <span className="font-display tracking-widest uppercase" style={{ fontSize: 'clamp(8rem, 24vw, 24rem)', color: 'rgba(157,134,104,0.03)', lineHeight: 1, whiteSpace: 'nowrap' }}>STORY</span>
+          <span className="font-display tracking-widest uppercase" style={{ fontSize: 'clamp(8rem, 24vw, 24rem)', color: 'rgba(212,175,55,0.03)', lineHeight: 1, whiteSpace: 'nowrap' }}>STORY</span>
         </div>
         <div className="container-luxury relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -144,10 +143,8 @@ export default function CompanyProfile() {
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
-                <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(5,5,5,0.32) 0%, transparent 55%)' }} />
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,26,26,0.32) 0%, transparent 55%)' }} />
               </div>
-              <div className="absolute top-4 left-4 w-10 h-10 border-l-2 border-t-2" style={{ borderColor: 'rgba(157,134,104,0.45)' }} />
-              <div className="absolute bottom-4 right-4 w-10 h-10 border-r-2 border-b-2" style={{ borderColor: 'rgba(157,134,104,0.45)' }} />
             </motion.div>
             <motion.div {...fR(0.1)}>
               <span className="section-label block mb-3">Our Story</span>
@@ -161,11 +158,11 @@ export default function CompanyProfile() {
                 <p>Today, Majestique Landmarks continues to shape modern city living with future-ready developments inspired by global standards and timeless architectural principles.</p>
               </div>
               <motion.div {...fU(0.3)} className="mt-8 p-6 relative" style={{ borderLeft: '3px solid var(--gold)', background: 'var(--cream)' }}>
-                <div className="font-display select-none mb-1" style={{ fontSize: '3.5rem', color: 'rgba(157,134,104,0.2)', lineHeight: 0.7 }}>"</div>
+                <div className="font-display select-none mb-1" style={{ fontSize: '3.5rem', color: 'rgba(212,175,55,0.2)', lineHeight: 0.7 }}>"</div>
                 <p className="font-times text-lg italic leading-relaxed" style={{ color: 'rgba(44,62,88,0.82)' }}>
-                  From textiles to timeless landmarks — every era defined by the same north star: excellence without compromise.
+                  From textiles to timeless landmarks, every era defined by the same north star: excellence without compromise.
                 </p>
-                <p className="font-ui text-xs tracking-widest uppercase mt-4" style={{ color: 'rgba(157,134,104,0.55)' }}>— Founding Philosophy</p>
+                <p className="font-ui text-xs tracking-widest uppercase mt-4" style={{ color: 'rgba(212,175,55,0.55)' }}>Founding Philosophy</p>
               </motion.div>
             </motion.div>
           </div>
@@ -174,14 +171,14 @@ export default function CompanyProfile() {
 
       {/* ── Core Values ───────────────────────────────────────────── */}
       <section className="section-pad relative overflow-hidden" style={{ background: 'var(--cream)' }}>
-        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.22),transparent)' }} />
-        <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.22),transparent)' }} />
+        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.22),transparent)' }} />
+        <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.22),transparent)' }} />
         <div className="container-luxury relative">
           <div className="mb-14 text-center">
             <SectionHeader
               label="Core Values"
               title="The Principles That Define Us"
-              subtitle="Six foundational values that guide every decision, every development, and every relationship we build — inherited from three decades of entrepreneurial excellence."
+              subtitle="Six foundational values that guide every decision, every development, and every relationship we build, inherited from three decades of entrepreneurial excellence."
               align="center"
             />
           </div>
@@ -194,17 +191,17 @@ export default function CompanyProfile() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: i * 0.08 }}
                 className="group relative overflow-hidden bg-white"
-                style={{ border: '1px solid rgba(157,134,104,0.14)', boxShadow: '0 2px 20px rgba(5,5,5,0.05)', transition: 'box-shadow 0.35s, border-color 0.35s, transform 0.35s' }}
-                onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 16px 56px rgba(5,5,5,0.1)'; e.currentTarget.style.borderColor = 'rgba(157,134,104,0.45)'; e.currentTarget.style.transform = 'translateY(-6px)' }}
-                onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 20px rgba(5,5,5,0.05)'; e.currentTarget.style.borderColor = 'rgba(157,134,104,0.14)'; e.currentTarget.style.transform = 'translateY(0)' }}
+                style={{ border: '1px solid rgba(212,175,55,0.14)', boxShadow: '0 2px 20px rgba(26,26,26,0.05)', transition: 'box-shadow 0.35s, border-color 0.35s, transform 0.35s' }}
+                onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 16px 56px rgba(26,26,26,0.1)'; e.currentTarget.style.borderColor = 'rgba(212,175,55,0.45)'; e.currentTarget.style.transform = 'translateY(-6px)' }}
+                onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 20px rgba(26,26,26,0.05)'; e.currentTarget.style.borderColor = 'rgba(212,175,55,0.14)'; e.currentTarget.style.transform = 'translateY(0)' }}
               >
                 <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg, var(--gold), var(--gold-dark), transparent)' }} />
                 <div className="p-8 relative">
-                  <span className="absolute top-3 right-4 font-display select-none pointer-events-none" style={{ fontSize: '5.5rem', color: 'rgba(157,134,104,0.05)', lineHeight: 1 }}>{val.num}</span>
+                  <span className="absolute top-3 right-4 font-display select-none pointer-events-none" style={{ fontSize: '5.5rem', color: 'rgba(212,175,55,0.05)', lineHeight: 1 }}>{val.num}</span>
                   <motion.div
                     {...fS(i * 0.08 + 0.15)}
                     className="w-14 h-14 flex items-center justify-center mb-5"
-                    style={{ background: 'linear-gradient(135deg, rgba(157,134,104,0.1), rgba(157,134,104,0.04))', border: '1px solid rgba(157,134,104,0.2)' }}
+                    style={{ background: 'linear-gradient(135deg, rgba(212,175,55,0.1), rgba(212,175,55,0.04))', border: '1px solid rgba(212,175,55,0.2)' }}
                   >
                     <val.icon size={22} style={{ color: 'var(--gold)' }} />
                   </motion.div>
@@ -230,13 +227,12 @@ export default function CompanyProfile() {
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
-                <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(5,5,5,0.28) 0%, transparent 60%)' }} />
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,26,26,0.28) 0%, transparent 60%)' }} />
               </div>
-              <motion.div {...fU(0.4)} className="absolute -bottom-5 -left-5 p-5" style={{ background: 'var(--cream)', border: '1px solid rgba(157,134,104,0.25)', boxShadow: '0 8px 32px rgba(5,5,5,0.08)' }}>
+              <motion.div {...fU(0.4)} className="absolute -bottom-5 -left-5 p-5" style={{ background: 'var(--cream)', border: '1px solid rgba(212,175,55,0.25)', boxShadow: '0 8px 32px rgba(26,26,26,0.08)' }}>
                 <p className="font-times text-2xl leading-none mb-1" style={{ color: 'var(--luxury-dark)' }}><CountUp value="16+" /></p>
                 <p className="font-ui text-[0.6rem] tracking-widest uppercase" style={{ color: 'rgba(44,62,88,0.42)' }}>Landmark Projects</p>
               </motion.div>
-              <div className="absolute top-4 right-4 w-12 h-12 border-r-2 border-t-2" style={{ borderColor: 'rgba(157,134,104,0.45)' }} />
             </motion.div>
             <motion.div {...fL()} className="order-2 lg:order-1">
               <span className="section-label block mb-3">Our Focus</span>
@@ -276,7 +272,7 @@ export default function CompanyProfile() {
             <SectionHeader
               label="Our Commitment"
               title="Committed Beyond Promises"
-              subtitle="At Majestique Landmarks, delivery is more than completing a project — it is about fulfilling aspirations, building trust, and creating spaces that families proudly call home."
+              subtitle="At Majestique Landmarks, delivery is more than completing a project. It is about fulfilling aspirations, building trust, and creating spaces that families proudly call home."
               align="center"
             />
           </div>
@@ -289,9 +285,9 @@ export default function CompanyProfile() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.09 }}
                 className="flex items-center gap-5 p-6 bg-white"
-                style={{ border: '1px solid rgba(157,134,104,0.14)', boxShadow: '0 2px 16px rgba(5,5,5,0.04)', transition: 'box-shadow 0.3s, border-color 0.3s, transform 0.3s' }}
-                onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 10px 40px rgba(5,5,5,0.09)'; e.currentTarget.style.borderColor = 'rgba(157,134,104,0.38)'; e.currentTarget.style.transform = 'translateY(-4px)' }}
-                onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 16px rgba(5,5,5,0.04)'; e.currentTarget.style.borderColor = 'rgba(157,134,104,0.14)'; e.currentTarget.style.transform = 'translateY(0)' }}
+                style={{ border: '1px solid rgba(212,175,55,0.14)', boxShadow: '0 2px 16px rgba(26,26,26,0.04)', transition: 'box-shadow 0.3s, border-color 0.3s, transform 0.3s' }}
+                onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 10px 40px rgba(26,26,26,0.09)'; e.currentTarget.style.borderColor = 'rgba(212,175,55,0.38)'; e.currentTarget.style.transform = 'translateY(-4px)' }}
+                onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 16px rgba(26,26,26,0.04)'; e.currentTarget.style.borderColor = 'rgba(212,175,55,0.14)'; e.currentTarget.style.transform = 'translateY(0)' }}
               >
                 <div className="w-12 h-12 flex items-center justify-center flex-shrink-0" style={{ background: 'linear-gradient(135deg, var(--gold), var(--gold-dark))' }}>
                   <item.icon size={20} style={{ color: 'var(--luxury-dark)' }} />
@@ -304,11 +300,11 @@ export default function CompanyProfile() {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────────────── */}
-      <section className="py-24 relative overflow-hidden" style={{ background: 'white' }}>
-        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.32),transparent)' }} />
-        <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.32),transparent)' }} />
+      <section className="py-16 relative overflow-hidden" style={{ background: 'white' }}>
+        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.32),transparent)' }} />
+        <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.32),transparent)' }} />
         {/* Radial warm glow */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(157,134,104,0.06) 0%, transparent 70%)' }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(212,175,55,0.06) 0%, transparent 70%)' }} />
         <div className="absolute top-6 left-6 w-10 h-10 border-l border-t opacity-20" style={{ borderColor: 'var(--gold)' }} />
         <div className="absolute top-6 right-6 w-10 h-10 border-r border-t opacity-20" style={{ borderColor: 'var(--gold)' }} />
         <div className="absolute bottom-6 left-6 w-10 h-10 border-l border-b opacity-20" style={{ borderColor: 'var(--gold)' }} />
@@ -321,7 +317,7 @@ export default function CompanyProfile() {
             </h2>
             <div className="w-14 h-px mx-auto mb-5" style={{ background: 'linear-gradient(90deg, transparent, var(--gold), transparent)' }} />
             <p className="font-body text-sm mb-8 max-w-lg mx-auto leading-relaxed" style={{ color: 'rgba(26,26,26,0.82)' }}>
-              Explore our ongoing and completed MahaRERA-registered projects across Pune's finest micro-markets — Balewadi, Kharadi, NIBM, Hadapsar, and Kothrud.
+              Explore our ongoing and completed MahaRERA-registered projects across Pune's finest micro-markets, including Balewadi, Kharadi, NIBM, Hadapsar, and Kothrud.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link to="/projects/ongoing" className="btn-gold transition-transform duration-300 hover:scale-105">View Ongoing Projects</Link>

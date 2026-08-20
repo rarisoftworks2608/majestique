@@ -28,7 +28,7 @@ const SECTIONS = [
   },
   {
     title: '3. Intellectual Property',
-    content: `<p>All content on this Site — including but not limited to text, graphics, logos, images, project renderings, floor plans, and software — is the property of Majestique Landmarks Pvt. Ltd. and is protected by applicable intellectual property laws.</p>
+    content: `<p>All content on this Site, including but not limited to text, graphics, logos, images, project renderings, floor plans, and software, is the property of Majestique Landmarks Pvt. Ltd. and is protected by applicable intellectual property laws.</p>
     <p>You may access and view content for personal, non-commercial purposes only. You may not reproduce, distribute, modify, or create derivative works without our express written consent.</p>`,
   },
   {
@@ -85,7 +85,7 @@ export default function Terms() {
       <section className="section-pad" style={{ background: 'var(--cream)' }}>
         <div className="container-luxury">
           <div className="max-w-3xl mx-auto">
-            <motion.p {...fU()} className="font-body text-sm mb-10 pb-6" style={{ color: 'rgba(26,26,26,0.82)', borderBottom: '1px solid rgba(157,134,104,0.2)' }}>
+            <motion.p {...fU()} className="font-body text-sm mb-10 pb-6" style={{ color: 'rgba(26,26,26,0.82)', borderBottom: '1px solid rgba(212,175,55,0.2)' }}>
               <strong>Last Updated:</strong> January 2025 &nbsp;·&nbsp; Majestique Landmarks Pvt. Ltd.
             </motion.p>
 
@@ -124,7 +124,7 @@ export default function Terms() {
                   />
                   <div
                     className="mt-8"
-                    style={{ height: '1px', background: 'rgba(157,134,104,0.15)' }}
+                    style={{ height: '1px', background: 'rgba(212,175,55,0.15)' }}
                   />
                 </motion.div>
               ))}

@@ -13,17 +13,17 @@ export default function NotFound() {
         {/* Decorative ambient glow */}
         <motion.div
           className="absolute pointer-events-none"
-          style={{ width: '640px', height: '640px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(157,134,104,0.18) 0%, transparent 70%)' }}
+          style={{ width: '640px', height: '640px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(212,175,55,0.18) 0%, transparent 70%)' }}
           initial={{ opacity: 0.5, scale: 0.9 }}
           animate={{ opacity: [0.5, 0.8, 0.5], scale: [0.9, 1.05, 0.9] }}
           transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
         />
-        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.4),transparent)' }} />
+        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.4),transparent)' }} />
 
         <div className="text-center px-6 relative">
           <motion.p
             className="font-display mb-4"
-            style={{ fontSize: '8rem', lineHeight: 1, color: 'rgba(157,134,104,0.18)' }}
+            style={{ fontSize: '8rem', lineHeight: 1, color: 'rgba(212,175,55,0.18)' }}
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1, y: [0, -10, 0] }}
             transition={{

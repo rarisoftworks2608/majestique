@@ -187,7 +187,7 @@ export default function EventForm() {
             ) : <Save size={15} />}
             {saving ? 'Saving…' : isEdit ? 'Save Changes' : 'Create Event'}
           </button>
-          <Link to="/admin/events" className="btn-outline-gold" style={{ fontSize: '0.75rem', padding: '0.75rem 1.5rem', color: 'var(--luxury-dark)', borderColor: 'rgba(157,134,104,0.45)' }}>
+          <Link to="/admin/events" className="btn-outline-gold" style={{ fontSize: '0.75rem', padding: '0.75rem 1.5rem', color: 'var(--luxury-dark)', borderColor: 'rgba(212,175,55,0.45)' }}>
             Cancel
           </Link>
         </div>

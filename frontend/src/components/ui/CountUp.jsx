@@ -41,5 +41,5 @@ export default function CountUp({ to, suffix = '', prefix = '', value, duration 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inView, numTo])
 
-  return <span ref={ref}>{numPrefix}{display}{numSuffix}</span>
+  return <span ref={ref} translate="no" className="notranslate">{numPrefix}{display}{numSuffix}</span>
 }

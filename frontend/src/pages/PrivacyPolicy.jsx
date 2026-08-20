@@ -73,7 +73,7 @@ const SECTIONS = [
       <li><strong>Phone:</strong> <a href="tel:+917448099000">+91 74480 99000</a></li>
       <li><strong>Address:</strong> 9th Floor, Jawaharlal Nehru Rd, opp. Apsara Theatre, Guru Nanak Nagar, Pune – 411037</li>
     </ul>
-    <p>When you voluntarily send us an email or fill out a form on our site, we keep a record of that information so that we can respond to you. We only collect information from you when you register on our site or fill out a form — when doing so, you may be asked to enter your name, email address, or phone number. You may, however, visit our site anonymously.</p>
+    <p>When you voluntarily send us an email or fill out a form on our site, we keep a record of that information so that we can respond to you. We only collect information from you when you register on our site or fill out a form. When doing so, you may be asked to enter your name, email address, or phone number. You may, however, visit our site anonymously.</p>
     <p>By voluntarily submitting your personal information and contact details, you consent to being contacted by us via call, SMS, email, or WhatsApp regarding our products and offers, even if your number is registered under DND (Do Not Disturb).</p>`,
   },
 ]
@@ -81,7 +81,7 @@ const SECTIONS = [
 export default function PrivacyPolicy() {
   return (
     <>
-      <Seo title="Privacy Policy" description="Privacy Policy for Majestique Landmarks Private Limited — how we collect, use, disclose, and protect your personal information." noindex />
+      <Seo title="Privacy Policy" description="Privacy Policy for Majestique Landmarks Private Limited: how we collect, use, disclose, and protect your personal information." noindex />
       <PageHero
         title="Privacy Policy"
         subtitle="How we collect, use and protect your personal information"
@@ -92,7 +92,7 @@ export default function PrivacyPolicy() {
       <section className="section-pad" style={{ background: 'var(--cream)' }}>
         <div className="container-luxury">
           <div className="max-w-3xl mx-auto">
-            <motion.p {...fU()} className="font-body text-sm mb-10 pb-6" style={{ color: 'rgba(26,26,26,0.82)', borderBottom: '1px solid rgba(157,134,104,0.2)' }}>
+            <motion.p {...fU()} className="font-body text-sm mb-10 pb-6" style={{ color: 'rgba(26,26,26,0.82)', borderBottom: '1px solid rgba(212,175,55,0.2)' }}>
               <strong>Last Updated:</strong> January 2025 &nbsp;·&nbsp; Majestique Landmarks Private Limited
             </motion.p>
 
@@ -131,7 +131,7 @@ export default function PrivacyPolicy() {
                   />
                   <div
                     className="mt-8"
-                    style={{ height: '1px', background: 'rgba(157,134,104,0.15)' }}
+                    style={{ height: '1px', background: 'rgba(212,175,55,0.15)' }}
                   />
                 </motion.div>
               ))}

@@ -27,14 +27,14 @@ export default function Lightbox({ images, activeIndex, onClose, onNext, onPrev 
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         className="fixed inset-0 z-[200] flex items-center justify-center"
-        style={{ background: 'rgba(5,5,5,0.96)' }}
+        style={{ background: 'rgba(26,26,26,0.96)' }}
         onClick={onClose}
       >
         {/* Close */}
         <button
           onClick={onClose}
           className="absolute top-5 right-5 w-10 h-10 flex items-center justify-center z-10 transition-colors duration-200"
-          style={{ border: '1px solid rgba(157,134,104,0.4)', color: 'var(--gold)' }}
+          style={{ border: '1px solid rgba(212,175,55,0.4)', color: 'var(--gold)' }}
           onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--gold)'; e.currentTarget.style.color = 'var(--luxury-dark)' }}
           onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--gold)' }}
         >
@@ -46,8 +46,8 @@ export default function Lightbox({ images, activeIndex, onClose, onNext, onPrev 
           <button
             onClick={(e) => { e.stopPropagation(); onPrev() }}
             className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center z-10 transition-all duration-200"
-            style={{ border: '1px solid rgba(157,134,104,0.3)', color: 'var(--gold)' }}
-            onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(157,134,104,0.15)' }}
+            style={{ border: '1px solid rgba(212,175,55,0.3)', color: 'var(--gold)' }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(212,175,55,0.15)' }}
             onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent' }}
           >
             <ChevronLeft size={22} />
@@ -67,12 +67,12 @@ export default function Lightbox({ images, activeIndex, onClose, onNext, onPrev 
             src={images[activeIndex]?.url || images[activeIndex]}
             alt={images[activeIndex]?.caption || `Image ${activeIndex + 1}`}
             className="max-w-full max-h-[85vh] object-contain"
-            style={{ boxShadow: '0 24px 80px rgba(5,5,5,0.8)' }}
+            style={{ boxShadow: '0 24px 80px rgba(26,26,26,0.8)' }}
           />
           {images[activeIndex]?.caption && (
             <p
               className="absolute bottom-0 left-0 right-0 text-center py-3 font-body text-sm"
-              style={{ background: 'rgba(5,5,5,0.7)', color: 'rgba(243,239,232,0.7)' }}
+              style={{ background: 'rgba(26,26,26,0.7)', color: 'rgba(250,246,239,0.7)' }}
             >
               {images[activeIndex].caption}
             </p>
@@ -84,8 +84,8 @@ export default function Lightbox({ images, activeIndex, onClose, onNext, onPrev 
           <button
             onClick={(e) => { e.stopPropagation(); onNext() }}
             className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center z-10 transition-all duration-200"
-            style={{ border: '1px solid rgba(157,134,104,0.3)', color: 'var(--gold)' }}
-            onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(157,134,104,0.15)' }}
+            style={{ border: '1px solid rgba(212,175,55,0.3)', color: 'var(--gold)' }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(212,175,55,0.15)' }}
             onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent' }}
           >
             <ChevronRight size={22} />
@@ -95,7 +95,7 @@ export default function Lightbox({ images, activeIndex, onClose, onNext, onPrev 
         {/* Counter */}
         <div
           className="absolute bottom-5 left-1/2 -translate-x-1/2 font-ui text-xs tracking-widest"
-          style={{ color: 'rgba(157,134,104,0.6)' }}
+          style={{ color: 'rgba(212,175,55,0.6)' }}
         >
           {activeIndex + 1} / {images.length}
         </div>

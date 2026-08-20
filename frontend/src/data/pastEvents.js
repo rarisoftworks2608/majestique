@@ -111,6 +111,33 @@ import twilightLaunch12 from '../assets/Event/Twilight/Launch/DSC00164.JPG'
 import twilightLaunch13 from '../assets/Event/Twilight/Launch/DSC02054.JPG'
 import twilightLaunch14 from '../assets/Event/Twilight/Launch/DSC02122.JPG'
 
+/* ── Chandralok — MOU Signing Event ───────────────────────────────── */
+import chandralokMou1 from '../assets/Event/Chandralok MOU Signing Event/C7173T01.JPG'
+import chandralokMou2 from '../assets/Event/Chandralok MOU Signing Event/C7233T01.JPG'
+import chandralokMou3 from '../assets/Event/Chandralok MOU Signing Event/DSC00024.JPG'
+import chandralokMou4 from '../assets/Event/Chandralok MOU Signing Event/DSC00072.JPG'
+import chandralokMou5 from '../assets/Event/Chandralok MOU Signing Event/DSC00075.JPG'
+import chandralokMou6 from '../assets/Event/Chandralok MOU Signing Event/DSC00077.JPG'
+import chandralokMou7 from '../assets/Event/Chandralok MOU Signing Event/DSC00081.JPG'
+import chandralokMou8 from '../assets/Event/Chandralok MOU Signing Event/DSC00083.JPG'
+import chandralokMou9 from '../assets/Event/Chandralok MOU Signing Event/DSC00088.JPG'
+import chandralokMou10 from '../assets/Event/Chandralok MOU Signing Event/DSC00117.JPG'
+import chandralokMou11 from '../assets/Event/Chandralok MOU Signing Event/DSC00129.JPG'
+import chandralokMou12 from '../assets/Event/Chandralok MOU Signing Event/DSC00278.JPG'
+import chandralokMou13 from '../assets/Event/Chandralok MOU Signing Event/DSC00430.JPG'
+import chandralokMou14 from '../assets/Event/Chandralok MOU Signing Event/DSC01090.JPG'
+import chandralokMou15 from '../assets/Event/Chandralok MOU Signing Event/DSC01121.JPG'
+import chandralokMou16 from '../assets/Event/Chandralok MOU Signing Event/DSC01194.JPG'
+import chandralokMou17 from '../assets/Event/Chandralok MOU Signing Event/DSC01195.JPG'
+import chandralokMou18 from '../assets/Event/Chandralok MOU Signing Event/DSC01200.JPG'
+import chandralokMou19 from '../assets/Event/Chandralok MOU Signing Event/DSC01233.JPG'
+import chandralokMou20 from '../assets/Event/Chandralok MOU Signing Event/DSC01238.JPG'
+import chandralokMou21 from '../assets/Event/Chandralok MOU Signing Event/DSC01260.JPG'
+import chandralokMou22 from '../assets/Event/Chandralok MOU Signing Event/DSC01307.JPG'
+import chandralokMou23 from '../assets/Event/Chandralok MOU Signing Event/DSC01357.JPG'
+import chandralokMou24 from '../assets/Event/Chandralok MOU Signing Event/DSC09943.JPG'
+import chandralokMou25 from '../assets/Event/Chandralok MOU Signing Event/DSC09946.JPG'
+
 /* ── CP Meet — AOP Meet 2025 ───────────────────────────────────────── */
 import cpMeet1 from '../assets/CP Meet/AOP Meet 2025/Majestique-116.jpg'
 import cpMeet2 from '../assets/CP Meet/AOP Meet 2025/Majestique-198.jpg'
@@ -212,34 +239,34 @@ export const PAST_EVENTS = [
   {
     id: 'pe-1',
     slug: 'majestique-aravali-launch-2024',
-    title: 'Grand Launch — Majestique Aravali, Kothrud NXT',
+    title: 'Grand Launch: Majestique Aravali, Kothrud NXT',
     startDate: '2024-05-14T11:00:00',
     location: 'Warje, Pune',
     type: 'Grand Launch',
     description:
-      'The official launch celebration of Majestique Aravali — Kothrud NXT, welcoming prospective homeowners to explore 2 & 3 BHK residences inspired by the Aravallis.',
+      'The official launch celebration of Majestique Aravali, Kothrud NXT, welcoming prospective homeowners to explore 2 & 3 BHK residences inspired by the Aravallis.',
     gallery: [aravali2, aravali4, aravali5, aravali6, aravali7, aravali1, aravali3],
   },
   {
     id: 'pe-2',
     slug: 'evolvus-launch-2024',
-    title: 'Grand Launch — Evolvus by Majestique',
+    title: 'Grand Launch: Evolvus by Majestique',
     startDate: '2024-01-06T11:00:00',
     location: 'Kharadi, Pune',
     type: 'Grand Launch',
     description:
-      "The grand launch of Evolvus by Majestique Landmarks — Kharadi's most aspired township, spanning 27+ million sq. ft. of curated lifestyle living.",
+      "The grand launch of Evolvus by Majestique Landmarks, Kharadi's most aspired township, spanning 27+ million sq. ft. of curated lifestyle living.",
     gallery: [evolvus1, evolvus2, evolvus3, evolvus4, evolvus5, evolvus6, evolvus7, evolvus8],
   },
   {
     id: 'pe-3',
     slug: 'krutarth-bhumipoojan',
-    title: 'Bhumipoojan — Majestique Krutarth',
+    title: 'Bhumipoojan: Majestique Krutarth',
     startDate: '2025-12-10T10:00:00',
     location: 'Market Yard, Kothrud, Pune',
     type: 'Grand Launch',
     description:
-      'The Bhumipoojan (foundation ceremony) of Majestique Krutarth — marking the beginning of construction for this redevelopment project at the heart of Kothrud.',
+      'The Bhumipoojan (foundation ceremony) of Majestique Krutarth, marking the beginning of construction for this redevelopment project at the heart of Kothrud.',
     gallery: [
       krutBhumi1, krutBhumi2, krutBhumi3, krutBhumi4, krutBhumi5, krutBhumi6, krutBhumi7, krutBhumi8,
       krutBhumi9, krutBhumi10, krutBhumi11, krutBhumi12, krutBhumi13, krutBhumi14, krutBhumi15,
@@ -249,12 +276,12 @@ export const PAST_EVENTS = [
   {
     id: 'pe-4',
     slug: 'krutarth-vishwasaarambh',
-    title: 'Vishwasaarambh — Majestique Krutarth',
+    title: 'Vishwasaarambh: Majestique Krutarth',
     startDate: '2025-07-11T11:00:00',
     location: 'Market Yard, Kothrud, Pune',
     type: 'Grand Launch',
     description:
-      "Vishwasaarambh — a ceremony celebrating the trust and beginning of a new chapter for Majestique Krutarth's future residents and channel partners.",
+      "Vishwasaarambh, a ceremony celebrating the trust and beginning of a new chapter for Majestique Krutarth's future residents and channel partners.",
     gallery: [
       krutVish1, krutVish2, krutVish3, krutVish4, krutVish5, krutVish6, krutVish7, krutVish8,
       krutVish9, krutVish10, krutVish11, krutVish12, krutVish13, krutVish14, krutVish15, krutVish16,
@@ -263,34 +290,34 @@ export const PAST_EVENTS = [
   {
     id: 'pe-5',
     slug: 'the-ornate-launch',
-    title: 'Grand Launch — The Ornate by Majestique',
+    title: 'Grand Launch: The Ornate by Majestique',
     startDate: '2022-08-08T11:00:00',
     location: 'Baner, Pune',
     type: 'Grand Launch',
     description:
-      'The launch celebration of The Ornate — luxury 3.5, 4 & 5 BHK residences across 3.25 acres at Pan Card Club Road, Baner.',
+      'The launch celebration of The Ornate, luxury 3.5, 4 & 5 BHK residences across 3.25 acres at Pan Card Club Road, Baner.',
     gallery: [ornate1, ornate2, ornate3, ornate4, ornate5, ornate6, ornate7, ornate8, ornate9, ornate10, ornate11],
   },
   {
     id: 'pe-6',
     slug: 'majestique-swapnangan-possession',
-    title: 'Possession Ceremony — Majestique Swapnangan',
+    title: 'Possession Ceremony: Majestique Swapnangan',
     startDate: '2026-05-23T11:00:00',
     location: 'Dhayari, Pune',
     type: 'Handover',
     description:
-      'Keys handed over to homeowners at Majestique Swapnangan, Dhayari — another on-time possession milestone for the Majestique family.',
+      'Keys handed over to homeowners at Majestique Swapnangan, Dhayari, another on-time possession milestone for the Majestique family.',
     gallery: [swapnangan3, swapnangan4, swapnangan5, swapnangan6, swapnangan7, swapnangan8, swapnangan2, swapnangan1],
   },
   {
     id: 'pe-7',
     slug: 'twilight-bhumipujan',
-    title: 'Bhumipujan — Twilight by Majestique',
+    title: 'Bhumipujan: Twilight by Majestique',
     startDate: '2025-10-27T10:00:00',
     location: 'Balewadi, Pune',
     type: 'Grand Launch',
     description:
-      'The Bhumipujan ceremony for Twilight by Majestique — marking the start of construction near Laxmimata Mandir, Balewadi.',
+      'The Bhumipujan ceremony for Twilight by Majestique, marking the start of construction near Laxmimata Mandir, Balewadi.',
     gallery: [
       twilightBhumi1, twilightBhumi2, twilightBhumi3, twilightBhumi4, twilightBhumi5,
       twilightBhumi6, twilightBhumi7, twilightBhumi8, twilightBhumi9, twilightBhumi10, twilightBhumi11,
@@ -299,12 +326,12 @@ export const PAST_EVENTS = [
   {
     id: 'pe-8',
     slug: 'twilight-launch',
-    title: 'Grand Launch — Twilight by Majestique',
+    title: 'Grand Launch: Twilight by Majestique',
     startDate: '2026-02-28T11:00:00',
     location: 'Balewadi, Pune',
     type: 'Grand Launch',
     description:
-      'The grand launch of Twilight by Majestique — 3 & 4 BHK residences where sophistication meets urban excellence in Balewadi.',
+      'The grand launch of Twilight by Majestique, 3 & 4 BHK residences where sophistication meets urban excellence in Balewadi.',
     gallery: [
       twilightLaunch1, twilightLaunch2, twilightLaunch3, twilightLaunch4, twilightLaunch5, twilightLaunch6,
       twilightLaunch7, twilightLaunch8, twilightLaunch9, twilightLaunch10, twilightLaunch11, twilightLaunch12,
@@ -314,34 +341,34 @@ export const PAST_EVENTS = [
   {
     id: 'pe-9',
     slug: 'aop-meet-2025',
-    title: 'AOP Meet 2025 — Channel Partner Annual Meet',
+    title: 'AOP Meet 2025: Channel Partner Annual Meet',
     startDate: '2025-07-19T11:00:00',
     location: 'Pune',
     type: 'Channel Partner Meet',
     description:
-      "Majestique Landmarks' Annual Operating Plan meet with channel partners — celebrating a year of strong partnerships and shared growth.",
+      "Majestique Landmarks' Annual Operating Plan meet with channel partners, celebrating a year of strong partnerships and shared growth.",
     gallery: [cpMeet1, cpMeet2, cpMeet3, cpMeet4, cpMeet5, cpMeet6, cpMeet7, cpMeet8, cpMeet9, cpMeet10, cpMeet11],
   },
   {
     id: 'pe-10',
     slug: 'badlaav-by-majestique-river-cleaning-2025',
-    title: 'Badlaav By Majestique — River Cleaning Initiative',
+    title: 'Badlaav By Majestique: River Cleaning Initiative',
     startDate: '2025-06-07T07:30:00',
     location: 'S.M. Joshi Bridge, Pune',
     type: 'CSR Initiative',
     description:
-      '"From Our Hands to the River\'s Heart, We Bring Change" — under Badlaav By Majestique, 40+ volunteers cleaned the S.M. Joshi bridge riverfront on World Environment Day, igniting meaningful environmental transformation across Pune.',
+      '"From Our Hands to the River\'s Heart, We Bring Change": under Badlaav By Majestique, 40+ volunteers cleaned the S.M. Joshi bridge riverfront on World Environment Day, igniting meaningful environmental transformation across Pune.',
     gallery: [csr2025_1, csr2025_2, csr2025_3, csr2025_4, csr2025_5, csr2025_6],
   },
   {
     id: 'pe-11',
     slug: 'beat-the-heat-summer-relief-2026',
-    title: 'Beat The Heat — Summer Relief Drive',
+    title: 'Beat The Heat: Summer Relief Drive',
     startDate: '2026-05-06T10:00:00',
     location: 'Multiple locations, Pune',
     type: 'CSR Initiative',
     description:
-      'A 3-day summer relief initiative by Majestique Landmarks — distributing over 30,000 bottles of lemonade and kokum juice to traffic police, delivery partners, commuters, senior citizens, PMPML staff and outdoor workers across high-footfall locations in Pune.',
+      'A 3-day summer relief initiative by Majestique Landmarks, distributing over 30,000 bottles of lemonade and kokum juice to traffic police, delivery partners, commuters, senior citizens, PMPML staff and outdoor workers across high-footfall locations in Pune.',
     gallery: [
       csr2026_1, csr2026_2, csr2026_3, csr2026_4, csr2026_5, csr2026_6,
       csr2026_7, csr2026_8, csr2026_9, csr2026_10, csr2026_11, csr2026_12,
@@ -355,7 +382,7 @@ export const PAST_EVENTS = [
     location: 'Across Majestique Communities, Pune',
     type: 'Festive Celebration',
     description:
-      'Majestique communities came together for Ganeshotsav 2024 — dhol-tasha performances, festive decor, and cultural bonding across project sites.',
+      'Majestique communities came together for Ganeshotsav 2024: dhol-tasha performances, festive decor, and cultural bonding across project sites.',
     gallery: [ganpati2024_1, ganpati2024_2, ganpati2024_3, ganpati2024_4, ganpati2024_5, ganpati2024_6],
   },
   {
@@ -366,7 +393,7 @@ export const PAST_EVENTS = [
     location: 'Across Majestique Communities, Pune',
     type: 'Festive Celebration',
     description:
-      'Majestique Landmarks communities unite in joyous Ganesh Mahotsav 2025 celebrations — dhol-tasha performances, cultural events, and festive bonding across all projects.',
+      'Majestique Landmarks communities unite in joyous Ganesh Mahotsav 2025 celebrations: dhol-tasha performances, cultural events, and festive bonding across all projects.',
     gallery: [ganpati2025_1, ganpati2025_2, ganpati2025_3, ganpati2025_4, ganpati2025_5, ganpati2025_6],
   },
   {
@@ -377,7 +404,7 @@ export const PAST_EVENTS = [
     location: 'Pune',
     type: 'Team Culture',
     description:
-      "The Majestique Premier League — our annual cricket tournament bringing the whole team together in the spirit of sport and camaraderie.",
+      "The Majestique Premier League, our annual cricket tournament bringing the whole team together in the spirit of sport and camaraderie.",
     gallery: [mpl2024_1, mpl2024_2, mpl2024_3, mpl2024_4, mpl2024_5, mpl2024_6, mpl2024_7, mpl2024_8, mpl2024_9, mpl2024_10, mpl2024_11],
   },
   {
@@ -388,7 +415,7 @@ export const PAST_EVENTS = [
     location: 'Pune',
     type: 'Team Culture',
     description:
-      'Another exciting edition of the Majestique Premier League — colleagues from across teams came together for a day of cricket, competition, and team spirit.',
+      'Another exciting edition of the Majestique Premier League, where colleagues from across teams came together for a day of cricket, competition, and team spirit.',
     gallery: [mpl2025_1, mpl2025_2, mpl2025_3, mpl2025_4, mpl2025_5, mpl2025_6, mpl2025_7, mpl2025_8, mpl2025_9, mpl2025_10],
   },
   {
@@ -399,7 +426,7 @@ export const PAST_EVENTS = [
     location: 'Pune',
     type: 'Festive Celebration',
     description:
-      "Celebrating the women of Majestique Landmarks — colleagues, partners, and residents — on International Women's Day 2025.",
+      "Celebrating the women of Majestique Landmarks, colleagues, partners, and residents, on International Women's Day 2025.",
     gallery: [
       womensDay2025_1, womensDay2025_2, womensDay2025_3, womensDay2025_4, womensDay2025_5, womensDay2025_6,
       womensDay2025_7, womensDay2025_8, womensDay2025_9, womensDay2025_10, womensDay2025_11,
@@ -415,5 +442,22 @@ export const PAST_EVENTS = [
     description:
       "Honouring the women who help shape Majestique Landmarks, on International Women's Day 2026.",
     gallery: [womensDay2026_1, womensDay2026_2, womensDay2026_3, womensDay2026_4],
+  },
+  {
+    id: 'pe-18',
+    slug: 'chandralok-mou-signing-event',
+    title: 'MOU Signing Ceremony: Chandralok Redevelopment by Majestique Landmarks',
+    startDate: '2026-04-29T11:00:00',
+    location: 'Pune',
+    type: 'Event',
+    description:
+      'The MOU Signing Ceremony for Chandralok Redevelopment by Majestique Landmarks, marking the beginning of a transformative redevelopment journey and our second collaboration built on trust, consistency, and shared vision.',
+    gallery: [
+      chandralokMou1, chandralokMou2, chandralokMou3, chandralokMou4, chandralokMou5, chandralokMou6,
+      chandralokMou7, chandralokMou8, chandralokMou9, chandralokMou10, chandralokMou11, chandralokMou12,
+      chandralokMou13, chandralokMou14, chandralokMou15, chandralokMou16, chandralokMou17, chandralokMou18,
+      chandralokMou19, chandralokMou20, chandralokMou21, chandralokMou22, chandralokMou23, chandralokMou24,
+      chandralokMou25,
+    ],
   },
 ]

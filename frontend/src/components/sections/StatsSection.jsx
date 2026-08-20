@@ -24,19 +24,19 @@ export default function StatsSection() {
       transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
     >
       <div className="absolute top-0 inset-x-0 h-px"
-        style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.3),transparent)' }} />
+        style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.3),transparent)' }} />
       <div className="absolute bottom-0 inset-x-0 h-px"
-        style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.3),transparent)' }} />
+        style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.3),transparent)' }} />
 
       {/* Top micro label */}
       <div className="flex items-center justify-center gap-3 py-3"
-        style={{ borderBottom: '1px solid rgba(157,134,104,0.1)' }}>
-        <div style={{ height: '1px', width: '18px', background: 'rgba(157,134,104,0.35)' }} />
+        style={{ borderBottom: '1px solid rgba(212,175,55,0.1)' }}>
+        <div style={{ height: '1px', width: '18px', background: 'rgba(212,175,55,0.35)' }} />
         <span className="font-ui text-[0.46rem] tracking-[0.34em] uppercase"
-          style={{ color: 'rgba(157,134,104,0.6)' }}>
+          style={{ color: 'rgba(212,175,55,0.6)' }}>
           Trusted By Thousands · Built For Generations
         </span>
-        <div style={{ height: '1px', width: '18px', background: 'rgba(157,134,104,0.35)' }} />
+        <div style={{ height: '1px', width: '18px', background: 'rgba(212,175,55,0.35)' }} />
       </div>
 
       {/* ── Moving stats strip ── */}
@@ -57,7 +57,7 @@ export default function StatsSection() {
                 </span>
                 <span
                   className="font-ui tracking-[0.16em] uppercase leading-none"
-                  style={{ fontSize: 'clamp(0.46rem, 0.65vw, 0.58rem)', color: 'rgba(10,10,10,0.4)' }}
+                  style={{ fontSize: 'clamp(0.46rem, 0.65vw, 0.58rem)', color: 'rgba(26,26,26,0.4)' }}
                 >
                   {stat.label}
                 </span>
@@ -66,7 +66,7 @@ export default function StatsSection() {
               {/* Diamond separator */}
               <span
                 className="flex-shrink-0 select-none"
-                style={{ fontSize: '0.5rem', color: 'rgba(157,134,104,0.55)', margin: '0 2px' }}
+                style={{ fontSize: '0.5rem', color: 'rgba(212,175,55,0.55)', margin: '0 2px' }}
               >
                 ✦
               </span>

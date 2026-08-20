@@ -34,16 +34,16 @@ export default function PressCoverageDetail() {
   }
 
   const CatIcon = CATEGORY_META[item.category]?.icon || Newspaper
-  const catColor = CATEGORY_META[item.category]?.color || '#9d8668'
+  const catColor = CATEGORY_META[item.category]?.color || '#D4AF37'
 
   return (
     <>
       <Seo
-        title={`${item.headline} — Press Coverage | Majestique Landmarks`}
+        title={`${item.headline} | Press Coverage | Majestique Landmarks`}
         description={item.excerpt}
       />
 
-      <div className="py-16" style={{ background: 'white' }}>
+      <div className="py-12" style={{ background: 'white' }}>
         <div className="container-luxury">
           <div className="max-w-3xl mx-auto">
 
@@ -100,7 +100,7 @@ export default function PressCoverageDetail() {
               {item.image ? (
                 <div
                   className="overflow-hidden"
-                  style={{ background: '#f8f5f0', border: '1px solid rgba(157,134,104,0.18)', boxShadow: '0 12px 48px rgba(5,5,5,0.1)' }}
+                  style={{ background: '#FAF6EF', border: '1px solid rgba(212,175,55,0.18)', boxShadow: '0 12px 48px rgba(26,26,26,0.1)' }}
                 >
                   <img
                     src={item.image}
@@ -112,16 +112,16 @@ export default function PressCoverageDetail() {
               ) : (
                 <div
                   className="w-full flex items-center justify-center py-16"
-                  style={{ background: 'linear-gradient(135deg, #F9F5EF, #EAE3D8, #F3EFE8)', border: '1px solid rgba(157,134,104,0.18)' }}
+                  style={{ background: 'linear-gradient(135deg, #FAF6EF, #FAF6EF, #FAF6EF)', border: '1px solid rgba(212,175,55,0.18)' }}
                 >
                   <div className="text-center">
                     <div
                       className="w-20 h-20 flex items-center justify-center mx-auto mb-3"
-                      style={{ background: 'linear-gradient(135deg, var(--gold), var(--gold-dark))', boxShadow: '0 12px 36px rgba(157,134,104,0.40)' }}
+                      style={{ background: 'linear-gradient(135deg, var(--gold), var(--gold-dark))', boxShadow: '0 12px 36px rgba(212,175,55,0.40)' }}
                     >
                       <Newspaper size={30} color="#fff" />
                     </div>
-                    <span className="font-ui text-[0.5rem] tracking-[0.28em] uppercase" style={{ color: 'rgba(157,134,104,0.65)' }}>
+                    <span className="font-ui text-[0.5rem] tracking-[0.28em] uppercase" style={{ color: 'rgba(212,175,55,0.65)' }}>
                       {item.publication}
                     </span>
                   </div>
@@ -144,7 +144,7 @@ export default function PressCoverageDetail() {
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.97 }}
                   className="flex items-center gap-2 font-ui text-[0.6rem] tracking-[0.18em] uppercase px-4 py-2 transition-colors duration-200"
-                  style={{ color: 'var(--gold-dark)', border: '1px solid rgba(157,134,104,0.3)' }}
+                  style={{ color: 'var(--gold-dark)', border: '1px solid rgba(212,175,55,0.3)' }}
                   onMouseEnter={e => (e.currentTarget.style.color = 'var(--gold)')}
                   onMouseLeave={e => (e.currentTarget.style.color = 'var(--gold-dark)')}
                 >
@@ -179,7 +179,7 @@ export default function PressCoverageDetail() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
               className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-14 pt-8"
-              style={{ borderTop: '1px solid rgba(157,134,104,0.2)' }}
+              style={{ borderTop: '1px solid rgba(212,175,55,0.2)' }}
             >
               <Link
                 to="/media/press-coverage"
@@ -204,15 +204,15 @@ export default function PressCoverageDetail() {
 
       {/* Related Press Releases */}
       {related.length > 0 && (
-        <section className="py-20" style={{ background: 'var(--cream)', borderTop: '1px solid rgba(157,134,104,0.15)' }}>
+        <section className="py-14" style={{ background: 'var(--cream)', borderTop: '1px solid rgba(212,175,55,0.15)' }}>
           <div className="container-luxury">
-            <p className="font-ui text-[0.5rem] tracking-[0.3em] uppercase text-center mb-10" style={{ color: 'rgba(157,134,104,0.6)' }}>
+            <p className="font-ui text-[0.5rem] tracking-[0.3em] uppercase text-center mb-10" style={{ color: 'rgba(212,175,55,0.6)' }}>
               Related Press Releases
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
               {related.map((r, i) => {
                 const RCatIcon = CATEGORY_META[r.category]?.icon || Newspaper
-                const rCatColor = CATEGORY_META[r.category]?.color || '#9d8668'
+                const rCatColor = CATEGORY_META[r.category]?.color || '#D4AF37'
                 return (
                   <motion.div
                     key={r.id}
@@ -224,11 +224,11 @@ export default function PressCoverageDetail() {
                     <Link
                       to={`/media/press-coverage/${r.slug}`}
                       className="group flex flex-col overflow-hidden bg-white h-full"
-                      style={{ border: '1px solid rgba(157,134,104,0.16)', boxShadow: '0 2px 16px rgba(5,5,5,0.05)', transition: 'box-shadow 0.35s ease, transform 0.35s ease' }}
-                      onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 18px 48px rgba(5,5,5,0.12)'; e.currentTarget.style.transform = 'translateY(-4px)' }}
-                      onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 16px rgba(5,5,5,0.05)'; e.currentTarget.style.transform = 'translateY(0)' }}
+                      style={{ border: '1px solid rgba(212,175,55,0.16)', boxShadow: '0 2px 16px rgba(26,26,26,0.05)', transition: 'box-shadow 0.35s ease, transform 0.35s ease' }}
+                      onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 18px 48px rgba(26,26,26,0.12)'; e.currentTarget.style.transform = 'translateY(-4px)' }}
+                      onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 16px rgba(26,26,26,0.05)'; e.currentTarget.style.transform = 'translateY(0)' }}
                     >
-                      <div className="relative overflow-hidden" style={{ aspectRatio: '4/3', background: '#f9f6f1' }}>
+                      <div className="relative overflow-hidden" style={{ aspectRatio: '4/3', background: '#FAF6EF' }}>
                         {r.image ? (
                           <img
                             src={r.image}
@@ -237,7 +237,7 @@ export default function PressCoverageDetail() {
                             loading="lazy"
                           />
                         ) : (
-                          <div className="w-full h-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #F9F5EF 0%, #EAE3D8 50%, #F3EFE8 100%)' }}>
+                          <div className="w-full h-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #FAF6EF 0%, #FAF6EF 50%, #FAF6EF 100%)' }}>
                             <Newspaper size={26} style={{ color: 'var(--gold)' }} />
                           </div>
                         )}

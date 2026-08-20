@@ -41,7 +41,7 @@ import imgOrnateEvent2   from '../assets/Event/Ornate/Launch/0P0A1233.jpg'
 
 /* ── Coarse recognition types — used for the filter chips ─────────── */
 export const CATEGORY_META = {
-  All:       { icon: Trophy,    color: '#9d8668' },
+  All:       { icon: Trophy,    color: '#D4AF37' },
   Brand:     { icon: Crown,     color: '#c4962a' },
   Lifestyle: { icon: Gem,       color: '#3d6baa' },
   Developer: { icon: Building2, color: '#2d9d6b' },
@@ -59,7 +59,7 @@ export const PLATFORM_META = {
   'Realty+ Excellence Awards':        { abbr: 'R+',  icon: Gem,        color: '#0f7a7a' },
   'Navbharat Business Achievers Award': { abbr: 'NBA', icon: Medal,    color: '#7a3fa0' },
   'Optimal Media Solutions':          { abbr: 'OMS', icon: Megaphone,  color: '#b8860b' },
-  'Pune Times Mirror':                { abbr: 'PTM', icon: Newspaper,  color: '#5c4d3d' },
+  'Pune Times Mirror':                { abbr: 'PTM', icon: Newspaper,  color: '#3D090F' },
 }
 
 export const PLATFORMS = Object.entries(PLATFORM_META).map(([name, meta]) => ({ name, ...meta }))
@@ -71,19 +71,19 @@ export const AWARDS = [
     year: 2026, date: 'June 2026', image: imgTPB2026a, gallery: [imgTPB2026c, imgTPB2026d],
     award: 'Trusted Real Estate Brand', platform: 'Times Power Brands', project: 'Majestique Landmarks',
     category: 'Brand',
-    desc: 'Majestique Landmarks honoured as a Trusted Real Estate Brand at the Times Power Brands 2026 awards — recognising a legacy built on transparency, delivery discipline and lasting customer confidence.' },
+    desc: 'Majestique Landmarks honoured as a Trusted Real Estate Brand at the Times Power Brands 2026 awards, recognising a legacy built on transparency, delivery discipline and lasting customer confidence.' },
   { id: 2,  slug: 'times-power-brands-creative-innovation-marketing-2026',
     year: 2026, date: 'June 2026', image: imgTPB2026b, gallery: [imgTPB2026c, imgTPB2026d],
     award: 'Creative Innovation in Real Estate Marketing', platform: 'Times Power Brands', project: 'Marketing',
     category: 'Marketing',
-    desc: 'Recognised for pioneering, design-led marketing campaigns that bring Majestique’s luxury developments to life across Pune — celebrated at the Times Power Brands 2026 awards.' },
+    desc: 'Recognised for pioneering, design-led marketing campaigns that bring Majestique’s luxury developments to life across Pune, celebrated at the Times Power Brands 2026 awards.' },
 
   /* 2026 — Realty+ Excellence Awards (April 2026) */
   { id: 3,  slug: 'realty-plus-iconic-redevelopment-krutarth-2026',
     year: 2026, date: 'April 2026', image: imgRealtyPlus2026a, gallery: [imgKrutarthEvent1, imgKrutarthEvent2],
     award: 'Iconic Redevelopment Project of the Year', platform: 'Realty+ Excellence Awards', project: 'Krutarth',
     category: 'Project',
-    desc: 'Krutarth by Majestique Landmarks wins Iconic Redevelopment Project of the Year at the Realty+ Excellence Awards 2026 — honouring thoughtful, community-first urban renewal.' },
+    desc: 'Krutarth by Majestique Landmarks wins Iconic Redevelopment Project of the Year at the Realty+ Excellence Awards 2026, honouring thoughtful, community-first urban renewal.' },
   { id: 4,  slug: 'realty-plus-ultra-luxury-lifestyle-evolvus-2026',
     year: 2026, date: 'April 2026', image: imgRealtyPlus2026b, gallery: [imgEvolvusEvent1, imgEvolvusEvent2],
     award: 'Ultra Luxury Lifestyle Project of the Year', platform: 'Realty+ Excellence Awards', project: 'Evolvus',
@@ -100,14 +100,14 @@ export const AWARDS = [
     year: 2025, date: 'December 2025', image: imgET2025c, gallery: [imgET2025d],
     award: 'Excellence in Luxury Lifestyle Living', platform: 'ET Business Awards', project: 'The Crown',
     category: 'Lifestyle',
-    desc: 'The Crown by Majestique Landmarks receives Excellence in Luxury Lifestyle Living at the ET Business Awards 2025 — celebrating elevated, sophisticated, community-driven living.' },
+    desc: 'The Crown by Majestique Landmarks receives Excellence in Luxury Lifestyle Living at the ET Business Awards 2025, celebrating elevated, sophisticated, community-driven living.' },
 
   /* 2025 — Times Realty Icons (September 2025) */
   { id: 7,  slug: 'times-realty-icons-lifestyle-living-towers-2025',
     year: 2025, date: 'September 2025', image: imgTRI2025a, gallery: [imgTRI2025b, imgTRI2025c],
     award: 'Excellence in Lifestyle Living', platform: 'Times Realty Icons', project: 'Majestique Towers',
     category: 'Lifestyle',
-    desc: 'Majestique Towers recognised for crafting residential experiences that offer an elevated and luxurious lifestyle — honoured at Times Realty Icons 2025.' },
+    desc: 'Majestique Towers recognised for crafting residential experiences that offer an elevated and luxurious lifestyle, honoured at Times Realty Icons 2025.' },
 
   /* 2025 — Times Power Brands (July 2025) */
   { id: 8,  slug: 'times-power-brands-esteemed-developer-2025',
@@ -135,7 +135,7 @@ export const AWARDS = [
     year: 2023, date: 'December 2023', image: imgOrnate2023a, gallery: [imgOrnate2023b, imgOrnate2023c, imgOrnateEvent1, imgOrnateEvent2], certificate: imgET2023Cert,
     award: 'Iconic Luxury Project of the Year', platform: 'ET Business Awards', project: 'The Ornate',
     category: 'Project',
-    desc: 'The Ornate is honoured as Iconic Luxury Project of the Year at the ET Business Awards 2023 — recognition for setting new benchmarks in luxury living.' },
+    desc: 'The Ornate is honoured as Iconic Luxury Project of the Year at the ET Business Awards 2023, recognition for setting new benchmarks in luxury living.' },
 
   /* 2023 — Times Power Brand (July 2023) */
   { id: 12, slug: 'times-power-brand-most-promising-real-estate-brand-2023',
@@ -161,23 +161,9 @@ export const AWARDS = [
   /* 2018 — Navbharat Business Achievers Award */
   { id: 15, slug: 'navbharat-residential-developer-of-the-year-2018',
     year: 2018, date: '2018', image: imgNBA2018a, gallery: [imgNBA2018b, imgNBA2018c],
-    award: 'Residential Awards — Winner, Developer of the Year', platform: 'Navbharat Business Achievers Award', project: 'Majestique Landmarks',
+    award: 'Residential Awards: Winner, Developer of the Year', platform: 'Navbharat Business Achievers Award', project: 'Majestique Landmarks',
     category: 'Developer',
-    desc: 'Presented by then Chief Minister of Maharashtra, Shri Devendra Fadnavis — recognising residential development excellence at the Navbharat Business Achievers Award 2018.' },
-
-  /* 2016 — Times Realty Icon */
-  { id: 16, slug: 'times-realty-icon-recognition-2016',
-    year: 2016, date: '2016', image: null,
-    award: 'Times Realty Icon Recognition', platform: 'Times Realty Icons', project: 'Majestique Landmarks',
-    category: 'Developer',
-    desc: 'An early Times Realty Icon citation recognising Majestique Landmarks’ emerging reputation for quality-driven residential development in Pune.' },
-
-  /* 2016 — Pune Times Mirror */
-  { id: 17, slug: 'pune-times-mirror-mrugavarsha-2016',
-    year: 2016, date: '2016', image: null,
-    award: 'Pune Mirror Recognition', platform: 'Pune Times Mirror', project: 'Majestique Mrugavarsha',
-    category: 'Project',
-    desc: 'Majestique Mrugavarsha featured and recognised by Pune Times Mirror, 2016, for its distinctive project vision.' },
+    desc: 'Presented by then Chief Minister of Maharashtra, Shri Devendra Fadnavis, recognising residential development excellence at the Navbharat Business Achievers Award 2018.' },
 
   /* Undated — Realty+ Awards */
   { id: 18, slug: 'realty-plus-budget-housing-majestique-nest',

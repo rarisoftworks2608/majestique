@@ -12,14 +12,14 @@ export const LANGUAGES = [
 
 /* ── Luxury palette (mirrors Navbar.jsx) ─────────────────────────── */
 const P = {
-  ivory:  '#F3EFE8',
-  gold:   '#9D8668',
+  ivory:  '#FAF6EF',
+  gold:   '#D4AF37',
   smoke:  '#8B7B68',
-  mocha:  '#5C4D3D',
-  ivoryA: (a) => `rgba(243,239,232,${a})`,
-  goldA:  (a) => `rgba(157,134,104,${a})`,
+  mocha:  '#3D090F',
+  ivoryA: (a) => `rgba(250,246,239,${a})`,
+  goldA:  (a) => `rgba(212,175,55,${a})`,
   smokeA: (a) => `rgba(139,123,104,${a})`,
-  blackA: (a) => `rgba(5,5,5,${a})`,
+  blackA: (a) => `rgba(26,26,26,${a})`,
 }
 
 /* ── One-time script injection ───────────────────────────────────── */

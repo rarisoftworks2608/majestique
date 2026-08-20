@@ -19,7 +19,7 @@ import imgSakalValentine    from '../assets/Article/Sakal_Valentine_2026.jpg'
 import pdfSakalValentine    from '../assets/Article/Pune_Today-Pune-Sakal-SakalVastu-A-.pdf'
 
 export const ARTICLE_CATEGORY_META = {
-  All:               { icon: Sparkles,  color: '#9d8668' },
+  All:               { icon: Sparkles,  color: '#D4AF37' },
   'Brand Campaign':  { icon: Megaphone, color: '#9d5a3d' },
   'Festive Greetings': { icon: Gift,    color: '#c4962a' },
   'Special Feature': { icon: Award,     color: '#3d6baa' },
@@ -38,7 +38,7 @@ export const ARTICLES = [
     type: 'Pune Times Feature',
     headline: 'Luxury Development Projects Crafted for Modern Urban Living',
     excerpt:
-      "A full-page Pune Times feature on Majestique Landmarks' 20-year journey — nearly 15,000 homes delivered, 20,000+ happy families, ~30 completed projects and 18 crore+ sq. ft. ongoing across Kharadi, Balewadi, Baner, Kothrud, Hadapsar and NIBM Annexe, with MD Manish Maheshwari on trust, consistency, and the Badlaav By Majestique river-cleaning initiative.",
+      "A full-page Pune Times feature on Majestique Landmarks' 20-year journey: nearly 15,000 homes delivered, 20,000+ happy families, ~30 completed projects and 18 crore+ sq. ft. ongoing across Kharadi, Balewadi, Baner, Kothrud, Hadapsar and NIBM Annexe, with MD Manish Maheshwari on trust, consistency, and the Badlaav By Majestique river-cleaning initiative.",
     date: 'May 8, 2026',
     dateISO: '2026-05-08',
     featured: true,
@@ -52,9 +52,9 @@ export const ARTICLES = [
     pubColor: '#d01b1b',
     category: 'Special Feature',
     type: 'Anniversary Feature',
-    headline: 'Lokmat Anniversary Special — Live Majestique',
+    headline: 'Lokmat Anniversary Special: Live Majestique',
     excerpt:
-      "A Lokmat anniversary-edition brand feature celebrating Majestique Landmarks — 18,000+ happy families, 30+ delivered and 18+ ongoing projects across Pune.",
+      "A Lokmat anniversary-edition brand feature celebrating Majestique Landmarks: 18,000+ happy families, 30+ delivered and 18+ ongoing projects across Pune.",
     date: 'Jan 6, 2026',
     dateISO: '2026-01-06',
     featured: false,
@@ -68,9 +68,9 @@ export const ARTICLES = [
     pubColor: '#1a6b1a',
     category: 'Special Feature',
     type: 'Tribute Feature',
-    headline: 'Kargil Vijay Diwas Tribute — Where There Is Righteousness, There Is Victory',
+    headline: 'Kargil Vijay Diwas Tribute: Where There Is Righteousness, There Is Victory',
     excerpt:
-      "Sakal Property Today carries Majestique Landmarks' Kargil Vijay Diwas tribute — honouring 60 days of valor, 30,000 warriors of the nation, at 18,000 ft altitude.",
+      "Sakal Property Today carries Majestique Landmarks' Kargil Vijay Diwas tribute, honouring 60 days of valor, 30,000 warriors of the nation, at 18,000 ft altitude.",
     date: 'Jul 26, 2025',
     dateISO: '2025-07-26',
     featured: false,
@@ -83,7 +83,7 @@ export const ARTICLES = [
     pubColor: '#d01b1b',
     category: 'Brand Campaign',
     type: 'Brand Feature',
-    headline: 'केवळ घर नव्हे — एक समृद्ध जीवनशैली! Live Majestique.',
+    headline: 'केवळ घर नव्हे, एक समृद्ध जीवनशैली! Live Majestique.',
     excerpt:
       '18,000+ Happy Families · 30+ Delivered Projects · 18+ Ongoing Projects · 2 Cr+ Sq. ft. Ongoing. A landmark in Pune real estate since 2002.',
     date: '2024',
@@ -98,9 +98,9 @@ export const ARTICLES = [
     pubColor: '#1a3a8a',
     category: 'Brand Campaign',
     type: 'Brand Feature',
-    headline: "Witness of Pune's Transformation — Live Majestique.",
+    headline: "Witness of Pune's Transformation: Live Majestique.",
     excerpt:
-      "बदलत्या पुण्याचे प्रगल्भ साक्षीदार! Majestique Landmarks: Pune's pioneering real estate brand — 18,000+ families, 30+ delivered projects across all four zones of Pune.",
+      "बदलत्या पुण्याचे प्रगल्भ साक्षीदार! Majestique Landmarks: Pune's pioneering real estate brand, 18,000+ families, 30+ delivered projects across all four zones of Pune.",
     date: 'Jan 3, 2026',
     dateISO: '2026-01-03',
     featured: false,
@@ -113,9 +113,9 @@ export const ARTICLES = [
     pubColor: '#1a6b1a',
     category: 'Festive Greetings',
     type: 'Brand Feature',
-    headline: 'Gudi Padwa Special Offer — New Friends, Kothrud',
+    headline: 'Gudi Padwa Special Offer: New Friends, Kothrud',
     excerpt:
-      "Sakal Pune features New Friends by Majestique — 27-storey, 5 towers, 3-level lifestyle amenities, next to Vanaz Metro Station, Kothrud — with a Gudi Padwa EMI holiday offer.",
+      "Sakal Pune features New Friends by Majestique: 27-storey, 5 towers, 3-level lifestyle amenities, next to Vanaz Metro Station, Kothrud, with a Gudi Padwa EMI holiday offer.",
     date: 'Mar 21, 2025',
     dateISO: '2025-03-21',
     featured: false,
@@ -129,9 +129,9 @@ export const ARTICLES = [
     pubColor: '#c0392b',
     category: 'Festive Greetings',
     type: 'Brand Feature',
-    headline: 'Gudi Padwa Greetings — Live Majestique',
+    headline: 'Gudi Padwa Greetings: Live Majestique',
     excerpt:
-      "Saamana's Marathi New Year brand feature — Majestique Landmarks: 18,000+ happy families, 30+ delivered projects, 18+ ongoing projects, over 20 years of trust across Pune.",
+      "Saamana's Marathi New Year brand feature, Majestique Landmarks: 18,000+ happy families, 30+ delivered projects, 18+ ongoing projects, over 20 years of trust across Pune.",
     date: 'Mar 14, 2026',
     dateISO: '2026-03-14',
     featured: false,
@@ -147,7 +147,7 @@ export const ARTICLES = [
     type: 'Brand Feature',
     headline: 'Live Majestique. Love Majestique.',
     excerpt:
-      "Sakal Property Today's Valentine's Day feature — 20 years of enduring trust, built across Pune, beautifully, in every detail.",
+      "Sakal Property Today's Valentine's Day feature: 20 years of enduring trust, built across Pune, beautifully, in every detail.",
     date: 'Feb 14, 2026',
     dateISO: '2026-02-14',
     featured: false,

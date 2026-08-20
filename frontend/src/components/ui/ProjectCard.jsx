@@ -4,7 +4,7 @@ import { MapPin, ArrowRight, Maximize2, Users, CalendarDays, Star } from 'lucide
 import { getImageUrl } from '../../utils/helpers'
 
 export default function ProjectCard({ project, index = 0, featured = false }) {
-  const { slug, title, tagline, status, coverImage, category, area, units, possession } = project
+  const { slug, title, tagline, coverImage, area, units, possession } = project
   const location = project.location?.name || project.location
 
   return (
@@ -28,41 +28,13 @@ export default function ProjectCard({ project, index = 0, featured = false }) {
         {/* Shine sweep on hover */}
         <div className="proj-card-shine absolute inset-0 pointer-events-none" aria-hidden />
 
-        {/* Status badge */}
-        <div className="absolute top-4 left-4 flex items-center gap-2">
-          <span
-            className={`${status === 'ONGOING' ? 'proj-status-pulse' : ''} font-ui text-xs font-bold tracking-widest uppercase px-3 py-1.5`}
-            style={{
-              background: status === 'ONGOING' ? 'var(--gold)' : 'var(--luxury-dark)',
-              color: status === 'ONGOING' ? 'var(--luxury-dark)' : 'var(--gold-light)',
-              border: status === 'COMPLETED' ? '1px solid rgba(157,134,104,0.4)' : 'none',
-            }}
-          >
-            {status === 'ONGOING' ? 'Ongoing' : 'Completed'}
-          </span>
-
-          {project.featured && (
+        {project.featured && (
+          <div className="absolute top-4 left-4">
             <span
               className="flex items-center gap-1 font-ui text-xs font-bold tracking-widest uppercase px-2.5 py-1.5"
-              style={{ background: 'var(--luxury-dark)', color: 'var(--gold)', border: '1px solid rgba(157,134,104,0.4)' }}
+              style={{ background: 'var(--luxury-dark)', color: 'var(--gold)', border: '1px solid rgba(212,175,55,0.4)' }}
             >
               <Star size={9} fill="currentColor" /> Featured
-            </span>
-          )}
-        </div>
-
-        {/* Category */}
-        {category && (
-          <div className="absolute top-4 right-4">
-            <span
-              className="font-ui text-xs tracking-widest uppercase px-3 py-1.5"
-              style={{
-                background: 'rgba(26,18,9,0.8)',
-                color: 'rgba(243,239,232,0.7)',
-                backdropFilter: 'blur(4px)',
-              }}
-            >
-              {category}
             </span>
           </div>
         )}
@@ -86,22 +58,22 @@ export default function ProjectCard({ project, index = 0, featured = false }) {
 
       {/* Content */}
       <div className="p-6">
-        <div className="flex items-start gap-2 mb-1">
+        <h3
+          className="font-times font-normal text-2xl mb-2 leading-snug transition-colors duration-300 group-hover:text-gold"
+          style={{ color: 'var(--luxury-dark)' }}
+        >
+          {title}
+        </h3>
+
+        <div className="flex items-start gap-2 mb-2.5">
           <MapPin size={13} style={{ color: 'var(--gold)', flexShrink: 0, marginTop: '3px' }} />
           <span className="font-ui text-xs tracking-wider uppercase" style={{ color: 'rgba(92,74,48,0.7)' }}>
             {location}
           </span>
         </div>
 
-        <h3
-          className="font-times font-normal text-xl mb-2 leading-snug transition-colors duration-300 group-hover:text-gold"
-          style={{ color: 'var(--luxury-dark)' }}
-        >
-          {title}
-        </h3>
-
         {tagline && (
-          <p className="font-body text-base leading-relaxed mb-4" style={{ color: 'rgba(10,10,10,0.72)' }}>
+          <p className="font-body text-sm leading-relaxed mb-4" style={{ color: 'rgba(26,26,26,0.55)' }}>
             {tagline}
           </p>
         )}
@@ -111,19 +83,19 @@ export default function ProjectCard({ project, index = 0, featured = false }) {
           <div className="flex flex-wrap gap-2 mb-4">
             {area && (
               <span className="flex items-center gap-1.5 font-ui text-xs tracking-wider uppercase px-2.5 py-1"
-                style={{ background: 'rgba(157,134,104,0.08)', border: '1px solid rgba(157,134,104,0.2)', color: 'var(--gold-dark)' }}>
+                style={{ background: 'rgba(212,175,55,0.08)', border: '1px solid rgba(212,175,55,0.2)', color: 'var(--gold-dark)' }}>
                 <Maximize2 size={10} /> {area}
               </span>
             )}
             {units && (
               <span className="flex items-center gap-1.5 font-ui text-xs tracking-wider uppercase px-2.5 py-1"
-                style={{ background: 'rgba(157,134,104,0.08)', border: '1px solid rgba(157,134,104,0.2)', color: 'var(--gold-dark)' }}>
+                style={{ background: 'rgba(212,175,55,0.08)', border: '1px solid rgba(212,175,55,0.2)', color: 'var(--gold-dark)' }}>
                 <Users size={10} /> {units} Units
               </span>
             )}
             {possession && (
               <span className="flex items-center gap-1.5 font-ui text-xs tracking-wider uppercase px-2.5 py-1"
-                style={{ background: 'rgba(157,134,104,0.08)', border: '1px solid rgba(157,134,104,0.2)', color: 'var(--gold-dark)' }}>
+                style={{ background: 'rgba(212,175,55,0.08)', border: '1px solid rgba(212,175,55,0.2)', color: 'var(--gold-dark)' }}>
                 <CalendarDays size={10} /> {possession}
               </span>
             )}

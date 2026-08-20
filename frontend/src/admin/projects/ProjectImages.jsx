@@ -121,7 +121,7 @@ export default function ProjectImages() {
     <div className="text-center py-16">
       <p className="font-body text-sm" style={{ color: 'rgba(60,48,40,0.5)' }}>Project not found.</p>
       <Link to="/admin/projects" className="btn-outline-gold mt-4 inline-block"
-        style={{ fontSize: '0.75rem', padding: '0.5rem 1.25rem', color: 'var(--luxury-dark)', borderColor: 'rgba(157,134,104,0.45)' }}>← Back</Link>
+        style={{ fontSize: '0.75rem', padding: '0.5rem 1.25rem', color: 'var(--luxury-dark)', borderColor: 'rgba(212,175,55,0.45)' }}>← Back</Link>
     </div>
   )
 

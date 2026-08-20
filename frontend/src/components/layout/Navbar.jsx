@@ -6,7 +6,7 @@ import {
   Building2, CheckCircle2, Hammer, Newspaper,
   CalendarDays, Bell, BookOpen, Mail, Target,
   Award, Users, MessageSquareQuote, ArrowRight,
-  MapPin, TrendingUp, Megaphone,
+  Megaphone,
 } from 'lucide-react'
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa6'
 import { SITE_NAME, SITE_PHONE, SOCIAL_LINKS } from '../../utils/constants'
@@ -38,23 +38,23 @@ import imgNavMediaFeatured from '../../assets/awards & trophy.jpeg'
    AUMANA Palette — 9-color luxury system
 ──────────────────────────────────────────────────────────────────────────── */
 const P = {
-  ivory:   '#F3EFE8',   // Luxury Ivory — primary light
-  linen:   '#DDD2C2',   // Soft Warm Beige
-  gold:    '#9D8668',   // Gold-Taupe Accent
+  ivory:   '#FAF6EF',   // Ivory — primary light
+  linen:   '#FAF6EF',   // Ivory
+  gold:    '#D4AF37',   // Gold Accent
   smoke:   '#8B7B68',   // Warm Gray Border
-  taupe:   '#736452',   // Muted Taupe
-  mocha:   '#5C4D3D',   // Deep Mocha
+  taupe:   '#6B0D1A',   // Burgundy
+  mocha:   '#3D090F',   // Maroon
   dark:    '#1A1A1A',   // Charcoal
-  black:   '#050505',   // Luxury Black
+  black:   '#1A1A1A',   // Charcoal
   // rgba helpers
-  ivoryA:  (a) => `rgba(243,239,232,${a})`,
-  linenA:  (a) => `rgba(221,210,194,${a})`,
-  goldA:   (a) => `rgba(157,134,104,${a})`,
+  ivoryA:  (a) => `rgba(250,246,239,${a})`,
+  linenA:  (a) => `rgba(250,246,239,${a})`,
+  goldA:   (a) => `rgba(212,175,55,${a})`,
   smokeA:  (a) => `rgba(139,123,104,${a})`,
-  taupeA:  (a) => `rgba(115,100,82,${a})`,
-  mochaA:  (a) => `rgba(92,77,61,${a})`,
+  taupeA:  (a) => `rgba(107,13,26,${a})`,
+  mochaA:  (a) => `rgba(61,9,15,${a})`,
   darkA:   (a) => `rgba(26,26,26,${a})`,
-  blackA:  (a) => `rgba(5,5,5,${a})`,
+  blackA:  (a) => `rgba(26,26,26,${a})`,
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
@@ -69,7 +69,7 @@ const NAV_CONFIG = [
     featured: {
       title: 'Our Heritage',
       subtitle: 'Est. 2002',
-      description: 'Two decades of crafting Pune\'s most celebrated addresses — MahaRERA-registered, debt-free, litigation-free.',
+      description: 'Two decades of crafting Pune\'s most celebrated addresses, MahaRERA-registered, debt-free, litigation-free.',
       image: imgNavAboutFeatured,
       stats: [
         { value: '22+', label: 'Years' },
@@ -90,8 +90,8 @@ const NAV_CONFIG = [
     panel: 'projects',
     featured: {
       title: 'Evolvus',
-      subtitle: 'Featured — Ongoing',
-      description: 'A new benchmark in high-rise luxury — premium 2 & 3 BHK residences at Kharadi, Pune.',
+      subtitle: 'Featured · Ongoing',
+      description: 'A new benchmark in high-rise luxury, with premium 2 & 3 BHK residences at Kharadi, Pune.',
       image: imgNavOngoing,
       badge: 'Now Open',
     },
@@ -107,7 +107,7 @@ const NAV_CONFIG = [
         label: 'Completed Projects',
         path: '/projects/completed',
         icon: CheckCircle2,
-        desc: 'Delivered landmarks — on time, every time',
+        desc: 'Delivered landmarks, on time, every time',
         image: imgNavCompleted,
       },
     ],
@@ -139,7 +139,7 @@ const NAV_CONFIG = [
     path: '/careers',
     mini: {
       title: 'Join Our Team',
-      desc: 'Be part of Pune\'s fastest growing luxury real estate brand — rewarding careers await.',
+      desc: 'Be part of Pune\'s fastest growing luxury real estate brand, where rewarding careers await.',
       image: imgNavCareers,
       stat: '500+ Team Members',
     },
@@ -241,18 +241,6 @@ function MiniTooltip({ item, onMouseEnter, onMouseLeave }) {
             loading="lazy"
             style={{ transform: 'scale(1.05)' }}
           />
-          <div
-            className="absolute inset-0"
-            style={{ background: `linear-gradient(to top, ${P.mochaA(0.68)} 0%, ${P.mochaA(0.08)} 100%)` }}
-          />
-          <div className="absolute bottom-3 left-3">
-            <span
-              className="font-ui text-[0.55rem] tracking-[0.2em] uppercase px-2 py-1"
-              style={{ background: P.gold, color: P.ivory }}
-            >
-              {mini.stat}
-            </span>
-          </div>
         </div>
         {/* Content */}
         <div className="p-4">
@@ -302,6 +290,9 @@ function MegaPanel({ item, onMouseEnter, onMouseLeave, onClose }) {
           boxShadow: `0 40px 80px ${P.blackA(0.18)}, 0 8px 24px ${P.blackA(0.08)}`,
           backdropFilter: 'blur(32px) saturate(180%)',
           WebkitBackdropFilter: 'blur(32px) saturate(180%)',
+          maxHeight: 'min(560px, calc(100vh - 96px))',
+          overflowY: 'auto',
+          overflowX: 'hidden',
         }}
       >
         <div className="container-luxury">
@@ -315,7 +306,7 @@ function MegaPanel({ item, onMouseEnter, onMouseLeave, onClose }) {
 }
 
 /* ── Shared: Dynamic Preview Pane ────────────────────────────────────── */
-function PreviewPane({ image, tag, title, desc, extra }) {
+function PreviewPane({ image, tag, title, desc, extra, showText = true }) {
   return (
     <div className="relative w-full h-full overflow-hidden">
       <AnimatePresence mode="wait">
@@ -331,50 +322,54 @@ function PreviewPane({ image, tag, title, desc, extra }) {
           transition={{ duration: 0.38, ease: [0.25, 0.46, 0.45, 0.94] }}
         />
       </AnimatePresence>
-      <div className="absolute inset-0" style={{ background: `linear-gradient(170deg, ${P.blackA(0.18)} 0%, ${P.blackA(0.82)} 100%)` }} />
 
-      {/* Corner bracket */}
-      <div className="absolute top-5 left-5 w-8 h-8 border-l border-t" style={{ borderColor: P.goldA(0.5) }} />
+      {showText && (
+        <>
+          <div className="absolute inset-0" style={{ background: `linear-gradient(170deg, ${P.blackA(0.18)} 0%, ${P.blackA(0.82)} 100%)` }} />
 
-      <div className="absolute inset-0 flex flex-col justify-end p-7 z-10">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={title}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.28, ease: [0.25, 0.46, 0.45, 0.94] }}
-          >
-            {tag && (
-              <span className="inline-block font-ui text-[0.52rem] tracking-[0.22em] uppercase px-2.5 py-1 mb-3"
-                style={{ background: P.gold, color: P.ivory }}>
-                {tag}
-              </span>
+          <div className="absolute inset-0 flex flex-col justify-end p-7 z-10">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={title}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.28, ease: [0.25, 0.46, 0.45, 0.94] }}
+              >
+                {tag && (
+                  <span className="inline-block font-ui text-[0.52rem] tracking-[0.22em] uppercase px-2.5 py-1 mb-3"
+                    style={{ background: P.gold, color: P.ivory }}>
+                    {tag}
+                  </span>
+                )}
+                <p className="font-display font-light text-[1.3rem] leading-snug mb-1.5" style={{ color: P.ivoryA(0.96) }}>
+                  {title}
+                </p>
+                {desc && (
+                  <p className="font-body text-[0.68rem] leading-relaxed" style={{ color: P.ivoryA(0.48) }}>
+                    {desc}
+                  </p>
+                )}
+              </motion.div>
+            </AnimatePresence>
+
+            {extra && (
+              <AnimatePresence>
+                <motion.div
+                  key="extra"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.22 }}
+                  className="mt-4"
+                >
+                  {extra}
+                </motion.div>
+              </AnimatePresence>
             )}
-            <p className="font-display font-light text-[1.3rem] leading-snug mb-1.5" style={{ color: P.ivoryA(0.96) }}>
-              {title}
-            </p>
-            <p className="font-body text-[0.68rem] leading-relaxed" style={{ color: P.ivoryA(0.48) }}>
-              {desc}
-            </p>
-          </motion.div>
-        </AnimatePresence>
-
-        {extra && (
-          <AnimatePresence>
-            <motion.div
-              key="extra"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.22 }}
-              className="mt-4"
-            >
-              {extra}
-            </motion.div>
-          </AnimatePresence>
-        )}
-      </div>
+          </div>
+        </>
+      )}
     </div>
   )
 }
@@ -385,33 +380,22 @@ function AboutPanel({ item, onClose }) {
   const [active, setActive] = useState(null)
 
   const preview = active
-    ? { image: active.previewImage, tag: 'Explore', title: active.label, desc: active.desc }
-    : { image: featured.image, tag: featured.subtitle, title: featured.title, desc: featured.description }
-
-  const statsStrip = !active && (
-    <div className="grid grid-cols-3 gap-px" style={{ background: P.smokeA(0.25) }}>
-      {featured.stats.map((s) => (
-        <div key={s.label} className="flex flex-col items-center py-2.5" style={{ background: P.blackA(0.75) }}>
-          <span className="font-display text-[1.05rem] leading-none" style={{ color: P.ivory }}>{s.value}</span>
-          <span className="font-ui text-[0.5rem] tracking-widest uppercase mt-0.5" style={{ color: P.smokeA(0.55) }}>{s.label}</span>
-        </div>
-      ))}
-    </div>
-  )
+    ? { image: active.previewImage, tag: 'Explore', title: active.label, desc: active.desc, showText: true }
+    : { image: featured.image, showText: false }
 
   return (
-    <div className="flex" style={{ minHeight: '360px' }}>
+    <div className="grid" style={{ gridTemplateColumns: '300px 1px 1fr', minHeight: '280px' }}>
       {/* LEFT: dynamic preview */}
-      <div className="shrink-0 relative" style={{ width: '300px' }}>
-        <PreviewPane {...preview} extra={statsStrip} />
+      <div className="relative" style={{ height: '100%' }}>
+        <PreviewPane {...preview} />
       </div>
 
       {/* Thin separator */}
-      <div className="self-stretch mx-0 shrink-0" style={{ width: '1px', background: P.goldA(0.10) }} />
+      <div style={{ height: '100%', background: P.goldA(0.10) }} />
 
       {/* RIGHT: nav list */}
-      <div className="flex-1 flex flex-col py-7">
-        <p className="font-ui text-[0.55rem] tracking-[0.28em] uppercase px-8 mb-5" style={{ color: P.gold }}>
+      <div className="flex flex-col py-5">
+        <p className="font-ui text-[0.55rem] tracking-[0.28em] uppercase px-8 mb-3" style={{ color: P.gold }}>
           Explore About
         </p>
 
@@ -426,21 +410,21 @@ function AboutPanel({ item, onClose }) {
                 onClick={onClose}
                 onMouseEnter={() => setActive(child)}
                 onMouseLeave={() => setActive(null)}
-                className="flex items-center gap-4 px-8 py-4 transition-all duration-200"
+                className="flex items-center gap-4 px-8 py-2.5 transition-all duration-200"
                 style={{ borderBottom: `1px solid ${P.goldA(0.07)}`, background: isActive ? P.goldA(0.04) : 'transparent' }}
               >
                 {/* Gold indicator bar */}
-                <div style={{ width: '2px', height: '36px', background: isActive ? P.gold : 'transparent', transition: 'background 0.2s', flexShrink: 0 }} />
+                <div style={{ width: '2px', height: '32px', background: isActive ? P.gold : 'transparent', transition: 'background 0.2s', flexShrink: 0 }} />
 
                 {/* Icon */}
-                <div className="w-9 h-9 flex items-center justify-center shrink-0 transition-all duration-200"
+                <div className="w-8 h-8 flex items-center justify-center shrink-0 transition-all duration-200"
                   style={{ border: `1px solid ${isActive ? P.goldA(0.45) : P.goldA(0.18)}`, background: isActive ? P.goldA(0.09) : P.goldA(0.04) }}>
-                  <Icon size={13} style={{ color: P.gold }} />
+                  <Icon size={12} style={{ color: P.gold }} />
                 </div>
 
                 {/* Text */}
                 <div className="flex-1 min-w-0">
-                  <p className="font-ui text-[0.82rem] tracking-[0.14em] uppercase mb-1 font-bold transition-colors duration-200"
+                  <p className="font-ui text-[0.82rem] tracking-[0.14em] uppercase mb-0.5 font-bold transition-colors duration-200"
                     style={{ color: isActive ? P.gold : P.dark }}>
                     {child.label}
                   </p>
@@ -455,16 +439,6 @@ function AboutPanel({ item, onClose }) {
             )
           })}
         </div>
-
-        <div className="px-8 pt-5 mt-2" style={{ borderTop: `1px solid ${P.goldA(0.08)}` }}>
-          <Link to="/about/legacy" onClick={onClose}
-            className="inline-flex items-center gap-2 font-ui text-[0.68rem] tracking-[0.2em] uppercase font-semibold transition-colors duration-200"
-            style={{ color: P.gold }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = P.mocha)}
-            onMouseLeave={(e) => (e.currentTarget.style.color = P.gold)}>
-            Discover Our Story <ArrowRight size={10} />
-          </Link>
-        </div>
       </div>
     </div>
   )
@@ -476,20 +450,20 @@ function ProjectsPanel({ item, onClose }) {
   const [active, setActive] = useState(null)
 
   const preview = active
-    ? { image: active.image, title: active.label, desc: active.desc }
-    : { image: featured.image, tag: featured.badge, title: featured.title, desc: featured.description }
+    ? { image: active.image, title: active.label, desc: active.desc, showText: true }
+    : { image: featured.image, showText: false }
 
   return (
-    <div className="flex" style={{ minHeight: '320px' }}>
+    <div className="grid" style={{ gridTemplateColumns: '320px 1px 1fr', minHeight: '320px' }}>
       {/* LEFT: preview */}
-      <div className="shrink-0 relative" style={{ width: '320px' }}>
+      <div className="relative" style={{ height: '100%' }}>
         <PreviewPane {...preview} />
       </div>
 
-      <div className="self-stretch shrink-0" style={{ width: '1px', background: P.goldA(0.10) }} />
+      <div style={{ height: '100%', background: P.goldA(0.10) }} />
 
       {/* RIGHT: project types */}
-      <div className="flex-1 flex flex-col py-7">
+      <div className="flex flex-col py-7">
         <p className="font-ui text-[0.55rem] tracking-[0.28em] uppercase px-8 mb-5" style={{ color: P.gold }}>
           Browse Projects
         </p>
@@ -531,17 +505,6 @@ function ProjectsPanel({ item, onClose }) {
             )
           })}
         </div>
-
-        <div className="px-8 pt-5 mt-3" style={{ borderTop: `1px solid ${P.goldA(0.08)}` }}>
-          <div className="flex items-center gap-5">
-            {[{ icon: MapPin, label: '10+ Locations' }, { icon: TrendingUp, label: 'MahaRERA Registered' }].map(({ icon: Icon, label }) => (
-              <div key={label} className="flex items-center gap-1.5">
-                <Icon size={11} style={{ color: P.gold }} />
-                <span className="font-ui text-[0.56rem] tracking-wider uppercase" style={{ color: P.smoke }}>{label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </div>
   )
@@ -553,20 +516,20 @@ function MediaPanel({ item, onClose }) {
   const [active, setActive] = useState(null)
 
   const preview = active
-    ? { image: active.previewImage, tag: 'Media', title: active.label, desc: active.desc }
-    : { image: featured.image, tag: featured.badge, title: featured.title, desc: featured.description }
+    ? { image: active.previewImage, tag: 'Media', title: active.label, desc: active.desc, showText: true }
+    : { image: featured.image, showText: false }
 
   return (
-    <div className="flex" style={{ minHeight: '340px' }}>
+    <div className="grid" style={{ gridTemplateColumns: '280px 1px 1fr', minHeight: '340px' }}>
       {/* LEFT: preview */}
-      <div className="shrink-0 relative" style={{ width: '280px' }}>
+      <div className="relative" style={{ height: '100%' }}>
         <PreviewPane {...preview} />
       </div>
 
-      <div className="self-stretch shrink-0" style={{ width: '1px', background: P.goldA(0.10) }} />
+      <div style={{ height: '100%', background: P.goldA(0.10) }} />
 
       {/* RIGHT: 2-col grid */}
-      <div className="flex-1 py-7">
+      <div className="py-7">
         <p className="font-ui text-[0.55rem] tracking-[0.28em] uppercase px-8 mb-5" style={{ color: P.gold }}>
           Media Centre
         </p>
@@ -837,9 +800,9 @@ export default function Navbar() {
               <Link
                 to="/contact"
                 className="hidden lg:flex btn-gold shrink-0 font-bold tracking-[0.22em]"
-                style={{ fontSize: '0.60rem', padding: '0.55rem 1.2rem', letterSpacing: '0.18em', background: '#9D8668', borderColor: '#9D8668', color: '#fff' }}
-                onMouseEnter={(e) => { e.currentTarget.style.background = '#736452'; e.currentTarget.style.borderColor = '#736452' }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = '#9D8668'; e.currentTarget.style.borderColor = '#9D8668' }}
+                style={{ fontSize: '0.60rem', padding: '0.55rem 1.2rem', letterSpacing: '0.18em', background: '#6B0D1A', borderColor: '#6B0D1A', color: '#fff' }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = '#3D090F'; e.currentTarget.style.borderColor = '#3D090F' }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = '#6B0D1A'; e.currentTarget.style.borderColor = '#6B0D1A' }}
               >
                 Enquire Now
               </Link>

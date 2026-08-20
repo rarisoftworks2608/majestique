@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 
 const SITE = 'Majestique Landmarks'
-const DEFAULT_DESC = "Pune's premier luxury real estate developer — delivering landmark residences and commercial spaces for over two decades."
+const DEFAULT_DESC = "Pune's premier luxury real estate developer, delivering landmark residences and commercial spaces for over two decades."
 const DEFAULT_IMAGE = '/images/og-image.jpg'
 
 export default function Seo({ title, description, image, noindex = false }) {

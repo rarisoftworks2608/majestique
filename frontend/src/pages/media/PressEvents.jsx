@@ -22,7 +22,7 @@ const fU = (d = 0) => ({
 /* ── Regular Clipping Card ───────────────────────────────────────── */
 function ClippingCard({ item, idx, onViewClipping }) {
   const CatIcon = CATEGORY_META[item.category]?.icon || Newspaper
-  const catColor = CATEGORY_META[item.category]?.color || '#9d8668'
+  const catColor = CATEGORY_META[item.category]?.color || '#D4AF37'
   return (
     <motion.article
       initial={{ opacity: 0, y: 24 }}
@@ -34,14 +34,14 @@ function ClippingCard({ item, idx, onViewClipping }) {
       aria-label={`Read press coverage: ${item.headline}`}
       className="group flex flex-col overflow-hidden bg-white cursor-pointer"
       style={{
-        border: '1px solid rgba(157,134,104,0.14)',
-        boxShadow: '0 2px 16px rgba(5,5,5,0.05)',
+        border: '1px solid rgba(212,175,55,0.14)',
+        boxShadow: '0 2px 16px rgba(26,26,26,0.05)',
         transition: 'box-shadow 0.35s ease, transform 0.35s ease',
       }}
       onClick={onViewClipping}
       onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onViewClipping() } }}
-      onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 18px 56px rgba(5,5,5,0.12)'; e.currentTarget.style.transform = 'translateY(-5px)' }}
-      onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 16px rgba(5,5,5,0.05)'; e.currentTarget.style.transform = 'translateY(0)' }}
+      onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 18px 56px rgba(26,26,26,0.12)'; e.currentTarget.style.transform = 'translateY(-5px)' }}
+      onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 16px rgba(26,26,26,0.05)'; e.currentTarget.style.transform = 'translateY(0)' }}
     >
       {/* Top rule */}
       <div style={{ height: '3px', background: `linear-gradient(90deg, ${item.pubColor}, transparent)` }} />
@@ -49,7 +49,7 @@ function ClippingCard({ item, idx, onViewClipping }) {
       {/* Newspaper image */}
       <div
         className="relative overflow-hidden"
-        style={{ aspectRatio: '4/3', background: '#f9f6f1', flexShrink: 0 }}
+        style={{ aspectRatio: '4/3', background: '#FAF6EF', flexShrink: 0 }}
       >
         {item.image ? (
           <img
@@ -59,15 +59,15 @@ function ClippingCard({ item, idx, onViewClipping }) {
             loading="lazy"
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #F9F5EF 0%, #EAE3D8 50%, #F3EFE8 100%)' }}>
+          <div className="w-full h-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #FAF6EF 0%, #FAF6EF 50%, #FAF6EF 100%)' }}>
             <div className="text-center">
               <div
                 className="w-14 h-14 flex items-center justify-center mx-auto mb-2"
-                style={{ background: 'linear-gradient(135deg, var(--gold), var(--gold-dark))', boxShadow: '0 8px 24px rgba(157,134,104,0.35)' }}
+                style={{ background: 'linear-gradient(135deg, var(--gold), var(--gold-dark))', boxShadow: '0 8px 24px rgba(212,175,55,0.35)' }}
               >
                 <Newspaper size={22} style={{ color: '#fff' }} />
               </div>
-              <span className="font-ui text-[0.44rem] tracking-[0.22em] uppercase" style={{ color: 'rgba(157,134,104,0.6)' }}>
+              <span className="font-ui text-[0.44rem] tracking-[0.22em] uppercase" style={{ color: 'rgba(212,175,55,0.6)' }}>
                 {item.publication}
               </span>
             </div>
@@ -86,15 +86,15 @@ function ClippingCard({ item, idx, onViewClipping }) {
 
       {/* Body */}
       <div className="p-5 flex flex-col flex-1">
-        <div className="flex items-center justify-between mb-3">
+        <div className="flex items-center justify-between gap-2 mb-3">
           <span
-            className="font-ui text-[0.46rem] tracking-[0.22em] uppercase px-2 py-0.5"
-            style={{ background: `${item.pubColor}14`, color: item.pubColor, border: `1px solid ${item.pubColor}28` }}
+            className="font-ui text-[0.46rem] tracking-[0.22em] uppercase px-2 py-0.5 overflow-hidden text-ellipsis"
+            style={{ background: `${item.pubColor}14`, color: item.pubColor, border: `1px solid ${item.pubColor}28`, whiteSpace: 'nowrap' }}
           >
             {item.publication}
           </span>
-          <span className="flex items-center gap-1 font-ui text-[0.44rem] tracking-widest" style={{ color: 'rgba(44,62,88,0.36)' }}>
-            <Calendar size={8} /> {item.date}
+          <span className="flex items-center gap-1 font-ui text-[0.62rem] tracking-widest flex-shrink-0" style={{ color: 'rgba(26,26,26,0.55)', whiteSpace: 'nowrap' }}>
+            <Calendar size={10} /> {item.date}
           </span>
         </div>
 
@@ -109,8 +109,8 @@ function ClippingCard({ item, idx, onViewClipping }) {
           {item.excerpt}
         </p>
 
-        <div className="pt-3 flex items-center justify-between" style={{ borderTop: '1px solid rgba(157,134,104,0.1)' }}>
-          <span className="font-ui text-[0.44rem] tracking-widest uppercase" style={{ color: 'rgba(157,134,104,0.5)' }}>
+        <div className="pt-3 flex items-center justify-between" style={{ borderTop: '1px solid rgba(212,175,55,0.1)' }}>
+          <span className="font-ui text-[0.6rem] tracking-widest uppercase" style={{ color: 'var(--gold-dark)' }}>
             {item.type}
           </span>
           <span
@@ -156,66 +156,30 @@ export default function PressEvents() {
     return Object.entries(map).sort((a, b) => Number(b[0]) - Number(a[0]))
   }, [filtered])
 
-  const stats = [
-    { v: `${CLIPPINGS.length}+`, l: 'Press Features' },
-    { v: `${PUBLICATIONS.length}`, l: 'Publications' },
-    { v: `${CLIPPINGS.filter(c => c.category === 'Awards').length}`, l: 'Award Features' },
-    { v: `${CLIPPINGS.filter(c => c.category === 'CSR').length}`, l: 'CSR Stories' },
-  ]
-
   return (
     <>
       <Seo
-        title="Press Coverage — Majestique Landmarks in the Media"
-        description="Read editorial features, award announcements, CSR stories, and press recognition of Majestique Landmarks across India's leading publications — Economic Times, Times of India, Lokmat, Pudhari, and Sakal."
+        title="Press Coverage | Majestique Landmarks in the Media"
+        description="Read editorial features, award announcements, CSR stories, and press recognition of Majestique Landmarks across India's leading publications: Economic Times, Times of India, Lokmat, Pudhari, and Sakal."
       />
 
       <PageHero
-        label="Media"
         title="Press Coverage"
-        subtitle="Editorial features, award announcements, and press recognition — Majestique Landmarks as covered by India's leading media houses."
+        subtitle="Editorial features, award announcements, and press recognition of Majestique Landmarks, as covered by India's leading media houses."
         breadcrumbs={[{ label: 'Media', href: '/media/press-coverage' }, { label: 'Press Coverage' }]}
         bgImage={imgHero}
       />
 
-      {/* ── Stats Band ───────────────────────────────────────────── */}
-      <section className="py-12 relative overflow-hidden">
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, #9d8668 0%, #c4a455 28%, #d4b465 55%, #b89050 80%, #9d8668 100%)' }} />
-        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% -20%, rgba(255,230,130,0.22) 0%, transparent 55%)' }} />
-        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'rgba(255,255,255,0.2)' }} />
-        <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'rgba(0,0,0,0.1)' }} />
-        <div className="container-luxury relative">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-0 divide-x divide-white/20">
-            {stats.map((s, i) => (
-              <motion.div
-                key={s.l}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="text-center py-8 px-4"
-              >
-                <p className="font-times font-normal leading-none mb-2" style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: '#fff' }}>
-                  {s.v}
-                </p>
-                <div className="w-6 h-px mx-auto mb-2" style={{ background: 'rgba(255,255,255,0.38)' }} />
-                <p className="font-ui text-[0.5rem] tracking-widest uppercase" style={{ color: 'rgba(255,255,255,0.72)' }}>{s.l}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── Filter + All Clippings ────────────────────────────────── */}
       <section className="section-pad relative" style={{ background: 'white' }}>
-        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.18),transparent)' }} />
+        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.18),transparent)' }} />
         <div className="container-luxury">
 
           <div className="mb-12 text-center">
             <SectionHeader
               label="All Press Coverage"
               title={<>Media Stories &amp; <em style={{ color: 'var(--gold-dark)', fontStyle: 'italic' }}>Recognition</em></>}
-              subtitle="A curated archive of our press coverage — from CSR initiatives to brand milestones across Pune's leading publications."
+              subtitle="A curated archive of our press coverage, from CSR initiatives to brand milestones across Pune's leading publications."
               align="center"
             />
           </div>
@@ -223,11 +187,11 @@ export default function PressEvents() {
           {/* ── Category filter — sliding pill ── */}
           <div
             className="flex flex-wrap items-center justify-center gap-1.5 mb-4 mx-auto p-1.5"
-            style={{ background: 'rgba(157,134,104,0.06)', border: '1px solid rgba(157,134,104,0.16)', borderRadius: '999px', width: 'fit-content', maxWidth: '100%' }}
+            style={{ background: 'rgba(212,175,55,0.06)', border: '1px solid rgba(212,175,55,0.16)', borderRadius: '999px', width: 'fit-content', maxWidth: '100%' }}
           >
             {CATEGORIES.map(cat => {
               const CatIcon = CATEGORY_META[cat]?.icon || Newspaper
-              const catColor = CATEGORY_META[cat]?.color || '#9d8668'
+              const catColor = CATEGORY_META[cat]?.color || '#D4AF37'
               const isActive = activeCategory === cat
               return (
                 <button
@@ -265,11 +229,11 @@ export default function PressEvents() {
                 style={{
                   background:   'white',
                   color:        'var(--ink)',
-                  border:       '1px solid rgba(157,134,104,0.40)',
+                  border:       '1px solid rgba(212,175,55,0.40)',
                   minWidth:     '130px',
                 }}
                 onFocus={e  => (e.currentTarget.style.borderColor = 'var(--gold)')}
-                onBlur={e   => (e.currentTarget.style.borderColor = 'rgba(157,134,104,0.40)')}
+                onBlur={e   => (e.currentTarget.style.borderColor = 'rgba(212,175,55,0.40)')}
               >
                 <option value="all">All Years</option>
                 {years.map(yr => (
@@ -296,7 +260,7 @@ export default function PressEvents() {
             >
               {grouped.length === 0 ? (
                 <div className="text-center py-20">
-                  <Newspaper size={40} className="mx-auto mb-4" style={{ color: 'rgba(157,134,104,0.25)' }} />
+                  <Newspaper size={40} className="mx-auto mb-4" style={{ color: 'rgba(212,175,55,0.25)' }} />
                   <p className="font-times text-xl" style={{ color: 'rgba(26,26,26,0.65)' }}>No coverage found for this filter.</p>
                 </div>
               ) : (
@@ -310,8 +274,8 @@ export default function PressEvents() {
                       >
                         {year}
                       </span>
-                      <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, rgba(157,134,104,0.45), transparent)' }} />
-                      <span className="font-ui text-[0.46rem] tracking-[0.26em] uppercase" style={{ color: 'rgba(44,62,88,0.35)', whiteSpace: 'nowrap' }}>
+                      <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, rgba(212,175,55,0.45), transparent)' }} />
+                      <span className="font-ui text-[0.65rem] tracking-[0.26em] uppercase" style={{ color: 'rgba(26,26,26,0.55)', whiteSpace: 'nowrap' }}>
                         {items.length} {items.length === 1 ? 'article' : 'articles'}
                       </span>
                     </div>
@@ -338,13 +302,13 @@ export default function PressEvents() {
         viewport={{ once: true }}
         transition={{ duration: 0.7 }}
         className="py-16 relative"
-        style={{ background: 'var(--cream)', borderTop: '1px solid rgba(157,134,104,0.15)' }}
+        style={{ background: 'var(--cream)', borderTop: '1px solid rgba(212,175,55,0.15)' }}
       >
         <div className="container-luxury">
-          <p className="font-ui text-[0.48rem] tracking-[0.36em] uppercase text-center mb-10" style={{ color: 'rgba(157,134,104,0.6)' }}>
+          <p className="font-ui text-[0.68rem] tracking-[0.36em] uppercase text-center mb-10" style={{ color: 'var(--gold-dark)' }}>
             As Featured In India&apos;s Leading Publications
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-6 lg:gap-12">
+          <div className="flex flex-wrap items-start justify-center gap-6 lg:gap-12">
             {PUBLICATIONS.map((pub, i) => (
               <motion.div
                 key={pub.name}
@@ -357,13 +321,13 @@ export default function PressEvents() {
                 <div
                   className="w-20 h-20 flex items-center justify-center transition-all duration-350"
                   style={{
-                    border: '1px solid rgba(157,134,104,0.2)',
+                    border: '1px solid rgba(212,175,55,0.2)',
                     background: 'white',
-                    boxShadow: '0 2px 12px rgba(5,5,5,0.05)',
+                    boxShadow: '0 2px 12px rgba(26,26,26,0.05)',
                     transition: 'box-shadow 0.3s, border-color 0.3s',
                   }}
                   onMouseEnter={e => { e.currentTarget.style.boxShadow = `0 8px 28px ${pub.color}22`; e.currentTarget.style.borderColor = `${pub.color}55` }}
-                  onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 12px rgba(5,5,5,0.05)'; e.currentTarget.style.borderColor = 'rgba(157,134,104,0.2)' }}
+                  onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 12px rgba(26,26,26,0.05)'; e.currentTarget.style.borderColor = 'rgba(212,175,55,0.2)' }}
                 >
                   <span
                     className="font-display font-light"
@@ -372,7 +336,7 @@ export default function PressEvents() {
                     {pub.abbr}
                   </span>
                 </div>
-                <span className="font-ui text-[0.44rem] tracking-[0.18em] uppercase text-center" style={{ color: 'rgba(10,10,10,0.4)', maxWidth: '80px' }}>
+                <span className="font-ui text-[0.6rem] tracking-[0.18em] uppercase text-center" style={{ color: 'rgba(26,26,26,0.65)', maxWidth: '90px' }}>
                   {pub.name}
                 </span>
               </motion.div>
@@ -382,10 +346,10 @@ export default function PressEvents() {
       </motion.section>
 
       {/* ── CTA ───────────────────────────────────────────────────── */}
-      <section className="py-24 relative overflow-hidden" style={{ background: 'white' }}>
-        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.32),transparent)' }} />
-        <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.32),transparent)' }} />
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(157,134,104,0.05) 0%, transparent 68%)' }} />
+      <section className="py-16 relative overflow-hidden" style={{ background: 'white' }}>
+        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.32),transparent)' }} />
+        <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.32),transparent)' }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(212,175,55,0.05) 0%, transparent 68%)' }} />
         {/* Corner brackets */}
         {[['top-6 left-6','border-l border-t'],['top-6 right-6','border-r border-t'],['bottom-6 left-6','border-l border-b'],['bottom-6 right-6','border-r border-b']].map(([pos, border]) => (
           <div key={pos} className={`absolute ${pos} w-10 h-10 ${border} opacity-20`} style={{ borderColor: 'var(--gold)' }} />
@@ -395,11 +359,11 @@ export default function PressEvents() {
           <motion.div {...fU()}>
             <span className="section-label block mb-3">Build With A Brand You Trust</span>
             <h2 className="font-times font-normal mb-4" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.8rem)', color: 'var(--luxury-dark)' }}>
-              Majestique Landmarks —<br />Recognized by Those Who Matter Most
+              Majestique Landmarks<br />Recognized by Those Who Matter Most
             </h2>
             <div className="w-14 h-px mx-auto mb-5" style={{ background: 'linear-gradient(90deg,transparent,var(--gold),transparent)' }} />
             <p className="font-body text-sm mb-8 max-w-lg mx-auto leading-relaxed" style={{ color: 'rgba(26,26,26,0.82)' }}>
-              Endorsed by India's leading media houses and validated by 18,000+ satisfied families —
+              Endorsed by India's leading media houses and validated by 18,000+ satisfied families,
               Majestique Landmarks remains Pune's most trusted real estate brand.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">

@@ -23,22 +23,22 @@ const HIGHLIGHTS = [
     tag: 'Award',
     icon: Trophy,
     title: 'Most Promising Real Estate Brand of 2023',
-    desc: 'Recognised as the Most Promising Real Estate Brand of 2023 — a testament to our rapid growth and customer-first philosophy in Pune\'s luxury residential market.',
+    desc: 'Recognised as the Most Promising Real Estate Brand of 2023, a testament to our rapid growth and customer-first philosophy in Pune\'s luxury residential market.',
     date: 'December 2023',
   },
   {
     id: 'hl-3',
     tag: 'Project Launch',
     icon: Rocket,
-    title: 'Majestique Evolvus — Central Kharadi Launch',
-    desc: 'We proudly announce the launch of Evolvus in Central Kharadi — offering 2, 3 & 4 BHK residences at one of Pune\'s most connected and sought-after addresses.',
+    title: 'Majestique Evolvus: Central Kharadi Launch',
+    desc: 'We proudly announce the launch of Evolvus in Central Kharadi, offering 2, 3 & 4 BHK residences at one of Pune\'s most connected and sought-after addresses.',
     date: 'March 2024',
   },
 ]
 
 function NewsCardSkeleton() {
   return (
-    <div className="overflow-hidden" style={{ background: 'var(--cream)', boxShadow: '0 2px 16px rgba(5,5,5,0.08)' }}>
+    <div className="overflow-hidden" style={{ background: 'var(--cream)', boxShadow: '0 2px 16px rgba(26,26,26,0.08)' }}>
       <div className="skeleton w-full" style={{ aspectRatio: '16/9' }} />
       <div className="p-6">
         <div className="skeleton h-3 w-24 mb-3 rounded" />
@@ -76,10 +76,10 @@ function NewsCard({ article, index }) {
         />
         <div className="img-fallback absolute inset-0 items-center justify-center"
           style={{ display: 'none', background: 'var(--luxury-dark2)' }}>
-          <Newspaper size={36} style={{ color: 'rgba(157,134,104,0.25)' }} />
+          <Newspaper size={36} style={{ color: 'rgba(212,175,55,0.25)' }} />
         </div>
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400"
-          style={{ background: 'rgba(26,18,9,0.3)' }} />
+          style={{ background: 'rgba(26,26,26,0.3)' }} />
       </Link>
 
       <div className="p-6 flex flex-col flex-1">
@@ -169,7 +169,7 @@ export default function News() {
     <>
       <Seo
         title="Latest News"
-        description="Stay updated with Majestique Landmarks' latest news — awards, project launches, milestones and announcements from Pune's premier luxury developer."
+        description="Stay updated with Majestique Landmarks' latest news: awards, project launches, milestones and announcements from Pune's premier luxury developer."
       />
       <PageHero
         title="Latest News"
@@ -181,9 +181,9 @@ export default function News() {
       {/* ── Company Highlights ── */}
       <section className="section-pad relative overflow-hidden" style={{ background: 'var(--luxury-dark)' }}>
         <div className="absolute top-0 left-0 right-0 h-px"
-          style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.4),transparent)' }} />
+          style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.4),transparent)' }} />
         <div className="absolute bottom-0 left-0 right-0 h-px"
-          style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.4),transparent)' }} />
+          style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.4),transparent)' }} />
         <div className="container-luxury">
           <div className="mb-12">
             <SectionHeader
@@ -203,7 +203,7 @@ export default function News() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="p-7 flex flex-col"
-                style={{ border: '1px solid rgba(157,134,104,0.18)', background: 'rgba(157,134,104,0.04)' }}
+                style={{ border: '1px solid rgba(212,175,55,0.18)', background: 'rgba(212,175,55,0.04)' }}
               >
                 <div className="flex items-start justify-between mb-4">
                   <motion.div
@@ -212,19 +212,19 @@ export default function News() {
                     viewport={{ once: true }}
                     transition={{ type: 'spring', stiffness: 300, damping: 18, delay: i * 0.1 + 0.15 }}
                     className="w-10 h-10 flex items-center justify-center flex-shrink-0"
-                    style={{ border: '1px solid rgba(157,134,104,0.35)', background: 'rgba(157,134,104,0.08)' }}>
+                    style={{ border: '1px solid rgba(212,175,55,0.35)', background: 'rgba(212,175,55,0.08)' }}>
                     <item.icon size={18} style={{ color: 'var(--gold)' }} />
                   </motion.div>
                   <span className="font-ui text-xs tracking-wider uppercase px-2 py-0.5"
-                    style={{ background: 'rgba(157,134,104,0.15)', color: 'var(--gold-dark)', border: '1px solid rgba(157,134,104,0.3)' }}>
+                    style={{ background: 'rgba(212,175,55,0.15)', color: 'var(--gold-dark)', border: '1px solid rgba(212,175,55,0.3)' }}>
                     {item.tag}
                   </span>
                 </div>
-                <p className="font-ui text-xs tracking-widest uppercase mb-2" style={{ color: 'rgba(243,239,232,0.4)' }}>
+                <p className="font-ui text-xs tracking-widest uppercase mb-2" style={{ color: 'rgba(250,246,239,0.4)' }}>
                   {item.date}
                 </p>
                 <h3 className="font-times text-xl leading-snug mb-3" style={{ color: 'var(--beige)' }}>{item.title}</h3>
-                <p className="font-body text-sm leading-relaxed" style={{ color: 'rgba(243,239,232,0.92)', fontWeight: 400 }}>{item.desc}</p>
+                <p className="font-body text-sm leading-relaxed" style={{ color: 'rgba(250,246,239,0.92)', fontWeight: 400 }}>{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -258,7 +258,7 @@ export default function News() {
                   className="relative font-ui text-[0.54rem] tracking-[0.18em] uppercase px-4 py-2 transition-colors duration-300"
                   style={{
                     color: selectedYear === 'all' ? '#fff' : 'rgba(44,62,88,0.6)',
-                    border: `1px solid ${selectedYear === 'all' ? 'var(--gold)' : 'rgba(157,134,104,0.30)'}`,
+                    border: `1px solid ${selectedYear === 'all' ? 'var(--gold)' : 'rgba(212,175,55,0.30)'}`,
                   }}
                 >
                   {selectedYear === 'all' && (
@@ -276,7 +276,7 @@ export default function News() {
                       className="relative font-ui text-[0.54rem] tracking-[0.18em] uppercase px-4 py-2 transition-colors duration-300"
                       style={{
                         color: isActive ? '#fff' : 'rgba(44,62,88,0.6)',
-                        border: `1px solid ${isActive ? 'var(--gold)' : 'rgba(157,134,104,0.30)'}`,
+                        border: `1px solid ${isActive ? 'var(--gold)' : 'rgba(212,175,55,0.30)'}`,
                       }}
                     >
                       {isActive && (
@@ -325,7 +325,7 @@ export default function News() {
                       >
                         {year}
                       </span>
-                      <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, rgba(157,134,104,0.45), transparent)' }} />
+                      <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, rgba(212,175,55,0.45), transparent)' }} />
                       <span className="font-ui text-[0.5rem] tracking-[0.28em] uppercase"
                         style={{ color: 'rgba(44,62,88,0.4)', whiteSpace: 'nowrap' }}>
                         {items.length} {items.length === 1 ? 'article' : 'articles'}

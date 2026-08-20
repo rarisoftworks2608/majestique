@@ -15,7 +15,7 @@ const WHY_WORK = [
     icon: TrendingUp,
     title: 'Career Growth',
     num: '01',
-    desc: "We invest in developing our people — through mentorship, structured training, and a clear path to leadership within Pune's most prestigious real estate brand.",
+    desc: "We invest in developing our people through mentorship, structured training, and a clear path to leadership within Pune's most prestigious real estate brand.",
     color: 'var(--gold)',
   },
   {
@@ -36,7 +36,7 @@ const WHY_WORK = [
     icon: Award,
     title: 'Industry Impact',
     num: '04',
-    desc: 'Be part of projects that shape skylines — from luxury residences to transformative redevelopment work that rebuilds entire communities.',
+    desc: 'Be part of projects that shape skylines, from luxury residences to transformative redevelopment work that rebuilds entire communities.',
     color: '#6b5ea8',
   },
 ]
@@ -50,7 +50,7 @@ const CULTURE_PILLARS = [
   {
     icon: Users,
     title: 'Team & Belonging',
-    desc: "You are not just an employee — you are a valued member of the Majestique family, working toward a shared vision of excellence.",
+    desc: "You are not just an employee but a valued member of the Majestique family, working toward a shared vision of excellence.",
   },
   {
     icon: Target,
@@ -67,7 +67,7 @@ const GROWTH_STEPS = [
 ]
 
 const TYPE_COLORS = {
-  'Full-time':  { bg: 'rgba(157,134,104,0.12)', color: 'var(--gold-dark)',  border: 'rgba(157,134,104,0.3)' },
+  'Full-time':  { bg: 'rgba(212,175,55,0.12)', color: 'var(--gold-dark)',  border: 'rgba(212,175,55,0.3)' },
   'Part-time':  { bg: 'rgba(60,90,180,0.08)',   color: '#3c5ab4',           border: 'rgba(60,90,180,0.25)' },
   'Contract':   { bg: 'rgba(80,160,80,0.08)',    color: '#357a35',           border: 'rgba(80,160,80,0.25)' },
   'Internship': { bg: 'rgba(160,90,40,0.08)',    color: '#9e5a28',           border: 'rgba(160,90,40,0.2)' },
@@ -87,7 +87,7 @@ const fR = (d = 0) => ({ initial: { opacity: 0, x: 36 }, whileInView: { opacity:
 
 function JobRowSkeleton() {
   return (
-    <div className="flex items-center justify-between p-5 border-b" style={{ borderColor: 'rgba(157,134,104,0.12)' }}>
+    <div className="flex items-center justify-between p-5 border-b" style={{ borderColor: 'rgba(212,175,55,0.12)' }}>
       <div className="flex-1">
         <div className="skeleton h-5 w-48 mb-2 rounded" />
         <div className="skeleton h-3 w-32 rounded" />
@@ -120,8 +120,8 @@ function JobRow({ job, index, isLast }) {
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: index * 0.06 }}
       className="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 transition-all duration-300"
-      style={{ borderBottom: !isLast ? '1px solid rgba(157,134,104,0.1)' : 'none', borderLeft: '3px solid transparent' }}
-      onMouseEnter={(e) => { e.currentTarget.style.borderLeftColor = 'var(--gold)'; e.currentTarget.style.background = 'rgba(157,134,104,0.03)' }}
+      style={{ borderBottom: !isLast ? '1px solid rgba(212,175,55,0.1)' : 'none', borderLeft: '3px solid transparent' }}
+      onMouseEnter={(e) => { e.currentTarget.style.borderLeftColor = 'var(--gold)'; e.currentTarget.style.background = 'rgba(212,175,55,0.03)' }}
       onMouseLeave={(e) => { e.currentTarget.style.borderLeftColor = 'transparent'; e.currentTarget.style.background = 'transparent' }}
     >
       <div className="flex-1">
@@ -192,11 +192,11 @@ export default function Careers() {
     <>
       <Seo
         title="Careers"
-        description="Soar high on your career graph — come join Team Majestique. Explore current openings and build your career with Pune's premier luxury real estate brand."
+        description="Soar high on your career graph. Come join Team Majestique. Explore current openings and build your career with Pune's premier luxury real estate brand."
       />
       <PageHero
         title="Build Your Legacy With Us"
-        subtitle="Come Join Team Majestique — Where ambition meets excellence and every career becomes a landmark story"
+        subtitle="Come Join Team Majestique, where ambition meets excellence and every career becomes a landmark story"
         breadcrumb={['Home', 'Careers']}
         bgImage={careersHeroImg}
       />
@@ -213,8 +213,8 @@ export default function Careers() {
               </h2>
               <div className="space-y-4 font-body text-base leading-relaxed" style={{ color: 'rgba(44,62,88,0.88)' }}>
                 <p>At Majestique Landmarks, we believe the strength of our brand is the strength of our people. Every landmark we build is a result of passionate professionals who bring skill, dedication, and pride to their craft.</p>
-                <p>We cultivate an environment where ambition is nurtured, innovation is celebrated, and every contribution shapes the skyline of one of India's most dynamic cities — Pune.</p>
-                <p>When you join Team Majestique, you're not just taking a job — you're stepping into a legacy, and helping write the next chapter.</p>
+                <p>We cultivate an environment where ambition is nurtured, innovation is celebrated, and every contribution shapes the skyline of one of India's most dynamic cities, Pune.</p>
+                <p>When you join Team Majestique, you're not just taking a job. You're stepping into a legacy, and helping write the next chapter.</p>
               </div>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a href="#openings" className="btn-gold transition-transform duration-300 hover:scale-105">Explore Openings</a>
@@ -231,15 +231,14 @@ export default function Careers() {
                   loading="lazy"
                 />
               </div>
-              <div className="absolute top-4 left-4 w-10 h-10 border-l-2 border-t-2" style={{ borderColor: 'rgba(157,134,104,0.45)' }} />
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* ── Stats Band — Amber Gold Gradient ──────────────────────── */}
-      <section className="py-16 relative overflow-hidden">
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, #9d8668 0%, #c4a455 28%, #d4b465 55%, #b89050 80%, #9d8668 100%)' }} />
+      <section className="py-12 relative overflow-hidden">
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, #D4AF37 0%, #c4a455 28%, #d4b465 55%, #b89050 80%, #D4AF37 100%)' }} />
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% -10%, rgba(255,230,130,0.28) 0%, transparent 60%)' }} />
         <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'rgba(255,255,255,0.22)' }} />
         <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'rgba(0,0,0,0.14)' }} />
@@ -271,16 +270,16 @@ export default function Careers() {
 
       {/* ── Why Join Us ───────────────────────────────────────────── */}
       <section className="section-pad relative overflow-hidden" style={{ background: 'var(--cream)' }}>
-        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.22),transparent)' }} />
-        <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.22),transparent)' }} />
+        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.22),transparent)' }} />
+        <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.22),transparent)' }} />
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden" aria-hidden>
-          <span className="font-display tracking-widest uppercase" style={{ fontSize: 'clamp(8rem, 22vw, 22rem)', color: 'rgba(157,134,104,0.04)', lineHeight: 1, whiteSpace: 'nowrap' }}>GROW</span>
+          <span className="font-display tracking-widest uppercase" style={{ fontSize: 'clamp(8rem, 22vw, 22rem)', color: 'rgba(212,175,55,0.04)', lineHeight: 1, whiteSpace: 'nowrap' }}>GROW</span>
         </div>
         <div className="container-luxury relative">
           <div className="mb-14 text-center">
             <SectionHeader
               label="Why Join Us"
-              title="More Than a Job — A Career That Matters"
+              title="More Than a Job: A Career That Matters"
               subtitle="At Majestique, you'll work on projects that shape skylines, impact thousands of lives, and stand as a testament to your craft."
               align="center"
             />
@@ -294,13 +293,13 @@ export default function Careers() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: i * 0.1 }}
                 className="group relative overflow-hidden bg-white"
-                style={{ border: '1px solid rgba(157,134,104,0.14)', boxShadow: '0 2px 20px rgba(5,5,5,0.05)', transition: 'box-shadow 0.35s, border-color 0.35s, transform 0.35s' }}
-                onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 16px 56px rgba(5,5,5,0.1)'; e.currentTarget.style.borderColor = item.color; e.currentTarget.style.transform = 'translateY(-6px)' }}
-                onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 20px rgba(5,5,5,0.05)'; e.currentTarget.style.borderColor = 'rgba(157,134,104,0.14)'; e.currentTarget.style.transform = 'translateY(0)' }}
+                style={{ border: '1px solid rgba(212,175,55,0.14)', boxShadow: '0 2px 20px rgba(26,26,26,0.05)', transition: 'box-shadow 0.35s, border-color 0.35s, transform 0.35s' }}
+                onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 16px 56px rgba(26,26,26,0.1)'; e.currentTarget.style.borderColor = item.color; e.currentTarget.style.transform = 'translateY(-6px)' }}
+                onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 20px rgba(26,26,26,0.05)'; e.currentTarget.style.borderColor = 'rgba(212,175,55,0.14)'; e.currentTarget.style.transform = 'translateY(0)' }}
               >
                 <div className="h-1 w-full" style={{ background: `linear-gradient(90deg, ${item.color}, transparent)` }} />
                 <div className="p-8 relative">
-                  <span className="absolute top-3 right-4 font-display select-none pointer-events-none" style={{ fontSize: '5.5rem', color: 'rgba(157,134,104,0.05)', lineHeight: 1 }}>{item.num}</span>
+                  <span className="absolute top-3 right-4 font-display select-none pointer-events-none" style={{ fontSize: '5.5rem', color: 'rgba(212,175,55,0.05)', lineHeight: 1 }}>{item.num}</span>
                   <div className="w-14 h-14 flex items-center justify-center mb-5" style={{ background: `linear-gradient(135deg, ${item.color}22, ${item.color}09)`, border: `1px solid ${item.color}44` }}>
                     <item.icon size={22} style={{ color: item.color }} />
                   </div>
@@ -316,9 +315,9 @@ export default function Careers() {
 
       {/* ── Life at Majestique ────────────────────────────────────── */}
       <section className="section-pad relative overflow-hidden" style={{ background: 'var(--luxury-dark)' }}>
-        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.4),transparent)' }} />
-        <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.4),transparent)' }} />
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(157,134,104,0.08) 0%, transparent 65%)' }} />
+        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.4),transparent)' }} />
+        <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.4),transparent)' }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(212,175,55,0.08) 0%, transparent 65%)' }} />
         <div className="container-luxury relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div {...fL()} className="relative">
@@ -329,20 +328,18 @@ export default function Careers() {
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
-                <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(5,5,5,0.45) 0%, transparent 55%)' }} />
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,26,26,0.45) 0%, transparent 55%)' }} />
               </div>
-              <div className="absolute top-4 left-4 w-10 h-10 border-l-2 border-t-2" style={{ borderColor: 'rgba(157,134,104,0.45)' }} />
-              <div className="absolute bottom-4 right-4 w-10 h-10 border-r-2 border-b-2" style={{ borderColor: 'rgba(157,134,104,0.45)' }} />
             </motion.div>
 
             <motion.div {...fR(0.1)}>
-              <span className="section-label block mb-3" style={{ color: 'rgba(157,134,104,0.7)' }}>Our Culture</span>
+              <span className="section-label block mb-3" style={{ color: 'rgba(212,175,55,0.7)' }}>Our Culture</span>
               <div className="gold-line" />
               <h2 className="font-times font-normal leading-tight mb-6" style={{ fontSize: 'clamp(1.9rem, 3vw, 2.75rem)', color: 'var(--beige)' }}>
                 Life at<br />Majestique
               </h2>
               <p className="font-body text-base leading-relaxed mb-10" style={{ color: 'rgba(243,239,232,0.6)' }}>
-                We don't just build homes — we build a culture of excellence, belonging, and purposeful work that resonates through every project we undertake.
+                We don't just build homes. We build a culture of excellence, belonging, and purposeful work that resonates through every project we undertake.
               </p>
               <div className="space-y-5">
                 {CULTURE_PILLARS.map((pillar, i) => (
@@ -353,11 +350,11 @@ export default function Careers() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
                     className="flex items-start gap-5 p-5 group transition-all duration-300"
-                    style={{ border: '1px solid rgba(157,134,104,0.12)', background: 'rgba(157,134,104,0.04)' }}
-                    onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(157,134,104,0.38)'; e.currentTarget.style.background = 'rgba(157,134,104,0.09)' }}
-                    onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(157,134,104,0.12)'; e.currentTarget.style.background = 'rgba(157,134,104,0.04)' }}
+                    style={{ border: '1px solid rgba(212,175,55,0.12)', background: 'rgba(212,175,55,0.04)' }}
+                    onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(212,175,55,0.38)'; e.currentTarget.style.background = 'rgba(212,175,55,0.09)' }}
+                    onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(212,175,55,0.12)'; e.currentTarget.style.background = 'rgba(212,175,55,0.04)' }}
                   >
-                    <div className="w-12 h-12 flex items-center justify-center flex-shrink-0" style={{ background: 'linear-gradient(135deg, rgba(157,134,104,0.2), rgba(157,134,104,0.06))', border: '1px solid rgba(157,134,104,0.28)' }}>
+                    <div className="w-12 h-12 flex items-center justify-center flex-shrink-0" style={{ background: 'linear-gradient(135deg, rgba(212,175,55,0.2), rgba(212,175,55,0.06))', border: '1px solid rgba(212,175,55,0.28)' }}>
                       <pillar.icon size={20} style={{ color: 'var(--gold)' }} />
                     </div>
                     <div>
@@ -374,19 +371,19 @@ export default function Careers() {
 
       {/* ── How to Join ───────────────────────────────────────────── */}
       <section className="section-pad relative overflow-hidden" style={{ background: 'white' }}>
-        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.2),transparent)' }} />
-        <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.2),transparent)' }} />
+        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.2),transparent)' }} />
+        <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.2),transparent)' }} />
         <div className="container-luxury relative">
           <div className="mb-14 text-center">
             <SectionHeader
               label="How to Join"
               title="Your Journey Begins Here"
-              subtitle="Our hiring process is straightforward, transparent, and designed to find the right fit — for you and for us."
+              subtitle="Our hiring process is straightforward, transparent, and designed to find the right fit, for you and for us."
               align="center"
             />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
-            <div className="hidden lg:block absolute top-12 left-[12.5%] right-[12.5%] h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(157,134,104,0.22), rgba(157,134,104,0.22), transparent)' }} />
+            <div className="hidden lg:block absolute top-12 left-[12.5%] right-[12.5%] h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(212,175,55,0.22), rgba(212,175,55,0.22), transparent)' }} />
             {GROWTH_STEPS.map((step, i) => (
               <motion.div
                 key={step.step}
@@ -400,8 +397,8 @@ export default function Careers() {
                   className="w-24 h-24 flex items-center justify-center mx-auto mb-6"
                   style={{
                     background: i % 2 === 0 ? 'linear-gradient(135deg, var(--gold), var(--gold-dark))' : 'white',
-                    border: '2px solid rgba(157,134,104,0.3)',
-                    boxShadow: i % 2 === 0 ? '0 8px 32px rgba(157,134,104,0.28)' : '0 4px 16px rgba(5,5,5,0.06)',
+                    border: '2px solid rgba(212,175,55,0.3)',
+                    boxShadow: i % 2 === 0 ? '0 8px 32px rgba(212,175,55,0.28)' : '0 4px 16px rgba(26,26,26,0.06)',
                   }}
                 >
                   <span className="font-display font-normal" style={{ fontSize: '2.2rem', lineHeight: 1, color: i % 2 === 0 ? 'var(--luxury-dark)' : 'var(--gold)' }}>{step.step}</span>
@@ -440,11 +437,11 @@ export default function Careers() {
                 >
                   <h3
                     className="font-ui text-xs tracking-widest uppercase mb-4 pb-3"
-                    style={{ color: 'var(--gold)', borderBottom: '1px solid rgba(157,134,104,0.2)' }}
+                    style={{ color: 'var(--gold)', borderBottom: '1px solid rgba(212,175,55,0.2)' }}
                   >
                     {dept}
                   </h3>
-                  <div style={{ border: '1px solid rgba(157,134,104,0.15)', background: 'white', overflow: 'hidden' }}>
+                  <div style={{ border: '1px solid rgba(212,175,55,0.15)', background: 'white', overflow: 'hidden' }}>
                     {deptJobs.map((job, ji) => (
                       <JobRow key={job.id} job={job} index={ji} isLast={ji === deptJobs.length - 1} />
                     ))}
@@ -463,10 +460,10 @@ export default function Careers() {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────────────── */}
-      <section className="py-24 relative overflow-hidden" style={{ background: 'white' }}>
-        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.32),transparent)' }} />
-        <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(157,134,104,0.32),transparent)' }} />
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(157,134,104,0.06) 0%, transparent 70%)' }} />
+      <section className="py-16 relative overflow-hidden" style={{ background: 'white' }}>
+        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.32),transparent)' }} />
+        <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.32),transparent)' }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(212,175,55,0.06) 0%, transparent 70%)' }} />
         <div className="absolute top-6 left-6 w-10 h-10 border-l border-t opacity-20" style={{ borderColor: 'var(--gold)' }} />
         <div className="absolute top-6 right-6 w-10 h-10 border-r border-t opacity-20" style={{ borderColor: 'var(--gold)' }} />
         <div className="absolute bottom-6 left-6 w-10 h-10 border-l border-b opacity-20" style={{ borderColor: 'var(--gold)' }} />

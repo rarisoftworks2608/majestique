@@ -166,7 +166,7 @@ export default function JobForm() {
             ) : <Save size={15} />}
             {saving ? 'Saving…' : isEdit ? 'Save Changes' : 'Post Listing'}
           </button>
-          <Link to="/admin/careers" className="btn-outline-gold" style={{ fontSize: '0.75rem', padding: '0.75rem 1.5rem', color: 'var(--luxury-dark)', borderColor: 'rgba(157,134,104,0.45)' }}>
+          <Link to="/admin/careers" className="btn-outline-gold" style={{ fontSize: '0.75rem', padding: '0.75rem 1.5rem', color: 'var(--luxury-dark)', borderColor: 'rgba(212,175,55,0.45)' }}>
             Cancel
           </Link>
         </div>

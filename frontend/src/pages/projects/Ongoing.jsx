@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, Search, MapPin, ArrowUpRight, ArrowRight, SlidersHorizontal } from 'lucide-react'
+import { X, Search, MapPin, ArrowUpRight, ArrowRight, SlidersHorizontal, ChevronDown } from 'lucide-react'
 import PageHero from '../../components/ui/PageHero'
 import ongoingHeroImg from '../../assets/Ongoing_Project.jpg'
 import SectionHeader from '../../components/ui/SectionHeader'
@@ -10,11 +10,23 @@ import { ONGOING_PROJECTS, CATEGORIES } from '../../data/ongoingProjects'
 
 const PLACEHOLDER_IMAGE = '/images/project-placeholder.jpg'
 
-const SORT_OPTIONS = [
-  { value: 'default', label: 'Default Order' },
-  { value: 'az', label: 'A → Z' },
-  { value: 'za', label: 'Z → A' },
-]
+/* ── Pune zone lookup — groups micro-market location names under a
+   compass zone so the filter reads as a map, not a wall of pills ── */
+const ZONE_ORDER = ['East', 'West', 'South', 'North', 'Central']
+const ZONE_KEYWORDS = {
+  East:    ['kharadi', 'hadapsar', 'handewadi', 'wagholi', 'kalyani nagar', 'viman nagar', 'mundhwa', 'magarpatta', 'amanora', 'eon it park'],
+  West:    ['baner', 'balewadi', 'kothrud', 'pashan', 'aundh', 'bavdhan', 'warje', 'wakad', 'hinjewadi', 'pan card road'],
+  South:   ['nibm', 'undri', 'dhayari', 'katraj', 'kondhwa', 'wanowrie', 'market yard', 'marketyard', 'satara road', 'gultekadi', 'bibwewadi', 'ambegaon'],
+  North:   ['vishrantwadi', 'kalas', 'dhanori', 'yerwada', 'alandi', 'chakan', 'moshi', 'pimpri', 'chinchwad', 'nigdi'],
+  Central: ['camp', 'deccan', 'shivajinagar', 'swargate', 'fc road', 'jm road'],
+}
+function getZone(locationName) {
+  const name = (locationName || '').toLowerCase()
+  for (const zone of ZONE_ORDER) {
+    if (ZONE_KEYWORDS[zone].some((kw) => name.includes(kw))) return zone
+  }
+  return 'Other'
+}
 
 function ProjectSpotlightCard({ project, index }) {
   const hasMicrosite = Boolean(project.url)
@@ -39,31 +51,13 @@ function ProjectSpotlightCard({ project, index }) {
         {/* Shine sweep on hover */}
         <div className="ongoing-card-shine absolute inset-0 pointer-events-none" aria-hidden />
 
-        <div className="absolute top-4 left-4">
-          <span
-            className="ongoing-badge-pulse font-ui text-xs font-bold tracking-widest uppercase px-3 py-1.5"
-            style={{ background: 'var(--gold)', color: 'var(--luxury-dark)' }}
-          >
-            Ongoing
-          </span>
-        </div>
-        {project.category && (
-          <div className="absolute top-4 right-4">
-            <span
-              className="font-ui text-xs tracking-widest uppercase px-3 py-1.5"
-              style={{ background: 'rgba(26,18,9,0.8)', color: 'rgba(243,239,232,0.7)', backdropFilter: 'blur(4px)' }}
-            >
-              {project.category}
-            </span>
-          </div>
-        )}
         {hasMicrosite ? (
           <a
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
             className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-400"
-            style={{ background: 'rgba(26,18,9,0.62)' }}
+            style={{ background: 'rgba(26,26,26,0.62)' }}
           >
             <span className="flex items-center gap-2 font-ui text-xs tracking-widest uppercase px-6 py-3" style={{ border: '1px solid var(--gold)', color: 'var(--gold)' }}>
               View Project <ArrowUpRight size={13} />
@@ -73,7 +67,7 @@ function ProjectSpotlightCard({ project, index }) {
           <Link
             to={enquiryHref}
             className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-400"
-            style={{ background: 'rgba(26,18,9,0.62)' }}
+            style={{ background: 'rgba(26,26,26,0.62)' }}
           >
             <span className="font-ui text-xs tracking-widest uppercase px-6 py-3" style={{ border: '1px solid var(--gold)', color: 'var(--gold)' }}>
               Enquire Now
@@ -82,24 +76,24 @@ function ProjectSpotlightCard({ project, index }) {
         )}
       </div>
       <div className="p-6">
-        <div className="flex items-start gap-2 mb-1">
+        <h3 className="font-times font-normal text-2xl mb-2 leading-snug transition-colors duration-300 group-hover:text-gold" style={{ color: 'var(--luxury-dark)' }}>
+          {project.title}
+        </h3>
+        <div className="flex items-start gap-2 mb-2.5">
           <MapPin size={13} style={{ color: 'var(--gold)', flexShrink: 0, marginTop: '3px' }} />
           <span className="font-ui text-xs tracking-wider uppercase" style={{ color: 'rgba(92,74,48,0.7)' }}>
             {project.location}
           </span>
         </div>
-        <h3 className="font-times font-normal text-xl mb-2 leading-snug transition-colors duration-300 group-hover:text-gold" style={{ color: 'var(--luxury-dark)' }}>
-          {project.title}
-        </h3>
         {project.tagline && (
-          <p className="font-body text-sm leading-relaxed mb-4" style={{ color: 'rgba(26,26,26,0.84)' }}>
+          <p className="font-body text-sm leading-relaxed mb-4" style={{ color: 'rgba(26,26,26,0.55)' }}>
             {project.tagline}
           </p>
         )}
         {project.config && (
           <div className="flex flex-wrap gap-2 mb-4">
             <span className="font-ui text-xs tracking-wider uppercase px-2.5 py-1"
-              style={{ background: 'rgba(157,134,104,0.08)', border: '1px solid rgba(157,134,104,0.2)', color: 'var(--gold-dark)' }}>
+              style={{ background: 'rgba(212,175,55,0.08)', border: '1px solid rgba(212,175,55,0.2)', color: 'var(--gold-dark)' }}>
               {project.config}
             </span>
           </div>
@@ -135,18 +129,8 @@ function ProjectSpotlightCard({ project, index }) {
 export default function OngoingProjects() {
   const [search, setSearch] = useState('')
   const [activeCategory, setActiveCategory] = useState('All')
-  const [activeLocation, setActiveLocation] = useState('All')
-  const [sortBy, setSortBy] = useState('default')
-  const [sortOpen, setSortOpen] = useState(false)
-
-  const locations = useMemo(() => {
-    const seen = new Set()
-    const locs = []
-    ONGOING_PROJECTS.forEach((p) => {
-      if (!seen.has(p.location)) { seen.add(p.location); locs.push(p.location) }
-    })
-    return locs.sort()
-  }, [])
+  const [activeZone, setActiveZone] = useState('All')
+  const [zoneOpen, setZoneOpen] = useState(false)
 
   const categoryCounts = useMemo(() => {
     const counts = { All: ONGOING_PROJECTS.length }
@@ -156,10 +140,15 @@ export default function OngoingProjects() {
     return counts
   }, [])
 
+  const zonesAvailable = useMemo(() => {
+    const present = new Set(ONGOING_PROJECTS.map((p) => getZone(p.location)))
+    return [...ZONE_ORDER, 'Other'].filter((zone) => present.has(zone))
+  }, [])
+
   const filtered = useMemo(() => {
     let result = [...ONGOING_PROJECTS]
     if (activeCategory !== 'All') result = result.filter((p) => p.category === activeCategory)
-    if (activeLocation !== 'All') result = result.filter((p) => p.location === activeLocation)
+    if (activeZone !== 'All') result = result.filter((p) => getZone(p.location) === activeZone)
     if (search.trim()) {
       const q = search.toLowerCase()
       result = result.filter(
@@ -169,31 +158,28 @@ export default function OngoingProjects() {
           p.tagline?.toLowerCase().includes(q)
       )
     }
-    if (sortBy === 'az') result.sort((a, b) => a.title.localeCompare(b.title))
-    if (sortBy === 'za') result.sort((a, b) => b.title.localeCompare(a.title))
     return result
-  }, [activeCategory, activeLocation, search, sortBy])
+  }, [activeCategory, activeZone, search])
 
-  const hasActiveFilters = activeCategory !== 'All' || activeLocation !== 'All' || search.trim() !== ''
+  const hasActiveFilters = activeCategory !== 'All' || activeZone !== 'All' || search.trim() !== ''
 
   const clearAll = () => {
     setActiveCategory('All')
-    setActiveLocation('All')
+    setActiveZone('All')
     setSearch('')
-    setSortBy('default')
   }
 
-  const gridKey = `${activeCategory}|${activeLocation}|${search}|${sortBy}`
+  const gridKey = `${activeCategory}|${activeZone}|${search}`
 
   return (
     <>
       <Seo
         title="Ongoing Projects"
-        description="Explore Majestique Landmarks' current luxury residential projects under construction across Pune — Kharadi, Balewadi, Baner, NIBM Annex, Kothrud and more."
+        description="Explore Majestique Landmarks' current luxury residential projects under construction across Pune: Kharadi, Balewadi, Baner, NIBM Annex, Kothrud and more."
       />
       <PageHero
         title="Ongoing Projects"
-        subtitle="Witness the future taking shape — our current developments across Kharadi, Balewadi, Baner, NIBM Annex and Kothrud"
+        subtitle="Witness the future taking shape with our current developments across Kharadi, Balewadi, Baner, NIBM Annex and Kothrud"
         breadcrumb={['Home', 'Projects', 'Ongoing']}
         bgImage={ongoingHeroImg}
       />
@@ -204,7 +190,7 @@ export default function OngoingProjects() {
             <SectionHeader
               label="Under Construction"
               title="Projects Currently in Progress"
-              subtitle="Each project is a MahaRERA-registered promise — meticulously planned, debt-free, and delivered on time."
+              subtitle="Each project is a MahaRERA-registered promise, meticulously planned, debt-free, and delivered on time."
             />
 
             {/* Search */}
@@ -224,12 +210,12 @@ export default function OngoingProjects() {
                 placeholder="Search by name or location…"
                 className="w-full font-body text-sm pl-9 pr-4 py-2.5 outline-none transition-all duration-300"
                 style={{
-                  border: '1px solid rgba(157,134,104,0.3)',
+                  border: '1px solid rgba(212,175,55,0.3)',
                   background: 'white',
                   color: 'var(--luxury-dark)',
                 }}
                 onFocus={(e) => { e.target.style.borderColor = 'var(--gold)' }}
-                onBlur={(e) => { e.target.style.borderColor = 'rgba(157,134,104,0.3)' }}
+                onBlur={(e) => { e.target.style.borderColor = 'rgba(212,175,55,0.3)' }}
               />
               {search && (
                 <button
@@ -246,8 +232,8 @@ export default function OngoingProjects() {
 
           {/* ── Filter bar ─────────────────────────────────────── */}
           <div
-            className="p-5 mb-8 space-y-4"
-            style={{ background: 'white', border: '1px solid rgba(157,134,104,0.15)' }}
+            className="p-5 mb-8"
+            style={{ background: 'white', border: '1px solid rgba(212,175,55,0.15)' }}
           >
             <div className="flex flex-wrap items-center gap-2">
               <span
@@ -286,74 +272,59 @@ export default function OngoingProjects() {
               })}
             </div>
 
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <div className="flex flex-wrap items-center gap-2">
-                <span
-                  className="flex items-center gap-2 font-ui text-xs tracking-widest uppercase mr-1 shrink-0"
-                  style={{ color: 'rgba(92,74,48,0.55)' }}
-                >
-                  <MapPin size={13} />
-                  Location
-                </span>
-                <button
-                  onClick={() => setActiveLocation('All')}
-                  className="font-ui text-xs tracking-widest uppercase px-3.5 py-1.5 transition-all duration-200"
-                  style={{
-                    background: activeLocation === 'All' ? 'var(--luxury-dark)' : 'transparent',
-                    color: activeLocation === 'All' ? 'var(--beige)' : 'var(--luxury-charcoal)',
-                    border: `1px solid ${activeLocation === 'All' ? 'var(--luxury-dark)' : 'rgba(92,74,48,0.25)'}`,
-                  }}
-                >
-                  All
-                </button>
-                {locations.map((loc) => (
-                  <button
-                    key={loc}
-                    onClick={() => setActiveLocation(loc)}
-                    className="font-ui text-xs tracking-widest uppercase px-3.5 py-1.5 transition-all duration-200"
-                    style={{
-                      background: activeLocation === loc ? 'var(--luxury-dark)' : 'transparent',
-                      color: activeLocation === loc ? 'var(--beige)' : 'var(--luxury-charcoal)',
-                      border: `1px solid ${activeLocation === loc ? 'var(--luxury-dark)' : 'rgba(92,74,48,0.25)'}`,
-                    }}
-                  >
-                    {loc}
-                  </button>
-                ))}
-              </div>
-
-              {/* Sort dropdown */}
+            {/* ── Location — single zone dropdown ──────────────── */}
+            <div className="flex items-center gap-2 mt-4 pt-4" style={{ borderTop: '1px solid rgba(212,175,55,0.12)' }}>
+              <span
+                className="flex items-center gap-2 font-ui text-xs tracking-widest uppercase mr-1 shrink-0"
+                style={{ color: 'rgba(92,74,48,0.55)' }}
+              >
+                <MapPin size={13} />
+                Location
+              </span>
               <div className="relative shrink-0">
                 <button
-                  onClick={() => setSortOpen((v) => !v)}
+                  onClick={() => setZoneOpen((v) => !v)}
                   className="flex items-center gap-2 font-ui text-xs tracking-widest uppercase px-3.5 py-1.5 transition-all duration-200"
                   style={{ border: '1px solid rgba(92,74,48,0.25)', color: 'var(--luxury-charcoal)' }}
                 >
-                  {SORT_OPTIONS.find((o) => o.value === sortBy)?.label}
+                  {activeZone === 'All' ? 'All Zones' : `${activeZone} Pune`}
+                  <ChevronDown size={12} style={{ transform: zoneOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }} />
                 </button>
                 <AnimatePresence>
-                  {sortOpen && (
+                  {zoneOpen && (
                     <motion.div
                       initial={{ opacity: 0, y: 6 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 6 }}
                       transition={{ duration: 0.15 }}
-                      className="absolute right-0 top-[calc(100%+4px)] z-20 min-w-[160px] py-1"
-                      style={{ background: 'white', border: '1px solid rgba(157,134,104,0.2)', boxShadow: '0 8px 32px rgba(5,5,5,0.12)' }}
+                      className="absolute left-0 top-[calc(100%+4px)] z-20 min-w-[160px] py-1"
+                      style={{ background: 'white', border: '1px solid rgba(212,175,55,0.2)', boxShadow: '0 8px 32px rgba(26,26,26,0.12)' }}
                     >
-                      {SORT_OPTIONS.map((opt) => (
+                      <button
+                        onClick={() => { setActiveZone('All'); setZoneOpen(false) }}
+                        className="w-full text-left px-4 py-2.5 font-ui text-xs tracking-wider uppercase transition-all duration-150"
+                        style={{
+                          color: activeZone === 'All' ? 'var(--gold-dark)' : 'var(--luxury-charcoal)',
+                          background: activeZone === 'All' ? 'rgba(212,175,55,0.06)' : 'transparent',
+                        }}
+                        onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(212,175,55,0.06)' }}
+                        onMouseLeave={(e) => { e.currentTarget.style.background = activeZone === 'All' ? 'rgba(212,175,55,0.06)' : 'transparent' }}
+                      >
+                        All Zones
+                      </button>
+                      {zonesAvailable.map((zone) => (
                         <button
-                          key={opt.value}
-                          onClick={() => { setSortBy(opt.value); setSortOpen(false) }}
+                          key={zone}
+                          onClick={() => { setActiveZone(zone); setZoneOpen(false) }}
                           className="w-full text-left px-4 py-2.5 font-ui text-xs tracking-wider uppercase transition-all duration-150"
                           style={{
-                            color: sortBy === opt.value ? 'var(--gold-dark)' : 'var(--luxury-charcoal)',
-                            background: sortBy === opt.value ? 'rgba(157,134,104,0.06)' : 'transparent',
+                            color: activeZone === zone ? 'var(--gold-dark)' : 'var(--luxury-charcoal)',
+                            background: activeZone === zone ? 'rgba(212,175,55,0.06)' : 'transparent',
                           }}
-                          onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(157,134,104,0.06)' }}
-                          onMouseLeave={(e) => { e.currentTarget.style.background = sortBy === opt.value ? 'rgba(157,134,104,0.06)' : 'transparent' }}
+                          onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(212,175,55,0.06)' }}
+                          onMouseLeave={(e) => { e.currentTarget.style.background = activeZone === zone ? 'rgba(212,175,55,0.06)' : 'transparent' }}
                         >
-                          {opt.label}
+                          {zone} Pune
                         </button>
                       ))}
                     </motion.div>
@@ -368,7 +339,7 @@ export default function OngoingProjects() {
             <p className="font-body text-sm" style={{ color: 'rgba(92,74,48,0.6)' }}>
               Showing <strong style={{ color: 'var(--luxury-dark)' }}>{filtered.length}</strong> project{filtered.length !== 1 ? 's' : ''}
               {activeCategory !== 'All' && ` · ${activeCategory}`}
-              {activeLocation !== 'All' && ` · ${activeLocation}`}
+              {activeZone !== 'All' && ` · ${activeZone} Pune`}
             </p>
             {hasActiveFilters && (
               <button
@@ -386,7 +357,7 @@ export default function OngoingProjects() {
           {/* ── Content ──────────────────────────────────────────── */}
           {filtered.length === 0 ? (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-24">
-              <Search size={36} style={{ color: 'rgba(157,134,104,0.3)', margin: '0 auto 1rem' }} />
+              <Search size={36} style={{ color: 'rgba(212,175,55,0.3)', margin: '0 auto 1rem' }} />
               <p className="font-times text-2xl mb-2" style={{ color: 'var(--luxury-charcoal)' }}>
                 No projects found
               </p>
@@ -419,11 +390,11 @@ export default function OngoingProjects() {
       {/* ── CTA ──────────────────────────────────────────────────── */}
       <section
         className="py-16"
-        style={{ background: 'var(--luxury-dark)', borderTop: '1px solid rgba(157,134,104,0.15)' }}
+        style={{ background: 'var(--luxury-dark)', borderTop: '1px solid rgba(212,175,55,0.15)' }}
       >
         <div className="container-luxury flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <p className="section-label mb-2">Looking for your perfect home?</p>
+            <p className="section-label mb-2" style={{ color: 'rgba(212,175,55,0.75)' }}>Looking for your perfect home?</p>
             <h3 className="font-times text-2xl font-normal" style={{ color: 'var(--beige)' }}>
               Let our team help you find your ideal Majestique address.
             </h3>
@@ -450,14 +421,8 @@ export default function OngoingProjects() {
           0%   { transform: translateX(-120%); opacity: 0.85; }
           100% { transform: translateX(120%); opacity: 0; }
         }
-        .ongoing-badge-pulse { animation: ongoingBadgePulse 2.6s ease-out infinite; }
-        @keyframes ongoingBadgePulse {
-          0%   { box-shadow: 0 0 0 0 rgba(157,134,104,0.45); }
-          70%  { box-shadow: 0 0 0 8px rgba(157,134,104,0); }
-          100% { box-shadow: 0 0 0 0 rgba(157,134,104,0); }
-        }
         @media (prefers-reduced-motion: reduce) {
-          .ongoing-card-shine, .ongoing-badge-pulse { animation: none !important; }
+          .ongoing-card-shine { animation: none !important; }
         }
       `}</style>
     </>
