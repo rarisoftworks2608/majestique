@@ -3,7 +3,6 @@ import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import Seo from '../../components/ui/Seo'
 import SectionHeader from '../../components/ui/SectionHeader'
-import CountUp from '../../components/ui/CountUp'
 import legacyHero from '../../assets/legacy in business.jpg'
 import legacyImg from '../../assets/legacy_pic.jpg'
 
@@ -44,13 +43,6 @@ const MILESTONES = [
     desc: 'Majestique Landmarks continues to create future-ready developments inspired by global architecture, smart urban planning, and refined lifestyle experiences, building landmarks for generations.',
     side: 'right',
   },
-]
-
-const STATS = [
-  { value: '30+',  label: 'Years of Legacy' },
-  { value: '16+',  label: 'Landmark Projects' },
-  { value: '18K+', label: 'Families Housed' },
-  { value: '10M+', label: 'Sq Ft Delivered' },
 ]
 
 const ease = [0.25, 0.46, 0.45, 0.94]
@@ -199,43 +191,7 @@ export default function Legacy() {
                 />
                 <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,18,9,0.45) 0%, transparent 60%)' }} />
               </div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.55, delay: 0.4 }}
-                className="absolute -bottom-7 -left-7 p-6"
-                style={{ background: 'var(--luxury-dark)', border: '1px solid rgba(212,175,55,0.25)', boxShadow: '0 16px 48px rgba(26,26,26,0.3)', minWidth: '160px' }}
-              >
-                <p className="font-times text-3xl leading-none mb-1" style={{ color: 'var(--gold)' }}><CountUp value="30+" /></p>
-                <p className="font-ui text-xs tracking-widest uppercase" style={{ color: 'rgba(212,175,55,0.55)' }}>Years of Legacy</p>
-              </motion.div>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Stats strip ───────────────────────────────────────────── */}
-      <section className="py-11 relative" style={{ background: 'white' }}>
-        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.2),transparent)' }} />
-        <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.2),transparent)' }} />
-        <div className="container-luxury">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
-            {STATS.map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="text-center py-8 px-6"
-                style={{ borderRight: i < STATS.length - 1 ? '1px solid rgba(212,175,55,0.15)' : 'none' }}
-              >
-                <p className="font-times font-normal leading-none mb-2" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: 'var(--luxury-dark)' }}><CountUp value={stat.value} /></p>
-                <div className="w-6 h-px mx-auto mb-2" style={{ background: 'var(--gold)' }} />
-                <p className="font-ui text-xs tracking-widest uppercase" style={{ color: 'rgba(44,62,88,0.65)' }}>{stat.label}</p>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
@@ -347,19 +303,23 @@ export default function Legacy() {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────────────── */}
-      <section className="py-14 relative overflow-hidden" style={{ background: 'var(--luxury-dark)' }}>
-        <div className="absolute top-6 left-6 w-10 h-10 border-l border-t opacity-30" style={{ borderColor: 'var(--gold)' }} />
-        <div className="absolute top-6 right-6 w-10 h-10 border-r border-t opacity-30" style={{ borderColor: 'var(--gold)' }} />
-        <div className="absolute bottom-6 left-6 w-10 h-10 border-l border-b opacity-30" style={{ borderColor: 'var(--gold)' }} />
-        <div className="absolute bottom-6 right-6 w-10 h-10 border-r border-b opacity-30" style={{ borderColor: 'var(--gold)' }} />
-        <div className="container-luxury text-center">
+      <section className="py-16 relative overflow-hidden" style={{ background: 'var(--cream)' }}>
+        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.3),transparent)' }} />
+        <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg,transparent,rgba(212,175,55,0.3),transparent)' }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(212,175,55,0.07) 0%, transparent 70%)' }} />
+        <div className="absolute top-6 left-6 w-10 h-10 border-l border-t opacity-20" style={{ borderColor: 'var(--gold)' }} />
+        <div className="absolute top-6 right-6 w-10 h-10 border-r border-t opacity-20" style={{ borderColor: 'var(--gold)' }} />
+        <div className="absolute bottom-6 left-6 w-10 h-10 border-l border-b opacity-20" style={{ borderColor: 'var(--gold)' }} />
+        <div className="absolute bottom-6 right-6 w-10 h-10 border-r border-b opacity-20" style={{ borderColor: 'var(--gold)' }} />
+        <div className="container-luxury relative text-center max-w-3xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.55 }}>
-            <span className="section-label block mb-3" style={{ color: 'rgba(212,175,55,0.75)' }}>The Legacy Continues</span>
-            <h2 className="font-times font-normal mb-4" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: 'var(--beige)' }}>Be Part of Our Next Chapter</h2>
-            <p className="font-body text-sm mb-8 max-w-lg mx-auto" style={{ color: 'rgba(243,239,232,0.92)', fontWeight: 400 }}>Explore our ongoing and completed projects across Pune's finest micro-markets: Balewadi, Kharadi, NIBM, Hadapsar, and Kothrud.</p>
+            <span className="section-label block mb-3">The Legacy Continues</span>
+            <h2 className="font-times font-normal mb-4" style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.8rem)', color: 'var(--luxury-dark)' }}>Be Part of Our Next Chapter</h2>
+            <div className="w-14 h-px mx-auto mb-5" style={{ background: 'linear-gradient(90deg, transparent, var(--gold), transparent)' }} />
+            <p className="font-body text-sm mb-8 leading-relaxed" style={{ color: 'rgba(26,26,26,0.82)' }}>Explore our ongoing and completed projects across Pune's finest micro-markets: Balewadi, Kharadi, NIBM, Hadapsar, and Kothrud.</p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link to="/projects/ongoing" className="btn-gold transition-transform duration-300 hover:scale-105">View Ongoing Projects</Link>
-              <Link to="/contact" className="btn-outline-gold transition-transform duration-300 hover:scale-105">Get in Touch</Link>
+              <Link to="/contact" className="btn-outline-dark transition-transform duration-300 hover:scale-105">Get in Touch</Link>
             </div>
           </motion.div>
         </div>
