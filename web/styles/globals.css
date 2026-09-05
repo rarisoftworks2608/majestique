@@ -24,6 +24,31 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ═══════════════════════════════════════════════════════════════════
+   SKIP LINK — offscreen until keyboard-focused, so it aids keyboard
+   users without appearing in the visual design.
+   ═══════════════════════════════════════════════════════════════════ */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 200;
+  padding: 0.75rem 1.25rem;
+  background: #3D090F;
+  color: #FAF6EF;
+  font-family: var(--font-ui), system-ui, sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.skip-to-content:focus {
+  left: 0.5rem;
+  top: 0.5rem;
+  outline: 2px solid #D4AF37;
+  outline-offset: 2px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
    3. SHADCN PRIMITIVES — inlined from the `shadcn` package's
    tailwind.css (1.6KB). Inlined rather than imported so the Next build
    doesn't need the shadcn CLI package as a runtime dependency.
