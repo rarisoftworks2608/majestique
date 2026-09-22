@@ -8,6 +8,7 @@ import { TrendingUp, Heart, Wallet, Award, MapPin, ArrowRight, Star, Users, Targ
 import PageHero from '../components/ui/PageHero'
 import SectionHeader from '../components/ui/SectionHeader'
 import { careersApi } from '../services/api'
+import { CAREERS_EMAIL } from '../utils/constants'
 import careersHeroImg from '../assets/carrers.jpg'
 import careersIntroImg from '../assets/carrers1.jpg'
 import carrerPageImage from '../assets/Contact-Us-Majestique.jpg'
@@ -140,7 +141,7 @@ function JobRow({ job, index, isLast }) {
         <TypeBadge type={job.type} />
         {job.id?.startsWith('sj-') ? (
           <a
-            href={`mailto:hr@majestique.com?subject=Application: ${encodeURIComponent(job.title)}`}
+            href={`mailto:${CAREERS_EMAIL}?subject=Application: ${encodeURIComponent(job.title)}`}
             className="flex items-center gap-2 font-ui text-xs tracking-widest uppercase transition-colors duration-300 whitespace-nowrap"
             style={{ color: 'var(--gold-dark)' }}
             onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--gold)' }}
@@ -216,7 +217,7 @@ export default function Careers() {
               </div>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a href="#openings" className="btn-gold transition-transform duration-300 hover:scale-105">Explore Openings</a>
-                <a href="mailto:hr@majestique.com" className="btn-outline-dark transition-transform duration-300 hover:scale-105">Send Your CV</a>
+                <a href={`mailto:${CAREERS_EMAIL}`} className="btn-outline-dark transition-transform duration-300 hover:scale-105">Send Your CV</a>
               </div>
             </motion.div>
 
@@ -225,38 +226,6 @@ export default function Careers() {
                 <Image src={careersIntroImg} alt="Team Majestique" className="object-cover" fill sizes="100vw" />
               </div>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Stats Band — Amber Gold Gradient ──────────────────────── */}
-      <section className="py-12 relative overflow-hidden">
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, #D4AF37 0%, #c4a455 28%, #d4b465 55%, #b89050 80%, #D4AF37 100%)' }} />
-        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% -10%, rgba(255,230,130,0.28) 0%, transparent 60%)' }} />
-        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'rgba(255,255,255,0.22)' }} />
-        <div className="absolute bottom-0 inset-x-0 h-px" style={{ background: 'rgba(0,0,0,0.14)' }} />
-        <div className="container-luxury relative">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
-            {[
-              { v: '500+',  l: 'Team Members' },
-              { v: '30+',   l: 'Years of Trust' },
-              { v: '16+',   l: 'Landmark Projects' },
-              { v: '18K+',  l: 'Families Served' },
-            ].map((s, i) => (
-              <motion.div
-                key={s.l}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.55, delay: i * 0.1 }}
-                className="text-center py-8 px-4"
-                style={{ borderRight: i < 3 ? '1px solid rgba(255,255,255,0.2)' : 'none' }}
-              >
-                <p className="font-times font-normal leading-none mb-2" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: 'white' }}>{s.v}</p>
-                <div className="w-6 h-px mx-auto mb-2" style={{ background: 'rgba(255,255,255,0.4)' }} />
-                <p className="font-ui text-xs tracking-widest uppercase" style={{ color: 'rgba(255,255,255,0.68)' }}>{s.l}</p>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
@@ -438,8 +407,8 @@ export default function Careers() {
               ))}
               <p className="font-body text-sm text-center mt-8" style={{ color: 'rgba(44,62,88,0.72)' }}>
                 Don't see the right role?{' '}
-                <a href="mailto:hr@majestique.com" style={{ color: 'var(--gold-dark)' }}>
-                  Send your CV to hr@majestique.com
+                <a href={`mailto:${CAREERS_EMAIL}`} style={{ color: 'var(--gold-dark)' }}>
+                  Send your CV to {CAREERS_EMAIL}
                 </a>
               </p>
             </div>
@@ -468,7 +437,7 @@ export default function Careers() {
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <a href="#openings" className="btn-gold transition-transform duration-300 hover:scale-105">View Open Roles</a>
-              <a href="mailto:hr@majestique.com" className="btn-outline-dark transition-transform duration-300 hover:scale-105">Send Your CV</a>
+              <a href={`mailto:${CAREERS_EMAIL}`} className="btn-outline-dark transition-transform duration-300 hover:scale-105">Send Your CV</a>
             </div>
           </motion.div>
         </div>

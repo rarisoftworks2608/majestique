@@ -1,4 +1,5 @@
 ﻿import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react'
 import { useForm } from 'react-hook-form'
@@ -14,11 +15,12 @@ const schema = z.object({
 })
 
 export default function EnquiryModal({ isOpen, onClose, projectTitle }) {
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
+    formState: { errors, isSubmitting },
   } = useForm({ resolver: zodResolver(schema) })
 
   useEffect(() => {
@@ -29,6 +31,9 @@ export default function EnquiryModal({ isOpen, onClose, projectTitle }) {
 
   const onSubmit = async (data) => {
     await enquiriesApi.submit({ ...data, subject: projectTitle ? `Enquiry: ${projectTitle}` : 'General Enquiry' })
+    reset()
+    onClose()
+    navigate('/thank-you?type=enquiry')
   }
 
   const handleClose = () => {
@@ -86,52 +91,33 @@ export default function EnquiryModal({ isOpen, onClose, projectTitle }) {
 
             {/* Form */}
             <div className="p-6">
-              {isSubmitSuccessful ? (
-                <div className="text-center py-8">
-                  <div
-                    className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4"
-                    style={{ background: 'rgba(212,175,55,0.15)', border: '1px solid var(--gold)' }}
-                  >
-                    <span style={{ color: 'var(--gold)', fontSize: '1.5rem' }}>✓</span>
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                {[
+                  { name: 'name', label: 'Full Name', type: 'text', placeholder: 'Your name' },
+                  { name: 'email', label: 'Email Address', type: 'email', placeholder: 'your@email.com' },
+                  { name: 'phone', label: 'Phone Number', type: 'tel', placeholder: '+91 98765 43210' },
+                ].map(({ name, label, type, placeholder }) => (
+                  <div key={name}>
+                    <label
+                      className="font-ui text-xs tracking-widest uppercase block mb-2"
+                      style={{ color: 'var(--gold-light)' }}
+                    >
+                      {label}
+                    </label>
+                    <input
+                      {...register(name)}
+                      type={type}
+                      placeholder={placeholder}
+                      className="input-luxury"
+                      style={{ background: 'rgba(255,255,255,0.04)', color: 'var(--beige)' }}
+                    />
+                    {errors[name] && (
+                      <p className="font-body text-xs mt-1" style={{ color: '#e88' }}>
+                        {errors[name].message}
+                      </p>
+                    )}
                   </div>
-                  <h4
-                    className="font-times text-lg mb-2"
-                    style={{ color: 'var(--beige)' }}
-                  >
-                    Enquiry Sent!
-                  </h4>
-                  <p className="font-body text-sm" style={{ color: 'rgba(243,239,232,0.6)' }}>
-                    Our team will reach out to you shortly.
-                  </p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-                  {[
-                    { name: 'name', label: 'Full Name', type: 'text', placeholder: 'Your name' },
-                    { name: 'email', label: 'Email Address', type: 'email', placeholder: 'your@email.com' },
-                    { name: 'phone', label: 'Phone Number', type: 'tel', placeholder: '+91 98765 43210' },
-                  ].map(({ name, label, type, placeholder }) => (
-                    <div key={name}>
-                      <label
-                        className="font-ui text-xs tracking-widest uppercase block mb-2"
-                        style={{ color: 'var(--gold-light)' }}
-                      >
-                        {label}
-                      </label>
-                      <input
-                        {...register(name)}
-                        type={type}
-                        placeholder={placeholder}
-                        className="input-luxury"
-                        style={{ background: 'rgba(255,255,255,0.04)', color: 'var(--beige)' }}
-                      />
-                      {errors[name] && (
-                        <p className="font-body text-xs mt-1" style={{ color: '#e88' }}>
-                          {errors[name].message}
-                        </p>
-                      )}
-                    </div>
-                  ))}
+                ))}
 
                   <div>
                     <label
@@ -156,8 +142,7 @@ export default function EnquiryModal({ isOpen, onClose, projectTitle }) {
                   >
                     {isSubmitting ? 'Sending...' : 'Submit Enquiry'}
                   </button>
-                </form>
-              )}
+              </form>
             </div>
           </motion.div>
         </motion.div>

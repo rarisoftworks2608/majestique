@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { MapPin } from 'lucide-react'
 import PageHero from '../../components/ui/PageHero'
@@ -32,17 +33,19 @@ function CompletedCard({ project, index }) {
       onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 22px 56px rgba(26,26,26,0.1)'; e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.borderColor = 'rgba(212,175,55,0.4)' }}
       onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 16px rgba(26,26,26,0.05)'; e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = 'rgba(212,175,55,0.16)' }}
     >
-      {/* Gold top rule */}
-      <div style={{ height: '3px', background: 'linear-gradient(90deg, var(--gold-dark), var(--gold), transparent)' }} />
-
-      {/* Faint decorative index numeral */}
-      <span
-        className="absolute top-4 right-5 font-display select-none pointer-events-none"
-        style={{ fontSize: '2.75rem', color: 'rgba(212,175,55,0.08)', lineHeight: 1 }}
-        aria-hidden="true"
-      >
-        {String(index + 1).padStart(2, '0')}
-      </span>
+      {/* contain, not cover: the brochure renders are portrait, so a landscape
+          crop cuts the building in half */}
+      {project.image && (
+        <div className="relative overflow-hidden" style={{ aspectRatio: '1/1', background: 'var(--cream)' }}>
+          <Image
+            src={project.image}
+            alt={`${project.title}, ${project.subtitle}`}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-contain transition-transform duration-700 group-hover:scale-105"
+          />
+        </div>
+      )}
 
       <div className="p-7 flex flex-col flex-1 relative">
         <h3
@@ -54,9 +57,13 @@ function CompletedCard({ project, index }) {
 
         <div className="w-7 h-px mb-5" style={{ background: 'linear-gradient(90deg, var(--gold-dark), transparent)' }} />
 
-        <div className="flex items-start gap-1.5 mt-auto">
-          <MapPin size={12} style={{ color: 'var(--gold)', flexShrink: 0, marginTop: '2px' }} />
-          <span className="font-body text-xs leading-snug" style={{ color: 'rgba(26,26,26,0.55)' }}>
+        <div className="flex items-start gap-2 mt-auto">
+          {/* the icon sits in a box the height of the text's first line, so it
+              stays centred on it whether the subtitle wraps or not */}
+          <span className="flex items-center shrink-0" style={{ height: '1.35em', fontSize: '0.8rem' }}>
+            <MapPin size={14} style={{ color: 'var(--gold)' }} />
+          </span>
+          <span className="font-body" style={{ fontSize: '0.8rem', lineHeight: 1.35, color: 'rgba(26,26,26,0.62)' }}>
             {project.subtitle}
           </span>
         </div>

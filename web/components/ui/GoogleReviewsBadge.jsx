@@ -1,7 +1,7 @@
 import { Star } from 'lucide-react'
 import { SITE_NAME } from '../../utils/constants'
 
-const GOOGLE_RATING = 4.5
+const GOOGLE_RATING = 3.5
 
 function GoogleWordmark() {
   return (

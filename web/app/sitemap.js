@@ -20,6 +20,8 @@ const STATIC_ROUTES = [
   ['/about/leadership', 0.7, 'yearly'],
   ['/about/milestones', 0.6, 'yearly'],
   ['/about/vision-mission', 0.6, 'yearly'],
+  ['/about/people-culture', 0.6, 'yearly'],
+  ['/about/employee-engagement', 0.5, 'monthly'],
   ['/about/company-profile', 0.6, 'yearly'],
   ['/media/press-coverage', 0.7, 'monthly'],
   ['/media/articles', 0.7, 'monthly'],
@@ -27,6 +29,7 @@ const STATIC_ROUTES = [
   ['/media/events', 0.6, 'weekly'],
   ['/media/blogs', 0.8, 'weekly'],
   ['/media/awards', 0.7, 'monthly'],
+  ['/media/csr', 0.7, 'monthly'],
   ['/media/testimonials', 0.6, 'monthly'],
   ['/media/newsletter', 0.4, 'yearly'],
   ['/media/news', 0.6, 'weekly'],
@@ -34,6 +37,9 @@ const STATIC_ROUTES = [
   ['/contact', 0.8, 'monthly'],
   ['/privacy-policy', 0.2, 'yearly'],
   ['/terms', 0.2, 'yearly'],
+  ['/disclaimer', 0.2, 'yearly'],
+  ['/ec-certificates', 0.3, 'monthly'],
+  ['/ecc', 0.3, 'monthly'],
 ]
 
 export default async function sitemap() {

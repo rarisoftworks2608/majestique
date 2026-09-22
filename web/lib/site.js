@@ -55,7 +55,7 @@ export const organizationSchema = () => ({
       closes: '19:00',
     },
   ],
-  aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.5', bestRating: '5', ratingCount: '1200' },
+  aggregateRating: { '@type': 'AggregateRating', ratingValue: '3.5', bestRating: '5', ratingCount: '1200' },
 })
 
 export const websiteSchema = () => ({

@@ -1,19 +1,11 @@
 import { Link } from 'react-router-dom'
 import { Phone, Mail, MapPin, Clock, Navigation } from 'lucide-react'
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube, FaXTwitter } from 'react-icons/fa6'
-import { SITE_NAME, SITE_PHONE, SITE_ADDRESS, SOCIAL_LINKS } from '../../utils/constants'
+import { SITE_NAME, SITE_PHONE, SITE_ADDRESS } from '../../utils/constants'
 import { ONGOING_PROJECTS } from '../../data/ongoingProjects'
 import { COMPLETED_PROJECTS } from '../../data/completedProjects'
 import logoImg from '../../assets/logos/Majestique_logo.png'
 import GoogleReviewsBadge from '../ui/GoogleReviewsBadge'
-
-const SOCIAL_ICONS = {
-  facebook:  FaFacebookF,
-  instagram: FaInstagram,
-  linkedin:  FaLinkedinIn,
-  youtube:   FaYoutube,
-  twitter:   FaXTwitter,
-}
+import SocialLinks from '../ui/SocialLinks'
 
 /* ── Ongoing projects link straight to their live microsite subdomain
    (same rule used on the Ongoing Projects page); no microsite → contact form ── */
@@ -37,14 +29,17 @@ const MEDIA_LINKS = [
   { label: 'Events', path: '/media/events' },
   { label: 'Blogs', path: '/media/blogs' },
   { label: 'Awards', path: '/media/awards' },
+  { label: 'CSR', path: '/media/csr' },
   { label: 'Testimonials', path: '/media/testimonials' },
 ]
 
 const ABOUT_LINKS = [
   { label: 'Our Legacy', path: '/about/legacy' },
   { label: 'Leadership', path: '/about/leadership' },
-  { label: 'Milestones', path: '/about/milestones' },
   { label: 'Vision & Mission', path: '/about/vision-mission' },
+  { label: 'Milestones', path: '/about/milestones' },
+  { label: 'People & Culture', path: '/about/people-culture' },
+  { label: 'Employee Engagement', path: '/about/employee-engagement' },
 ]
 
 const QUICK_LINKS = [
@@ -124,7 +119,7 @@ export default function Footer() {
           <img
             src={logoImg}
             alt={SITE_NAME}
-            className="h-11 w-auto transition-opacity duration-300 group-hover:opacity-70"
+            className="h-11 lg:h-13 w-auto transition-opacity duration-300 group-hover:opacity-70"
             style={{ mixBlendMode: 'screen' }}
             loading="lazy"
           />
@@ -224,34 +219,17 @@ export default function Footer() {
       {/* Bottom bar */}
       <div style={{ borderTop: '1px solid rgba(212,175,55,0.12)', background: 'rgba(26,26,26,0.3)' }}>
         <div className="container-luxury py-6 flex flex-col items-center gap-4">
-          <div className="flex items-center gap-2.5">
-            {Object.entries(SOCIAL_LINKS).map(([platform, url]) => {
-              const Icon = SOCIAL_ICONS[platform]
-              if (!Icon) return null
-              return (
-                <a
-                  key={platform}
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-7 h-7 flex items-center justify-center transition-all duration-300"
-                  style={{ border: '1px solid rgba(243,239,232,0.25)', color: 'rgba(243,239,232,0.85)' }}
-                  onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--gold)'; e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = 'var(--gold)' }}
-                  onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'rgba(243,239,232,0.85)'; e.currentTarget.style.borderColor = 'rgba(243,239,232,0.25)' }}
-                  aria-label={platform}
-                >
-                  <Icon size={12} />
-                </a>
-              )
-            })}
-          </div>
+          <SocialLinks />
 
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 w-full">
             <p className="font-body text-xs" style={{ color: 'rgba(243,239,232,0.3)' }}>
               © {new Date().getFullYear()} {SITE_NAME} Pvt. Ltd. All rights reserved.
             </p>
-            <div className="flex items-center gap-6">
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
               {[
+                { label: 'Environmental Clearance', path: '/ec-certificates' },
+                { label: 'Compliance Report', path: '/ecc' },
+                { label: 'Disclaimer', path: '/disclaimer' },
                 { label: 'Privacy Policy', path: '/privacy-policy' },
                 { label: 'Terms & Conditions', path: '/terms' },
               ].map(({ label, path }) => (

@@ -13,6 +13,7 @@ import SectionHeader from '../../components/ui/SectionHeader'
 import PageHero from '../../components/ui/PageHero'
 import imgHero from '../../assets/real-estate-press-relese.jpg'
 import { CLIPPINGS, CATEGORY_META, CATEGORIES, PUBLICATIONS } from '../../data/pressCoverage'
+import { MARKETING_EMAIL } from '../../utils/constants'
 
 /* ── Animation helpers ───────────────────────────────────────────── */
 const fU = (d = 0) => ({
@@ -365,6 +366,12 @@ export default function PressEvents() {
               <Link href="/media/awards" className="btn-outline-dark">View Awards</Link>
               <Link href="/contact" className="btn-outline-dark">Contact Us</Link>
             </div>
+            <p className="font-body text-sm mt-8" style={{ color: 'rgba(26,26,26,0.7)' }}>
+              Press &amp; media enquiries:{' '}
+              <a href={`mailto:${MARKETING_EMAIL}?subject=Press Enquiry`} style={{ color: 'var(--gold-dark)' }}>
+                {MARKETING_EMAIL}
+              </a>
+            </p>
           </motion.div>
         </div>
       </section>

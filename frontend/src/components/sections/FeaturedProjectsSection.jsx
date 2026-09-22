@@ -6,12 +6,12 @@ import { ArrowRight, MapPin, ChevronLeft, ChevronRight } from 'lucide-react'
 /* ── Project spotlight images ── */
 import imgTwilight    from '../../assets/project_spolights/twilight.webp'
 import imgElements    from '../../assets/project_spolights/elements.webp'
-import imgKrutarth    from '../../assets/project_spolights/Krutarth.webp'
+import imgKrutarth    from '../../assets/project_spolights/Krutarth.jpg'
 import imgNewFriends  from '../../assets/project_spolights/New_Friends_kothrud.webp'
 import imgAravali     from '../../assets/project_spolights/Aravali.webp'
-import imgTheCrown    from '../../assets/project_spolights/Crown.webp'
-import imgEvolvus     from '../../assets/project_spolights/evolvus-by-majestique.webp'
-import imgSignature   from '../../assets/project_spolights/Signature_Tower.webp'
+import imgTheCrown    from '../../assets/project_spolights/crown.png'
+import imgEvolvus     from '../../assets/project_spolights/Evolvus.png'
+import imgSignature   from '../../assets/project_spolights/SignatureTower.png'
 import imgRhythm      from '../../assets/project_spolights/Rythem_county.webp'
 import imgTowers      from '../../assets/project_spolights/Towers2.0.webp'
 const PROJECTS = [
@@ -198,28 +198,7 @@ export default function FeaturedProjectsSection() {
           >
             {/* Image area */}
             <div className="relative overflow-hidden" style={{ aspectRatio: '16 / 10', background: '#3D090F', boxShadow: '0 24px 64px rgba(26,10,0,0.15)' }}>
-              {/* Blurred backdrop fill — keeps the frame full even when a photo's own proportions don't match the box */}
-              <AnimatePresence mode="wait" custom={direction}>
-                <motion.div
-                  key={active + '-bg'}
-                  custom={direction}
-                  variants={imgVariants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  className="absolute inset-0"
-                  style={{
-                    backgroundImage: `url(${cur.image})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    filter: 'blur(28px) saturate(1.1)',
-                    transform: 'scale(1.15)',
-                  }}
-                />
-              </AnimatePresence>
-              <div className="absolute inset-0" style={{ background: 'rgba(26,26,26,0.45)' }} />
-
-              {/* Full, uncropped building photo */}
+              {/* Fills the fixed frame; photos with a different ratio are cropped to fit */}
               <AnimatePresence mode="wait" custom={direction}>
                 <motion.img
                   key={active}
@@ -230,7 +209,7 @@ export default function FeaturedProjectsSection() {
                   initial="enter"
                   animate="center"
                   exit="exit"
-                  className="absolute inset-0 w-full h-full object-contain"
+                  className="absolute inset-0 w-full h-full object-cover"
                   loading="lazy"
                 />
               </AnimatePresence>

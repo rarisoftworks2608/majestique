@@ -11,7 +11,7 @@ import {
   Building2, CheckCircle2, Hammer, Newspaper,
   CalendarDays, Bell, BookOpen, Mail, Target,
   Award, Users, MessageSquareQuote, ArrowRight,
-  Megaphone,
+  Megaphone, Heart, Camera, HeartHandshake,
 } from 'lucide-react'
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa6'
 import { SITE_NAME, SITE_PHONE, SOCIAL_LINKS } from '../../utils/constants'
@@ -24,6 +24,8 @@ import imgNavLegacy        from '../../assets/legacy.jpg'
 import imgNavLeadership    from '../../assets/business leadership_vertical.jpg'
 import imgNavMilestones    from '../../assets/awards.jpg'
 import imgNavVision        from '../../assets/Mission_vision.jpg'
+import imgNavCulture       from '../../assets/carrers1.jpg'
+import imgNavEngagement    from '../../assets/carrers.jpg'
 import imgNavOngoing       from '../../assets/ongoing_project_vertical.jpg'
 import imgNavCompleted     from '../../assets/completed project vertical.jpg'
 import imgNavPress         from '../../assets/real-estate-press-relese.jpg'
@@ -32,6 +34,7 @@ import imgNavAnnouncements from '../../assets/Announcement_vertical.jpg'
 import imgNavEvents        from '../../assets/real estate events vertical.jpg'
 import imgNavBlogs         from '../../assets/blogs_vertical.jpg'
 import imgNavAwards        from '../../assets/awards & trophy.jpeg'
+import imgNavCsr           from '../../assets/CSR/2026/DSC00868.jpg'
 import imgNavTestimonials  from '../../assets/Testimonials.jpg'
 import imgNavNewsletter    from '../../assets/newsletter.jpg'
 import imgNavCareers       from '../../assets/Job_Seek.jpg'
@@ -83,10 +86,12 @@ const NAV_CONFIG = [
       ],
     },
     children: [
-      { label: 'Legacy',           path: '/about/legacy',         icon: Building2, desc: 'Our founding story since Est. 2002',          previewImage: imgNavLegacy        },
-      { label: 'Leadership',      path: '/about/leadership',     icon: Users,     desc: 'The visionaries behind Majestique',             previewImage: imgNavLeadership    },
-      { label: 'Milestones',      path: '/about/milestones',     icon: Award,     desc: 'Awards & achievements across 22 years',        previewImage: imgNavMilestones    },
-      { label: 'Vision & Mission', path: '/about/vision-mission', icon: Target,  desc: 'The principles guiding every build we make',    previewImage: imgNavVision        },
+      { label: 'Legacy',             path: '/about/legacy',              icon: Building2, desc: 'Our founding story since Est. 2002',            previewImage: imgNavLegacy        },
+      { label: 'Leadership',         path: '/about/leadership',          icon: Users,     desc: 'The visionaries behind Majestique',            previewImage: imgNavLeadership    },
+      { label: 'Vision & Mission',   path: '/about/vision-mission',      icon: Target,    desc: 'The principles guiding every build we make',    previewImage: imgNavVision        },
+      { label: 'Milestones',         path: '/about/milestones',          icon: Award,     desc: 'Awards & achievements across 22 years',        previewImage: imgNavMilestones    },
+      { label: 'People & Culture',   path: '/about/people-culture',      icon: Heart,     desc: 'The teams behind every Majestique address',    previewImage: imgNavCulture       },
+      { label: 'Employee Engagement Photos', path: '/about/employee-engagement', icon: Camera, desc: 'Festivals, tournaments and team moments', previewImage: imgNavEngagement    },
     ],
   },
   {
@@ -135,6 +140,7 @@ const NAV_CONFIG = [
       { label: 'Events',        path: '/media/events',        icon: CalendarDays,       desc: 'Launches, site visits & showcases',        previewImage: imgNavEvents        },
       { label: 'Blogs',         path: '/media/blogs',         icon: BookOpen,           desc: 'Insights on luxury living in Pune',        previewImage: imgNavBlogs         },
       { label: 'Awards',        path: '/media/awards',        icon: Award,              desc: 'Industry honors & recognition awards',     previewImage: imgNavAwards        },
+      { label: 'CSR',           path: '/media/csr',           icon: HeartHandshake,     desc: 'Badlaav — our work in the community',      previewImage: imgNavCsr           },
       { label: 'Testimonials',  path: '/media/testimonials',  icon: MessageSquareQuote, desc: 'Stories from our happy residents',         previewImage: imgNavTestimonials  },
       { label: 'Newsletter',    path: '/media/newsletter',    icon: Mail,               desc: 'Subscribe for exclusive updates',          previewImage: imgNavNewsletter    },
     ],
@@ -310,8 +316,8 @@ function PreviewPane({ image, tag, title, desc, extra, showText = true }) {
     <div className="relative w-full h-full overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.img
-          key={image}
-          src={image}
+          key={imgSrc(image)}
+          src={imgSrc(image)}
           alt={title}
           className="absolute inset-0 w-full h-full object-cover"
           loading="lazy"

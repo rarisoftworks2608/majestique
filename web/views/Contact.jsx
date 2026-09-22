@@ -2,14 +2,16 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Phone, Mail, MapPin, Clock, CheckCircle2, ChevronDown, Briefcase, Users, Building2 } from 'lucide-react'
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube, FaWhatsapp } from 'react-icons/fa6'
+import { Phone, Mail, MapPin, Clock, ChevronDown, Briefcase, Users, Building2 } from 'lucide-react'
+import { FaWhatsapp } from 'react-icons/fa6'
 import PageHero from '../components/ui/PageHero'
 import SectionHeader from '../components/ui/SectionHeader'
 import { enquiriesApi } from '../services/api'
+import { SITE_EMAIL, SALES_EMAIL, CAREERS_EMAIL, MARKETING_EMAIL } from '../utils/constants'
 import contactHeroImg from '../assets/contact-us-customer.jpg'
 import contactOfficeImg from '../assets/Contact-Us-Majestique.jpg'
 
@@ -38,20 +40,31 @@ const PROPERTY_TYPES = [
 
 const UNIT_TYPES = ['Studio', '1 BHK', '2 BHK', '3 BHK', '4 BHK', 'Penthouse', 'Duplex']
 
+/* Channel partner form options */
+const OPERATING_CITIES = [
+  'Pune',
+  'Mumbai (MMR)',
+  'Nashik',
+  'Nagpur',
+  'Rest of Maharashtra',
+  'Other (India)',
+  'NRI / Overseas',
+]
+
+const EXPERIENCE_BANDS = [
+  'Less than 1 year',
+  '1 – 3 years',
+  '3 – 5 years',
+  '5 – 10 years',
+  'More than 10 years',
+]
+
 const CONTACT_INFO = [
   { icon: MapPin, label: 'Our Office', value: '9th Floor, Jawaharlal Nehru Rd, opp. Apsara Theatre, Guru Nanak Nagar, Pune – 411037' },
   { icon: Phone,  label: 'Phone',         value: '+91 74480 99000',                     href: 'tel:+917448099000' },
-  { icon: Mail,   label: 'Sales Enquiry', value: 'sales@majestiqueproperties.com',      href: 'mailto:sales@majestiqueproperties.com' },
-  { icon: Mail,   label: 'Support',       value: 'info@majestiqueproperties.com',       href: 'mailto:info@majestiqueproperties.com' },
+  { icon: Mail,   label: 'Sales Enquiry', value: SALES_EMAIL,                           href: `mailto:${SALES_EMAIL}` },
+  { icon: Mail,   label: 'Support',       value: SITE_EMAIL,                            href: `mailto:${SITE_EMAIL}` },
   { icon: Clock,  label: 'Office Hours',  value: 'Mon–Sat: 10 AM – 7 PM' },
-]
-
-const SOCIAL = [
-  { icon: FaFacebookF,  href: 'https://www.facebook.com/MajestiquePune',                   label: 'Facebook' },
-  { icon: FaInstagram,  href: 'https://www.instagram.com/MajestiquePune',                  label: 'Instagram' },
-  { icon: FaLinkedinIn, href: 'https://www.linkedin.com/company/majestique-landmarks',     label: 'LinkedIn' },
-  { icon: FaYoutube,    href: 'https://www.youtube.com/@MajestiquePune',                   label: 'YouTube' },
-  { icon: FaWhatsapp,   href: 'https://wa.me/917448099000',                                label: 'WhatsApp' },
 ]
 
 const MAP_CID = '13336261504592725948'
@@ -115,7 +128,7 @@ function BuyPropertyForm() {
   })
   const [errors, setErrors] = useState({})
   const [submitting, setSubmitting] = useState(false)
-  const [success, setSuccess] = useState(false)
+  const router = useRouter()
 
   const set = (k, v) => {
     setForm((p) => ({ ...p, [k]: v }))
@@ -145,39 +158,15 @@ function BuyPropertyForm() {
         phone: `${form.countryCode} ${form.phone}`,
         email: form.email,
         subject: 'Buy Property Enquiry',
-        message: `Property Type: ${form.propertyType} | Project: ${form.project || 'Not specified'} | Unit: ${form.unitType || 'Not specified'} | Preferred contact: ${form.contactMode === 'callback' ? 'Call Back' : 'Video Call'}`,
+        message: `Property Type: ${form.propertyType} | Project: ${form.project || 'Not specified'} | Unit: ${form.unitType || 'Not specified'} | Preferred contact: ${form.contactMode === 'callback' ? 'Call Back' : 'Site Visit'}`,
       })
-      setSuccess(true)
+      router.push('/thank-you?type=enquiry')
+      return
     } catch {
       setErrors({ form: 'Something went wrong. Please try again.' })
     } finally {
       setSubmitting(false)
     }
-  }
-
-  if (success) {
-    return (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="text-center py-20 px-8"
-        style={{ border: '1px solid rgba(212,175,55,0.25)', background: '#fff' }}
-      >
-        <motion.div
-          initial={{ scale: 0, rotate: -30 }}
-          animate={{ scale: 1, rotate: 0 }}
-          transition={{ type: 'spring', stiffness: 260, damping: 16, delay: 0.1 }}
-        >
-          <CheckCircle2 size={52} className="mx-auto mb-5" style={{ color: 'var(--gold)' }} />
-        </motion.div>
-        <h3 className="font-display text-2xl font-light mb-3" style={{ color: 'var(--luxury-dark)' }}>
-          Enquiry Received!
-        </h3>
-        <p className="font-body text-sm leading-relaxed" style={{ color: 'rgba(26,26,26,0.55)', maxWidth: '360px', margin: '0 auto' }}>
-          Thank you for your interest. Our team will contact you within 24 business hours.
-        </p>
-      </motion.div>
-    )
   }
 
   return (
@@ -196,7 +185,7 @@ function BuyPropertyForm() {
         <div className="grid grid-cols-2 gap-3">
           {[
             { val: 'callback', label: 'Request a call back' },
-            { val: 'video',    label: 'Schedule a video call' },
+            { val: 'sitevisit', label: 'Request for site visit' },
           ].map(({ val, label }) => (
             <label
               key={val}
@@ -442,11 +431,308 @@ function SeekJobPanel() {
           ))}
         </div>
 
-        <Link href="/careers" className="btn-gold inline-flex">
-          Visit our Careers page
-        </Link>
+        <div className="flex flex-wrap items-center gap-4">
+          <Link href="/careers" className="btn-gold inline-flex">
+            Visit our Careers page
+          </Link>
+          <a href={`mailto:${CAREERS_EMAIL}`} className="btn-outline-dark inline-flex">
+            Send Your CV
+          </a>
+        </div>
       </div>
     </motion.div>
+  )
+}
+
+/* ─── CHANNEL PARTNER FORM ──────────────────────────────────── */
+function ChannelPartnerForm() {
+  const [form, setForm] = useState({
+    partnerType: 'new',
+    fullName: '',
+    firmName: '',
+    rera: '',
+    countryCode: '+91',
+    phone: '',
+    email: '',
+    city: '',
+    experience: '',
+    project: '',
+    message: '',
+    privacy: false,
+  })
+  const [errors, setErrors] = useState({})
+  const [submitting, setSubmitting] = useState(false)
+  const router = useRouter()
+
+  const set = (k, v) => {
+    setForm((p) => ({ ...p, [k]: v }))
+    if (errors[k]) setErrors((p) => ({ ...p, [k]: undefined }))
+  }
+
+  const validate = () => {
+    const e = {}
+    if (!form.fullName.trim()) e.fullName = 'Your name is required'
+    if (!form.firmName.trim()) e.firmName = 'Firm or company name is required'
+    if (!form.phone.trim())    e.phone    = 'Phone number is required'
+    if (!form.email.trim())    e.email    = 'Email is required'
+    else if (!/\S+@\S+\.\S+/.test(form.email)) e.email = 'Enter a valid email'
+    if (!form.city)            e.city     = 'Please select your operating city'
+    if (!form.privacy)         e.privacy  = 'You must agree to the privacy policy'
+    return e
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const errs = validate()
+    if (Object.keys(errs).length > 0) { setErrors(errs); return }
+    setSubmitting(true)
+    try {
+      await enquiriesApi.submit({
+        name: form.fullName,
+        phone: `${form.countryCode} ${form.phone}`,
+        email: form.email,
+        subject: form.partnerType === 'new'
+          ? 'Channel Partner Registration'
+          : 'Channel Partner Support (Existing)',
+        message: [
+          `Partner type: ${form.partnerType === 'new' ? 'New registration' : 'Existing partner'}`,
+          `Firm: ${form.firmName}`,
+          `RERA No.: ${form.rera || 'Not provided'}`,
+          `Operating city: ${form.city}`,
+          `Experience: ${form.experience || 'Not specified'}`,
+          `Project of interest: ${form.project || 'Not specified'}`,
+          form.message ? `Notes: ${form.message}` : null,
+        ].filter(Boolean).join(' | '),
+      })
+      router.push('/thank-you?type=partner')
+      return
+    } catch {
+      setErrors({ form: 'Something went wrong. Please try again, or email us directly.' })
+    } finally {
+      setSubmitting(false)
+    }
+  }
+
+  return (
+    <form onSubmit={handleSubmit} noValidate>
+      {errors.form && (
+        <p className="font-body text-sm p-3 mb-5" style={{ background: 'rgba(192,57,43,0.06)', color: '#c0392b', border: '1px solid rgba(192,57,43,0.18)' }}>
+          {errors.form}
+        </p>
+      )}
+
+      {/* Partner type */}
+      <div className="mb-6">
+        <p className="font-ui text-[11px] tracking-[0.2em] uppercase mb-3" style={{ color: 'rgba(26,26,26,0.55)' }}>
+          I am a <span style={{ color: '#c0392b' }}>*</span>
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {[
+            { val: 'new',      label: 'New channel partner' },
+            { val: 'existing', label: 'Existing channel partner' },
+          ].map(({ val, label }) => (
+            <label
+              key={val}
+              className="flex items-center gap-3 cursor-pointer px-4 py-3.5 transition-all duration-200"
+              style={{
+                border: `1px solid ${form.partnerType === val ? 'var(--gold)' : 'rgba(212,175,55,0.28)'}`,
+                background: form.partnerType === val ? 'rgba(212,175,55,0.05)' : '#fff',
+              }}
+            >
+              <div
+                className="w-4 h-4 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all duration-200"
+                style={{ borderColor: form.partnerType === val ? 'var(--gold)' : 'rgba(212,175,55,0.4)' }}
+              >
+                {form.partnerType === val && <div className="w-2 h-2 rounded-full" style={{ background: 'var(--gold)' }} />}
+              </div>
+              <span className="font-body text-sm" style={{ color: 'rgba(26,26,26,0.75)' }}>{label}</span>
+              <input type="radio" name="partnerType" className="sr-only" checked={form.partnerType === val} onChange={() => set('partnerType', val)} />
+            </label>
+          ))}
+        </div>
+      </div>
+
+      {/* Name + Firm */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+        <Field error={errors.fullName}>
+          <input
+            type="text"
+            placeholder="Full Name *"
+            value={form.fullName}
+            onChange={(e) => set('fullName', e.target.value)}
+            style={{ ...inp, borderColor: errors.fullName ? '#c0392b' : 'rgba(212,175,55,0.28)' }}
+            onFocus={(e) => { e.target.style.borderColor = 'var(--gold)' }}
+            onBlur={(e) => { e.target.style.borderColor = errors.fullName ? '#c0392b' : 'rgba(212,175,55,0.28)' }}
+          />
+        </Field>
+        <Field error={errors.firmName}>
+          <input
+            type="text"
+            placeholder="Firm / Company Name *"
+            value={form.firmName}
+            onChange={(e) => set('firmName', e.target.value)}
+            style={{ ...inp, borderColor: errors.firmName ? '#c0392b' : 'rgba(212,175,55,0.28)' }}
+            onFocus={(e) => { e.target.style.borderColor = 'var(--gold)' }}
+            onBlur={(e) => { e.target.style.borderColor = errors.firmName ? '#c0392b' : 'rgba(212,175,55,0.28)' }}
+          />
+        </Field>
+      </div>
+
+      {/* RERA */}
+      <input
+        type="text"
+        placeholder="MahaRERA Agent Registration No. (if registered)"
+        value={form.rera}
+        onChange={(e) => set('rera', e.target.value)}
+        style={{ ...inp, marginBottom: '1rem' }}
+        onFocus={(e) => { e.target.style.borderColor = 'var(--gold)' }}
+        onBlur={(e) => { e.target.style.borderColor = 'rgba(212,175,55,0.28)' }}
+      />
+
+      {/* Phone */}
+      <Field error={errors.phone}>
+        <div className="flex mb-4" style={{ border: `1px solid ${errors.phone ? '#c0392b' : 'rgba(212,175,55,0.28)'}`, background: '#fff' }}>
+          <div className="relative">
+            <select
+              aria-label="Country code"
+              value={form.countryCode}
+              onChange={(e) => set('countryCode', e.target.value)}
+              style={{ ...inp, width: 'auto', paddingRight: '2rem', border: 'none', borderRight: '1px solid rgba(212,175,55,0.2)', minWidth: '80px', fontSize: '0.85rem' }}
+            >
+              <option value="+91">🇮🇳 +91</option>
+              <option value="+971">🇦🇪 +971</option>
+              <option value="+1">🇺🇸 +1</option>
+              <option value="+44">🇬🇧 +44</option>
+              <option value="+65">🇸🇬 +65</option>
+              <option value="+61">🇦🇺 +61</option>
+            </select>
+            <ChevronDown size={11} className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none" style={{ color: 'rgba(212,175,55,0.5)' }} />
+          </div>
+          <input
+            type="tel"
+            placeholder="XX XXX XXXX *"
+            value={form.phone}
+            onChange={(e) => set('phone', e.target.value)}
+            style={{ ...inp, flex: 1, border: 'none', paddingLeft: '0.9rem' }}
+            onFocus={(e) => { e.currentTarget.parentElement.style.borderColor = 'var(--gold)' }}
+            onBlur={(e) => { e.currentTarget.parentElement.style.borderColor = errors.phone ? '#c0392b' : 'rgba(212,175,55,0.28)' }}
+          />
+        </div>
+      </Field>
+
+      {/* Email */}
+      <Field error={errors.email}>
+        <input
+          type="email"
+          placeholder="Email *"
+          value={form.email}
+          onChange={(e) => set('email', e.target.value)}
+          style={{ ...inp, marginBottom: '1rem', borderColor: errors.email ? '#c0392b' : 'rgba(212,175,55,0.28)' }}
+          onFocus={(e) => { e.target.style.borderColor = 'var(--gold)' }}
+          onBlur={(e) => { e.target.style.borderColor = errors.email ? '#c0392b' : 'rgba(212,175,55,0.28)' }}
+        />
+      </Field>
+
+      {/* City + Experience */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+        <Field error={errors.city}>
+          <SelectWrapper>
+            <select
+              aria-label="Operating city"
+              value={form.city}
+              onChange={(e) => set('city', e.target.value)}
+              style={{ ...inp, cursor: 'pointer', paddingRight: '2.5rem', borderColor: errors.city ? '#c0392b' : 'rgba(212,175,55,0.28)' }}
+              onFocus={(e) => { e.target.style.borderColor = 'var(--gold)' }}
+              onBlur={(e) => { e.target.style.borderColor = errors.city ? '#c0392b' : 'rgba(212,175,55,0.28)' }}
+            >
+              <option value="">Operating City *</option>
+              {OPERATING_CITIES.map((c) => <option key={c} value={c}>{c}</option>)}
+            </select>
+          </SelectWrapper>
+        </Field>
+        <SelectWrapper>
+          <select
+            aria-label="Years in real estate"
+            value={form.experience}
+            onChange={(e) => set('experience', e.target.value)}
+            style={{ ...inp, cursor: 'pointer', paddingRight: '2.5rem' }}
+            onFocus={(e) => { e.target.style.borderColor = 'var(--gold)' }}
+            onBlur={(e) => { e.target.style.borderColor = 'rgba(212,175,55,0.28)' }}
+          >
+            <option value="">Years in Real Estate</option>
+            {EXPERIENCE_BANDS.map((x) => <option key={x} value={x}>{x}</option>)}
+          </select>
+        </SelectWrapper>
+      </div>
+
+      {/* Project of interest */}
+      <SelectWrapper>
+        <select
+          aria-label="Project of interest"
+          value={form.project}
+          onChange={(e) => set('project', e.target.value)}
+          style={{ ...inp, marginBottom: '1rem', cursor: 'pointer', paddingRight: '2.5rem' }}
+          onFocus={(e) => { e.target.style.borderColor = 'var(--gold)' }}
+          onBlur={(e) => { e.target.style.borderColor = 'rgba(212,175,55,0.28)' }}
+        >
+          <option value="">Project of Interest</option>
+          {PROJECTS.map((p) => <option key={p} value={p}>{p}</option>)}
+        </select>
+      </SelectWrapper>
+
+      {/* Notes */}
+      <textarea
+        rows={3}
+        placeholder="Anything else we should know? (optional)"
+        value={form.message}
+        onChange={(e) => set('message', e.target.value)}
+        style={{ ...inp, marginBottom: '1.25rem', resize: 'none' }}
+        onFocus={(e) => { e.target.style.borderColor = 'var(--gold)' }}
+        onBlur={(e) => { e.target.style.borderColor = 'rgba(212,175,55,0.28)' }}
+      />
+
+      {/* Consent */}
+      <Field error={errors.privacy}>
+        <label className="flex items-start gap-3 cursor-pointer mb-6">
+          <input
+            type="checkbox"
+            checked={form.privacy}
+            onChange={(e) => set('privacy', e.target.checked)}
+            className="mt-0.5 shrink-0"
+            style={{ accentColor: 'var(--gold)', width: '15px', height: '15px' }}
+          />
+          <span className="font-body text-xs leading-relaxed" style={{ color: 'rgba(26,26,26,0.6)' }}>
+            I authorise Majestique Landmarks to contact me regarding this registration via phone,
+            SMS, email or WhatsApp, and I agree to the privacy policy. *
+          </span>
+        </label>
+      </Field>
+
+      <motion.button
+        type="submit"
+        disabled={submitting}
+        whileHover={{ scale: submitting ? 1 : 1.01 }}
+        whileTap={{ scale: submitting ? 1 : 0.99 }}
+        className="btn-gold w-full justify-center disabled:opacity-60 disabled:cursor-not-allowed"
+      >
+        {submitting ? (
+          <span className="flex items-center gap-2">
+            <svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+            </svg>
+            Submitting...
+          </span>
+        ) : 'SUBMIT REGISTRATION'}
+      </motion.button>
+
+      <p className="font-body text-xs text-center mt-5" style={{ color: 'rgba(26,26,26,0.5)' }}>
+        Already a partner? Write to{' '}
+        <a href={`mailto:${MARKETING_EMAIL}?subject=Channel Partner Enquiry`} style={{ color: 'var(--gold-dark)' }}>
+          {MARKETING_EMAIL}
+        </a>
+      </p>
+    </form>
   )
 }
 
@@ -472,48 +758,16 @@ function ChannelPartnerPanel() {
         </div>
       </div>
 
-      <div className="space-y-4">
-        {/* New partner */}
-        <div className="p-7" style={{ border: '1px solid rgba(212,175,55,0.2)', background: '#fff' }}>
-          <p className="font-ui text-[11px] tracking-[0.18em] uppercase mb-1" style={{ color: 'rgba(26,26,26,0.4)' }}>New Partner</p>
-          <h4 className="font-display font-light text-xl mb-3" style={{ color: 'var(--luxury-dark)' }}>
-            I am a new channel partner
-          </h4>
-          <p className="font-body text-sm leading-relaxed mb-5" style={{ color: 'rgba(26,26,26,0.55)' }}>
-            Join our network of trusted channel partners and earn attractive commissions on every successful referral.
-          </p>
-          <a
-            href="mailto:channelpartner@majestiqueproperties.com?subject=New Channel Partner Registration"
-            className="font-ui text-sm tracking-widest uppercase transition-colors duration-200 flex items-center gap-2"
-            style={{ color: 'var(--gold)' }}
-            onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--gold-dark)' }}
-            onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--gold)' }}
-          >
-            Register as Channel Partner
-            <span style={{ fontSize: '0.8rem' }}>→</span>
-          </a>
-        </div>
-
-        {/* Existing partner */}
-        <div className="p-7" style={{ border: '1px solid rgba(212,175,55,0.2)', background: '#fff' }}>
-          <p className="font-ui text-[11px] tracking-[0.18em] uppercase mb-1" style={{ color: 'rgba(26,26,26,0.4)' }}>Existing Partner</p>
-          <h4 className="font-display font-light text-xl mb-3" style={{ color: 'var(--luxury-dark)' }}>
-            I am an existing channel partner
-          </h4>
-          <p className="font-body text-sm leading-relaxed mb-5" style={{ color: 'rgba(26,26,26,0.55)' }}>
-            Access your account, view project updates, and connect with our dedicated partner support team.
-          </p>
-          <a
-            href="tel:+917448099000"
-            className="font-ui text-sm tracking-widest uppercase transition-colors duration-200 flex items-center gap-2"
-            style={{ color: 'var(--gold)' }}
-            onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--gold-dark)' }}
-            onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--gold)' }}
-          >
-            Visit our Channel Partner page
-            <span style={{ fontSize: '0.8rem' }}>→</span>
-          </a>
-        </div>
+      <div className="p-7 sm:p-8" style={{ border: '1px solid rgba(212,175,55,0.2)', background: '#fff' }}>
+        <p className="font-ui text-[11px] tracking-[0.18em] uppercase mb-1" style={{ color: 'rgba(26,26,26,0.4)' }}>Partner Registration</p>
+        <h4 className="font-display font-light text-xl mb-3" style={{ color: 'var(--luxury-dark)' }}>
+          Register as a channel partner
+        </h4>
+        <p className="font-body text-sm leading-relaxed mb-7" style={{ color: 'rgba(26,26,26,0.55)' }}>
+          Join our network of trusted channel partners and earn attractive commissions on every
+          successful referral. Our partner desk responds within 48 business hours.
+        </p>
+        <ChannelPartnerForm />
       </div>
     </motion.div>
   )
@@ -676,30 +930,6 @@ export default function Contact() {
                     ))}
                   </div>
 
-                  {/* Divider */}
-                  <div className="mb-6" style={{ height: '1px', background: 'rgba(212,175,55,0.15)' }} />
-
-                  {/* Social */}
-                  <p className="font-ui text-[10px] tracking-widest uppercase mb-4" style={{ color: 'rgba(243,239,232,0.66)' }}>Follow Us</p>
-                  <div className="flex items-center gap-2.5 flex-wrap">
-                    {SOCIAL.map(({ icon: Icon, href, label }) => (
-                      <motion.a
-                        key={label}
-                        href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={label}
-                        whileHover={{ scale: 1.12, rotate: -6 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="w-8 h-8 flex items-center justify-center transition-colors duration-300"
-                        style={{ border: '1px solid rgba(212,175,55,0.28)', color: 'var(--gold)' }}
-                        onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--gold)'; e.currentTarget.style.color = 'var(--luxury-dark)'; e.currentTarget.style.borderColor = 'var(--gold)' }}
-                        onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--gold)'; e.currentTarget.style.borderColor = 'rgba(212,175,55,0.28)' }}
-                      >
-                        <Icon size={13} />
-                      </motion.a>
-                    ))}
-                  </div>
                 </div>
               </motion.div>
             </div>
@@ -767,7 +997,7 @@ export default function Contact() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
               { icon: Phone,       label: 'Call Us',       value: '+91 74480 99000',                  href: 'tel:+917448099000',          cta: 'Call Now' },
-              { icon: Mail,        label: 'Email Sales',   value: 'sales@majestiqueproperties.com',   href: 'mailto:sales@majestiqueproperties.com', cta: 'Send Email' },
+              { icon: Mail,        label: 'Email Sales',   value: SALES_EMAIL,                        href: `mailto:${SALES_EMAIL}`,      cta: 'Send Email' },
               { icon: FaWhatsapp,  label: 'WhatsApp',      value: '+91 74480 99000',                  href: 'https://wa.me/917448099000', cta: 'Chat Now' },
             ].map((item, i) => (
               <motion.a

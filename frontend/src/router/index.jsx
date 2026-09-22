@@ -43,6 +43,13 @@ const JobDetail         = lazy(() => import('../pages/JobDetail'))
 const Contact           = lazy(() => import('../pages/Contact'))
 const PrivacyPolicy     = lazy(() => import('../pages/PrivacyPolicy'))
 const Terms             = lazy(() => import('../pages/Terms'))
+const Disclaimer        = lazy(() => import('../pages/Disclaimer'))
+const ThankYou          = lazy(() => import('../pages/ThankYou'))
+const Csr               = lazy(() => import('../pages/media/Csr'))
+const PeopleCulture     = lazy(() => import('../pages/about/PeopleCulture'))
+const EmployeeEngagement = lazy(() => import('../pages/about/EmployeeEngagement'))
+const EcCertificates    = lazy(() => import('../pages/EcCertificates'))
+const ComplianceReports = lazy(() => import('../pages/ComplianceReports'))
 const NotFound          = lazy(() => import('../pages/NotFound'))
 
 // ─── Lazy-loaded Admin Pages ──────────────────────────────────────────
@@ -97,6 +104,14 @@ const router = createBrowserRouter([
   {
     element: withSuspense(<Layout><VisionMission /></Layout>),
     path: '/about/vision-mission',
+  },
+  {
+    element: withSuspense(<Layout><PeopleCulture /></Layout>),
+    path: '/about/people-culture',
+  },
+  {
+    element: withSuspense(<Layout><EmployeeEngagement /></Layout>),
+    path: '/about/employee-engagement',
   },
   // Legacy redirect
   {
@@ -164,6 +179,10 @@ const router = createBrowserRouter([
     path: '/media/awards',
   },
   {
+    element: withSuspense(<Layout><Csr /></Layout>),
+    path: '/media/csr',
+  },
+  {
     element: withSuspense(<Layout><AwardDetail /></Layout>),
     path: '/media/awards/:slug',
   },
@@ -207,6 +226,22 @@ const router = createBrowserRouter([
   {
     element: withSuspense(<Layout><Terms /></Layout>),
     path: '/terms',
+  },
+  {
+    element: withSuspense(<Layout><Disclaimer /></Layout>),
+    path: '/disclaimer',
+  },
+  {
+    element: withSuspense(<Layout><ThankYou /></Layout>),
+    path: '/thank-you',
+  },
+  {
+    element: withSuspense(<Layout><EcCertificates /></Layout>),
+    path: '/ec-certificates',
+  },
+  {
+    element: withSuspense(<Layout><ComplianceReports /></Layout>),
+    path: '/ecc',
   },
 
   // ── Admin ─────────────────────────────────────────────────────────

@@ -1,10 +1,12 @@
 ﻿'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { Mail, CheckCircle2, ArrowRight } from 'lucide-react'
 import PageHero from '../../components/ui/PageHero'
 import imgHero from '../../assets/newsletter.jpg'
+import { MARKETING_EMAIL } from '../../utils/constants'
 
 const TOPICS = [
   { id: 'launches', label: 'New Launches' },
@@ -24,7 +26,7 @@ const BENEFITS = [
 export default function Newsletter() {
   const [email, setEmail] = useState('')
   const [selectedTopics, setSelectedTopics] = useState([])
-  const [submitted, setSubmitted] = useState(false)
+  const router = useRouter()
   const [submitting, setSubmitting] = useState(false)
 
   const toggleTopic = (id) => {
@@ -40,7 +42,7 @@ export default function Newsletter() {
     // Simulate API call
     await new Promise((res) => setTimeout(res, 1200))
     setSubmitting(false)
-    setSubmitted(true)
+    router.push('/thank-you?type=newsletter')
   }
 
   return (
@@ -110,109 +112,88 @@ export default function Newsletter() {
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              {submitted ? (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4 }}
-                  className="p-10 text-center"
-                  style={{ border: '1px solid rgba(212,175,55,0.25)', background: 'rgba(212,175,55,0.03)' }}
-                >
-                  <motion.div
-                    initial={{ scale: 0, rotate: -30 }}
-                    animate={{ scale: 1, rotate: 0 }}
-                    transition={{ type: 'spring', stiffness: 260, damping: 16, delay: 0.1 }}
+              <form
+                onSubmit={handleSubmit}
+                className="p-8 lg:p-10"
+                style={{ border: '1px solid rgba(212,175,55,0.14)', background: 'white' }}
+              >
+                <div className="flex items-center gap-3 mb-8">
+                  <div
+                    className="w-10 h-10 flex items-center justify-center"
+                    style={{ border: '1px solid rgba(212,175,55,0.22)', background: 'rgba(212,175,55,0.04)' }}
                   >
-                    <CheckCircle2 size={48} className="mx-auto mb-5" style={{ color: 'var(--gold)' }} />
-                  </motion.div>
-                  <h3 className="font-display text-2xl mb-4" style={{ color: 'var(--luxury-dark)' }}>
-                    Welcome to the Insider List
+                    <Mail size={17} style={{ color: 'var(--gold)' }} />
+                  </div>
+                  <h3 className="font-display text-xl" style={{ color: 'var(--luxury-dark)' }}>
+                    Subscribe Now
                   </h3>
-                  <p className="font-body text-sm leading-relaxed" style={{ color: 'rgba(44,62,88,0.6)' }}>
-                    You have been successfully subscribed. Your first edition of the Majestique Insider will arrive in your inbox shortly. Thank you for joining our community.
-                  </p>
-                </motion.div>
-              ) : (
-                <form
-                  onSubmit={handleSubmit}
-                  className="p-8 lg:p-10"
-                  style={{ border: '1px solid rgba(212,175,55,0.14)', background: 'white' }}
+                </div>
+
+                {/* Email input */}
+                <div className="mb-5">
+                  <label className="font-ui text-[0.63rem] tracking-widest uppercase block mb-2" style={{ color: 'var(--luxury-charcoal)' }}>
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    placeholder="your@email.com"
+                    className="input-luxury"
+                    style={{ background: 'var(--cream)' }}
+                  />
+                </div>
+
+                {/* Topic preferences */}
+                <div className="mb-8">
+                  <label className="font-ui text-[0.63rem] tracking-widest uppercase block mb-3" style={{ color: 'var(--luxury-charcoal)' }}>
+                    Topics (Optional)
+                  </label>
+                  <div className="flex flex-wrap gap-2">
+                    {TOPICS.map((topic) => (
+                      <motion.button
+                        key={topic.id}
+                        type="button"
+                        onClick={() => toggleTopic(topic.id)}
+                        whileTap={{ scale: 0.94 }}
+                        animate={{ scale: selectedTopics.includes(topic.id) ? 1.04 : 1 }}
+                        transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+                        className="font-ui text-[0.6rem] tracking-widest uppercase px-3 py-2 transition-colors duration-200"
+                        style={{
+                          border: '1px solid',
+                          borderColor: selectedTopics.includes(topic.id) ? 'var(--gold)' : 'rgba(212,175,55,0.2)',
+                          background: selectedTopics.includes(topic.id) ? 'var(--gold)' : 'transparent',
+                          color: selectedTopics.includes(topic.id) ? 'var(--luxury-dark)' : 'rgba(26,26,26,0.82)',
+                        }}
+                      >
+                        {topic.label}
+                      </motion.button>
+                    ))}
+                  </div>
+                </div>
+
+                <motion.button
+                  type="submit"
+                  disabled={submitting || !email}
+                  whileHover={submitting || !email ? {} : { scale: 1.02 }}
+                  whileTap={submitting || !email ? {} : { scale: 0.98 }}
+                  className="btn-gold w-full justify-center disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  <div className="flex items-center gap-3 mb-8">
-                    <div
-                      className="w-10 h-10 flex items-center justify-center"
-                      style={{ border: '1px solid rgba(212,175,55,0.22)', background: 'rgba(212,175,55,0.04)' }}
-                    >
-                      <Mail size={17} style={{ color: 'var(--gold)' }} />
-                    </div>
-                    <h3 className="font-display text-xl" style={{ color: 'var(--luxury-dark)' }}>
-                      Subscribe Now
-                    </h3>
-                  </div>
+                  {submitting ? 'Subscribing…' : (
+                    <>
+                      Subscribe to Newsletter <ArrowRight size={14} />
+                    </>
+                  )}
+                </motion.button>
 
-                  {/* Email input */}
-                  <div className="mb-5">
-                    <label className="font-ui text-[0.63rem] tracking-widest uppercase block mb-2" style={{ color: 'var(--luxury-charcoal)' }}>
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                      placeholder="your@email.com"
-                      className="input-luxury"
-                      style={{ background: 'var(--cream)' }}
-                    />
-                  </div>
-
-                  {/* Topic preferences */}
-                  <div className="mb-8">
-                    <label className="font-ui text-[0.63rem] tracking-widest uppercase block mb-3" style={{ color: 'var(--luxury-charcoal)' }}>
-                      Topics (Optional)
-                    </label>
-                    <div className="flex flex-wrap gap-2">
-                      {TOPICS.map((topic) => (
-                        <motion.button
-                          key={topic.id}
-                          type="button"
-                          onClick={() => toggleTopic(topic.id)}
-                          whileTap={{ scale: 0.94 }}
-                          animate={{ scale: selectedTopics.includes(topic.id) ? 1.04 : 1 }}
-                          transition={{ type: 'spring', stiffness: 400, damping: 20 }}
-                          className="font-ui text-[0.6rem] tracking-widest uppercase px-3 py-2 transition-colors duration-200"
-                          style={{
-                            border: '1px solid',
-                            borderColor: selectedTopics.includes(topic.id) ? 'var(--gold)' : 'rgba(212,175,55,0.2)',
-                            background: selectedTopics.includes(topic.id) ? 'var(--gold)' : 'transparent',
-                            color: selectedTopics.includes(topic.id) ? 'var(--luxury-dark)' : 'rgba(26,26,26,0.82)',
-                          }}
-                        >
-                          {topic.label}
-                        </motion.button>
-                      ))}
-                    </div>
-                  </div>
-
-                  <motion.button
-                    type="submit"
-                    disabled={submitting || !email}
-                    whileHover={submitting || !email ? {} : { scale: 1.02 }}
-                    whileTap={submitting || !email ? {} : { scale: 0.98 }}
-                    className="btn-gold w-full justify-center disabled:opacity-60 disabled:cursor-not-allowed"
-                  >
-                    {submitting ? 'Subscribing…' : (
-                      <>
-                        Subscribe to Newsletter <ArrowRight size={14} />
-                      </>
-                    )}
-                  </motion.button>
-
-                  <p className="font-body text-[0.68rem] text-center mt-4" style={{ color: 'rgba(44,62,88,0.4)' }}>
-                    No spam, ever. Unsubscribe at any time.
+                  <p className="font-body text-[0.68rem] text-center mt-4" style={{ color: 'rgba(44,62,88,0.55)' }}>
+                    No spam, ever. Unsubscribe at any time by writing to{' '}
+                    <a href={`mailto:${MARKETING_EMAIL}?subject=Unsubscribe`} style={{ color: 'var(--gold-dark)' }}>
+                      {MARKETING_EMAIL}
+                    </a>
                   </p>
                 </form>
-              )}
             </motion.div>
           </div>
         </div>
