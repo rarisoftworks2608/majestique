@@ -38,6 +38,7 @@ const News              = lazy(() => import('../pages/media/News'))
 const NewsDetail        = lazy(() => import('../pages/media/NewsDetail'))
 
 // Other public
+const NRI                = lazy(() => import('../pages/NRI'))
 const Careers           = lazy(() => import('../pages/Careers'))
 const JobDetail         = lazy(() => import('../pages/JobDetail'))
 const Contact           = lazy(() => import('../pages/Contact'))
@@ -202,6 +203,12 @@ const router = createBrowserRouter([
   {
     element: withSuspense(<Layout><NewsDetail /></Layout>),
     path: '/media/news/:slug',
+  },
+
+  // ── NRI ────────────────────────────────────────────────────────────
+  {
+    element: withSuspense(<Layout><NRI /></Layout>),
+    path: '/nri',
   },
 
   // ── Careers & Contact ─────────────────────────────────────────────

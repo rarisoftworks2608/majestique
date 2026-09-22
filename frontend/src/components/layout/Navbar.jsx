@@ -11,7 +11,6 @@ import {
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa6'
 import { SITE_NAME, SITE_PHONE, SOCIAL_LINKS } from '../../utils/constants'
 import GlobalSearch from '../ui/GlobalSearch'
-import GoogleTranslate, { MobileLanguageSelector } from '../ui/GoogleTranslate'
 import logoImg from '../../assets/logos/Majestique_logo.png'
 
 /* ── Local preview images for nav hover panels ── */
@@ -150,6 +149,7 @@ const NAV_CONFIG = [
       stat: '500+ Team Members',
     },
   },
+  { label: 'NRI', path: '/nri' },
   {
     label: 'Contact',
     path: '/contact',
@@ -779,8 +779,6 @@ export default function Navbar() {
 
             {/* Right actions */}
             <div className="flex items-center gap-2 xl:gap-3">
-              <GoogleTranslate />
-
               <button
                 onClick={() => setSearchOpen(true)}
                 className="hidden lg:flex w-9 h-9 items-center justify-center transition-all duration-300 border"
@@ -1021,9 +1019,6 @@ export default function Navbar() {
                   </Link>
                 </motion.div>
 
-                <motion.div variants={fadeUp}>
-                  <MobileLanguageSelector onAfterSelect={() => setMobileOpen(false)} />
-                </motion.div>
               </motion.nav>
 
               {/* Social links */}
