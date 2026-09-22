@@ -36,6 +36,7 @@ import imgNavCareers       from '../../assets/Job_Seek.jpg'
 import imgNavContact       from '../../assets/Contact-Us-Majestique.jpg'
 import imgNavAboutFeatured from '../../assets/legacy in business.jpg'
 import imgNavMediaFeatured from '../../assets/awards & trophy.jpeg'
+import imgNavCsr from '../../assets/CSR/2026/DSC00868.JPG';
 
 /* ─────────────────────────────────────────────────────────────────────────
    AUMANA Palette — 9-color luxury system
