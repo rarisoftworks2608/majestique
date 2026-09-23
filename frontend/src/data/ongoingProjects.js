@@ -38,7 +38,7 @@ export const ONGOING_PROJECTS = [
     title: 'Elements by Majestique',
     location: 'Pan Card Road, Baner, Pune',
     tagline: 'A New Benchmark in Elevated Living',
-    config: '4 Luxe Grand Suites',
+    config: 'Luxe Grand Suites',
     category: 'Residential',
     image: imgElements,
     url: 'https://elements.majestiquelandmarks.com/',

@@ -36,7 +36,7 @@ const PROJECTS = [
     name:     'Elements by Majestique',
     location: 'Pan Card Road, Baner, Pune',
     tag:      'Ongoing',
-    config:   '4 Luxe Grand Suites',
+    config:   'Luxe Grand Suites',
     link:     '/projects/majestique-elements',
   },
   {
